@@ -6,56 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Code to Value -->
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/edit_text_outline"-->
-<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
-<!--        android:layout_width="132dp"-->
-<!--        android:layout_height="64dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:hint="@string/hint_enter_code"-->
-<!--        android:textColorHint="?hintTextColor"-->
-<!--        app:boxStrokeColor="@color/purple_200"-->
-<!--        app:boxStrokeWidth="2dp"-->
-<!--        app:endIconMode="clear_text"-->
-<!--        app:errorEnabled="true"-->
-<!--        app:errorIconDrawable="@drawable/ic_error"-->
-<!--        app:hintTextColor="@color/purple_200"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_outline_enter_code"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/text_box_enter_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:id="@+id/enter_code"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="56dp"-->
-<!--            android:inputType="numberDecimal"-->
-<!--            android:maxLength="5"-->
-<!--            android:maxLines="1"-->
-<!--            android:textSize="16sp"-->
-<!--            tools:ignore="LabelFor" />-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_enter_code"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
 
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_outline_enter_pf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/text_box_enter_pf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_outline_enter_code">
 
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:id="@+id/calculate"-->
-<!--        android:layout_width="256dp"-->
-<!--        android:layout_height="64dp"-->
-<!--        android:layout_marginStart="48dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="48dp"-->
-<!--        android:background="@drawable/outlined_box"-->
-<!--        android:text="@string/button_calculate"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:backgroundTint="@color/purple_500"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.491"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/edit_text_outline" />-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_enter_pf"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_outline_enter_nf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/text_box_enter_nf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_outline_enter_pf">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_enter_nf"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_outline_enter_uf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/text_box_enter_uf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_outline_enter_nf">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_enter_uf"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_calculate"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/outlined_box"
+        android:text="@string/button_calculate"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/theme_orange_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_outline_enter_uf" />
 
     <TextView
         android:id="@+id/display_capacitance"
