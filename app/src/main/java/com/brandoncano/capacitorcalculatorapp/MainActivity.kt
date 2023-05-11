@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.ActionBar
 import androidx.core.widget.doOnTextChanged
-import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var editTextInputCode: EditText
+    private lateinit var editTextInputPicoF: EditText
+    private lateinit var editTextInputNanoF: EditText
+    private lateinit var editTextInputMicroF: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setup() {
+        editTextInputCode = findViewById(R.id.input_enter_code)
+        editTextInputPicoF = findViewById(R.id.input_enter_pf)
+        editTextInputNanoF = findViewById(R.id.input_enter_nf)
+        editTextInputMicroF = findViewById(R.id.input_enter_uf)
 
+        editTextInputCode.doOnTextChanged { text, _, _, _, ->
+
+        }
+
+        editTextInputPicoF.doOnTextChanged { text, _, _, _, ->
+
+        }
+
+        editTextInputNanoF.doOnTextChanged { text, _, _, _, ->
+
+        }
+
+        editTextInputMicroF.doOnTextChanged { text, _, _, _, ->
+
+        }
     }
 }

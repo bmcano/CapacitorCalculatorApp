@@ -8,12 +8,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_outline_enter_code"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        style="@style/TextInputLayoutDesign"
         android:hint="@string/text_box_enter_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,19 +16,13 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_code"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
+            style="@style/TextInputEditTextDesign" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_outline_enter_pf"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        style="@style/TextInputLayoutDesign"
         android:hint="@string/text_box_enter_pf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,19 +30,13 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_pf"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
+            style="@style/TextInputEditTextDesign" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_outline_enter_nf"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        style="@style/TextInputLayoutDesign"
         android:hint="@string/text_box_enter_nf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,19 +44,13 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_nf"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
+            style="@style/TextInputEditTextDesign" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_outline_enter_uf"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        style="@style/TextInputLayoutDesign"
         android:hint="@string/text_box_enter_uf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,8 +58,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_uf"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
+            style="@style/TextInputEditTextDesign" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,13 +82,18 @@
 
     <TextView
         android:id="@+id/display_capacitance"
-        android:layout_width="wrap_content"
+        android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/enter_code"
+        android:textAllCaps="false"
+        android:textColor="?android:textColor"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:background="@drawable/outlined_box"
+        android:drawablePadding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
