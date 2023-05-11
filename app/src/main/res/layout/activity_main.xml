@@ -31,7 +31,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_pf"
-            style="@style/TextInputEditTextDesign" />
+            style="@style/TextInputEditTextDesign"
+            android:maxLength="8" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +46,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_nf"
-            style="@style/TextInputEditTextDesign" />
+            style="@style/TextInputEditTextDesign"
+            android:maxLength="5" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +61,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_uf"
-            style="@style/TextInputEditTextDesign" />
+            style="@style/TextInputEditTextDesign"
+            android:maxLength="2" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
