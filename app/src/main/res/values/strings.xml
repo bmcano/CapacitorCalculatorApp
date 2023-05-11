@@ -10,4 +10,6 @@
     <string name="text_box_enter_uf">uF</string>
     <!-- hints -->
     <string name="hint_enter_code">Enter Code</string>
+
+    <string name="invalid_input">Invalid Input</string>
 </resources>

@@ -16,7 +16,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_enter_code"
-            style="@style/TextInputEditTextDesign" />
+            style="@style/TextInputEditTextDesign"
+            android:maxLength="3" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
