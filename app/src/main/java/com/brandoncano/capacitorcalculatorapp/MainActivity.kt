@@ -9,9 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.ActionBar
 import androidx.core.widget.doOnTextChanged
-import com.brandoncano.capacitorcalculatorapp.constants.Units
 import com.brandoncano.capacitorcalculatorapp.util.IsValidCode
-import com.brandoncano.capacitorcalculatorapp.util.IsValidUnitValue
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         editTextInputNanoF = findViewById(R.id.input_enter_nf)
         editTextInputMicroF = findViewById(R.id.input_enter_uf)
 
-        editTextInputCode.doOnTextChanged { text, _, _, _, ->
+        editTextInputCode.doOnTextChanged { text, _, _, _ ->
             val code = text.toString()
             if (IsValidCode.execute(code)) {
                 editTextInputCode.error = null
@@ -54,31 +52,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        editTextInputPicoF.doOnTextChanged { text, _, _, _, ->
+        editTextInputPicoF.doOnTextChanged { text, _, _, _ ->
             val capacitance = text.toString()
-            if (IsValidUnitValue.execute(capacitance, Units.PF)) {
-                editTextInputPicoF.error = null
-            } else {
-                editTextInputPicoF.error = getString(R.string.invalid_input)
-            }
+
         }
 
-        editTextInputNanoF.doOnTextChanged { text, _, _, _, ->
+        editTextInputNanoF.doOnTextChanged { text, _, _, _ ->
             val capacitance = text.toString()
-            if (IsValidUnitValue.execute(capacitance, Units.NF)) {
-                editTextInputNanoF.error = null
-            } else {
-                editTextInputNanoF.error = getString(R.string.invalid_input)
-            }
+
         }
 
-        editTextInputMicroF.doOnTextChanged { text, _, _, _, ->
+        editTextInputMicroF.doOnTextChanged { text, _, _, _ ->
             val capacitance = text.toString()
-            if (IsValidUnitValue.execute(capacitance, Units.UF)) {
-                editTextInputMicroF.error = null
-            } else {
-                editTextInputMicroF.error = getString(R.string.invalid_input)
-            }
+
         }
     }
 
