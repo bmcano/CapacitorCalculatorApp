@@ -12,4 +12,5 @@
     <string name="hint_enter_code">Enter Code</string>
 
     <string name="invalid_input">Invalid Input</string>
+    <string name="title_activity_main_new">MainActivityNEW</string>
 </resources>

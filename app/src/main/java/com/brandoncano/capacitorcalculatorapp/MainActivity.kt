@@ -1,85 +1,46 @@
 package com.brandoncano.capacitorcalculatorapp
 
-import android.content.Context
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import androidx.appcompat.app.ActionBar
-import androidx.core.widget.doOnTextChanged
-import com.brandoncano.capacitorcalculatorapp.util.IsValidCode
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var editTextInputCode: EditText
-    private lateinit var editTextInputPicoF: EditText
-    private lateinit var editTextInputNanoF: EditText
-    private lateinit var editTextInputMicroF: EditText
-
+class MainActivityNEW : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val actionBar: ActionBar? = supportActionBar
-        if (actionBar != null) {
-            val colorDrawable = ColorDrawable(getColor(R.color.theme_blue_cyan))
-            actionBar.setBackgroundDrawable(colorDrawable)
-            actionBar.title = getString(R.string.app_name)
-            actionBar.elevation = 4F
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setup()
-        calculateButtonSetup()
-    }
-
-    private fun setup() {
-        editTextInputCode = findViewById(R.id.input_enter_code)
-        editTextInputPicoF = findViewById(R.id.input_enter_pf)
-        editTextInputNanoF = findViewById(R.id.input_enter_nf)
-        editTextInputMicroF = findViewById(R.id.input_enter_uf)
-
-        editTextInputCode.doOnTextChanged { text, _, _, _ ->
-            val code = text.toString()
-            if (IsValidCode.execute(code)) {
-                editTextInputCode.error = null
-            } else {
-                editTextInputCode.error = getString(R.string.invalid_input)
+        setContent {
+            CapacitorCalculatorAppTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
+                }
             }
         }
-
-        editTextInputPicoF.doOnTextChanged { text, _, _, _ ->
-            val capacitance = text.toString()
-
-        }
-
-        editTextInputNanoF.doOnTextChanged { text, _, _, _ ->
-            val capacitance = text.toString()
-
-        }
-
-        editTextInputMicroF.doOnTextChanged { text, _, _, _ ->
-            val capacitance = text.toString()
-
-        }
     }
+}
 
-    private fun calculateButtonSetup() {
-        val calculateButton: Button = findViewById(R.id.button_calculate)
-        calculateButton.setOnClickListener {
-            closeKeyboard()
-        }
-    }
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
 
-    private fun closeKeyboard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val input = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            input.hideSoftInputFromWindow(view.windowToken, 0)
-        }
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    CapacitorCalculatorAppTheme {
+        Greeting("Android")
     }
 }
