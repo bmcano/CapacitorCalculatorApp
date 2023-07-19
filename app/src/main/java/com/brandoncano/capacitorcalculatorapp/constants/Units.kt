@@ -1,8 +1,7 @@
 package com.brandoncano.capacitorcalculatorapp.constants
 
-object Units {
-
-    const val PF = "pF"
-    const val NF = "nF"
-    const val UF = "µF"
+sealed class Units(unit: String) {
+    object PF : Units("pF")
+    object NF : Units("nF")
+    object UF : Units("µF")
 }

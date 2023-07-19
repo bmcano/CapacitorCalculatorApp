@@ -7,11 +7,11 @@ import com.brandoncano.capacitorcalculatorapp.constants.Units
  */
 object UnitToPF {
 
-    fun execute(unit: String): Int {
+    fun execute(unit: Units): Int {
         return when (unit) {
+            Units.PF -> 1
             Units.NF -> 1000
             Units.UF -> 1000000
-            else -> 1 // pF
         }
     }
 }
