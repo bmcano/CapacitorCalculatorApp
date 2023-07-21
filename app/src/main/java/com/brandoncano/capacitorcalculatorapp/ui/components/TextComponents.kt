@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 
-
 /**
  * Job: Holds all the design for text within the app
  */
@@ -74,7 +73,7 @@ private fun TextComponentsPreview() {
         Column {
             TextTitle(text = "Title")
             TextHeadline(text = "Headline")
-            TextBody(Modifier, text = "Body")
+            TextBody(text = "Body")
         }
     }
 }
