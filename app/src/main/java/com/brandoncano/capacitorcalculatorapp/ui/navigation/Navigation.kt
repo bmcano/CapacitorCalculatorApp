@@ -20,7 +20,7 @@ fun Navigation(context: Context) {
             HomeScreen(context, navController)
         }
         composable(route = Screen.About.route) {
-            AboutScreen(context)
+            AboutScreen(context, navController)
         }
     }
 }
@@ -38,5 +38,5 @@ private fun HomePreview() {
 @Composable
 private fun AboutPreview() {
     val app = MainActivity()
-    AboutScreen(app)
+    AboutScreen(app, NavController(app))
 }

@@ -1,8 +1,10 @@
 package com.brandoncano.capacitorcalculatorapp.ui.components
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,16 +33,23 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.brandoncano.capacitorcalculatorapp.MainActivity
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
+import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.EmailFeedback
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeAppBar(context: Context, navController: NavController) {
+fun HomeAppBar(
+    titleText: String,
+    context: Context,
+    navController: NavController
+) {
     val colors = centerAlignedTopAppBarColors(
         containerColor = colorScheme.primary,
         navigationIconContentColor = colorScheme.onPrimary,
@@ -50,7 +59,7 @@ fun HomeAppBar(context: Context, navController: NavController) {
     CenterAlignedTopAppBar(
         title = {
             Text(
-                text = stringResource(R.string.app_name),
+                text = titleText,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -97,8 +106,31 @@ fun HomeAppBar(context: Context, navController: NavController) {
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BottomShadow(alpha: Float = 0.1f, height: Dp = 8.dp) {
+fun DefaultAppBar(
+    titleText: String,
+) {
+    val colors = centerAlignedTopAppBarColors(
+        containerColor = colorScheme.primary,
+        navigationIconContentColor = colorScheme.onPrimary,
+        titleContentColor = colorScheme.onPrimary,
+        actionIconContentColor = colorScheme.onPrimary
+    )
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = titleText,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        },
+        colors = colors,
+    )
+}
+
+@Composable
+fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .height(height)
@@ -126,5 +158,19 @@ fun AppTextButton(text: String, onClick: () -> Unit) {
         )
     ) {
         TextHeadline(text = text)
+    }
+}
+
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ComponentsPreview() {
+    val app = MainActivity()
+    CapacitorCalculatorAppTheme {
+        Column {
+            HomeAppBar(stringResource(R.string.app_name), app, NavController(app))
+            BottomShadow(height = 4.dp)
+            AppTextButton(text = "This is a button") { }
+        }
     }
 }

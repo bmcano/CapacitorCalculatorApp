@@ -10,6 +10,13 @@
     <string name="text_box_enter_uf">Micro-farad (µF)</string>
     <!-- hints -->
     <string name="hint_enter_code">Enter Code</string>
+    <!-- about screen -->
+    <string name="about_title">About this app</string>
+    <string name="about_app_version">App version</string>
+    <string name="about_version">1.0.0</string>
+    <string name="about_created_by">Created by</string>
+    <string name="about_author">Brandon Cano</string>
+    <string name="about_description">Description</string>
     <!-- menu items -->
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>

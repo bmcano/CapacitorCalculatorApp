@@ -64,8 +64,8 @@ fun HomeScreen(context: Context, navController: NavController) {
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                HomeAppBar(context, navController)
-                BottomShadow(height = 4.dp)
+                HomeAppBar(stringResource(R.string.app_name), context, navController)
+                BottomShadow()
 
                 OutlinedTextField(
                     modifier = outlinedTextFieldModifier,

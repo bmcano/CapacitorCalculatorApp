@@ -25,7 +25,7 @@ fun TextTitle(
     val textStyle = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.Medium,
-        fontSize = 32.sp,
+        fontSize = 24.sp,
     )
     AppText(modifier, text, textStyle)
 }
@@ -38,7 +38,7 @@ fun TextHeadline(
     val textStyle = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.Medium,
-        fontSize = 20.sp,
+        fontSize = 16.sp,
     )
     AppText(modifier, text, textStyle)
 }
@@ -51,7 +51,7 @@ fun TextBody(
     val textStyle = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
+        fontSize = 14.sp,
     )
     AppText(modifier, text, textStyle)
 }
