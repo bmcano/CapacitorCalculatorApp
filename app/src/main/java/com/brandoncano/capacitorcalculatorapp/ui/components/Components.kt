@@ -1,7 +1,9 @@
 package com.brandoncano.capacitorcalculatorapp.ui.components
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -10,6 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -37,10 +40,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
+import com.brandoncano.capacitorcalculatorapp.util.EmailFeedback
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeAppBar(navController: NavController) {
+fun HomeAppBar(context: Context, navController: NavController) {
     val colors = centerAlignedTopAppBarColors(
         containerColor = colorScheme.primary,
         navigationIconContentColor = colorScheme.onPrimary,
@@ -78,7 +82,10 @@ fun HomeAppBar(navController: NavController) {
                 )
                 DropdownMenuItem(
                     text = { Text(stringResource(R.string.menu_feedback)) },
-                    onClick = { }
+                    onClick = {
+                        EmailFeedback.execute(context)
+                        expanded = !expanded
+                    }
                 )
                 DropdownMenuItem(
                     text = { Text(stringResource(R.string.menu_clear)) },
@@ -121,19 +128,27 @@ fun AppTextField(hint: String, value: String = "") {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         singleLine = true,
         maxLines = 1,
-        modifier = Modifier.padding(top = 16.dp)
+        modifier = Modifier
+            .padding(start = 32.dp, end = 32.dp, top = 16.dp)
+            .fillMaxWidth()
     )
 }
 
 @Composable
-fun AppTextButton(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
+fun AppTextButton(text: String, onClick: () -> Unit) {
     Button(
-        modifier = modifier,
+        modifier = Modifier
+            .padding(start = 32.dp, end = 32.dp, top = 32.dp)
+            .fillMaxWidth()
+            .defaultMinSize(minHeight = 48.dp),
         onClick = onClick,
-//        colors = ButtonDefaults.buttonColors(MangoPrimary),
         shape = RoundedCornerShape(8.dp),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 8.dp,
+            pressedElevation = 16.dp,
+            disabledElevation = 0.dp
+        )
     ) {
         TextHeadline(text = text)
     }
 }
-// app bar + menu
