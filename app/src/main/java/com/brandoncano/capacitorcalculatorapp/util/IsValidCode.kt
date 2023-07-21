@@ -12,8 +12,10 @@ object IsValidCode {
 
     fun execute(code: String): Boolean {
         val length = code.length
+        if (length > 3) {
+            return false
+        }
         if (length < 3) {
-            // accounts for empty input, which will not cause an error
             return true
         }
         // should always be valid
