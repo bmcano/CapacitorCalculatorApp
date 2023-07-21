@@ -5,15 +5,15 @@ package com.brandoncano.capacitorcalculatorapp.util
  */
 object MultiplierFromDigit {
 
-    fun execute(digit: Char): Int {
+    fun execute(digit: String): Int {
         return when (digit) {
-            '0' -> 1
-            '1' -> 10
-            '2' -> 100
-            '3' -> 1000
-            '4' -> 10000
-            '5' -> 100000
-            '6' -> 1000000
+            "0" -> 1
+            "1" -> 10
+            "2" -> 100
+            "3" -> 1000
+            "4" -> 10000
+            "5" -> 100000
+            "6" -> 1000000
             else -> 1
         }
     }
