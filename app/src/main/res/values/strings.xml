@@ -17,6 +17,8 @@
     <string name="about_created_by">Created by</string>
     <string name="about_author">Brandon Cano</string>
     <string name="about_description">Description</string>
+    <string name="about_description_part_01">In this app you can calculate the capacitance of a standard ceramic capacitor by entering a three digit code.</string>
+    <string name="about_description_part_02">You can also calculate the 3 digit code by entering a capacitance value in either pico-farads, nano-farads, or micro-farads.</string>
     <!-- menu items -->
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>
