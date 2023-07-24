@@ -49,7 +49,8 @@ import com.brandoncano.capacitorcalculatorapp.util.EmailFeedback
 fun HomeAppBar(
     titleText: String,
     context: Context,
-    navController: NavController
+    navController: NavController,
+
 ) {
     DefaultAppBar(titleText) {
         var expanded by remember { mutableStateOf(false) }
@@ -64,10 +65,6 @@ fun HomeAppBar(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.menu_share)) },
-                onClick = { }
-            )
             DropdownMenuItem(
                 text = { Text(stringResource(R.string.menu_feedback)) },
                 onClick = {

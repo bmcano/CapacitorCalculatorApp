@@ -18,19 +18,26 @@ data class Capacitor(
     }
 
     fun computeFromPF() {
-
-
         nf = "${pf.toDouble()/1000}"
         uf = "${pf.toDouble()/1000000}"
+        computeCode()
     }
 
     fun computeFromNF() {
         pf = "${nf.toDouble() * 1000}"
         uf = "${nf.toDouble()/1000}"
+        computeCode()
     }
 
     fun computeFromUF() {
         pf = "${uf.toDouble() * 1000000}"
         nf = "${uf.toDouble() * 1000}"
+        computeCode()
+    }
+
+    private fun computeCode() {
+        val firstTwoDigits = pf.take(2)
+        val multiplier = pf.drop(2).count { it == '0' }
+        code = "$firstTwoDigits$multiplier"
     }
 }

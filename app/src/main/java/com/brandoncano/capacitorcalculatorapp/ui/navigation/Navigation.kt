@@ -24,7 +24,7 @@ fun Navigation(context: Context) {
             AboutScreen(context, navController)
         }
         composable(route = Screen.Chart.route) {
-            ChartScreen(context, navController)
+            ChartScreen()
         }
     }
 }
@@ -49,6 +49,5 @@ private fun AboutPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun ChartPreview() {
-    val app = MainActivity()
-    ChartScreen(app, NavController(app))
+    ChartScreen()
 }
