@@ -8,10 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,6 +21,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -34,24 +33,22 @@ import com.brandoncano.capacitorcalculatorapp.ui.components.AppTextButton
 import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
 import com.brandoncano.capacitorcalculatorapp.ui.components.HomeAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
-import com.brandoncano.capacitorcalculatorapp.util.IsValidCapacitance
-import com.brandoncano.capacitorcalculatorapp.util.IsValidCode
+import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(context: Context, navController: NavController) {
 
     val capacitor = Capacitor()
+    var code by remember { mutableStateOf("") }
+    var pf by remember { mutableStateOf("") }
+    var nf by remember { mutableStateOf("") }
+    var uf by remember { mutableStateOf("") }
 
     CapacitorCalculatorAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
-            var code by remember { mutableStateOf("") }
-            var pf by remember { mutableStateOf("") }
-            var nf by remember { mutableStateOf("") }
-            var uf by remember { mutableStateOf("") }
-            var isError by remember { mutableStateOf(false) }
             var fieldValues: FieldValues = FieldValues.Code
             val focusManager = LocalFocusManager.current
             val outlinedTextFieldModifier = Modifier
@@ -66,114 +63,82 @@ fun HomeScreen(context: Context, navController: NavController) {
             ) {
                 HomeAppBar(stringResource(R.string.app_name), context, navController)
                 BottomShadow()
-
+                // TODO - would be nice if I could make these work as multiple reusable components
                 OutlinedTextField(
                     modifier = outlinedTextFieldModifier,
-                    label = { Text(stringResource(id = R.string.enter_code)) },
                     value = code,
                     onValueChange = {
                         code = it
                         capacitor.code = it
                         fieldValues = FieldValues.Code
                     },
-                    isError = isError,
-                    trailingIcon = { if (isError) Icon(Icons.Filled.Error, "error") },
-                    supportingText = {
-                        if (isError) {
-                            Text(text = "Invalid code")
-                        }
-                    },
+                    textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                    label = { Text(stringResource(id = R.string.text_box_enter_code)) },
+                    trailingIcon = { },
+                    supportingText = { },
+                    isError = false,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
                     singleLine = true,
                     maxLines = 1,
                 )
                 OutlinedTextField(
                     modifier = outlinedTextFieldModifier,
-                    label = { Text(stringResource(id = R.string.text_box_enter_pf)) },
-                    value = capacitor.pf,
+                    value = pf,
                     onValueChange = {
                         pf = it
                         capacitor.pf = it
                         fieldValues = FieldValues.PF
                     },
-                    isError = isError,
+                    textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                    label = { Text(stringResource(id = R.string.text_box_enter_pf)) },
+                    trailingIcon = { },
+                    supportingText = { },
+                    isError = false,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,
                     maxLines = 1,
                 )
                 OutlinedTextField(
                     modifier = outlinedTextFieldModifier,
-                    label = { Text(stringResource(id = R.string.text_box_enter_nf)) },
                     value = nf,
                     onValueChange = {
                         nf = it
                         capacitor.nf = it
                         fieldValues = FieldValues.NF
                     },
-                    isError = isError,
+                    textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                    label = { Text(stringResource(id = R.string.text_box_enter_nf)) },
+                    trailingIcon = { },
+                    supportingText = { },
+                    isError = false,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,
                     maxLines = 1,
                 )
                 OutlinedTextField(
                     modifier = outlinedTextFieldModifier,
-                    label = { Text(stringResource(id = R.string.text_box_enter_uf)) },
                     value = uf,
                     onValueChange = {
                         uf = it
                         capacitor.uf = it
                         fieldValues = FieldValues.UF
                     },
-                    isError = isError,
+                    textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                    label = { Text(stringResource(id = R.string.text_box_enter_uf)) },
+                    trailingIcon = { },
+                    supportingText = { },
+                    isError = false,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,
-                    maxLines = 1
+                    maxLines = 1,
                 )
-
                 AppTextButton(text = stringResource(id = R.string.button_calculate)) {
                     focusManager.clearFocus()
-                    when (fieldValues) {
-                        FieldValues.Code -> {
-                            val isValid = IsValidCode.execute(code)
-                            if (isValid) {
-                                capacitor.computeFromCode()
-                                pf = capacitor.pf
-                                nf = capacitor.nf
-                                uf = capacitor.uf
-                            }
-                            isError = !isValid
-                        }
-                        FieldValues.PF -> {
-                            val isValid = IsValidCapacitance.execute()
-                            if (isValid) {
-                                capacitor.computeFromPF()
-                                code = capacitor.code
-                                nf = capacitor.nf
-                                uf = capacitor.uf
-                            }
-                            isError = !isValid
-                        }
-                        FieldValues.NF -> {
-                            val isValid = IsValidCapacitance.execute()
-                            if (isValid) {
-                                capacitor.computeFromNF()
-                                code = capacitor.code
-                                pf = capacitor.pf
-                                uf = capacitor.uf
-                            }
-                            isError = !isValid
-                        }
-                        FieldValues.UF -> {
-                            val isValid = IsValidCapacitance.execute()
-                            if (isValid) {
-                                capacitor.computeFromUF()
-                                code = capacitor.code
-                                pf = capacitor.pf
-                                nf = capacitor.nf
-                            }
-                            isError = !isValid
-                        }
-                    }
+                    CapacitorValues.update(capacitor, fieldValues)
+                    code = capacitor.code
+                    pf = capacitor.pf
+                    nf = capacitor.nf
+                    uf = capacitor.uf
                 }
             }
         }

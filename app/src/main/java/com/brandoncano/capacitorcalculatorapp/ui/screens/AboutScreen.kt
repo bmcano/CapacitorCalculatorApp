@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
-import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.AboutAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextHeadline
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextTitle
@@ -26,7 +26,7 @@ fun AboutScreen(context: Context, navController: NavController) {
             modifier = Modifier.fillMaxSize(),
         ) {
             Column {
-                DefaultAppBar(stringResource(R.string.about_title))
+                AboutAppBar(stringResource(R.string.about_title))
                 BottomShadow()
 
                 val textModifierBody = Modifier

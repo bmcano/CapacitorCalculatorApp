@@ -13,5 +13,8 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+
+        val value = "1.0"
+        assertEquals(1.0, value.toDoubleOrNull())
     }
 }
