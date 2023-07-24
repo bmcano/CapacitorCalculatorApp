@@ -24,6 +24,6 @@ object IsValidCapacitance {
         val cap = capacitance.toString()
         var count = 0
         cap.forEach { if (it != '0' && it != '.') count++ }
-        return count > 2
+        return count <= 2
     }
 }

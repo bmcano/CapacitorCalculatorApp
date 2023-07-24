@@ -18,14 +18,17 @@ data class Capacitor(
     }
 
     fun computeFromPF() {
-
+        nf = "${pf.toDouble()/1000}"
+        uf = "${pf.toDouble()/1000000}"
     }
 
     fun computeFromNF() {
-
+        pf = "${nf.toDouble() * 1000}"
+        uf = "${nf.toDouble()/1000}"
     }
 
     fun computeFromUF() {
-
+        pf = "${uf.toDouble() * 1000000}"
+        nf = "${uf.toDouble() * 1000}"
     }
 }
