@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculatorapp.MainActivity
 import com.brandoncano.capacitorcalculatorapp.ui.screens.AboutScreen
+import com.brandoncano.capacitorcalculatorapp.ui.screens.ChartScreen
 import com.brandoncano.capacitorcalculatorapp.ui.screens.HomeScreen
 
 @Composable
@@ -21,6 +22,9 @@ fun Navigation(context: Context) {
         }
         composable(route = Screen.About.route) {
             AboutScreen(context, navController)
+        }
+        composable(route = Screen.Chart.route) {
+            ChartScreen(context, navController)
         }
     }
 }
@@ -39,4 +43,12 @@ private fun HomePreview() {
 private fun AboutPreview() {
     val app = MainActivity()
     AboutScreen(app, NavController(app))
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ChartPreview() {
+    val app = MainActivity()
+    ChartScreen(app, NavController(app))
 }

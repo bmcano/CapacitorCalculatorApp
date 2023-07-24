@@ -3,6 +3,7 @@ package com.brandoncano.capacitorcalculatorapp.ui.screens
 import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.FileOpen
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -43,6 +45,7 @@ import com.brandoncano.capacitorcalculatorapp.ui.components.AppDivider
 import com.brandoncano.capacitorcalculatorapp.ui.components.AppTextButton
 import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
 import com.brandoncano.capacitorcalculatorapp.ui.components.HomeAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
 
@@ -166,10 +169,12 @@ fun HomeScreen(context: Context, navController: NavController) {
                         .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                         .fillMaxWidth()
                         .clickable(role = Role.Button) {
-
+                            navController.navigate(Screen.Chart.route)
                         }
                 ) {
-                    Row {
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
                         Image(
                             modifier = Modifier.padding(16.dp),
                             imageVector = Icons.Outlined.FileOpen,
@@ -177,16 +182,19 @@ fun HomeScreen(context: Context, navController: NavController) {
                             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
                         )
                         Text(
-                            modifier = Modifier.padding(16.dp),
-                            text = "Click to view common codes",
-                            overflow = TextOverflow.Ellipsis
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .weight(1f),
+                            text = "View common codes",
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                         )
-//                        Image(
-//                            modifier = Modifier.padding(16.dp),
-//                            imageVector = Icons.Filled.KeyboardArrowRight,
-//                            contentDescription = "Image",
-//                            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
-//                        )
+                        Image(
+                            modifier = Modifier.padding(16.dp),
+                            imageVector = Icons.Filled.KeyboardArrowRight,
+                            contentDescription = "Image",
+                            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant),
+                        )
                     }
                 }
             }

@@ -18,6 +18,8 @@ data class Capacitor(
     }
 
     fun computeFromPF() {
+
+
         nf = "${pf.toDouble()/1000}"
         uf = "${pf.toDouble()/1000000}"
     }
