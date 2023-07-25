@@ -1,5 +1,7 @@
 package com.brandoncano.capacitorcalculatorapp.ui.screens
 
+import android.content.Context
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,28 +13,34 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.constants.CapacitorCodeConversions
+import com.brandoncano.capacitorcalculatorapp.ui.components.FeedbackMenuItem
+import com.brandoncano.capacitorcalculatorapp.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
-import com.brandoncano.capacitorcalculatorapp.ui.components.TextHeadline
-import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.TextTitle
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 
 @Composable
-fun ChartScreen() {
+fun ChartScreen(context: Context) {
+
+    val interactionSource = remember { MutableInteractionSource() }
+
     CapacitorCalculatorAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
+
             ) {
-                TitleAppBar(stringResource(R.string.chart_title))
+                MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
+                    FeedbackMenuItem(context, interactionSource)
+                }
                 val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
                 val textModifier = Modifier.weight(1f).fillMaxWidth()
                 Card(
@@ -42,52 +50,54 @@ fun ChartScreen() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp)
+                            .padding(16.dp),
                     ) {
-                        TextHeadline(
+                        TextTitle(
                             modifier = textModifier,
                             text = "Code"
                         )
-                        TextHeadline(
+                        TextTitle(
                             modifier = textModifier,
                             text = "pF"
                         )
-                        TextHeadline(
+                        TextTitle(
                             modifier = textModifier,
                             text = "nF"
                         )
-                        TextHeadline(
+                        TextTitle(
                             modifier = textModifier,
                             text = "uF"
                         )
                     }
                 }
-                Card(modifier = cardModifier.padding(bottom = 16.dp)) {
-                    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                        val codes = CapacitorCodeConversions.values().toList()
-                        codes.forEach {
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(16.dp)
-                            ) {
-                                TextBody(
-                                    modifier = textModifier,
-                                    text = it.code
-                                )
-                                TextBody(
-                                    modifier = textModifier,
-                                    text = it.pf
-                                )
-                                TextBody(
-                                    modifier = textModifier,
-                                    text = it.nf
-                                )
-                                TextBody(
-                                    modifier = textModifier,
-                                    text = it.uf
-                                )
-                            }
+                Card(
+                    modifier = cardModifier
+                        .padding(bottom = 16.dp)
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    val codes = CapacitorCodeConversions.values().toList()
+                    codes.forEach {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                        ) {
+                            TextBody(
+                                modifier = textModifier,
+                                text = it.code
+                            )
+                            TextBody(
+                                modifier = textModifier,
+                                text = it.pf
+                            )
+                            TextBody(
+                                modifier = textModifier,
+                                text = it.nf
+                            )
+                            TextBody(
+                                modifier = textModifier,
+                                text = it.uf
+                            )
                         }
                     }
                 }

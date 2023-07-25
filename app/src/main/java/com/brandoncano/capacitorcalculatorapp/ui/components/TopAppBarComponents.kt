@@ -2,22 +2,15 @@ package com.brandoncano.capacitorcalculatorapp.ui.components
 
 import android.content.Context
 import androidx.compose.foundation.background
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
-import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -44,7 +37,6 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.util.EmailFeedback
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun MenuAppBar(
@@ -142,24 +134,4 @@ fun AboutAppMenuItem(navController: NavController, interactionSource: MutableInt
         onClick = { navController.navigate(Screen.About.route) },
         interactionSource = interactionSource,
     )
-}
-
-
-@Composable
-fun AppTextButton(text: String, onClick: () -> Unit) {
-    Button(
-        modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
-            .fillMaxWidth()
-            .defaultMinSize(minHeight = 48.dp),
-        onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        elevation = ButtonDefaults.buttonElevation(
-            defaultElevation = 8.dp,
-            pressedElevation = 16.dp,
-            disabledElevation = 0.dp
-        )
-    ) {
-        TextHeadline(text = text)
-    }
 }

@@ -18,13 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculatorapp.R
-import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.components.ArrowButtonCard
-import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
 import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextHeadline
-import com.brandoncano.capacitorcalculatorapp.ui.components.TextTitle
+import com.brandoncano.capacitorcalculatorapp.ui.components.TextLabel
+import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.PlayStore
 
@@ -47,11 +46,11 @@ fun AboutScreen(context: Context) {
                 val textModifier = textModifierBody.padding(top = 16.dp)
 
                 DefaultCard {
-                    TextTitle(
+                    TextHeadline(
                         modifier = textModifier,
                         text = stringResource(id = R.string.app_name)
                     )
-                    TextHeadline(
+                    TextLabel(
                         modifier = textModifier,
                         text = stringResource(id = R.string.about_app_version)
                     )
@@ -59,7 +58,7 @@ fun AboutScreen(context: Context) {
                         modifier = textModifierBody,
                         text = stringResource(id = R.string.about_version)
                     )
-                    TextHeadline(
+                    TextLabel(
                         modifier = textModifier,
                         text = stringResource(id = R.string.about_created_by)
                     )
@@ -71,7 +70,7 @@ fun AboutScreen(context: Context) {
                 }
 
                 DefaultCard {
-                    TextHeadline(
+                    TextLabel(
                         modifier = textModifier,
                         text = stringResource(id = R.string.about_description)
                     )

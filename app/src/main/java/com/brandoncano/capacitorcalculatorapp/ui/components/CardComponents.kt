@@ -113,6 +113,7 @@ private fun CardRowView(
                 .weight(1f),
             text = cardText,
             maxLines = 1,
+            style = MaterialTheme.typography.labelMedium,
             overflow = TextOverflow.Ellipsis,
         )
         Image(
