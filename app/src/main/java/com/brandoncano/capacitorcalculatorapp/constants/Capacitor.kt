@@ -2,6 +2,9 @@ package com.brandoncano.capacitorcalculatorapp.constants
 
 import com.brandoncano.capacitorcalculatorapp.util.MultiplierFromDigit
 
+/**
+ * Job: Holds capacitor values and methods to compute each other value
+ */
 data class Capacitor(
     var code: String = "",
     var pf: String = "",
@@ -20,19 +23,19 @@ data class Capacitor(
         val multiplier = if (code.length == 3) code.takeLast(1) else "0"
         val pico = number * MultiplierFromDigit.execute(multiplier)
         pf = "$pico"
-        nf = "${pico.toDouble()/1000}"
-        uf = "${pico.toDouble()/1000000}"
+        nf = "${pico.toDouble() / 1000}"
+        uf = "${pico.toDouble() / 1000000}"
     }
 
     fun computeFromPF() {
-        nf = "${pf.toDouble()/1000}"
-        uf = "${pf.toDouble()/1000000}"
+        nf = "${pf.toDouble() / 1000}"
+        uf = "${pf.toDouble() / 1000000}"
         computeCode()
     }
 
     fun computeFromNF() {
         pf = "${nf.toDouble() * 1000}"
-        uf = "${nf.toDouble()/1000}"
+        uf = "${nf.toDouble() / 1000}"
         computeCode()
     }
 

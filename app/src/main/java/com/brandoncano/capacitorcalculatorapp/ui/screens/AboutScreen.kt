@@ -27,6 +27,10 @@ import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.PlayStore
 
+/**
+ * Job: Holds all the content for the about screen
+ */
+
 @Composable
 fun AboutScreen(context: Context) {
     CapacitorCalculatorAppTheme {

@@ -44,6 +44,10 @@ import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
 
+/**
+ * Job: Holds all the content for the home screen
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(context: Context, navController: NavController) {

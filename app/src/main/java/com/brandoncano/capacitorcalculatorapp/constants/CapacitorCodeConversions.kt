@@ -1,8 +1,15 @@
 package com.brandoncano.capacitorcalculatorapp.constants
 
-enum class CapacitorCodeConversions(val code: String, val pf: String, val nf: String, val uf: String) {
-
-    CODE_100("100", "10", "0.01 ", "0.000011"),
+/**
+ * Job: Holds all the values for the conversion chart
+ */
+enum class CapacitorCodeConversions(
+    private val code: String,
+    private val pf: String,
+    private val nf: String,
+    private val uf: String
+) {
+    CODE_100("100", "10", "0.01 ", "0.00001 "),
     CODE_120("120", "12", "0.012", "0.000012"),
     CODE_150("150", "15", "0.015", "0.000015"),
     CODE_180("180", "18", "0.018", "0.000018"),
@@ -84,5 +91,9 @@ enum class CapacitorCodeConversions(val code: String, val pf: String, val nf: St
     CODE_475("475", "4700000", "4700", "4.7"),
     CODE_565("565", "5600000", "5600", "5.6"),
     CODE_685("685", "6800000", "6800", "6.8"),
-    CODE_825("825", "8200000", "8200", "8.2"),
+    CODE_825("825", "8200000", "8200", "8.2");
+
+    fun asList(): List<String> {
+        return listOf(code, pf, nf, uf)
+    }
 }

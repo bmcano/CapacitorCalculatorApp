@@ -13,6 +13,10 @@ import com.brandoncano.capacitorcalculatorapp.ui.screens.AboutScreen
 import com.brandoncano.capacitorcalculatorapp.ui.screens.ChartScreen
 import com.brandoncano.capacitorcalculatorapp.ui.screens.HomeScreen
 
+/**
+ * Job: Holds all the navigation information and full screen previews
+ */
+
 @Composable
 fun Navigation(context: Context) {
     val navController = rememberNavController()

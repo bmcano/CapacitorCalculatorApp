@@ -2,9 +2,6 @@ package com.brandoncano.capacitorcalculatorapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-//val LightBlue = Color(0xFF8ECAE6)
-//val Cyan = Color(0xFF219EBC)
-//val DarkBlue = Color(0xFF023047)
 val md_theme_light_primary = Color(0xFF00677D)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFFB2EBFF)

@@ -22,13 +22,15 @@ import com.brandoncano.capacitorcalculatorapp.constants.CapacitorCodeConversions
 import com.brandoncano.capacitorcalculatorapp.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculatorapp.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
-import com.brandoncano.capacitorcalculatorapp.ui.components.TextTitle
+import com.brandoncano.capacitorcalculatorapp.ui.components.TextLabel
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
+
+/**
+ * Job: Holds the content for the chart conversion screen
+ */
 
 @Composable
 fun ChartScreen(context: Context) {
-
-    val interactionSource = remember { MutableInteractionSource() }
 
     CapacitorCalculatorAppTheme {
         Surface(
@@ -36,38 +38,32 @@ fun ChartScreen(context: Context) {
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
-
             ) {
+                val interactionSource = remember { MutableInteractionSource() }
+                val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                val textModifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                val rowModifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth()
+                val cardLabels = listOf("Code", "pF", "nF", "uF")
+                val codes = CapacitorCodeConversions.values().toList()
+
                 MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
                     FeedbackMenuItem(context, interactionSource)
                 }
-                val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                val textModifier = Modifier.weight(1f).fillMaxWidth()
                 Card(
                     modifier = cardModifier,
                     shape = RoundedCornerShape(2.dp),
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                    ) {
-                        TextTitle(
-                            modifier = textModifier,
-                            text = "Code"
-                        )
-                        TextTitle(
-                            modifier = textModifier,
-                            text = "pF"
-                        )
-                        TextTitle(
-                            modifier = textModifier,
-                            text = "nF"
-                        )
-                        TextTitle(
-                            modifier = textModifier,
-                            text = "uF"
-                        )
+                    Row(modifier = rowModifier) {
+                        cardLabels.forEach {
+                            TextLabel(
+                                modifier = textModifier,
+                                text = it
+                            )
+                        }
                     }
                 }
                 Card(
@@ -75,29 +71,14 @@ fun ChartScreen(context: Context) {
                         .padding(bottom = 16.dp)
                         .verticalScroll(rememberScrollState())
                 ) {
-                    val codes = CapacitorCodeConversions.values().toList()
                     codes.forEach {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
-                        ) {
-                            TextBody(
-                                modifier = textModifier,
-                                text = it.code
-                            )
-                            TextBody(
-                                modifier = textModifier,
-                                text = it.pf
-                            )
-                            TextBody(
-                                modifier = textModifier,
-                                text = it.nf
-                            )
-                            TextBody(
-                                modifier = textModifier,
-                                text = it.uf
-                            )
+                        Row(modifier = rowModifier) {
+                            it.asList().forEach { value ->
+                                TextBody(
+                                    modifier = textModifier,
+                                    text = value
+                                )
+                            }
                         }
                     }
                 }
