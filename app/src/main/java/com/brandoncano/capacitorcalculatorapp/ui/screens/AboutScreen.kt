@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AddCircle
+import androidx.compose.material.icons.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -98,7 +98,7 @@ fun AboutScreen(context: Context) {
                 }
 
                 ArrowButtonCard(
-                    listOf(Icons.Outlined.Star, Icons.Outlined.AddCircle),
+                    listOf(Icons.Outlined.Star, Icons.Outlined.AddToHomeScreen),
                     listOf("Rate this app", "Check out our resistor app"),
                     listOf(
                         { PlayStore.openCapacitorApp(context) },
