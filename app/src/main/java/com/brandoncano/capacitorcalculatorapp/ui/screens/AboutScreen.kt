@@ -56,6 +56,14 @@ fun AboutScreen(context: Context) {
                     )
                     TextLabel(
                         modifier = textModifier,
+                        text = stringResource(id = R.string.about_created_by)
+                    )
+                    TextBody(
+                        modifier = textModifierBody,
+                        text = stringResource(id = R.string.about_author)
+                    )
+                    TextLabel(
+                        modifier = textModifier,
                         text = stringResource(id = R.string.about_app_version)
                     )
                     TextBody(
@@ -64,11 +72,11 @@ fun AboutScreen(context: Context) {
                     )
                     TextLabel(
                         modifier = textModifier,
-                        text = stringResource(id = R.string.about_created_by)
+                        text = stringResource(id = R.string.about_last_updated_on)
                     )
                     TextBody(
                         modifier = textModifierBody,
-                        text = stringResource(id = R.string.about_author)
+                        text = stringResource(id = R.string.about_last_update_date)
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }

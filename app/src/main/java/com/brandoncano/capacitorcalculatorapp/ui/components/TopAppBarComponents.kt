@@ -119,10 +119,8 @@ fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
 @Composable
 fun FeedbackMenuItem(context: Context, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
-        text = { Text(stringResource(R.string.menu_feedback)) },
-        onClick = {
-            EmailFeedback.execute(context)
-        },
+        text = { TextBody(text = stringResource(R.string.menu_feedback)) },
+        onClick = { EmailFeedback.execute(context) },
         interactionSource = interactionSource,
     )
 }
@@ -130,7 +128,7 @@ fun FeedbackMenuItem(context: Context, interactionSource: MutableInteractionSour
 @Composable
 fun AboutAppMenuItem(navController: NavController, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
-        text = { Text(stringResource(R.string.menu_about)) },
+        text = { TextBody(text = stringResource(R.string.menu_about)) },
         onClick = { navController.navigate(Screen.About.route) },
         interactionSource = interactionSource,
     )

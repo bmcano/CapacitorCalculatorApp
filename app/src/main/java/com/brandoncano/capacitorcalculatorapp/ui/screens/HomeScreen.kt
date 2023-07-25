@@ -40,6 +40,9 @@ import com.brandoncano.capacitorcalculatorapp.ui.components.ArrowButtonCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculatorapp.ui.components.MenuAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
+import com.brandoncano.capacitorcalculatorapp.ui.components.errorIcon
+import com.brandoncano.capacitorcalculatorapp.ui.components.errorText
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
@@ -53,6 +56,7 @@ import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
 fun HomeScreen(context: Context, navController: NavController) {
 
     val capacitor = Capacitor()
+    var isError by remember { mutableStateOf(false) }
     var code by remember { mutableStateOf("") }
     var pf by remember { mutableStateOf("") }
     var nf by remember { mutableStateOf("") }
@@ -77,7 +81,7 @@ fun HomeScreen(context: Context, navController: NavController) {
             ) {
                 MenuAppBar(stringResource(R.string.app_name), interactionSource) {
                     DropdownMenuItem(
-                        text = { Text(stringResource(R.string.menu_clear)) },
+                        text = { TextBody(text = stringResource(R.string.menu_clear)) },
                         onClick = {
                             capacitor.clear()
                             code = ""
@@ -102,9 +106,9 @@ fun HomeScreen(context: Context, navController: NavController) {
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
                         label = { Text(stringResource(id = R.string.text_box_enter_code)) },
-                        trailingIcon = { },
-                        supportingText = { },
-                        isError = false,
+                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.Code),
+                        supportingText = errorText(isError && fieldValues == FieldValues.Code),
+                        isError = isError,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
                         singleLine = true,
                         maxLines = 1,
@@ -119,9 +123,9 @@ fun HomeScreen(context: Context, navController: NavController) {
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
                         label = { Text(stringResource(id = R.string.text_box_enter_pf)) },
-                        trailingIcon = { },
-                        supportingText = { },
-                        isError = false,
+                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.PF),
+                        supportingText = errorText(isError && fieldValues == FieldValues.PF),
+                        isError = isError,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         singleLine = true,
                         maxLines = 1,
@@ -136,9 +140,9 @@ fun HomeScreen(context: Context, navController: NavController) {
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
                         label = { Text(stringResource(id = R.string.text_box_enter_nf)) },
-                        trailingIcon = { },
-                        supportingText = { },
-                        isError = false,
+                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.NF),
+                        supportingText = errorText(isError && fieldValues == FieldValues.NF),
+                        isError = isError,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         singleLine = true,
                         maxLines = 1,
@@ -153,9 +157,9 @@ fun HomeScreen(context: Context, navController: NavController) {
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
                         label = { Text(stringResource(id = R.string.text_box_enter_uf)) },
-                        trailingIcon = { },
-                        supportingText = { },
-                        isError = false,
+                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.UF),
+                        supportingText = errorText(isError && fieldValues == FieldValues.UF),
+                        isError = isError,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         singleLine = true,
                         maxLines = 1,
@@ -166,7 +170,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                     )
                     AppTextButton(text = stringResource(id = R.string.button_calculate)) {
                         focusManager.clearFocus()
-                        CapacitorValues.update(capacitor, fieldValues)
+                        isError = !CapacitorValues.update(capacitor, fieldValues)
                         code = capacitor.code
                         pf = capacitor.pf
                         nf = capacitor.nf

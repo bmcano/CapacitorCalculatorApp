@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
     <!-- components -->
-    <string name="enter_code">Enter Code</string>
     <string name="button_calculate">Calculate</string>
     <string name="text_box_enter_code">Capacitor Code</string>
     <string name="text_box_enter_pf">Pico-farad (pF)</string>
@@ -11,6 +10,8 @@
     <string name="about_title">About this app</string>
     <string name="about_app_version">App version</string>
     <string name="about_version">1.0.0</string>
+    <string name="about_last_updated_on">Last updated on:</string>
+    <string name="about_last_update_date">7/24/2023</string>
     <string name="about_created_by">Created by</string>
     <string name="about_author">Brandon Cano</string>
     <string name="about_description">Description</string>
@@ -24,7 +25,7 @@
     <string name="menu_clear">Clear selections</string>
     <string name="menu_about">About this app</string>
     <!-- hints -->
-    <string name="hint_enter_code">Enter Code</string>
+    <string name="error_invalid_input">Invalid input</string>
     <!-- content descriptions -->
     <string name="content_description_more">More</string>
     <string name="content_right_arrow">Right arrow</string>
