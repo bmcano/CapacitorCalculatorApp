@@ -1,11 +1,7 @@
 package com.brandoncano.capacitorcalculatorapp.ui.screens
 
 import android.content.Context
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,11 +9,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.FileOpen
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -28,14 +21,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
@@ -43,7 +33,9 @@ import com.brandoncano.capacitorcalculatorapp.constants.Capacitor
 import com.brandoncano.capacitorcalculatorapp.constants.FieldValues
 import com.brandoncano.capacitorcalculatorapp.ui.components.AppDivider
 import com.brandoncano.capacitorcalculatorapp.ui.components.AppTextButton
+import com.brandoncano.capacitorcalculatorapp.ui.components.ArrowButtonCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
+import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.HomeAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
@@ -78,11 +70,7 @@ fun HomeScreen(context: Context, navController: NavController) {
 
                 HomeAppBar(stringResource(R.string.app_name), context, navController)
                 BottomShadow()
-                Card(
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                        .fillMaxWidth()
-                ) {
+                DefaultCard {
                     OutlinedTextField(
                         modifier = outlinedTextFieldModifier,
                         value = code,
@@ -164,38 +152,12 @@ fun HomeScreen(context: Context, navController: NavController) {
                         uf = capacitor.uf
                     }
                 }
-                Card(
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                        .fillMaxWidth()
-                        .clickable(role = Role.Button) {
-                            navController.navigate(Screen.Chart.route)
-                        }
+
+                ArrowButtonCard(
+                    Icons.Outlined.FileOpen,
+                    "View common codes"
                 ) {
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Image(
-                            modifier = Modifier.padding(16.dp),
-                            imageVector = Icons.Outlined.FileOpen,
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
-                        )
-                        Text(
-                            modifier = Modifier
-                                .padding(16.dp)
-                                .weight(1f),
-                            text = "View common codes",
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                        Image(
-                            modifier = Modifier.padding(16.dp),
-                            imageVector = Icons.Filled.KeyboardArrowRight,
-                            contentDescription = "Image",
-                            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant),
-                        )
-                    }
+                    navController.navigate(Screen.Chart.route)
                 }
             }
         }

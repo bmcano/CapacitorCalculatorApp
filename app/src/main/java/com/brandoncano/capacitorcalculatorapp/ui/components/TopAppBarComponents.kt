@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -50,11 +49,9 @@ fun HomeAppBar(
     titleText: String,
     context: Context,
     navController: NavController,
-
 ) {
     DefaultAppBar(titleText) {
         var expanded by remember { mutableStateOf(false) }
-        // add another screen to show a chart of capacitor codes
         IconButton(onClick = { expanded = !expanded }) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
@@ -85,7 +82,7 @@ fun HomeAppBar(
 }
 
 @Composable
-fun AboutAppBar(
+fun TitleAppBar(
     titleText: String,
 ) {
     DefaultAppBar(titleText)
@@ -149,22 +146,6 @@ fun AppTextButton(text: String, onClick: () -> Unit) {
     }
 }
 
-@Composable
-fun AppDivider(
-    modifier: Modifier = Modifier,
-    onCard: Boolean = true
-) {
-    Divider(
-        modifier = modifier,
-        thickness = 0.75.dp,
-        color = if (onCard) {
-            colorScheme.onSurfaceVariant
-        } else {
-            colorScheme.onSurface
-        }
-    )
-}
-
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
@@ -174,7 +155,7 @@ private fun ComponentsPreview() {
         Column {
             HomeAppBar(stringResource(R.string.app_name), app, NavController(app))
             BottomShadow(height = 4.dp)
-            AboutAppBar(stringResource(R.string.about_title))
+            TitleAppBar(stringResource(R.string.about_title))
             BottomShadow(height = 4.dp)
             AppTextButton(text = "This is a button") { }
         }

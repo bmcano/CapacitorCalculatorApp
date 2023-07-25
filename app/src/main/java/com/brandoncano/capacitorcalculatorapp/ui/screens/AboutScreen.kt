@@ -4,29 +4,31 @@ import android.content.Context
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
+import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.ArrowButtonCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
-import com.brandoncano.capacitorcalculatorapp.ui.components.AboutAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextHeadline
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextTitle
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
+import com.brandoncano.capacitorcalculatorapp.util.PlayStore
 
 @Composable
-fun AboutScreen(context: Context, navController: NavController) {
+fun AboutScreen(context: Context) {
     CapacitorCalculatorAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -37,18 +39,15 @@ fun AboutScreen(context: Context, navController: NavController) {
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                AboutAppBar(stringResource(R.string.about_title))
+                TitleAppBar(stringResource(R.string.about_title))
                 BottomShadow()
 
                 val textModifierBody = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(start = 16.dp, end = 16.dp)
                 val textModifier = textModifierBody.padding(top = 16.dp)
-                val cardModifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                    .fillMaxWidth()
 
-                Card(modifier = cardModifier) {
+                DefaultCard {
                     TextTitle(
                         modifier = textModifier,
                         text = stringResource(id = R.string.app_name)
@@ -72,7 +71,7 @@ fun AboutScreen(context: Context, navController: NavController) {
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
-                Card(modifier = cardModifier) {
+                DefaultCard {
                     TextHeadline(
                         modifier = textModifier,
                         text = stringResource(id = R.string.about_description)
@@ -87,6 +86,15 @@ fun AboutScreen(context: Context, navController: NavController) {
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
+
+                ArrowButtonCard(
+                    listOf(Icons.Outlined.Star, Icons.Outlined.Star),
+                    listOf("Rate this app", "Check out our resistor app"),
+                    listOf(
+                        { PlayStore.openCapacitorApp(context) },
+                        { PlayStore.openResistorApp(context) }
+                    ),
+                )
             }
         }
     }

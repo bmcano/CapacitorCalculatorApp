@@ -27,4 +27,5 @@
     <string name="hint_enter_code">Enter Code</string>
     <!-- content descriptions -->
     <string name="content_description_more">More</string>
+    <string name="content_right_arrow">Right arrow</string>
 </resources>

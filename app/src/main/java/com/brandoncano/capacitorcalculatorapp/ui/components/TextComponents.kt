@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 
 /**
- * Job: Holds all the design for text within the app
+ * Job: Holds all the designs for text within the app
  */
 
 @Composable
@@ -57,7 +57,7 @@ fun TextBody(
 }
 
 @Composable
-fun AppText(modifier: Modifier, text: String, textStyle: TextStyle) {
+private fun AppText(modifier: Modifier, text: String, textStyle: TextStyle) {
     Text(
         modifier = modifier,
         text = text,
