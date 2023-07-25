@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
-    <!-- components -->
-    <string name="button_calculate">Calculate</string>
-    <string name="text_box_enter_code">Capacitor Code</string>
-    <string name="text_box_enter_pf">Pico-farad (pF)</string>
-    <string name="text_box_enter_nf">Nano-farad (nF)</string>
-    <string name="text_box_enter_uf">Micro-farad (µF)</string>
+    <!-- home screen -->
+    <string name="home_button_calculate">Calculate</string>
+    <string name="home_text_box_enter_code">Capacitor Code</string>
+    <string name="home_text_box_enter_pf">Pico-farad (pF)</string>
+    <string name="home_text_box_enter_nf">Nano-farad (nF)</string>
+    <string name="home_text_box_enter_uf">Micro-farad (µF)</string>
+    <string name="home_view_codes">View common codes</string>
     <!-- about screen -->
     <string name="about_title">About this app</string>
     <string name="about_app_version">App version</string>
@@ -17,8 +18,14 @@
     <string name="about_description">Description</string>
     <string name="about_description_part_01">In this app you can calculate the capacitance of a standard ceramic capacitor by entering a three digit code.</string>
     <string name="about_description_part_02">You can also calculate the 3 digit code by entering a capacitance value in either pico-farads, nano-farads, or micro-farads.</string>
+    <string name="about_rate_this_app">Rate this app</string>
+    <string name="about_view_resistor_app">View our resistor app</string>
     <!-- chart screen -->
     <string name="chart_title">Common 3-digit codes</string>
+    <string name="chart_code">Code</string>
+    <string name="chart_pf">pF</string>
+    <string name="chart_nf">nF</string>
+    <string name="chart_uf">µF</string>
     <!-- menu items -->
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>

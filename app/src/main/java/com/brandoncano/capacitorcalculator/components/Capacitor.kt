@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.constants
+package com.brandoncano.capacitorcalculator.components
 
 import com.brandoncano.capacitorcalculator.util.MultiplierFromDigit
 

@@ -18,7 +18,6 @@ object IsValidCode {
         if (length < 3) {
             return true
         }
-        // should always be valid
         val thirdDigit: Int = code[2].digitToIntOrNull() ?: 0
         return thirdDigit in 0..6
     }

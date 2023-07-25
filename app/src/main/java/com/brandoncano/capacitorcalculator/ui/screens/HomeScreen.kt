@@ -31,8 +31,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.constants.Capacitor
-import com.brandoncano.capacitorcalculator.constants.FieldValues
+import com.brandoncano.capacitorcalculator.components.Capacitor
+import com.brandoncano.capacitorcalculator.components.FieldValues
 import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.AppDivider
 import com.brandoncano.capacitorcalculator.ui.components.AppTextButton
@@ -105,7 +105,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                             fieldValues = FieldValues.Code
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.text_box_enter_code)) },
+                        label = { Text(stringResource(id = R.string.home_text_box_enter_code)) },
                         trailingIcon = errorIcon(isError && fieldValues == FieldValues.Code),
                         supportingText = errorText(isError && fieldValues == FieldValues.Code),
                         isError = isError,
@@ -122,7 +122,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                             fieldValues = FieldValues.PF
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.text_box_enter_pf)) },
+                        label = { Text(stringResource(id = R.string.home_text_box_enter_pf)) },
                         trailingIcon = errorIcon(isError && fieldValues == FieldValues.PF),
                         supportingText = errorText(isError && fieldValues == FieldValues.PF),
                         isError = isError,
@@ -139,7 +139,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                             fieldValues = FieldValues.NF
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.text_box_enter_nf)) },
+                        label = { Text(stringResource(id = R.string.home_text_box_enter_nf)) },
                         trailingIcon = errorIcon(isError && fieldValues == FieldValues.NF),
                         supportingText = errorText(isError && fieldValues == FieldValues.NF),
                         isError = isError,
@@ -156,7 +156,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                             fieldValues = FieldValues.UF
                         },
                         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.text_box_enter_uf)) },
+                        label = { Text(stringResource(id = R.string.home_text_box_enter_uf)) },
                         trailingIcon = errorIcon(isError && fieldValues == FieldValues.UF),
                         supportingText = errorText(isError && fieldValues == FieldValues.UF),
                         isError = isError,
@@ -168,7 +168,7 @@ fun HomeScreen(context: Context, navController: NavController) {
                         modifier = Modifier
                             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
                     )
-                    AppTextButton(text = stringResource(id = R.string.button_calculate)) {
+                    AppTextButton(text = stringResource(id = R.string.home_button_calculate)) {
                         focusManager.clearFocus()
                         isError = !CapacitorValues.update(capacitor, fieldValues)
                         code = capacitor.code
@@ -180,7 +180,7 @@ fun HomeScreen(context: Context, navController: NavController) {
 
                 ArrowButtonCard(
                     Icons.Outlined.FileOpen,
-                    "View common codes"
+                    stringResource(id = R.string.home_view_codes)
                 ) {
                     navController.navigate(Screen.Chart.route)
                 }

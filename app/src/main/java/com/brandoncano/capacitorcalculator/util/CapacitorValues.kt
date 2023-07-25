@@ -1,8 +1,8 @@
 package com.brandoncano.capacitorcalculator.util
 
 import android.util.Log
-import com.brandoncano.capacitorcalculator.constants.Capacitor
-import com.brandoncano.capacitorcalculator.constants.FieldValues
+import com.brandoncano.capacitorcalculator.components.Capacitor
+import com.brandoncano.capacitorcalculator.components.FieldValues
 
 object CapacitorValues {
 

@@ -7,8 +7,7 @@ import androidx.core.content.ContextCompat
 
 object PlayStore {
 
-    // TODO - will have to switch this link out
-    private const val capacitorPlayStoreLink = "https://play.google.com/store/apps/details?id=com.brandoncano.resistancecalculator"
+    private const val capacitorPlayStoreLink = "https://play.google.com/store/apps/details?id=com.brandoncano.capacitorcalculator"
     private const val resistorPlayStoreLink = "https://play.google.com/store/apps/details?id=com.brandoncano.resistancecalculator"
 
     fun openCapacitorApp(context: Context) {

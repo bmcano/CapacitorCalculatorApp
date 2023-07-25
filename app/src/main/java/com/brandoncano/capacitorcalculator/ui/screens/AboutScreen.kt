@@ -99,7 +99,10 @@ fun AboutScreen(context: Context) {
 
                 ArrowButtonCard(
                     listOf(Icons.Outlined.Star, Icons.Outlined.AddToHomeScreen),
-                    listOf("Rate this app", "Check out our resistor app"),
+                    listOf(
+                        stringResource(id = R.string.about_rate_this_app),
+                        stringResource(id = R.string.about_view_resistor_app)
+                    ),
                     listOf(
                         { PlayStore.openCapacitorApp(context) },
                         { PlayStore.openResistorApp(context) }

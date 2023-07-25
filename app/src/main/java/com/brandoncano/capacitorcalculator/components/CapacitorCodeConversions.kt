@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.brandoncano.capacitorcalculator.constants
+package com.brandoncano.capacitorcalculator.components
 
 /**
  * Job: Holds all the values for the conversion chart

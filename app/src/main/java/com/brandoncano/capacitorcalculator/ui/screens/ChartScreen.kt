@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.constants.CapacitorCodeConversions
+import com.brandoncano.capacitorcalculator.components.CapacitorCodeConversions
 import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.components.TextBody
@@ -47,7 +47,12 @@ fun ChartScreen(context: Context) {
                 val rowModifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
-                val cardLabels = listOf("Code", "pF", "nF", "uF")
+                val cardLabels = listOf(
+                    stringResource(id = R.string.chart_code),
+                    stringResource(id = R.string.chart_pf),
+                    stringResource(id = R.string.chart_nf),
+                    stringResource(id = R.string.chart_uf),
+                )
                 val codes = CapacitorCodeConversions.values().toList()
 
                 MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
