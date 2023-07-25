@@ -8,6 +8,13 @@ data class Capacitor(
     var nf: String = "",
     var uf: String = "",
 ) {
+    fun clear() {
+        code = ""
+        pf = ""
+        nf = ""
+        uf = ""
+    }
+
     fun computeFromCode() {
         val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()
         val multiplier = if (code.length == 3) code.takeLast(1) else "0"

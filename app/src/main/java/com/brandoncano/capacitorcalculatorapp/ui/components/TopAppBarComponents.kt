@@ -1,10 +1,13 @@
 package com.brandoncano.capacitorcalculatorapp.ui.components
 
 import android.content.Context
-import android.content.res.Configuration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,6 +28,7 @@ import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.centerAlignedTopAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,25 +38,32 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.brandoncano.capacitorcalculatorapp.MainActivity
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
-import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.EmailFeedback
+import kotlinx.coroutines.flow.collect
 
 @Composable
-fun HomeAppBar(
+fun MenuAppBar(
     titleText: String,
-    context: Context,
-    navController: NavController,
+    interactionSource: MutableInteractionSource,
+    content: @Composable (ColumnScope.() -> Unit)
 ) {
+    var expanded by remember { mutableStateOf(false) }
+    LaunchedEffect(interactionSource) {
+        interactionSource.interactions.collect { interaction ->
+            if (interaction is PressInteraction.Release) {
+                expanded = false
+            }
+        }
+    }
     DefaultAppBar(titleText) {
-        var expanded by remember { mutableStateOf(false) }
-        IconButton(onClick = { expanded = !expanded }) {
+        IconButton(
+            onClick = { expanded = !expanded },
+        ) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
                 contentDescription = stringResource(R.string.content_description_more)
@@ -60,24 +71,9 @@ fun HomeAppBar(
         }
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.menu_feedback)) },
-                onClick = {
-                    EmailFeedback.execute(context)
-                    expanded = !expanded
-                }
-            )
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.menu_clear)) },
-                onClick = { }
-            )
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.menu_about)) },
-                onClick = { navController.navigate(Screen.About.route) }
-            )
-        }
+            onDismissRequest = { expanded = false },
+            content = content,
+        )
     }
 }
 
@@ -111,6 +107,7 @@ private fun DefaultAppBar(
         actions = actions,
         colors = colors,
     )
+    BottomShadow()
 }
 
 @Composable
@@ -128,6 +125,27 @@ fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
 }
 
 @Composable
+fun FeedbackMenuItem(context: Context, interactionSource: MutableInteractionSource) {
+    DropdownMenuItem(
+        text = { Text(stringResource(R.string.menu_feedback)) },
+        onClick = {
+            EmailFeedback.execute(context)
+        },
+        interactionSource = interactionSource,
+    )
+}
+
+@Composable
+fun AboutAppMenuItem(navController: NavController, interactionSource: MutableInteractionSource) {
+    DropdownMenuItem(
+        text = { Text(stringResource(R.string.menu_about)) },
+        onClick = { navController.navigate(Screen.About.route) },
+        interactionSource = interactionSource,
+    )
+}
+
+
+@Composable
 fun AppTextButton(text: String, onClick: () -> Unit) {
     Button(
         modifier = Modifier
@@ -143,21 +161,5 @@ fun AppTextButton(text: String, onClick: () -> Unit) {
         )
     ) {
         TextHeadline(text = text)
-    }
-}
-
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Composable
-private fun ComponentsPreview() {
-    val app = MainActivity()
-    CapacitorCalculatorAppTheme {
-        Column {
-            HomeAppBar(stringResource(R.string.app_name), app, NavController(app))
-            BottomShadow(height = 4.dp)
-            TitleAppBar(stringResource(R.string.about_title))
-            BottomShadow(height = 4.dp)
-            AppTextButton(text = "This is a button") { }
-        }
     }
 }

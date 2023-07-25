@@ -17,10 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.constants.CapacitorCodeConversions
-import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
-import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextBody
 import com.brandoncano.capacitorcalculatorapp.ui.components.TextHeadline
+import com.brandoncano.capacitorcalculatorapp.ui.components.TitleAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 
 @Composable
@@ -34,7 +33,6 @@ fun ChartScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 TitleAppBar(stringResource(R.string.chart_title))
-                BottomShadow()
                 val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
                 val textModifier = Modifier.weight(1f).fillMaxWidth()
                 Card(

@@ -1,6 +1,7 @@
 package com.brandoncano.capacitorcalculatorapp.ui.screens
 
 import android.content.Context
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FileOpen
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -31,12 +33,13 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculatorapp.R
 import com.brandoncano.capacitorcalculatorapp.constants.Capacitor
 import com.brandoncano.capacitorcalculatorapp.constants.FieldValues
+import com.brandoncano.capacitorcalculatorapp.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculatorapp.ui.components.AppDivider
 import com.brandoncano.capacitorcalculatorapp.ui.components.AppTextButton
 import com.brandoncano.capacitorcalculatorapp.ui.components.ArrowButtonCard
-import com.brandoncano.capacitorcalculatorapp.ui.components.BottomShadow
 import com.brandoncano.capacitorcalculatorapp.ui.components.DefaultCard
-import com.brandoncano.capacitorcalculatorapp.ui.components.HomeAppBar
+import com.brandoncano.capacitorcalculatorapp.ui.components.FeedbackMenuItem
+import com.brandoncano.capacitorcalculatorapp.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculatorapp.ui.navigation.Screen
 import com.brandoncano.capacitorcalculatorapp.ui.theme.CapacitorCalculatorAppTheme
 import com.brandoncano.capacitorcalculatorapp.util.CapacitorValues
@@ -51,6 +54,7 @@ fun HomeScreen(context: Context, navController: NavController) {
     var nf by remember { mutableStateOf("") }
     var uf by remember { mutableStateOf("") }
     var fieldValues: FieldValues by remember { mutableStateOf(FieldValues.Code) }
+    val interactionSource = remember { MutableInteractionSource() }
 
     CapacitorCalculatorAppTheme {
         Surface(
@@ -67,9 +71,22 @@ fun HomeScreen(context: Context, navController: NavController) {
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                MenuAppBar(stringResource(R.string.app_name), interactionSource) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.menu_clear)) },
+                        onClick = {
+                            capacitor.clear()
+                            code = ""
+                            pf = ""
+                            nf = ""
+                            uf = ""
+                        },
+                        interactionSource = interactionSource,
+                    )
+                    FeedbackMenuItem(context, interactionSource)
+                    AboutAppMenuItem(navController, interactionSource)
+                }
 
-                HomeAppBar(stringResource(R.string.app_name), context, navController)
-                BottomShadow()
                 DefaultCard {
                     OutlinedTextField(
                         modifier = outlinedTextFieldModifier,
