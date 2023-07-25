@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.brandoncano.capacitorcalculatorapp'
+    namespace 'com.brandoncano.capacitorcalculator'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.brandoncano.capacitorcalculatorapp"
+        applicationId "com.brandoncano.capacitorcalculator"
         minSdk 24
         targetSdk 34
         versionCode 1
