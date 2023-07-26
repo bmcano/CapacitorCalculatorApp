@@ -76,7 +76,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun CapacitorCalculatorAppTheme(
+fun CapacitorCalculatorTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

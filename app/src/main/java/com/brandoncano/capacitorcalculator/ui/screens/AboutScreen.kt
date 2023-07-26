@@ -24,7 +24,7 @@ import com.brandoncano.capacitorcalculator.ui.components.TextBody
 import com.brandoncano.capacitorcalculator.ui.components.TextHeadline
 import com.brandoncano.capacitorcalculator.ui.components.TextLabel
 import com.brandoncano.capacitorcalculator.ui.components.TitleAppBar
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorAppTheme
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.PlayStore
 
 /**
@@ -33,7 +33,8 @@ import com.brandoncano.capacitorcalculator.util.PlayStore
 
 @Composable
 fun AboutScreen(context: Context) {
-    CapacitorCalculatorAppTheme {
+
+    CapacitorCalculatorTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {

@@ -44,7 +44,7 @@ import com.brandoncano.capacitorcalculator.ui.components.TextBody
 import com.brandoncano.capacitorcalculator.ui.components.errorIcon
 import com.brandoncano.capacitorcalculator.ui.components.errorText
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorAppTheme
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.CapacitorValues
 
 /**
@@ -64,7 +64,7 @@ fun HomeScreen(context: Context, navController: NavController) {
     var fieldValues: FieldValues by remember { mutableStateOf(FieldValues.Code) }
     val interactionSource = remember { MutableInteractionSource() }
 
-    CapacitorCalculatorAppTheme {
+    CapacitorCalculatorTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {

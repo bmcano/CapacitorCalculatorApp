@@ -23,7 +23,7 @@ import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.components.TextBody
 import com.brandoncano.capacitorcalculator.ui.components.TextLabel
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorAppTheme
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**
  * Job: Holds the content for the chart conversion screen
@@ -32,7 +32,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorAppTheme
 @Composable
 fun ChartScreen(context: Context) {
 
-    CapacitorCalculatorAppTheme {
+    CapacitorCalculatorTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {

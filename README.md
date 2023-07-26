@@ -1,1 +1,1 @@
-# CapacitorCalculatorApp
+# CapacitorCalculator

@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorAppTheme
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**
  * Job: Holds all the designs for text within the app
@@ -64,10 +64,11 @@ private fun AppText(modifier: Modifier, text: String, textStyle: TextStyle) {
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 private fun TextComponentsPreview() {
-    CapacitorCalculatorAppTheme {
+    CapacitorCalculatorTheme {
         Column {
-            TextHeadline(text = "Title")
-            TextTitle(text = "Headline")
+            TextHeadline(text = "Headline")
+            TextTitle(text = "Title")
+            TextLabel(text = "Label")
             TextBody(text = "Body")
         }
     }
