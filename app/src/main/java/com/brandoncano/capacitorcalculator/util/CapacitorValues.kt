@@ -1,6 +1,5 @@
 package com.brandoncano.capacitorcalculator.util
 
-import android.util.Log
 import com.brandoncano.capacitorcalculator.components.Capacitor
 import com.brandoncano.capacitorcalculator.components.FieldValues
 
@@ -17,7 +16,6 @@ object CapacitorValues {
             }
             FieldValues.PF -> {
                 val isValid = IsValidCapacitance.checkPF(capacitor.pf)
-                Log.e("Brandon", "$isValid")
                 if (isValid && capacitor.pf.isNotEmpty()) {
                     capacitor.computeFromPF()
                 }
