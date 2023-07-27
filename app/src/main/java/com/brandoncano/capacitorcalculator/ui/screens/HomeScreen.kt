@@ -51,140 +51,141 @@ import com.brandoncano.capacitorcalculator.util.CapacitorValues
  * Job: Holds all the content for the home screen
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(context: Context, navController: NavController) {
+    CapacitorCalculatorTheme {
+        Surface(modifier = Modifier.fillMaxSize()) { Content(context, navController) }
+    }
+}
 
-    val capacitor = Capacitor()
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun Content(context: Context, navController: NavController) {
+    val interactionSource = remember { MutableInteractionSource() }
+    var fieldValues: FieldValues by remember { mutableStateOf(FieldValues.Code) }
     var isError by remember { mutableStateOf(false) }
     var code by remember { mutableStateOf("") }
     var pf by remember { mutableStateOf("") }
     var nf by remember { mutableStateOf("") }
     var uf by remember { mutableStateOf("") }
-    var fieldValues: FieldValues by remember { mutableStateOf(FieldValues.Code) }
-    val interactionSource = remember { MutableInteractionSource() }
 
-    CapacitorCalculatorTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-        ) {
-            val focusManager = LocalFocusManager.current
-            val outlinedTextFieldModifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                .fillMaxWidth()
+    val capacitor = Capacitor()
+    val focusManager = LocalFocusManager.current
+    val outlinedTextFieldModifier = Modifier
+        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+        .fillMaxWidth()
 
-            Column(
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        MenuAppBar(stringResource(R.string.app_name), interactionSource) {
+            DropdownMenuItem(
+                text = { TextBody(text = stringResource(R.string.menu_clear)) },
+                onClick = {
+                    capacitor.clear()
+                    code = ""
+                    pf = ""
+                    nf = ""
+                    uf = ""
+                    isError = false
+                },
+                interactionSource = interactionSource,
+            )
+            FeedbackMenuItem(context, interactionSource)
+            AboutAppMenuItem(navController, interactionSource)
+        }
+
+        DefaultCard {
+            OutlinedTextField(
+                modifier = outlinedTextFieldModifier,
+                value = code,
+                onValueChange = {
+                    code = it
+                    capacitor.code = it
+                    fieldValues = FieldValues.Code
+                },
+                textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                label = { Text(stringResource(id = R.string.home_text_box_enter_code)) },
+                trailingIcon = errorIcon(isError && fieldValues == FieldValues.Code),
+                supportingText = errorText(isError && fieldValues == FieldValues.Code),
+                isError = isError,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                singleLine = true,
+                maxLines = 1,
+            )
+            OutlinedTextField(
+                modifier = outlinedTextFieldModifier,
+                value = pf,
+                onValueChange = {
+                    pf = it
+                    capacitor.pf = it
+                    fieldValues = FieldValues.PF
+                },
+                textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                label = { Text(stringResource(id = R.string.home_text_box_enter_pf)) },
+                trailingIcon = errorIcon(isError && fieldValues == FieldValues.PF),
+                supportingText = errorText(isError && fieldValues == FieldValues.PF),
+                isError = isError,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                singleLine = true,
+                maxLines = 1,
+            )
+            OutlinedTextField(
+                modifier = outlinedTextFieldModifier,
+                value = nf,
+                onValueChange = {
+                    nf = it
+                    capacitor.nf = it
+                    fieldValues = FieldValues.NF
+                },
+                textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                label = { Text(stringResource(id = R.string.home_text_box_enter_nf)) },
+                trailingIcon = errorIcon(isError && fieldValues == FieldValues.NF),
+                supportingText = errorText(isError && fieldValues == FieldValues.NF),
+                isError = isError,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                singleLine = true,
+                maxLines = 1,
+            )
+            OutlinedTextField(
+                modifier = outlinedTextFieldModifier,
+                value = uf,
+                onValueChange = {
+                    uf = it
+                    capacitor.uf = it
+                    fieldValues = FieldValues.UF
+                },
+                textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
+                label = { Text(stringResource(id = R.string.home_text_box_enter_uf)) },
+                trailingIcon = errorIcon(isError && fieldValues == FieldValues.UF),
+                supportingText = errorText(isError && fieldValues == FieldValues.UF),
+                isError = isError,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                singleLine = true,
+                maxLines = 1,
+            )
+            AppDivider(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                MenuAppBar(stringResource(R.string.app_name), interactionSource) {
-                    DropdownMenuItem(
-                        text = { TextBody(text = stringResource(R.string.menu_clear)) },
-                        onClick = {
-                            capacitor.clear()
-                            code = ""
-                            pf = ""
-                            nf = ""
-                            uf = ""
-                        },
-                        interactionSource = interactionSource,
-                    )
-                    FeedbackMenuItem(context, interactionSource)
-                    AboutAppMenuItem(navController, interactionSource)
-                }
-
-                DefaultCard {
-                    OutlinedTextField(
-                        modifier = outlinedTextFieldModifier,
-                        value = code,
-                        onValueChange = {
-                            code = it
-                            capacitor.code = it
-                            fieldValues = FieldValues.Code
-                        },
-                        textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.home_text_box_enter_code)) },
-                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.Code),
-                        supportingText = errorText(isError && fieldValues == FieldValues.Code),
-                        isError = isError,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
-                        singleLine = true,
-                        maxLines = 1,
-                    )
-                    OutlinedTextField(
-                        modifier = outlinedTextFieldModifier,
-                        value = pf,
-                        onValueChange = {
-                            pf = it
-                            capacitor.pf = it
-                            fieldValues = FieldValues.PF
-                        },
-                        textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.home_text_box_enter_pf)) },
-                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.PF),
-                        supportingText = errorText(isError && fieldValues == FieldValues.PF),
-                        isError = isError,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        singleLine = true,
-                        maxLines = 1,
-                    )
-                    OutlinedTextField(
-                        modifier = outlinedTextFieldModifier,
-                        value = nf,
-                        onValueChange = {
-                            nf = it
-                            capacitor.nf = it
-                            fieldValues = FieldValues.NF
-                        },
-                        textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.home_text_box_enter_nf)) },
-                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.NF),
-                        supportingText = errorText(isError && fieldValues == FieldValues.NF),
-                        isError = isError,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        singleLine = true,
-                        maxLines = 1,
-                    )
-                    OutlinedTextField(
-                        modifier = outlinedTextFieldModifier,
-                        value = uf,
-                        onValueChange = {
-                            uf = it
-                            capacitor.uf = it
-                            fieldValues = FieldValues.UF
-                        },
-                        textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
-                        label = { Text(stringResource(id = R.string.home_text_box_enter_uf)) },
-                        trailingIcon = errorIcon(isError && fieldValues == FieldValues.UF),
-                        supportingText = errorText(isError && fieldValues == FieldValues.UF),
-                        isError = isError,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        singleLine = true,
-                        maxLines = 1,
-                    )
-                    AppDivider(
-                        modifier = Modifier
-                            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
-                    )
-                    AppTextButton(text = stringResource(id = R.string.home_button_calculate)) {
-                        focusManager.clearFocus()
-                        isError = !CapacitorValues.update(capacitor, fieldValues)
-                        code = capacitor.code
-                        pf = capacitor.pf
-                        nf = capacitor.nf
-                        uf = capacitor.uf
-                    }
-                }
-
-                ArrowButtonCard(
-                    Icons.Outlined.FileOpen,
-                    stringResource(id = R.string.home_view_codes)
-                ) {
-                    navController.navigate(Screen.Chart.route)
-                }
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
+            )
+            AppTextButton(text = stringResource(id = R.string.home_button_calculate)) {
+                focusManager.clearFocus()
+                isError = !CapacitorValues.update(capacitor, fieldValues)
+                code = capacitor.code
+                pf = capacitor.pf
+                nf = capacitor.nf
+                uf = capacitor.uf
             }
+        }
+
+        ArrowButtonCard(
+            Icons.Outlined.FileOpen,
+            stringResource(id = R.string.home_view_codes)
+        ) {
+            navController.navigate(Screen.Chart.route)
         }
     }
 }

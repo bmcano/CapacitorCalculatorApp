@@ -31,60 +31,60 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
 fun ChartScreen(context: Context) {
-
     CapacitorCalculatorTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-        ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                val interactionSource = remember { MutableInteractionSource() }
-                val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                val textModifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                val rowModifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth()
-                val cardLabels = listOf(
-                    stringResource(id = R.string.chart_code),
-                    stringResource(id = R.string.chart_pf),
-                    stringResource(id = R.string.chart_nf),
-                    stringResource(id = R.string.chart_uf),
-                )
-                val codes = CapacitorCodeConversions.values().toList()
+        Surface(modifier = Modifier.fillMaxSize()) { Content(context) }
+    }
+}
 
-                MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
-                    FeedbackMenuItem(context, interactionSource)
+@Composable
+private fun Content(context: Context) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        val interactionSource = remember { MutableInteractionSource() }
+        val cardModifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
+        val textModifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()
+        val rowModifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+        val cardLabels = listOf(
+            stringResource(id = R.string.chart_code),
+            stringResource(id = R.string.chart_pf),
+            stringResource(id = R.string.chart_nf),
+            stringResource(id = R.string.chart_uf),
+        )
+        val codes = CapacitorCodeConversions.values().toList()
+
+        MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
+            FeedbackMenuItem(context, interactionSource)
+        }
+        Card(
+            modifier = cardModifier,
+            shape = RoundedCornerShape(2.dp),
+        ) {
+            Row(modifier = rowModifier) {
+                cardLabels.forEach {
+                    TextLabel(
+                        modifier = textModifier,
+                        text = it
+                    )
                 }
-                Card(
-                    modifier = cardModifier,
-                    shape = RoundedCornerShape(2.dp),
-                ) {
-                    Row(modifier = rowModifier) {
-                        cardLabels.forEach {
-                            TextLabel(
-                                modifier = textModifier,
-                                text = it
-                            )
-                        }
-                    }
-                }
-                Card(
-                    modifier = cardModifier
-                        .padding(bottom = 16.dp)
-                        .verticalScroll(rememberScrollState())
-                ) {
-                    codes.forEach {
-                        Row(modifier = rowModifier) {
-                            it.asList().forEach { value ->
-                                TextBody(
-                                    modifier = textModifier,
-                                    text = value
-                                )
-                            }
-                        }
+            }
+        }
+        Card(
+            modifier = cardModifier
+                .padding(bottom = 16.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            codes.forEach {
+                Row(modifier = rowModifier) {
+                    it.asList().forEach { value ->
+                        TextBody(
+                            modifier = textModifier,
+                            text = value
+                        )
                     }
                 }
             }
