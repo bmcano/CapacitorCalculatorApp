@@ -34,13 +34,13 @@ data class Capacitor(
     }
 
     fun computeFromNF() {
-        pf = "${nf.toDouble() * 1000}"
+        pf = (nf.toDouble() * 1000).toBigDecimal().toPlainString()
         uf = "${nf.toDouble() / 1000}"
         computeCode()
     }
 
     fun computeFromUF() {
-        pf = "${uf.toDouble() * 1000000}"
+        pf = (uf.toDouble() * 1000000).toBigDecimal().toPlainString()
         nf = "${uf.toDouble() * 1000}"
         computeCode()
     }
