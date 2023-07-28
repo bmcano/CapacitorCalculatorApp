@@ -27,7 +27,6 @@
     <string name="chart_nf">nF</string>
     <string name="chart_uf">µF</string>
     <!-- menu items -->
-    <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_clear">Clear selections</string>
     <string name="menu_about">About this app</string>

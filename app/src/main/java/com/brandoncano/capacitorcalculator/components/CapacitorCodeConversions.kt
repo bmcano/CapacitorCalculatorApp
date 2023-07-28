@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package com.brandoncano.capacitorcalculator.components
 
 /**
