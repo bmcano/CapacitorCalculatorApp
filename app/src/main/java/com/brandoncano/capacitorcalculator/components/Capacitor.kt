@@ -47,7 +47,11 @@ data class Capacitor(
 
     private fun computeCode() {
         val firstTwoDigits = pf.take(2)
-        val multiplier = pf.drop(2).count { it == '0' }
+        val multiplier = if (pf.endsWith(".0")) {
+            pf.drop(2).dropLast(2).count { it == '0' }
+        } else {
+            pf.drop(2).count { it == '0' }
+        }
         code = "$firstTwoDigits$multiplier"
     }
 }
