@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val LightColorScheme = lightColorScheme(
+private val lightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
@@ -43,7 +43,7 @@ private val LightColorScheme = lightColorScheme(
     scrim = md_theme_light_scrim,
 )
 
-private val DarkColorScheme = darkColorScheme(
+private val darkColorScheme = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -81,8 +81,8 @@ fun CapacitorCalculatorTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> darkColorScheme
+        else -> lightColorScheme
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
