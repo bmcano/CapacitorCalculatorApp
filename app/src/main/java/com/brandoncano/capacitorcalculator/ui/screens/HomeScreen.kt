@@ -40,12 +40,14 @@ import com.brandoncano.capacitorcalculator.ui.components.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
+import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.components.TextBody
 import com.brandoncano.capacitorcalculator.ui.components.errorIcon
 import com.brandoncano.capacitorcalculator.ui.components.errorText
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.CapacitorValues
+import com.brandoncano.capacitorcalculator.util.ToleranceValues
 
 /**
  * Job: Holds all the content for the home screen
@@ -167,6 +169,17 @@ private fun Content(context: Context, navController: NavController) {
                 singleLine = true,
                 maxLines = 1,
             )
+            AppDivider(
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
+            )
+            TextBody(
+                modifier = Modifier
+                    .align(Alignment.Start)
+                    .padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                text = stringResource(id = R.string.home_tolerance_label)
+            )
+            OutlinedDropDownMenu("Tolerance", ToleranceValues.get())
             AppDivider(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
