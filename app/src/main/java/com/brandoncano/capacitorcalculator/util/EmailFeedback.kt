@@ -10,11 +10,8 @@ import android.net.Uri
 object EmailFeedback {
 
     fun execute(context: Context) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("mailto:brandoncano.development@gmail.com?subject="
-                + Uri.encode("[Feedback] - Capacitor Calculator")
-                + "&body="
-        )
+        val uri = Uri.parse("mailto:brandoncano.development@gmail.com?subject=[Feedback] - Capacitor Calculator")
+        val intent = Intent(Intent.ACTION_SENDTO, uri)
         context.startActivity(intent)
     }
 }
