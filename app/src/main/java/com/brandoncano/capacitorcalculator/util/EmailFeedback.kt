@@ -3,7 +3,6 @@ package com.brandoncano.capacitorcalculator.util
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.core.content.ContextCompat.startActivity
 
 /**
  * Job: Takes the user to compose an email with a predefined subject and empty body.
@@ -16,6 +15,6 @@ object EmailFeedback {
                 + Uri.encode("[Feedback] - Capacitor Calculator")
                 + "&body="
         )
-        startActivity(context, intent, null)
+        context.startActivity(intent)
     }
 }
