@@ -35,8 +35,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.components.Capacitor
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
+import com.brandoncano.capacitorcalculator.util.ShareCapacitance
 
 @Composable
 fun MenuAppBar(
@@ -113,6 +115,15 @@ fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
                     colors = listOf(Color.Black.copy(alpha), Color.Transparent)
                 )
             )
+    )
+}
+
+@Composable
+fun Share(capacitor: Capacitor, context: Context, interactionSource: MutableInteractionSource) {
+    DropdownMenuItem(
+        text = { TextBody(text = stringResource(R.string.menu_share)) },
+        onClick = { ShareCapacitance.execute(capacitor, context) },
+        interactionSource = interactionSource,
     )
 }
 

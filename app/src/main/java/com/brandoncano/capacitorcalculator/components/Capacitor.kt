@@ -54,4 +54,8 @@ data class Capacitor(
         }
         code = "$firstTwoDigits$multiplier"
     }
+
+    override fun toString(): String {
+        return "$code\n${uf}μF\n${nf}nF\n${pf}pF"
+    }
 }

@@ -43,6 +43,7 @@ import com.brandoncano.capacitorcalculator.ui.components.DefaultCard
 import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
+import com.brandoncano.capacitorcalculator.ui.components.Share
 import com.brandoncano.capacitorcalculator.ui.components.TextBody
 import com.brandoncano.capacitorcalculator.ui.components.TextLabel
 import com.brandoncano.capacitorcalculator.ui.components.errorIcon
@@ -100,6 +101,7 @@ private fun Content(context: Context, navController: NavController) {
                 },
                 interactionSource = interactionSource,
             )
+            Share(capacitor, context, interactionSource)
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
