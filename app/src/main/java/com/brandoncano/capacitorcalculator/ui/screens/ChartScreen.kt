@@ -55,7 +55,7 @@ private fun Content(context: Context) {
             stringResource(id = R.string.chart_nf),
             stringResource(id = R.string.chart_uf),
         )
-        val codes = CapacitorCodeConversions.values().toList()
+        val codes = CapacitorCodeConversions.entries
 
         MenuAppBar(stringResource(R.string.chart_title), interactionSource) {
             FeedbackMenuItem(context, interactionSource)

@@ -3,6 +3,7 @@ package com.brandoncano.capacitorcalculator.ui.screens
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -33,6 +34,7 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.components.Capacitor
 import com.brandoncano.capacitorcalculator.components.FieldValues
+import com.brandoncano.capacitorcalculator.components.Tolerance
 import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.AppDivider
 import com.brandoncano.capacitorcalculator.ui.components.AppTextButton
@@ -42,12 +44,12 @@ import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.components.TextBody
+import com.brandoncano.capacitorcalculator.ui.components.TextLabel
 import com.brandoncano.capacitorcalculator.ui.components.errorIcon
 import com.brandoncano.capacitorcalculator.ui.components.errorText
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.CapacitorValues
-import com.brandoncano.capacitorcalculator.util.ToleranceValues
 
 /**
  * Job: Holds all the content for the home screen
@@ -70,6 +72,7 @@ private fun Content(context: Context, navController: NavController) {
     var pf by remember { mutableStateOf("") }
     var nf by remember { mutableStateOf("") }
     var uf by remember { mutableStateOf("") }
+    var tolerance by remember { mutableStateOf("") }
 
     val capacitor = Capacitor()
     val focusManager = LocalFocusManager.current
@@ -92,6 +95,7 @@ private fun Content(context: Context, navController: NavController) {
                     pf = ""
                     nf = ""
                     uf = ""
+                    tolerance = ""
                     isError = false
                 },
                 interactionSource = interactionSource,
@@ -179,7 +183,15 @@ private fun Content(context: Context, navController: NavController) {
                     .padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 text = stringResource(id = R.string.home_tolerance_label)
             )
-            OutlinedDropDownMenu("Tolerance", ToleranceValues.get())
+            Row(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
+                TextLabel(
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                    text = tolerance
+                )
+                OutlinedDropDownMenu("Tolerance", Tolerance.entries)
+            }
             AppDivider(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
