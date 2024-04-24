@@ -119,7 +119,16 @@ fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
 }
 
 @Composable
-fun Share(capacitor: Capacitor, context: Context, interactionSource: MutableInteractionSource) {
+fun ClearMenuItem(interactionSource: MutableInteractionSource, onClick: (() -> Unit)) {
+    DropdownMenuItem(
+        text = { TextBody(text = stringResource(R.string.menu_clear)) },
+        onClick = onClick,
+        interactionSource = interactionSource,
+    )
+}
+
+@Composable
+fun ShareMenuItem(capacitor: Capacitor, context: Context, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
         text = { TextBody(text = stringResource(R.string.menu_share)) },
         onClick = { ShareCapacitance.execute(capacitor, context) },
