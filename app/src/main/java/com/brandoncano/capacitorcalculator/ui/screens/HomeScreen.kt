@@ -3,7 +3,6 @@ package com.brandoncano.capacitorcalculator.ui.screens
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -45,8 +44,6 @@ import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.components.ShareMenuItem
-import com.brandoncano.capacitorcalculator.ui.components.TextBody
-import com.brandoncano.capacitorcalculator.ui.components.TextLabel
 import com.brandoncano.capacitorcalculator.ui.components.errorIcon
 import com.brandoncano.capacitorcalculator.ui.components.errorText
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
@@ -70,7 +67,6 @@ private fun Content(context: Context, navController: NavController) {
     val interactionSource = remember { MutableInteractionSource() }
     var fieldValues: FieldValues by remember { mutableStateOf(FieldValues.Code) }
     var isError by remember { mutableStateOf(false) }
-    var tolerance by remember { mutableStateOf("") }
     var reloadId by remember { mutableStateOf(0) }
     var capacitor by remember { mutableStateOf(Capacitor()) }
 
@@ -90,7 +86,7 @@ private fun Content(context: Context, navController: NavController) {
         MenuAppBar(stringResource(R.string.app_name), interactionSource) {
             ClearMenuItem(interactionSource = interactionSource) {
                 capacitor.clear()
-                tolerance = ""
+//                tolerance = ""
                 isError = false
                 reloadId++
             }
@@ -167,26 +163,12 @@ private fun Content(context: Context, navController: NavController) {
             )
             AppDivider(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             )
-            TextBody(
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                text = stringResource(id = R.string.home_tolerance_label)
-            )
-            Row(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
-                TextLabel(
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                    text = tolerance
-                )
-                OutlinedDropDownMenu("Tolerance", Tolerance.entries)
-            }
+            OutlinedDropDownMenu("Tolerance", Tolerance.entries, capacitor)
             AppDivider(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             )
             AppTextButton(text = stringResource(id = R.string.home_button_calculate)) {
                 focusManager.clearFocus()

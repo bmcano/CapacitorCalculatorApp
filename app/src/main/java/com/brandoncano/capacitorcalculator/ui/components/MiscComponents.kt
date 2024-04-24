@@ -34,9 +34,12 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.model.Capacitor
 import com.brandoncano.capacitorcalculator.model.Tolerance
 
 @Composable
@@ -70,7 +73,7 @@ fun errorText(isError: Boolean): @Composable (() -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OutlinedDropDownMenu(label: String, items: List<Tolerance>) {
+fun OutlinedDropDownMenu(label: String, items: List<Tolerance>, capacitor: Capacitor) {
     val interactionSource = remember { MutableInteractionSource() }
     var expanded by remember { mutableStateOf(false) }
     var selectedText by remember { mutableStateOf("") }
@@ -83,7 +86,7 @@ fun OutlinedDropDownMenu(label: String, items: List<Tolerance>) {
             }
         }
     }
-    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
         OutlinedTextField(
             value = selectedText,
             readOnly = true,
@@ -105,11 +108,19 @@ fun OutlinedDropDownMenu(label: String, items: List<Tolerance>) {
                 .width(with(LocalDensity.current) { textFieldSize.width.toDp() })
                 .clickable(interactionSource, null, enabled = true) { expanded = !expanded }
         ) {
+            DropdownMenuItem(
+                text = { Text("No Tolerance", style = TextStyle(fontStyle = FontStyle.Italic)) },
+                onClick = {
+                    selectedText = ""
+                    expanded = false
+                },
+            )
             items.forEach {
                 val toleranceText: String = it.name + ": " + it.percentage
                 DropdownMenuItem(
                     text = { Text(toleranceText) },
                     onClick = {
+                        capacitor.tolerance = it
                         selectedText = toleranceText
                         expanded = false
                     },

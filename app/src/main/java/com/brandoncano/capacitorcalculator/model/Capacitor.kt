@@ -10,12 +10,14 @@ data class Capacitor(
     var pf: String = "",
     var nf: String = "",
     var uf: String = "",
+    var tolerance: Tolerance? = null
 ) {
     fun clear() {
         code = ""
         pf = ""
         nf = ""
         uf = ""
+        tolerance = null
     }
 
     fun computeFromCode() {
