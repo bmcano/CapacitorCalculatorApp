@@ -32,9 +32,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.Capacitor
-import com.brandoncano.capacitorcalculator.components.FieldValues
-import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.FieldValues
+import com.brandoncano.capacitorcalculator.model.Tolerance
 import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.AppDivider
 import com.brandoncano.capacitorcalculator.ui.components.AppTextButton

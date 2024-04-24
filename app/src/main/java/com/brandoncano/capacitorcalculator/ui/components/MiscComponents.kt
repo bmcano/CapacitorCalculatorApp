@@ -37,7 +37,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.model.Tolerance
 
 @Composable
 fun AppTextButton(text: String, onClick: () -> Unit) {

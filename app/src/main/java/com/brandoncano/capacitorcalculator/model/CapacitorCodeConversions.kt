@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.model
 
 /**
  * Job: Holds all the values for the conversion chart

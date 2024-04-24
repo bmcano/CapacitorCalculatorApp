@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.model
 
 enum class Tolerance(val percentage: String) {
     D("0.5%"),

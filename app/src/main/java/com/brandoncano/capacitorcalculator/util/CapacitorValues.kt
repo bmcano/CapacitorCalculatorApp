@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.util
 
-import com.brandoncano.capacitorcalculator.components.Capacitor
-import com.brandoncano.capacitorcalculator.components.FieldValues
+import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.FieldValues
 
 object CapacitorValues {
 
