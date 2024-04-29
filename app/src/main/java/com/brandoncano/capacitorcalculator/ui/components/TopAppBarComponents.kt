@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.navigation.Screen
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
 import com.brandoncano.capacitorcalculator.util.ShareCapacitance
@@ -128,10 +129,10 @@ fun ClearMenuItem(interactionSource: MutableInteractionSource, onClick: (() -> U
 }
 
 @Composable
-fun ShareMenuItem(capacitor: Capacitor, context: Context, interactionSource: MutableInteractionSource) {
+fun ShareMenuItem(viewModel: CapacitorViewModel, context: Context, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
         text = { TextBody(text = stringResource(R.string.menu_share)) },
-        onClick = { ShareCapacitance.execute(capacitor, context) },
+        onClick = { ShareCapacitance.execute(viewModel.capacitor, context) },
         interactionSource = interactionSource,
     )
 }

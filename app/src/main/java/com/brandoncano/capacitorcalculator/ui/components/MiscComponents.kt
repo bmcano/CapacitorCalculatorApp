@@ -39,8 +39,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.Capacitor
-import com.brandoncano.capacitorcalculator.model.Tolerance
+import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
 
 @Composable
 fun AppTextButton(text: String, onClick: () -> Unit) {
@@ -73,7 +73,7 @@ fun errorText(isError: Boolean): @Composable (() -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OutlinedDropDownMenu(label: String, items: List<Tolerance>, capacitor: Capacitor) {
+fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewModel: CapacitorViewModel) {
     val interactionSource = remember { MutableInteractionSource() }
     var expanded by remember { mutableStateOf(false) }
     var selectedText by remember { mutableStateOf("") }
@@ -116,11 +116,11 @@ fun OutlinedDropDownMenu(label: String, items: List<Tolerance>, capacitor: Capac
                 },
             )
             items.forEach {
-                val toleranceText: String = it.name + ": " + it.percentage
+                val toleranceText: String = it.toString()
                 DropdownMenuItem(
                     text = { Text(toleranceText) },
                     onClick = {
-                        capacitor.tolerance = it
+                        viewModel.capacitor.tolerance = it
                         selectedText = toleranceText
                         expanded = false
                     },

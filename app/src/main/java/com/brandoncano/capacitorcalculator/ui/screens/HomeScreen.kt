@@ -26,7 +26,7 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.TextField
-import com.brandoncano.capacitorcalculator.model.Tolerance
+import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
 import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.AppDivider
 import com.brandoncano.capacitorcalculator.ui.components.AppTextButton
@@ -72,7 +72,7 @@ private fun Content(context: Context, navController: NavController, viewModel: C
                 viewModel.clearFields()
                 reloadScreen++
             }
-            ShareMenuItem(viewModel.capacitor, context, interactionSource)
+            ShareMenuItem(viewModel, context, interactionSource)
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
@@ -104,7 +104,7 @@ private fun Content(context: Context, navController: NavController, viewModel: C
                     R.string.home_text_box_enter_uf
                 )
             }
-            OutlinedDropDownMenu("Tolerance", Tolerance.entries, viewModel.capacitor)
+            OutlinedDropDownMenu(stringResource(id = R.string.home_tolerance_dropdown), CapacitorTolerance.entries, viewModel)
             AppDivider(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp)

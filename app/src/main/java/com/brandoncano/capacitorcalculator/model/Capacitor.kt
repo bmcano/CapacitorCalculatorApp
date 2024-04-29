@@ -10,7 +10,7 @@ data class Capacitor(
     var pf: String = "",
     var nf: String = "",
     var uf: String = "",
-    var tolerance: Tolerance? = null
+    var tolerance: CapacitorTolerance? = null
 ) {
     fun computeFromCode() {
         if (code.isEmpty()) return
@@ -54,6 +54,9 @@ data class Capacitor(
     }
 
     override fun toString(): String {
+        if (tolerance != null) {
+            return "$code${tolerance?.name}\n${uf}μF\n${nf}nF\n${pf}pF\n${tolerance?.percentage}"
+        }
         return "$code\n${uf}μF\n${nf}nF\n${pf}pF"
     }
 }
