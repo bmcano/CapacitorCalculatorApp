@@ -12,15 +12,8 @@ data class Capacitor(
     var uf: String = "",
     var tolerance: Tolerance? = null
 ) {
-    fun clear() {
-        code = ""
-        pf = ""
-        nf = ""
-        uf = ""
-        tolerance = null
-    }
-
     fun computeFromCode() {
+        if (code.isEmpty()) return
         val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()
         val multiplier = if (code.length == 3) code.takeLast(1) else "0"
         val pico = number * MultiplierFromDigit.execute(multiplier)
@@ -30,18 +23,21 @@ data class Capacitor(
     }
 
     fun computeFromPF() {
+        if (pf.isEmpty()) return
         nf = "${pf.toDouble() / 1000}"
         uf = "${pf.toDouble() / 1000000}"
         computeCode()
     }
 
     fun computeFromNF() {
+        if (nf.isEmpty()) return
         pf = (nf.toDouble() * 1000).toBigDecimal().toPlainString()
         uf = "${nf.toDouble() / 1000}"
         computeCode()
     }
 
     fun computeFromUF() {
+        if (uf.isEmpty()) return
         pf = (uf.toDouble() * 1000000).toBigDecimal().toPlainString()
         nf = "${uf.toDouble() * 1000}"
         computeCode()

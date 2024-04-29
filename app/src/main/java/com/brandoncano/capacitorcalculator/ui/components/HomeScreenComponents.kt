@@ -18,13 +18,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
-import com.brandoncano.capacitorcalculator.model.FieldValues
+import com.brandoncano.capacitorcalculator.model.TextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTextField(
     viewModel: CapacitorViewModel,
-    fieldValues: FieldValues,
+    textField: TextField,
     startingValue: String,
     stringResId: Int,
 ) {
@@ -38,18 +38,18 @@ fun HomeTextField(
         value = value,
         onValueChange = { newValue ->
             value = newValue
-            viewModel.fieldValues = fieldValues
-            viewModel.capacitor = when (fieldValues) {
-                FieldValues.Code -> viewModel.capacitor.copy(code = newValue)
-                FieldValues.NF -> viewModel.capacitor.copy(nf = newValue)
-                FieldValues.PF -> viewModel.capacitor.copy(pf = newValue)
-                FieldValues.UF -> viewModel.capacitor.copy(uf = newValue)
+            viewModel.textField = textField
+            viewModel.capacitor = when (textField) {
+                TextField.CODE -> viewModel.capacitor.copy(code = newValue)
+                TextField.NF -> viewModel.capacitor.copy(nf = newValue)
+                TextField.PF -> viewModel.capacitor.copy(pf = newValue)
+                TextField.UF -> viewModel.capacitor.copy(uf = newValue)
             }
         },
         textStyle = TextStyle(fontFamily = FontFamily.SansSerif),
         label = { Text(stringResource(id = stringResId)) },
-        trailingIcon = errorIcon(viewModel.isError && viewModel.fieldValues == fieldValues),
-        supportingText = errorText(viewModel.isError && viewModel.fieldValues == fieldValues),
+        trailingIcon = errorIcon(viewModel.isError && viewModel.textField == textField),
+        supportingText = errorText(viewModel.isError && viewModel.textField == textField),
         isError = viewModel.isError,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
         singleLine = true,

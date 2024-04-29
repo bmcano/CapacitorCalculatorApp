@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
-import com.brandoncano.capacitorcalculator.model.FieldValues
+import com.brandoncano.capacitorcalculator.model.TextField
 import com.brandoncano.capacitorcalculator.model.Tolerance
 import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.components.AppDivider
@@ -58,11 +58,11 @@ fun HomeScreen(context: Context, navController: NavController, viewModel: Capaci
 private fun Content(context: Context, navController: NavController, viewModel: CapacitorViewModel) {
     val interactionSource = remember { MutableInteractionSource() }
     val focusManager = LocalFocusManager.current
-    var reloadId by remember { mutableStateOf(0) }
+    var reloadScreen by remember { mutableStateOf(0) }
 
     Column(
         modifier = Modifier
-            .layoutId(reloadId)
+            .layoutId(reloadScreen)
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -70,7 +70,7 @@ private fun Content(context: Context, navController: NavController, viewModel: C
         MenuAppBar(stringResource(R.string.app_name), interactionSource) {
             ClearMenuItem(interactionSource = interactionSource) {
                 viewModel.clearFields()
-                reloadId++
+                reloadScreen++
             }
             ShareMenuItem(viewModel.capacitor, context, interactionSource)
             FeedbackMenuItem(context, interactionSource)
@@ -78,28 +78,28 @@ private fun Content(context: Context, navController: NavController, viewModel: C
         }
 
         DefaultCard {
-            key(reloadId) {
+            key(reloadScreen) {
                 HomeTextField(
                     viewModel,
-                    FieldValues.Code,
+                    TextField.CODE,
                     viewModel.capacitor.code,
                     R.string.home_text_box_enter_code
                 )
                 HomeTextField(
                     viewModel,
-                    FieldValues.PF,
+                    TextField.PF,
                     viewModel.capacitor.pf,
                     R.string.home_text_box_enter_pf
                 )
                 HomeTextField(
                     viewModel,
-                    FieldValues.NF,
+                    TextField.NF,
                     viewModel.capacitor.nf,
                     R.string.home_text_box_enter_nf
                 )
                 HomeTextField(
                     viewModel,
-                    FieldValues.UF,
+                    TextField.UF,
                     viewModel.capacitor.uf,
                     R.string.home_text_box_enter_uf
                 )
@@ -112,7 +112,7 @@ private fun Content(context: Context, navController: NavController, viewModel: C
             AppTextButton(text = stringResource(id = R.string.home_button_calculate)) {
                 focusManager.clearFocus()
                 viewModel.calculateCapacitance()
-                reloadId++
+                reloadScreen++
             }
         }
 
