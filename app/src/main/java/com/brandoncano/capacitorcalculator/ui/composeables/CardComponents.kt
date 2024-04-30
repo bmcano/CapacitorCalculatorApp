@@ -8,9 +8,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material3.Card
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +32,7 @@ fun AppDivider(
     modifier: Modifier = Modifier,
     onCard: Boolean = true
 ) {
-    Divider(
+    HorizontalDivider(
         modifier = modifier,
         thickness = 1.dp,
         color = if (onCard) {
@@ -84,7 +84,7 @@ fun ArrowButtonCard(
     ) {
         onClicks.forEachIndexed { index, onClick ->
             CardRowView(onClick, imageVectors[index], cardTexts[index])
-            if (onClicks.last() != onClick) {
+            if (onClicks.size - 1 != index) {
                 AppDivider(modifier = Modifier.padding(start = 16.dp, end = 16.dp))
             }
         }
@@ -118,7 +118,7 @@ private fun CardRowView(
         )
         Image(
             modifier = Modifier.padding(16.dp),
-            imageVector = Icons.Filled.KeyboardArrowRight,
+            imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
             contentDescription = stringResource(id = R.string.content_right_arrow),
             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant),
         )

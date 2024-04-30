@@ -13,7 +13,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -24,21 +24,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.TextField
-import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
+import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextButton
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.composeables.ClearMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.HomeTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.DefaultCard
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composeables.HomeTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.OutlinedDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
-import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**
@@ -58,7 +58,7 @@ fun HomeScreen(context: Context, navController: NavController, viewModel: Capaci
 private fun Content(context: Context, navController: NavController, viewModel: CapacitorViewModel) {
     val interactionSource = remember { MutableInteractionSource() }
     val focusManager = LocalFocusManager.current
-    var reloadScreen by remember { mutableStateOf(0) }
+    var reloadScreen by remember { mutableIntStateOf(0) }
 
     Column(
         modifier = Modifier

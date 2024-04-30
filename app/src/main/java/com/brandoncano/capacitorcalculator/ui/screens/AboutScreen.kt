@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AddToHomeScreen
+import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -101,7 +101,7 @@ private fun Content(context: Context) {
         }
 
         ArrowButtonCard(
-            listOf(Icons.Outlined.Star, Icons.Outlined.AddToHomeScreen),
+            listOf(Icons.Outlined.Star, Icons.AutoMirrored.Outlined.AddToHomeScreen),
             listOf(
                 stringResource(id = R.string.about_rate_this_app),
                 stringResource(id = R.string.about_view_resistor_app)

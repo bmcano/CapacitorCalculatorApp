@@ -19,7 +19,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -50,7 +49,6 @@ import com.brandoncano.capacitorcalculator.model.TextField
  * Job: Components specific to the home screen
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTextField(
     viewModel: CapacitorViewModel,
@@ -96,7 +94,6 @@ fun HomeTextField(
 }
 
 // TODO - this needs modifications to make it work properly with ViewModel
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewModel: CapacitorViewModel) {
     val interactionSource = remember { MutableInteractionSource() }
