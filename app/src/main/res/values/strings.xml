@@ -7,6 +7,7 @@
     <string name="home_text_box_enter_nf">Nano-farad (nF)</string>
     <string name="home_text_box_enter_uf">Micro-farad (µF)</string>
     <string name="home_tolerance_dropdown">Tolerance</string>
+    <string name="home_no_tolerance">No Tolerance</string>
     <string name="home_view_codes">View common codes</string>
     <!-- about screen -->
     <string name="about_title">About this app</string>

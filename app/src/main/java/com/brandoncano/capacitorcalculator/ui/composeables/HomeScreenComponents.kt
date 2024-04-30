@@ -57,10 +57,10 @@ fun HomeTextField(
     stringResId: Int,
 ) {
     var value by remember { mutableStateOf(startingValue) }
+    val topPadding = if (textField == TextField.CODE) 8.dp else 0.dp
     val outlinedTextFieldModifier = Modifier
-        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+        .padding(start = 16.dp, end = 16.dp, top = topPadding)
         .fillMaxWidth()
-
     OutlinedTextField(
         modifier = outlinedTextFieldModifier,
         value = value,
@@ -78,7 +78,11 @@ fun HomeTextField(
         label = { Text(stringResource(id = stringResId)) },
         trailingIcon = {
             if (viewModel.isError && viewModel.textField == textField) {
-                Icon(Icons.Outlined.Error, "Error", tint = MaterialTheme.colorScheme.error)
+                Icon(
+                    imageVector = Icons.Outlined.Error,
+                    contentDescription = "Error",
+                    tint = MaterialTheme.colorScheme.error
+                )
             }
         },
         supportingText = {
@@ -93,12 +97,16 @@ fun HomeTextField(
     )
 }
 
-// TODO - this needs modifications to make it work properly with ViewModel
 @Composable
-fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewModel: CapacitorViewModel) {
+fun OutlinedDropDownMenu(
+    label: String,
+    items: List<CapacitorTolerance>,
+    viewModel: CapacitorViewModel,
+    startingValue: CapacitorTolerance?
+) {
     val interactionSource = remember { MutableInteractionSource() }
     var expanded by remember { mutableStateOf(false) }
-    var selectedText by remember { mutableStateOf("") }
+    var selectedText by remember { mutableStateOf("${startingValue ?: ""}") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
     val icon = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown
     LaunchedEffect(interactionSource) {
@@ -108,7 +116,7 @@ fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewMod
             }
         }
     }
-    Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
+    Column(Modifier.padding(start = 16.dp, end = 16.dp)) {
         OutlinedTextField(
             value = selectedText,
             readOnly = true,
@@ -119,7 +127,11 @@ fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewMod
                 .clickable(interactionSource, null, enabled = true) { expanded = !expanded },
             label = { Text(label) },
             trailingIcon = {
-                Icon(icon, "", Modifier.clickable { expanded = !expanded })
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.clickable { expanded = !expanded }
+                )
             },
             interactionSource = interactionSource
         )
@@ -131,7 +143,12 @@ fun OutlinedDropDownMenu(label: String, items: List<CapacitorTolerance>, viewMod
                 .clickable(interactionSource, null, enabled = true) { expanded = !expanded }
         ) {
             DropdownMenuItem(
-                text = { Text("No Tolerance", style = TextStyle(fontStyle = FontStyle.Italic)) },
+                text = {
+                    Text(
+                        text = stringResource(id = R.string.home_no_tolerance),
+                        style = TextStyle(fontStyle = FontStyle.Italic)
+                    )
+                },
                 onClick = {
                     selectedText = ""
                     expanded = false

@@ -79,32 +79,17 @@ private fun Content(context: Context, navController: NavController, viewModel: C
 
         DefaultCard {
             key(reloadScreen) {
-                HomeTextField(
-                    viewModel,
-                    TextField.CODE,
-                    viewModel.capacitor.code,
-                    R.string.home_text_box_enter_code
-                )
-                HomeTextField(
-                    viewModel,
-                    TextField.PF,
-                    viewModel.capacitor.pf,
-                    R.string.home_text_box_enter_pf
-                )
-                HomeTextField(
-                    viewModel,
-                    TextField.NF,
-                    viewModel.capacitor.nf,
-                    R.string.home_text_box_enter_nf
-                )
-                HomeTextField(
-                    viewModel,
-                    TextField.UF,
-                    viewModel.capacitor.uf,
-                    R.string.home_text_box_enter_uf
+                HomeTextField(viewModel, TextField.CODE, viewModel.capacitor.code, R.string.home_text_box_enter_code)
+                HomeTextField(viewModel, TextField.PF, viewModel.capacitor.pf, R.string.home_text_box_enter_pf)
+                HomeTextField(viewModel, TextField.NF, viewModel.capacitor.nf, R.string.home_text_box_enter_nf)
+                HomeTextField(viewModel, TextField.UF, viewModel.capacitor.uf, R.string.home_text_box_enter_uf)
+                OutlinedDropDownMenu(
+                    label = stringResource(id = R.string.home_tolerance_dropdown),
+                    items = CapacitorTolerance.entries,
+                    viewModel = viewModel,
+                    startingValue = viewModel.capacitor.tolerance
                 )
             }
-            OutlinedDropDownMenu(stringResource(id = R.string.home_tolerance_dropdown), CapacitorTolerance.entries, viewModel)
             AppDivider(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp)
