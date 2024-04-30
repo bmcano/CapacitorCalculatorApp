@@ -1,9 +1,9 @@
-package com.brandoncano.capacitorcalculator
+package com.brandoncano.capacitorcalculator.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.brandoncano.capacitorcalculator.ui.navigation.Navigation
+import com.brandoncano.capacitorcalculator.navigation.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

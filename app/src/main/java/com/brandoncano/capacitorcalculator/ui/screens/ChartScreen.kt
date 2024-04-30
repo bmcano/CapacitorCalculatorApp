@@ -19,10 +19,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorCodeConversions
-import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
-import com.brandoncano.capacitorcalculator.ui.components.TextBody
-import com.brandoncano.capacitorcalculator.ui.components.TextLabel
+import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composeables.MenuAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.TextBody
+import com.brandoncano.capacitorcalculator.ui.composeables.TextLabel
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**

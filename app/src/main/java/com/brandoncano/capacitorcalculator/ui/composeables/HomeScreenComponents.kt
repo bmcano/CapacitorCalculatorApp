@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.composeables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

@@ -18,12 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.ui.components.ArrowButtonCard
-import com.brandoncano.capacitorcalculator.ui.components.DefaultCard
-import com.brandoncano.capacitorcalculator.ui.components.TextBody
-import com.brandoncano.capacitorcalculator.ui.components.TextHeadline
-import com.brandoncano.capacitorcalculator.ui.components.TextLabel
-import com.brandoncano.capacitorcalculator.ui.components.TitleAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
+import com.brandoncano.capacitorcalculator.ui.composeables.DefaultCard
+import com.brandoncano.capacitorcalculator.ui.composeables.TextBody
+import com.brandoncano.capacitorcalculator.ui.composeables.TextHeadline
+import com.brandoncano.capacitorcalculator.ui.composeables.TextLabel
+import com.brandoncano.capacitorcalculator.ui.composeables.TitleAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.PlayStore
 

@@ -4,7 +4,6 @@ object IsValidCapacitance {
 
     fun checkPF(capacitance: String): Boolean {
         if (capacitance.isEmpty()) return true
-        println(capacitance.toDoubleOrNull())
         val pf = capacitance.toDoubleOrNull() ?: return false
         return validate(pf)
     }

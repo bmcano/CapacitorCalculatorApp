@@ -27,18 +27,18 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.TextField
 import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
-import com.brandoncano.capacitorcalculator.ui.components.AboutAppMenuItem
-import com.brandoncano.capacitorcalculator.ui.components.AppDivider
-import com.brandoncano.capacitorcalculator.ui.components.AppTextButton
-import com.brandoncano.capacitorcalculator.ui.components.ArrowButtonCard
-import com.brandoncano.capacitorcalculator.ui.components.ClearMenuItem
-import com.brandoncano.capacitorcalculator.ui.components.HomeTextField
-import com.brandoncano.capacitorcalculator.ui.components.DefaultCard
-import com.brandoncano.capacitorcalculator.ui.components.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.components.MenuAppBar
-import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
-import com.brandoncano.capacitorcalculator.ui.components.ShareMenuItem
-import com.brandoncano.capacitorcalculator.ui.navigation.Screen
+import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
+import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
+import com.brandoncano.capacitorcalculator.ui.composeables.AppTextButton
+import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
+import com.brandoncano.capacitorcalculator.ui.composeables.ClearMenuItem
+import com.brandoncano.capacitorcalculator.ui.composeables.HomeTextField
+import com.brandoncano.capacitorcalculator.ui.composeables.DefaultCard
+import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composeables.MenuAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.OutlinedDropDownMenu
+import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
+import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**

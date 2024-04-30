@@ -1,15 +1,10 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.composeables
 
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 /**
  * Job: Holds all the designs for text within the app
@@ -58,18 +53,4 @@ private fun AppText(modifier: Modifier, text: String, textStyle: TextStyle) {
         text = text,
         style = textStyle,
     )
-}
-
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_NO)
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
-@Composable
-private fun TextComponentsPreview() {
-    CapacitorCalculatorTheme {
-        Column {
-            TextHeadline(text = "Headline")
-            TextTitle(text = "Title")
-            TextLabel(text = "Label")
-            TextBody(text = "Body")
-        }
-    }
 }

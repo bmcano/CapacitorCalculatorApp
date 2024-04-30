@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.composeables
 
 import android.content.Context
 import androidx.compose.foundation.background
@@ -35,9 +35,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.Capacitor
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
-import com.brandoncano.capacitorcalculator.ui.navigation.Screen
+import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
 import com.brandoncano.capacitorcalculator.util.ShareCapacitance
 

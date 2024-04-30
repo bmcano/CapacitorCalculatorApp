@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.navigation
+package com.brandoncano.capacitorcalculator.navigation
 
 /**
  * Job: Holds the route for each different screen
