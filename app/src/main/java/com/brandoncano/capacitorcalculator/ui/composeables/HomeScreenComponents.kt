@@ -55,6 +55,7 @@ fun HomeTextField(
     textField: TextField,
     startingValue: String,
     stringResId: Int,
+    keyboardType: KeyboardType = KeyboardType.Number
 ) {
     var value by remember { mutableStateOf(startingValue) }
     val topPadding = if (textField == TextField.CODE) 8.dp else 0.dp
@@ -91,7 +92,7 @@ fun HomeTextField(
             }
         },
         isError = viewModel.isError,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         singleLine = true,
         maxLines = 1,
     )

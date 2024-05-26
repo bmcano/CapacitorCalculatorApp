@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
@@ -79,7 +80,7 @@ private fun Content(context: Context, navController: NavController, viewModel: C
 
         DefaultCard {
             key(reloadScreen) {
-                HomeTextField(viewModel, TextField.CODE, viewModel.capacitor.code, R.string.home_text_box_enter_code)
+                HomeTextField(viewModel, TextField.CODE, viewModel.capacitor.code, R.string.home_text_box_enter_code, KeyboardType.NumberPassword)
                 HomeTextField(viewModel, TextField.PF, viewModel.capacitor.pf, R.string.home_text_box_enter_pf)
                 HomeTextField(viewModel, TextField.NF, viewModel.capacitor.nf, R.string.home_text_box_enter_nf)
                 HomeTextField(viewModel, TextField.UF, viewModel.capacitor.uf, R.string.home_text_box_enter_uf)
