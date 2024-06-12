@@ -151,6 +151,7 @@ fun OutlinedDropDownMenu(
                     )
                 },
                 onClick = {
+                    viewModel.capacitor.tolerance = null
                     selectedText = ""
                     expanded = false
                 },
