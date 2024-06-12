@@ -20,6 +20,7 @@
     <string name="about_description">Description</string>
     <string name="about_description_part_01">In this app you can calculate the capacitance of a standard ceramic capacitor by entering a three digit code.</string>
     <string name="about_description_part_02">You can also calculate the 3 digit code by entering a capacitance value in either pico-farads, nano-farads, or micro-farads.</string>
+    <string name="about_description_part_03">Tolerance is a value that can show up on some ceramic capacitors, the dropdown shows each symbol as well as the percentage it represents.</string>
     <string name="about_rate_this_app">Rate this app</string>
     <string name="about_view_resistor_app">View our resistor app</string>
     <!-- chart screen -->

@@ -1,6 +1,7 @@
 package com.brandoncano.capacitorcalculator.ui.screens
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,12 +17,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.MainActivity
+import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.composeables.DefaultCard
+import com.brandoncano.capacitorcalculator.ui.composeables.LabelBodyText
+import com.brandoncano.capacitorcalculator.ui.composeables.LabelBodyTextCard
 import com.brandoncano.capacitorcalculator.ui.composeables.TextBody
-import com.brandoncano.capacitorcalculator.ui.composeables.TextHeadline
 import com.brandoncano.capacitorcalculator.ui.composeables.TextLabel
 import com.brandoncano.capacitorcalculator.ui.composeables.TitleAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -44,42 +49,30 @@ private fun Content(context: Context) {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.Start
     ) {
         TitleAppBar(stringResource(R.string.about_title))
-        val textModifierBody = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(start = 16.dp, end = 16.dp)
-        val textModifier = textModifierBody.padding(top = 16.dp)
+        val textModifier = Modifier
+            .align(Alignment.Start)
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+
+        LabelBodyTextCard(
+            label = R.string.about_created_by,
+            body = R.string.about_author,
+        )
 
         DefaultCard {
-            TextHeadline(
-                modifier = textModifier,
-                text = stringResource(id = R.string.app_name)
+            LabelBodyText(
+                label = R.string.about_app_version,
+                body = R.string.about_version,
             )
-            TextLabel(
-                modifier = textModifier,
-                text = stringResource(id = R.string.about_created_by)
+            AppDivider(
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             )
-            TextBody(
-                modifier = textModifierBody,
-                text = stringResource(id = R.string.about_author)
-            )
-            TextLabel(
-                modifier = textModifier,
-                text = stringResource(id = R.string.about_app_version)
-            )
-            TextBody(
-                modifier = textModifierBody,
-                text = stringResource(id = R.string.about_version)
-            )
-            TextLabel(
-                modifier = textModifier,
-                text = stringResource(id = R.string.about_last_updated_on)
-            )
-            TextBody(
-                modifier = textModifierBody,
-                text = stringResource(id = R.string.about_last_update_date)
+            LabelBodyText(
+                label = R.string.about_last_updated_on,
+                body = R.string.about_last_update_date,
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -97,6 +90,10 @@ private fun Content(context: Context) {
                 modifier = textModifier,
                 text = stringResource(id = R.string.about_description_part_02)
             )
+            TextBody(
+                modifier = textModifier,
+                text = stringResource(id = R.string.about_description_part_03)
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
 
@@ -112,4 +109,12 @@ private fun Content(context: Context) {
             ),
         )
     }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun AboutPreview() {
+    val app = MainActivity()
+    AboutScreen(app)
 }

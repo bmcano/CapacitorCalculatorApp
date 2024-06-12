@@ -1,6 +1,7 @@
 package com.brandoncano.capacitorcalculator.ui.screens
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,13 +23,16 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorTolerance
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.TextField
 import com.brandoncano.capacitorcalculator.navigation.Screen
+import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextButton
@@ -109,4 +113,13 @@ private fun Content(context: Context, navController: NavController, viewModel: C
             navController.navigate(Screen.Chart.route)
         }
     }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun HomePreview() {
+    val app = MainActivity()
+    val viewModel = viewModel<CapacitorViewModel>()
+    HomeScreen(app, NavController(app), viewModel)
 }

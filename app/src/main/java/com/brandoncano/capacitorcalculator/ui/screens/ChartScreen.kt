@@ -1,6 +1,7 @@
 package com.brandoncano.capacitorcalculator.ui.screens
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,9 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.CapacitorCodeConversions
+import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.TextBody
@@ -90,4 +93,12 @@ private fun Content(context: Context) {
             }
         }
     }
+}
+
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun ChartPreview() {
+    val app = MainActivity()
+    ChartScreen(app)
 }
