@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.composeables
+package com.brandoncano.capacitorcalculator.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -88,7 +88,7 @@ fun HomeTextField(
         },
         supportingText = {
             if (viewModel.isError && viewModel.textField == textField) {
-                TextBody(text = stringResource(R.string.error_invalid_input))
+                Text(text = stringResource(R.string.error_invalid_input))
             }
         },
         isError = viewModel.isError,
@@ -186,6 +186,6 @@ fun AppTextButton(text: String, onClick: () -> Unit) {
             disabledElevation = 0.dp
         )
     ) {
-        TextLabel(text = text)
+        Text(text = text)
     }
 }

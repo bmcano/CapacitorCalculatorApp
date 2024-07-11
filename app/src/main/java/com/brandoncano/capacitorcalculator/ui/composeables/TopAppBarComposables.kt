@@ -1,6 +1,5 @@
 package com.brandoncano.capacitorcalculator.ui.composeables
 
-import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
@@ -13,7 +12,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -33,15 +31,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
-import com.brandoncano.capacitorcalculator.navigation.Screen
-import com.brandoncano.capacitorcalculator.util.EmailFeedback
-import com.brandoncano.capacitorcalculator.util.ShareCapacitance
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 
 @Composable
-fun MenuAppBar(
+fun MenuTopAppBar(
     titleText: String,
     interactionSource: MutableInteractionSource,
     content: @Composable (ColumnScope.() -> Unit)
@@ -54,13 +49,13 @@ fun MenuAppBar(
             }
         }
     }
-    DefaultAppBar(titleText) {
+    AppTopAppBar(titleText) {
         IconButton(
             onClick = { expanded = !expanded },
         ) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
-                contentDescription = stringResource(R.string.content_description_more)
+                contentDescription = stringResource(R.string.content_description_menu_more)
             )
         }
         DropdownMenu(
@@ -71,41 +66,34 @@ fun MenuAppBar(
     }
 }
 
-@Composable
-fun TitleAppBar(
-    titleText: String,
-) {
-    DefaultAppBar(titleText)
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun DefaultAppBar(
+fun AppTopAppBar(
     titleText: String,
     actions: @Composable (RowScope.() -> Unit) = { }
 ) {
-    val colors = centerAlignedTopAppBarColors(
-        containerColor = colorScheme.primary,
-        navigationIconContentColor = colorScheme.onPrimary,
-        titleContentColor = colorScheme.onPrimary,
-        actionIconContentColor = colorScheme.onPrimary
-    )
     CenterAlignedTopAppBar(
         title = {
             Text(
                 text = titleText,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                style = textStyleLargeTitle(),
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1
             )
         },
         actions = actions,
-        colors = colors,
+        colors = centerAlignedTopAppBarColors(
+            containerColor = colorScheme.primary,
+            navigationIconContentColor = colorScheme.onPrimary,
+            titleContentColor = colorScheme.onPrimary,
+            actionIconContentColor = colorScheme.onPrimary
+        ),
     )
     BottomShadow()
 }
 
 @Composable
-fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
+private fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -118,38 +106,21 @@ fun BottomShadow(alpha: Float = 0.1f, height: Dp = 4.dp) {
     )
 }
 
+@AppComponentPreviews
 @Composable
-fun ClearMenuItem(interactionSource: MutableInteractionSource, onClick: (() -> Unit)) {
-    DropdownMenuItem(
-        text = { TextBody(text = stringResource(R.string.menu_clear)) },
-        onClick = onClick,
-        interactionSource = interactionSource,
-    )
+private fun TitleTopAppBarPreview() {
+    CapacitorCalculatorTheme {
+        AppTopAppBar("TopAppBar")
+    }
 }
 
+@AppComponentPreviews
 @Composable
-fun ShareMenuItem(viewModel: CapacitorViewModel, context: Context, interactionSource: MutableInteractionSource) {
-    DropdownMenuItem(
-        text = { TextBody(text = stringResource(R.string.menu_share)) },
-        onClick = { ShareCapacitance.execute(viewModel.capacitor, context) },
-        interactionSource = interactionSource,
-    )
-}
-
-@Composable
-fun FeedbackMenuItem(context: Context, interactionSource: MutableInteractionSource) {
-    DropdownMenuItem(
-        text = { TextBody(text = stringResource(R.string.menu_feedback)) },
-        onClick = { EmailFeedback.execute(context) },
-        interactionSource = interactionSource,
-    )
-}
-
-@Composable
-fun AboutAppMenuItem(navController: NavController, interactionSource: MutableInteractionSource) {
-    DropdownMenuItem(
-        text = { TextBody(text = stringResource(R.string.menu_about)) },
-        onClick = { navController.navigate(Screen.About.route) },
-        interactionSource = interactionSource,
-    )
+private fun MenuTopAppBarPreview() {
+    val interactionSource = remember { MutableInteractionSource() }
+    CapacitorCalculatorTheme {
+        MenuTopAppBar("MenuTopAppBar", interactionSource) {
+            ClearMenuItem(interactionSource) { }
+        }
+    }
 }

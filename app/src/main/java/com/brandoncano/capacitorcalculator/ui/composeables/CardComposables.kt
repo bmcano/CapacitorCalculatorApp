@@ -2,6 +2,7 @@ package com.brandoncano.capacitorcalculator.ui.composeables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -22,6 +24,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 
 /**
  * Job: Holds all the designs for cards and dividers within the app
@@ -35,22 +38,33 @@ fun AppDivider(
     HorizontalDivider(
         modifier = modifier,
         thickness = 1.dp,
-        color = if (onCard) {
-            MaterialTheme.colorScheme.onSurfaceVariant
+        color = if (onCard && isSystemInDarkTheme()) {
+            MaterialTheme.colorScheme.outline
         } else {
-            MaterialTheme.colorScheme.onSurface
+            MaterialTheme.colorScheme.outlineVariant
         }
     )
 }
 
 @Composable
-fun DefaultCard(
+fun AppCard(
     content: @Composable (ColumnScope.() -> Unit)
 ) {
     Card(
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             .fillMaxWidth(),
+        content = content,
+    )
+}
+
+@Composable
+fun AppCustomCard(
+    modifier: Modifier = Modifier,
+    content: @Composable (ColumnScope.() -> Unit)
+) {
+    Card(
+        modifier = modifier,
         content = content,
     )
 }
@@ -110,10 +124,11 @@ private fun CardRowView(
         Text(
             modifier = Modifier
                 .padding(16.dp)
-                .weight(1f),
+                .weight(1f)
+                .align(Alignment.CenterVertically),
             text = cardText,
             maxLines = 1,
-            style = MaterialTheme.typography.labelMedium,
+            style = textStyleCallout(),
             overflow = TextOverflow.Ellipsis,
         )
         Image(

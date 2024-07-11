@@ -46,7 +46,7 @@ fun Navigation(context: Context) {
             enterTransition = { slideInVertically(initialOffsetY = { it }) },
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
-            ChartScreen(context)
+            ChartScreen(context, navController)
         }
     }
 }
