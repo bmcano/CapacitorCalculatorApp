@@ -1,4 +1,4 @@
-package com.brandoncano.resistancecalculator.components
+package com.brandoncano.capacitorcalculator.components
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -11,11 +11,13 @@ import java.lang.reflect.Type
  *
  * Notes:
  *   Data is saved as xml files with mapping, where name_ -> file name; key_ -> key in map.
- *   Device File Explorer -> data -> data -> com.brandoncano.resistancecalculator -> shared_prefs
+ *   Device File Explorer -> data -> data -> com.brandoncano.capacitorcalculator -> shared_prefs
  */
 enum class SharedPreferences(private val _name: String, private val _key: String) {
 
-    // TODO - add items to store
+    CODE_INPUT_CV("code_value", "code_input"),
+    UNITS_DROPDOWN_CV("code_value", "units_dropdown"),
+    TOLERANCE_DROPDOWN_CV("code_value", "tolerance_dropdown"),
 
     ; // methods to save, load, or clear the data as strings
 

@@ -11,7 +11,8 @@ data class Capacitor(
     var pf: String = "",
     var nf: String = "",
     var uf: String = "",
-    var tolerance: CapacitorTolerance? = null
+    var tolerance: CapacitorTolerance? = null,
+    var units: String = "",
 ) {
     fun isEmpty(): Boolean {
         return code.isEmpty()

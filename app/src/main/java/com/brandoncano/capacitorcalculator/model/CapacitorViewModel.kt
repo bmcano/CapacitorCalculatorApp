@@ -32,26 +32,15 @@ class CapacitorViewModel : ViewModel() {
         capacitor.value = capacitor.value?.copy(code = value)
     }
 
-    fun updatePf(value: String) {
-        capacitor.value = capacitor.value?.copy(pf = value)
-    }
-
-    fun updateNf(value: String) {
-        capacitor.value = capacitor.value?.copy(nf = value)
-    }
-
-    fun updateUf(value: String) {
-        capacitor.value = capacitor.value?.copy(uf = value)
+    fun updateUnits(value: String) {
+        capacitor.value = capacitor.value?.copy(units = value)
     }
 
     fun updateTolerance(value: CapacitorTolerance?) {
         capacitor.value = capacitor.value?.copy(tolerance = value)
     }
 
-    fun calculateValues() {
-        capacitor.value?.computeFromCode()
-        capacitor.value?.computeFromPF()
-        capacitor.value?.computeFromNF()
-        capacitor.value?.computeFromUF()
+    fun saveCapacitorValues(capacitor: Capacitor) {
+        // TODO - add repo
     }
 }

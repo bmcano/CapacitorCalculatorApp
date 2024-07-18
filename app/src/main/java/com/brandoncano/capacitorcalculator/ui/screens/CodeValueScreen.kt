@@ -40,6 +40,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.isCodeInvalid
 
 @Composable
@@ -68,8 +69,8 @@ private fun ContentView(
     var reset by remember { mutableStateOf(false) }
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
     var code by remember { mutableStateOf(capacitor.code) }
-    var units by remember { mutableStateOf("") }
-    var isError by remember { mutableStateOf(false) }
+    var units by remember { mutableStateOf(capacitor.units) }
+    var isError by remember { mutableStateOf(capacitor.isCodeInvalid()) }
 
     Column(
         modifier = Modifier
@@ -99,23 +100,28 @@ private fun ContentView(
             reset = false
             code = it
             viewModel.updateCode(it)
-            isError = capacitor.isCodeInvalid(it)
+            isError = capacitor.isCodeInvalid()
             if (!isError) {
-                viewModel.calculateValues()
+                viewModel.saveCapacitorValues(capacitor)
+                capacitor.formatCapacitance()
             }
         }
 
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
             label = R.string.code_value_units,
-            selectedOption = "",
+            selectedOption = capacitor.units,
             items = listOf("pF", "nF", "µF"),
             reset = reset
         ) {
             units = it
+            viewModel.updateUnits(it)
             reset = false
+            focusManager.clearFocus()
+            viewModel.saveCapacitorValues(capacitor)
         }
 
+        // TODO - rewrite this
         OutlinedDropDownMenu(
             label = stringResource(id = R.string.home_tolerance_dropdown),
             items = CapacitorTolerance.entries,
@@ -123,7 +129,7 @@ private fun ContentView(
             startingValue = capacitor.tolerance
         )
 
-        ViewCommonCodeButton(navController)
+        ViewCommonCodeButton(navController) // unsure if this should be here or home page
     }
 }
 

@@ -21,6 +21,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
 
 @Composable
 fun CapacitorLayout(capacitor: Capacitor) {
@@ -36,7 +37,7 @@ fun CapacitorLayout(capacitor: Capacitor) {
                 contentDescription = stringResource(id = R.string.content_description_app_icon),
             )
             Text(
-                text = capacitor.code,
+                text = capacitor.code + (capacitor.tolerance?.name ?: ""),
                 style = textStyleLargeTitle().white()
             )
         }
@@ -44,20 +45,20 @@ fun CapacitorLayout(capacitor: Capacitor) {
             if (capacitor.isEmpty()) {
                 stringResource(id = R.string.default_code)
             } else {
-                capacitor.computeFromCode()
-                capacitor.pf + " pF"
-            }
+                capacitor.formatCapacitance()
+            },
+            capacitor.tolerance?.percentage ?: ""
         )
     }
 }
 
 @Composable
-private fun CapacitanceText(resistance: String) {
+private fun CapacitanceText(capacitance: String, tolerance: String) {
     AppCard(
         modifier = Modifier.padding(top = 12.dp)
     ) {
         Text(
-            text = resistance,
+            text = "$capacitance $tolerance",
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
