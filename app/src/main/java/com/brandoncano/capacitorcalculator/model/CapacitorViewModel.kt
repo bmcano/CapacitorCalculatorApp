@@ -1,38 +1,57 @@
 package com.brandoncano.capacitorcalculator.model
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.brandoncano.capacitorcalculator.util.IsValidCapacitance
-import com.brandoncano.capacitorcalculator.util.IsValidCode
+import com.brandoncano.capacitorcalculator.components.CapacitorTolerance
 
 /**
  * Job: ViewModel for the home screen holding the capacitor components
  */
 class CapacitorViewModel : ViewModel() {
 
-    var capacitor = Capacitor()
-    var textField: TextField = TextField.CODE
-    var isError = false
+    private val capacitor = MutableLiveData<Capacitor>()
 
-    fun calculateCapacitance() {
-        val isValid = when(textField) {
-            TextField.CODE -> IsValidCode.execute(capacitor.code)
-            TextField.PF -> IsValidCapacitance.checkPF(capacitor.pf)
-            TextField.NF -> IsValidCapacitance.checkNF(capacitor.nf)
-            TextField.UF -> IsValidCapacitance.checkUF(capacitor.uf)
-        }
-        if (isValid) {
-            when(textField) {
-                TextField.CODE -> capacitor.computeFromCode()
-                TextField.PF -> capacitor.computeFromPF()
-                TextField.NF -> capacitor.computeFromNF()
-                TextField.UF -> capacitor.computeFromUF()
-            }
-        }
-        isError = !isValid
+    init {
+        capacitor.value = Capacitor()
     }
 
-    fun clearFields() {
-        capacitor = Capacitor()
-        isError = false
+    override fun onCleared() {
+        capacitor.value = null
+    }
+
+    fun clear() {
+        capacitor.value = Capacitor()
+    }
+
+    fun getCapacitorLiveData(): LiveData<Capacitor> {
+        return capacitor
+    }
+
+    fun updateCode(value: String) {
+        capacitor.value = capacitor.value?.copy(code = value)
+    }
+
+    fun updatePf(value: String) {
+        capacitor.value = capacitor.value?.copy(pf = value)
+    }
+
+    fun updateNf(value: String) {
+        capacitor.value = capacitor.value?.copy(nf = value)
+    }
+
+    fun updateUf(value: String) {
+        capacitor.value = capacitor.value?.copy(uf = value)
+    }
+
+    fun updateTolerance(value: CapacitorTolerance?) {
+        capacitor.value = capacitor.value?.copy(tolerance = value)
+    }
+
+    fun calculateValues() {
+        capacitor.value?.computeFromCode()
+        capacitor.value?.computeFromPF()
+        capacitor.value?.computeFromNF()
+        capacitor.value?.computeFromUF()
     }
 }

@@ -1,5 +1,6 @@
 package com.brandoncano.capacitorcalculator.model
 
+import com.brandoncano.capacitorcalculator.components.CapacitorTolerance
 import com.brandoncano.capacitorcalculator.util.MultiplierFromDigit
 
 /**
@@ -12,6 +13,10 @@ data class Capacitor(
     var uf: String = "",
     var tolerance: CapacitorTolerance? = null
 ) {
+    fun isEmpty(): Boolean {
+        return code.isEmpty()
+    }
+
     fun computeFromCode() {
         if (code.isEmpty()) return
         val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()

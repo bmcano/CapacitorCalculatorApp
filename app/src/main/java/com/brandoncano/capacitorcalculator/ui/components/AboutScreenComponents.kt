@@ -20,7 +20,7 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
+import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
@@ -28,7 +28,7 @@ import com.brandoncano.capacitorcalculator.util.PlayStore
 
 @Composable
 fun AuthorCard() {
-    AppCard {
+    AppStandardCard {
         HeadlineBodyStack(
             label = R.string.about_created_by,
             body = R.string.about_author,
@@ -39,7 +39,7 @@ fun AuthorCard() {
 
 @Composable
 fun AppInfoCard() {
-    AppCard {
+    AppStandardCard {
         HeadlineBodyStack(
             label = R.string.about_app_version,
             body = R.string.version,
@@ -59,7 +59,7 @@ fun AppInfoCard() {
 @Composable
 fun DescriptionCard() {
     val modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp)
-    AppCard {
+    AppStandardCard {
         Text(
             text = stringResource(id = R.string.about_description),
             modifier = modifier,

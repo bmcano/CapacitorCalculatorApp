@@ -47,13 +47,24 @@ fun AppDivider(
 }
 
 @Composable
-fun AppCard(
+fun AppStandardCard(
     content: @Composable (ColumnScope.() -> Unit)
 ) {
     Card(
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             .fillMaxWidth(),
+        content = content,
+    )
+}
+
+@Composable
+fun AppCard(
+    modifier: Modifier = Modifier,
+    content: @Composable (ColumnScope.() -> Unit)
+) {
+    Card(
+        modifier = modifier,
         content = content,
     )
 }

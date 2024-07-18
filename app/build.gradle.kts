@@ -13,7 +13,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 6
-        versionName = "1.0.4-develop"
+        versionName = "1.1.0-develop"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -67,6 +67,8 @@ dependencies {
     implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.compose.material.icons)
     implementation(libs.androidx.compose.material3)
+    // com.google
+    implementation(libs.gson)
     // unit testing
     testImplementation(libs.junit)
 }

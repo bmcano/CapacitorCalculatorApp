@@ -120,7 +120,7 @@ private fun MenuTopAppBarPreview() {
     val interactionSource = remember { MutableInteractionSource() }
     CapacitorCalculatorTheme {
         MenuTopAppBar("MenuTopAppBar", interactionSource) {
-            ClearMenuItem(interactionSource) { }
+            ClearSelectionsMenuItem(interactionSource) { }
         }
     }
 }

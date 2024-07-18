@@ -105,3 +105,8 @@ private fun TextStylePreview() {
         }
     }
 }
+
+@Composable
+fun TextStyle.white() = this.merge(
+    color = white
+)
