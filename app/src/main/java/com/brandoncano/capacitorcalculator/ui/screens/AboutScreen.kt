@@ -19,6 +19,7 @@ import com.brandoncano.capacitorcalculator.ui.components.AppInfoCard
 import com.brandoncano.capacitorcalculator.ui.components.AuthorCard
 import com.brandoncano.capacitorcalculator.ui.components.DescriptionCard
 import com.brandoncano.capacitorcalculator.ui.components.OurAppsButtons
+import com.brandoncano.capacitorcalculator.ui.components.ViewPrivacyPolicy
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -47,6 +48,7 @@ private fun ContentView(context: Context) {
         AppTopAppBar(stringResource(R.string.about_title))
         AuthorCard()
         AppInfoCard()
+        ViewPrivacyPolicy(context)
         DescriptionCard()
         OurAppsButtons(context)
         Spacer(modifier = Modifier.height(16.dp))

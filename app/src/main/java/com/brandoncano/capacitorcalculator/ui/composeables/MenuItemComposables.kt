@@ -34,7 +34,7 @@ fun ShareMenuItem(capacitor: Capacitor, context: Context, interactionSource: Mut
             text = stringResource(R.string.menu_share),
             style = textStyleBody(),
         ) },
-        onClick = { ShareCapacitance.execute(capacitor, context)  },
+        onClick = { ShareCapacitance.execute(capacitor.toString(), context)  },
         interactionSource = interactionSource,
     )
 }

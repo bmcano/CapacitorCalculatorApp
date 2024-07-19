@@ -4,18 +4,20 @@ import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
+import com.brandoncano.capacitorcalculator.constants.Links
 
-object PlayStore {
-
-    private const val CAPACITOR_LINK = "https://play.google.com/store/apps/details?id=com.brandoncano.capacitorcalculator"
-    private const val RESISTOR_LINK = "https://play.google.com/store/apps/details?id=com.brandoncano.resistancecalculator"
+object OpenLink {
 
     fun openCapacitorApp(context: Context) {
-        open(context, CAPACITOR_LINK)
+        open(context, Links.CAPACITOR_PLAYSTORE)
     }
 
     fun openResistorApp(context: Context) {
-        open(context, RESISTOR_LINK)
+        open(context, Links.RESISTOR_PLAYSTORE)
+    }
+
+    fun openPrivacyPolicy(context: Context) {
+        open(context, Links.PRIVACY_POLICY)
     }
 
     private fun open(context: Context, link: String) {

@@ -3,7 +3,6 @@ package com.brandoncano.capacitorcalculator.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.brandoncano.capacitorcalculator.components.CapacitorTolerance
 
 /**
  * Job: ViewModel for the home screen holding the capacitor components
@@ -36,7 +35,7 @@ class CapacitorViewModel : ViewModel() {
         capacitor.value = capacitor.value?.copy(units = value)
     }
 
-    fun updateTolerance(value: CapacitorTolerance?) {
+    fun updateTolerance(value: String) {
         capacitor.value = capacitor.value?.copy(tolerance = value)
     }
 

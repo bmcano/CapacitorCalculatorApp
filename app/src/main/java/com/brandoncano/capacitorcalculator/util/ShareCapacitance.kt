@@ -6,10 +6,10 @@ import com.brandoncano.capacitorcalculator.model.Capacitor
 
 object ShareCapacitance {
 
-    fun execute(capacitor: Capacitor, context: Context) {
+    fun execute(text: String, context: Context) {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "plain/text"
-        intent.putExtra(Intent.EXTRA_TEXT, "$capacitor")
+        intent.putExtra(Intent.EXTRA_TEXT, text)
         context.startActivity(Intent.createChooser(intent, ""))
     }
 }

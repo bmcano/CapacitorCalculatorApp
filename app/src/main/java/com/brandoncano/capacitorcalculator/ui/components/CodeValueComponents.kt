@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FileOpen
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,15 +15,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
+import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 @Composable
 fun CapacitorLayout(capacitor: Capacitor) {
@@ -37,7 +43,7 @@ fun CapacitorLayout(capacitor: Capacitor) {
                 contentDescription = stringResource(id = R.string.content_description_app_icon),
             )
             Text(
-                text = capacitor.code + (capacitor.tolerance?.name ?: ""),
+                text = capacitor.code + capacitor.tolerance,
                 style = textStyleLargeTitle().white()
             )
         }
@@ -47,7 +53,7 @@ fun CapacitorLayout(capacitor: Capacitor) {
             } else {
                 capacitor.formatCapacitance()
             },
-            capacitor.tolerance?.percentage ?: ""
+            capacitor.getTolerancePercentage()
         )
     }
 }
@@ -67,10 +73,25 @@ private fun CapacitanceText(capacitance: String, tolerance: String) {
     }
 }
 
+@Composable
+fun ViewCommonCodeButton(navController: NavController) {
+    ArrowButtonCard(
+        Icons.Outlined.FileOpen,
+        stringResource(id = R.string.home_view_codes)
+    ) {
+        navController.navigate(Screen.Chart.route)
+    }
+}
+
 @AppComponentPreviews
 @Composable
 fun CapacitorLayoutPreview() {
     CapacitorCalculatorTheme {
-        CapacitorLayout(capacitor = Capacitor(code = "123"))
+        Column {
+            CapacitorLayout(capacitor = Capacitor(code = "123"))
+            CapacitorLayout(capacitor = Capacitor(code = "123", units = "nF"))
+            CapacitorLayout(capacitor = Capacitor(code = "126", units = "µF", tolerance = "D"))
+        }
+
     }
 }

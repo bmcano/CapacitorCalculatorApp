@@ -24,12 +24,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.constants.DropdownLists
 import com.brandoncano.capacitorcalculator.model.Capacitor
-import com.brandoncano.capacitorcalculator.components.CapacitorTolerance
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.components.CapacitorLayout
-import com.brandoncano.capacitorcalculator.ui.components.OutlinedDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.components.ViewCommonCodeButton
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDropDownMenu
@@ -70,6 +69,7 @@ private fun ContentView(
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
+    var tolerance by remember { mutableStateOf(capacitor.tolerance) }
     var isError by remember { mutableStateOf(capacitor.isCodeInvalid()) }
 
     Column(
@@ -78,7 +78,7 @@ private fun ContentView(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuTopAppBar(stringResource(R.string.app_name), interactionSource) {
+        MenuTopAppBar(stringResource(R.string.code_value_title), interactionSource) {
             ClearSelectionsMenuItem(interactionSource = interactionSource) {
                 reset = true
                 viewModel.clear()
@@ -111,7 +111,7 @@ private fun ContentView(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
             label = R.string.code_value_units,
             selectedOption = capacitor.units,
-            items = listOf("pF", "nF", "µF"),
+            items = DropdownLists.UNITS,
             reset = reset
         ) {
             units = it
@@ -121,13 +121,19 @@ private fun ContentView(
             viewModel.saveCapacitorValues(capacitor)
         }
 
-        // TODO - rewrite this
-        OutlinedDropDownMenu(
-            label = stringResource(id = R.string.home_tolerance_dropdown),
-            items = CapacitorTolerance.entries,
-            viewModel = viewModel,
-            startingValue = capacitor.tolerance
-        )
+        AppDropDownMenu(
+            modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+            label = R.string.code_value_tolerance,
+            selectedOption = capacitor.tolerance,
+            items = DropdownLists.TOLERANCE,
+            reset = reset
+        ) {
+            tolerance = it
+            viewModel.updateTolerance(it)
+            reset = false
+            focusManager.clearFocus()
+            viewModel.saveCapacitorValues(capacitor)
+        }
 
         ViewCommonCodeButton(navController) // unsure if this should be here or home page
     }

@@ -59,7 +59,6 @@ private fun ContentView(
 
         // TODO - add app icon like with resistor app
         CodeValueCalculatorButton(navController)
-        ViewCommonCodeButton(navController)
         OurAppsButtons(context)
     }
 }

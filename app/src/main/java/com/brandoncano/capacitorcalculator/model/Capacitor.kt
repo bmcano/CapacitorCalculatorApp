@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.model
 
-import com.brandoncano.capacitorcalculator.components.CapacitorTolerance
-import com.brandoncano.capacitorcalculator.util.MultiplierFromDigit
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 /**
  * Job: Holds capacitor values and methods to compute each other value
@@ -11,21 +11,11 @@ data class Capacitor(
     var pf: String = "",
     var nf: String = "",
     var uf: String = "",
-    var tolerance: CapacitorTolerance? = null,
+    var tolerance: String = "",
     var units: String = "",
 ) {
     fun isEmpty(): Boolean {
         return code.isEmpty()
-    }
-
-    fun computeFromCode() {
-        if (code.isEmpty()) return
-        val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()
-        val multiplier = if (code.length == 3) code.takeLast(1) else "0"
-        val pico = number * MultiplierFromDigit.execute(multiplier)
-        pf = "$pico"
-        nf = "${pico.toDouble() / 1000}"
-        uf = "${pico.toDouble() / 1000000}"
     }
 
     fun computeFromPF() {
@@ -60,9 +50,6 @@ data class Capacitor(
     }
 
     override fun toString(): String {
-        if (tolerance != null) {
-            return "$code${tolerance?.name}\n${uf}μF\n${nf}nF\n${pf}pF\n${tolerance?.percentage}"
-        }
-        return "$code\n${uf}μF\n${nf}nF\n${pf}pF"
+        return "$code$tolerance\n${this.formatCapacitance()} ${this.getTolerancePercentage()}"
     }
 }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
+import androidx.compose.material.icons.outlined.FileOpen
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +25,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
-import com.brandoncano.capacitorcalculator.util.PlayStore
+import com.brandoncano.capacitorcalculator.util.OpenLink
 
 @Composable
 fun AuthorCard() {
@@ -53,6 +54,16 @@ fun AppInfoCard() {
             body = R.string.last_updated,
         )
         Spacer(modifier = Modifier.height(16.dp))
+    }
+}
+
+@Composable
+fun ViewPrivacyPolicy(context: Context) {
+    ArrowButtonCard(
+        Icons.Outlined.FileOpen,
+        stringResource(id = R.string.about_view_privacy_policy),
+    ) {
+        OpenLink.openPrivacyPolicy(context)
     }
 }
 
@@ -104,8 +115,8 @@ fun OurAppsButtons(context: Context) {
                 stringResource(id = R.string.about_view_resistor_app)
             ),
             listOf(
-                { PlayStore.openResistorApp(context) },
-                { PlayStore.openCapacitorApp(context) }
+                { OpenLink.openResistorApp(context) },
+                { OpenLink.openCapacitorApp(context) }
             ),
         )
     }
