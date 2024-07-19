@@ -9,7 +9,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.Capacitor
-import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.util.EmailFeedback

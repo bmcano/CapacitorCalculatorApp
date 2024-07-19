@@ -2,7 +2,6 @@ package com.brandoncano.capacitorcalculator.util
 
 import android.content.Context
 import android.content.Intent
-import com.brandoncano.capacitorcalculator.model.Capacitor
 
 object ShareCapacitance {
 
