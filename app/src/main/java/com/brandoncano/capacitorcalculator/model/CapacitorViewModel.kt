@@ -31,6 +31,10 @@ class CapacitorViewModel : ViewModel() {
         capacitor.value = capacitor.value?.copy(code = value)
     }
 
+    fun updateCapacitance(value: String) {
+        capacitor.value = capacitor.value?.copy(capacitance = value)
+    }
+
     fun updateUnits(value: String) {
         capacitor.value = capacitor.value?.copy(units = value)
     }

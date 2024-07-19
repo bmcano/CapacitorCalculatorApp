@@ -10,6 +10,8 @@ gson = "2.10.1" # 7/18/24
 junit = "4.13.2" # 7/7/24
 material3 = "1.2.1" # 7/7/24
 navigation-compose = "2.7.7" # 7/7/24
+pager = "0.34.0" # 7/18/24
+ui-test-junit4 = "1.6.8" # 7/18/24
 # gradle/language
 agp = "8.5.1" # 7/7/24
 kotlin = "2.0.0" # 7/7/24
@@ -27,13 +29,15 @@ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name ="ui-graphi
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "ui-test-junit4" }
 androidx-compose-runtime-livedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose" }
 androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 # com.google
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "pager" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "pager" }
 # unit testing
 junit = { module = "junit:junit", version.ref = "junit" }
 

@@ -69,6 +69,8 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     // com.google
     implementation(libs.gson)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
     // unit testing
     testImplementation(libs.junit)
 }

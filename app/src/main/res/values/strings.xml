@@ -9,6 +9,7 @@
     <string name="code_value_units">Units</string>
     <string name="code_value_code">Code</string>
     <string name="code_value_tolerance">Tolerance</string>
+    <string name="code_value_capacitance">Capacitance</string>
     <!-- about screen -->
     <string name="about_title">About this app</string>
     <string name="about_app_version">App version</string>
@@ -42,6 +43,7 @@
     <string name="content_description_app_icon">App icon</string>
     <!-- default values -->
     <string name="default_code">Enter code</string>
+    <string name="default_capacitance">Enter capacitance</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
 
 </resources>

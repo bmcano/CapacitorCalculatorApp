@@ -27,10 +27,11 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 @Composable
-fun CapacitorLayout(capacitor: Capacitor) {
+fun CapacitorLayout(capacitor: Capacitor, isCode: Boolean = true) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -43,18 +44,33 @@ fun CapacitorLayout(capacitor: Capacitor) {
                 contentDescription = stringResource(id = R.string.content_description_app_icon),
             )
             Text(
-                text = capacitor.code + capacitor.tolerance,
+                text = if (isCode) {
+                    capacitor.code + capacitor.tolerance
+                } else {
+                    capacitor.formatCode()
+                },
                 style = textStyleLargeTitle().white()
             )
         }
-        CapacitanceText(
-            if (capacitor.isEmpty()) {
-                stringResource(id = R.string.default_code)
-            } else {
-                capacitor.formatCapacitance()
-            },
-            capacitor.getTolerancePercentage()
-        )
+
+        if (isCode) {
+            CapacitanceText(
+                if (capacitor.isEmpty()) {
+                    stringResource(id = R.string.default_code)
+                } else {
+                    capacitor.formatCapacitance()
+                },
+                capacitor.getTolerancePercentage()
+            )
+        } else {
+            CapacitanceText(
+                if (capacitor.isEmpty(false)) {
+                    stringResource(id = R.string.default_capacitance)
+                } else {
+                    "${capacitor.capacitance} ${capacitor.units}"
+                }
+            )
+        }
     }
 }
 
@@ -65,6 +81,21 @@ private fun CapacitanceText(capacitance: String, tolerance: String) {
     ) {
         Text(
             text = "$capacitance $tolerance",
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
+            style = textStyleTitle(),
+        )
+    }
+}
+
+@Composable
+private fun CapacitanceText(capacitance: String) {
+    AppCard(
+        modifier = Modifier.padding(top = 12.dp)
+    ) {
+        Text(
+            text = capacitance,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
