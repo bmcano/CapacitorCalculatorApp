@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
- * Job: ViewModel for the home screen holding the capacitor components
+ * Job: ViewModel for the ceramic capacitor screen holding the capacitor components
  */
 class CapacitorViewModel : ViewModel() {
 

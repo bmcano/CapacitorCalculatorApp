@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
     <!-- home screen -->
-    <string name="home_code_value_button">Ceramic Capacitor</string>
+    <string name="home_ceramic_calculator_button">Ceramic Capacitor</string>
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_view_codes">View common codes</string>
-    <!-- code value screen -->
-    <string name="code_value_title">Ceramic Capacitor</string>
-    <string name="code_value_units">Units</string>
-    <string name="code_value_code">Code</string>
-    <string name="code_value_tolerance">Tolerance</string>
-    <string name="code_value_capacitance">Capacitance</string>
+    <!-- ceramic calculator screen -->
+    <string name="ceramic_calculator_title">Ceramic Capacitor</string>
+    <string name="ceramic_calculator_units">Units</string>
+    <string name="ceramic_calculator_code">Code</string>
+    <string name="ceramic_calculator_tolerance">Tolerance</string>
+    <string name="ceramic_calculator_capacitance">Capacitance</string>
     <!-- about screen -->
     <string name="about_title">About this app</string>
     <string name="about_app_version">App version</string>
@@ -34,8 +34,6 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_clear">Clear selections</string>
     <string name="menu_about">About this app</string>
-    <!-- hints -->
-    <string name="error_invalid_input">Invalid input</string>
     <!-- content descriptions -->
     <string name="content_description_menu_more">More</string>
     <string name="content_right_arrow">Right arrow</string>
@@ -45,5 +43,8 @@
     <string name="default_code">Enter code</string>
     <string name="default_capacitance">Enter capacitance</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
-
+    <!-- error messages -->
+    <string name="error_invalid_code">Invalid code</string>
+    <string name="error_invalid_capacitance">Invalid capacitance</string>
+    <string name="error_na">N/A</string>
 </resources>

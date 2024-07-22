@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 
 @Composable
 fun AppTextField(
@@ -33,6 +34,7 @@ fun AppTextField(
     text: String = "",
     reset: Boolean = false,
     isError: Boolean = false,
+    errorMessage: String = "",
     onOptionSelected: (String) -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -66,6 +68,16 @@ fun AppTextField(
                     )
             },
             isError = isError,
+            supportingText = if (isError && errorMessage.isNotEmpty()) {
+                {
+                    Text(
+                        text = errorMessage,
+                        style = textStyleSubhead()
+                    )
+                }
+            } else {
+                null
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             singleLine = true,
             interactionSource = interactionSource

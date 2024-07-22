@@ -31,7 +31,11 @@ import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 @Composable
-fun CapacitorLayout(capacitor: Capacitor, isCode: Boolean = true) {
+fun CapacitorLayout(
+    capacitor: Capacitor,
+    isCode: Boolean = true,
+    isError: Boolean = false
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -44,7 +48,9 @@ fun CapacitorLayout(capacitor: Capacitor, isCode: Boolean = true) {
                 contentDescription = stringResource(id = R.string.content_description_app_icon),
             )
             Text(
-                text = if (isCode) {
+                text = if (isError) {
+                    stringResource(id = R.string.error_na)
+                } else if (isCode) {
                     capacitor.code + capacitor.tolerance
                 } else {
                     capacitor.formatCode()
@@ -53,7 +59,12 @@ fun CapacitorLayout(capacitor: Capacitor, isCode: Boolean = true) {
             )
         }
 
-        if (isCode) {
+        if (isError) {
+            CapacitanceText(
+                stringResource(id = R.string.error_na)
+            )
+        }
+        else if (isCode) {
             CapacitanceText(
                 if (capacitor.isEmpty()) {
                     stringResource(id = R.string.default_code)

@@ -15,9 +15,9 @@ import java.lang.reflect.Type
  */
 enum class SharedPreferences(private val _name: String, private val _key: String) {
 
-    CODE_INPUT_CV("code_value", "code_input"),
-    UNITS_DROPDOWN_CV("code_value", "units_dropdown"),
-    TOLERANCE_DROPDOWN_CV("code_value", "tolerance_dropdown"),
+    CODE_INPUT_CERAMIC("ceramic_calculator", "code_input"),
+    UNITS_DROPDOWN_CERAMIC("ceramic_calculator", "units_dropdown"),
+    TOLERANCE_DROPDOWN_CERAMIC("ceramic_calculator", "tolerance_dropdown"),
 
     ; // methods to save, load, or clear the data as strings
 

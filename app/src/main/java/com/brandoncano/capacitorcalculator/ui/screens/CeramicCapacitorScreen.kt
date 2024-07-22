@@ -47,7 +47,6 @@ import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
-import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.formatCode
@@ -57,7 +56,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CodeValueScreen(
+fun CeramicCalculatorScreen(
     context: Context,
     navController: NavController,
     viewModel: CapacitorViewModel,
@@ -78,7 +77,7 @@ fun CodeValueScreen(
             val pagerState = rememberPagerState(initialPage = 0) { 2 }
             val coroutineScope = rememberCoroutineScope()
             Column {
-                MenuTopAppBar(stringResource(R.string.code_value_title), interactionSource) {
+                MenuTopAppBar(stringResource(R.string.ceramic_calculator_title), interactionSource) {
                     ClearSelectionsMenuItem(interactionSource = interactionSource) {
                         onReset(true)
                         focusManager.clearFocus()
@@ -144,13 +143,14 @@ private fun ContentView1(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CapacitorLayout(capacitor)
+        CapacitorLayout(capacitor, isError = isError)
         AppTextField(
             modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
-            label = stringResource(id = R.string.code_value_code),
+            label = stringResource(id = R.string.ceramic_calculator_code),
             text = code,
             reset = reset,
             isError = isError,
+            errorMessage = stringResource(id = R.string.error_invalid_code),
         ) {
             onReset(false)
             code = it
@@ -164,7 +164,7 @@ private fun ContentView1(
 
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
-            label = R.string.code_value_units,
+            label = R.string.ceramic_calculator_units,
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
             reset = reset
@@ -178,7 +178,7 @@ private fun ContentView1(
 
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
-            label = R.string.code_value_tolerance,
+            label = R.string.ceramic_calculator_tolerance,
             selectedOption = capacitor.tolerance,
             items = DropdownLists.TOLERANCE,
             reset = reset
@@ -213,13 +213,14 @@ private fun ContentView2(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CapacitorLayout(capacitor, false)
+        CapacitorLayout(capacitor, isCode = false, isError = isError)
         AppTextField(
             modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
-            label = stringResource(id = R.string.code_value_capacitance),
+            label = stringResource(id = R.string.ceramic_calculator_capacitance),
             text = capacitance,
             reset = reset,
             isError = isError,
+            errorMessage = stringResource(id = R.string.error_invalid_capacitance),
         ) {
             onReset(false)
             capacitance = it
@@ -233,25 +234,29 @@ private fun ContentView2(
 
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
-            label = R.string.code_value_units,
+            label = R.string.ceramic_calculator_units,
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
             reset = reset
         ) {
+            onReset(false)
             units = it
             viewModel.updateUnits(it)
-            onReset(false)
             focusManager.clearFocus()
-            viewModel.saveCapacitorValues(capacitor)
+            isError = capacitor.isCapacitanceInvalid()
+            if (!isError) {
+                viewModel.saveCapacitorValues(capacitor)
+                capacitor.formatCode()
+            }
         }
     }
 }
 
 @AppScreenPreviews
 @Composable
-private fun CodeValuePreview() {
+private fun CeramicCalculatorPreview() {
     val app = MainActivity()
     val viewModel = viewModel<CapacitorViewModel>()
     val capacitor = MutableLiveData<Capacitor>()
-    CodeValueScreen(app, NavController(app), viewModel, capacitor)
+    CeramicCalculatorScreen(app, NavController(app), viewModel, capacitor)
 }

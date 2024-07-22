@@ -21,7 +21,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
  */
 
 @Composable
-fun CodeValueCalculatorButton(navController: NavController) {
+fun AppCalculatorButtons(navController: NavController) {
     Column {
         Text(
             text = stringResource(id = R.string.home_calculators_header_text),
@@ -32,9 +32,9 @@ fun CodeValueCalculatorButton(navController: NavController) {
         )
         ArrowButtonCard(
             Icons.Outlined.Calculate,
-            stringResource(id = R.string.home_code_value_button),
+            stringResource(id = R.string.home_ceramic_calculator_button),
         ) {
-            navController.navigate(Screen.CodeValue.route)
+            navController.navigate(Screen.CeramicCalculator.route)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.brandoncano.capacitorcalculator.util
 
+import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.Capacitor
 
 fun Capacitor.isCodeInvalid(): Boolean {
@@ -16,14 +17,18 @@ fun Capacitor.getTolerancePercentage(): String {
 
 fun Capacitor.isCapacitanceInvalid(): Boolean {
     return !when (this.units) {
-        "pF" -> IsValidCapacitance.checkPF(this.capacitance)
-        "nF" -> IsValidCapacitance.checkNF(this.capacitance)
-        "µF" -> IsValidCapacitance.checkUF(this.capacitance)
+        Units.PF -> IsValidCapacitance.checkPF(this.capacitance)
+        Units.NF -> IsValidCapacitance.checkNF(this.capacitance)
+        Units.UF -> IsValidCapacitance.checkUF(this.capacitance)
         else -> IsValidCapacitance.checkPF(this.capacitance)
     }
 }
 
 fun Capacitor.formatCode(): String {
-
-    return ""
+    return when (this.units) {
+        Units.PF -> CodeFormatter.computeFromPF(this.capacitance)
+        Units.NF -> CodeFormatter.computeFromNF(this.capacitance)
+        Units.UF -> CodeFormatter.computeFromUF(this.capacitance)
+        else -> CodeFormatter.computeFromPF(this.capacitance)
+    }
 }

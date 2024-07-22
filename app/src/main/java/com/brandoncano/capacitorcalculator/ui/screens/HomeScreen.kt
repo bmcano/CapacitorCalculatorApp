@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.CodeValueCalculatorButton
+import com.brandoncano.capacitorcalculator.ui.components.AppCalculatorButtons
 import com.brandoncano.capacitorcalculator.ui.components.OurAppsButtons
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
@@ -57,7 +57,7 @@ private fun ContentView(
         }
 
         // TODO - add app icon like with resistor app
-        CodeValueCalculatorButton(navController)
+        AppCalculatorButtons(navController)
         OurAppsButtons(context)
     }
 }

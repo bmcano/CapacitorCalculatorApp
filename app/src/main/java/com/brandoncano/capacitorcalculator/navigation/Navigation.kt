@@ -13,7 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.ChartScreen
-import com.brandoncano.capacitorcalculator.ui.screens.CodeValueScreen
+import com.brandoncano.capacitorcalculator.ui.screens.CeramicCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.HomeScreen
 
 /**
@@ -35,13 +35,13 @@ fun Navigation(context: Context) {
             HomeScreen(context, navController)
         }
         composable(
-            route = Screen.CodeValue.route,
+            route = Screen.CeramicCalculator.route,
             enterTransition = { slideInVertically(initialOffsetY = { it }) },
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
             val viewModel = viewModel<CapacitorViewModel>()
             val capacitor = viewModel.getCapacitorLiveData()
-            CodeValueScreen(context, navController, viewModel, capacitor)
+            CeramicCalculatorScreen(context, navController, viewModel, capacitor)
         }
         composable(
             route = Screen.About.route,
