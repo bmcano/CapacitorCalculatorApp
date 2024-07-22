@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
     <!-- home screen -->
-    <string name="home_code_value_button">Code Calculator</string>
+    <string name="home_code_value_button">Ceramic Capacitor</string>
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_view_codes">View common codes</string>
     <!-- code value screen -->
-    <string name="code_value_title">Code to Value</string>
+    <string name="code_value_title">Ceramic Capacitor</string>
     <string name="code_value_units">Units</string>
     <string name="code_value_code">Code</string>
     <string name="code_value_tolerance">Tolerance</string>
