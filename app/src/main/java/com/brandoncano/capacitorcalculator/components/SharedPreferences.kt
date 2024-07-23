@@ -16,6 +16,7 @@ import java.lang.reflect.Type
 enum class SharedPreferences(private val _name: String, private val _key: String) {
 
     CODE_INPUT_CERAMIC("ceramic_calculator", "code_input"),
+    CAPACITANCE_INPUT_CERAMIC("ceramic_calculator", "capacitance_input"),
     UNITS_DROPDOWN_CERAMIC("ceramic_calculator", "units_dropdown"),
     TOLERANCE_DROPDOWN_CERAMIC("ceramic_calculator", "tolerance_dropdown"),
 

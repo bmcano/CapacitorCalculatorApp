@@ -1,11 +1,11 @@
 package com.brandoncano.capacitorcalculator.util
 
 import com.brandoncano.capacitorcalculator.constants.Units
-import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 
 object CapacitanceFormatter {
 
-    fun execute(capacitor: Capacitor): String {
+    fun execute(capacitor: CeramicCapacitor): String {
         val code = capacitor.code
         if (code.isEmpty()) return "Enter code"
         val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()

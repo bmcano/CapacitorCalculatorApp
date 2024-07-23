@@ -6,6 +6,8 @@
     <string name="home_view_codes">View common codes</string>
     <!-- ceramic calculator screen -->
     <string name="ceramic_calculator_title">Ceramic Capacitor</string>
+    <string name="ceramic_calculator_tab_1">Code to Capacitance</string>
+    <string name="ceramic_calculator_tab_2">Capacitance to Code</string>
     <string name="ceramic_calculator_units">Units</string>
     <string name="ceramic_calculator_code">Code</string>
     <string name="ceramic_calculator_tolerance">Tolerance</string>

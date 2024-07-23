@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
@@ -27,7 +27,7 @@ fun ClearSelectionsMenuItem(interactionSource: MutableInteractionSource, onClick
 }
 
 @Composable
-fun ShareMenuItem(capacitor: Capacitor, context: Context, interactionSource: MutableInteractionSource) {
+fun ShareMenuItem(capacitor: CeramicCapacitor, context: Context, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
         text = { Text(
             text = stringResource(R.string.menu_share),

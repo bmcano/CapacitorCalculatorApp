@@ -1,9 +1,12 @@
 package com.brandoncano.capacitorcalculator.ui.components
 
+import android.content.Context
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Calculate
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,10 +18,7 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
-
-/**
- * Job: Components specific to the home screen
- */
+import com.brandoncano.capacitorcalculator.util.OpenLink
 
 @Composable
 fun AppCalculatorButtons(navController: NavController) {
@@ -36,6 +36,34 @@ fun AppCalculatorButtons(navController: NavController) {
         ) {
             navController.navigate(Screen.CeramicCalculator.route)
         }
+    }
+}
+
+@Composable
+fun OurAppsButtons(context: Context) {
+    Column {
+        val modifier = Modifier
+            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+            .align(Alignment.Start)
+        Text(
+            text = stringResource(id = R.string.about_our_apps_header_text),
+            modifier = modifier,
+            style = textStyleHeadline(),
+        )
+        ArrowButtonCard(
+            listOf(
+                Icons.Outlined.Star,
+                Icons.AutoMirrored.Outlined.AddToHomeScreen
+            ),
+            listOf(
+                stringResource(id = R.string.about_rate_this_app),
+                stringResource(id = R.string.about_view_resistor_app)
+            ),
+            listOf(
+                { OpenLink.openResistorApp(context) },
+                { OpenLink.openCapacitorApp(context) }
+            ),
+        )
     }
 }
 

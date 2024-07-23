@@ -33,8 +33,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.constants.DropdownLists
-import com.brandoncano.capacitorcalculator.model.Capacitor
-import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
+import com.brandoncano.capacitorcalculator.model.CeramicCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.ceramic.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.components.CapacitorLayout
 import com.brandoncano.capacitorcalculator.ui.components.ViewCommonCodeButton
@@ -59,8 +60,8 @@ import kotlinx.coroutines.launch
 fun CeramicCalculatorScreen(
     context: Context,
     navController: NavController,
-    viewModel: CapacitorViewModel,
-    capacitor: LiveData<Capacitor>
+    viewModel: CeramicCapacitorViewModel,
+    capacitor: LiveData<CeramicCapacitor>
 ) {
     CapacitorCalculatorTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
@@ -93,7 +94,7 @@ fun CeramicCalculatorScreen(
                     Tab(
                         text = {
                             Text(
-                                text = "Code to Capacitance",
+                                text = stringResource(id = R.string.ceramic_calculator_tab_1),
                                 style = textStyleSubhead()
                             )
                         },
@@ -103,7 +104,7 @@ fun CeramicCalculatorScreen(
                     Tab(
                         text = {
                             Text(
-                                text = "Capacitance to Code",
+                                text = stringResource(id = R.string.ceramic_calculator_tab_2),
                                 style = textStyleSubhead()
                             )
                         },
@@ -125,13 +126,13 @@ fun CeramicCalculatorScreen(
 @Composable
 private fun ContentView1(
     navController: NavController,
-    viewModel: CapacitorViewModel,
-    capacitorLiveData: LiveData<Capacitor>,
+    viewModel: CeramicCapacitorViewModel,
+    capacitorLiveData: LiveData<CeramicCapacitor>,
     reset: Boolean,
     onReset: (Boolean) -> Boolean
 ) {
     val focusManager = LocalFocusManager.current
-    val capacitor by capacitorLiveData.observeAsState(Capacitor())
+    val capacitor by capacitorLiveData.observeAsState(CeramicCapacitor())
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var tolerance by remember { mutableStateOf(capacitor.tolerance) }
@@ -196,13 +197,13 @@ private fun ContentView1(
 
 @Composable
 private fun ContentView2(
-    viewModel: CapacitorViewModel,
-    capacitorLiveData: LiveData<Capacitor>,
+    viewModel: CeramicCapacitorViewModel,
+    capacitorLiveData: LiveData<CeramicCapacitor>,
     reset: Boolean,
     onReset: (Boolean) -> Boolean
 ) {
     val focusManager = LocalFocusManager.current
-    val capacitor by capacitorLiveData.observeAsState(Capacitor())
+    val capacitor by capacitorLiveData.observeAsState(CeramicCapacitor())
     var capacitance by remember { mutableStateOf(capacitor.capacitance) }
     var units by remember { mutableStateOf(capacitor.units) }
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }
@@ -256,7 +257,7 @@ private fun ContentView2(
 @Composable
 private fun CeramicCalculatorPreview() {
     val app = MainActivity()
-    val viewModel = viewModel<CapacitorViewModel>()
-    val capacitor = MutableLiveData<Capacitor>()
+    val viewModel = viewModel<CeramicCapacitorViewModel>(factory = CapacitorViewModelFactory(app))
+    val capacitor = MutableLiveData<CeramicCapacitor>()
     CeramicCalculatorScreen(app, NavController(app), viewModel, capacitor)
 }

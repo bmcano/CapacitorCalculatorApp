@@ -1,18 +1,22 @@
 package com.brandoncano.capacitorcalculator.model
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorRepository
 
 /**
  * Job: ViewModel for the ceramic capacitor screen holding the capacitor components
  */
-class CapacitorViewModel : ViewModel() {
+class CeramicCapacitorViewModel(context: Context) : ViewModel() {
 
-    private val capacitor = MutableLiveData<Capacitor>()
+    private val repository = CeramicCapacitorRepository.getInstance(context)
+    private val capacitor = MutableLiveData<CeramicCapacitor>()
 
     init {
-        capacitor.value = Capacitor()
+        capacitor.value = CeramicCapacitor()
     }
 
     override fun onCleared() {
@@ -20,10 +24,12 @@ class CapacitorViewModel : ViewModel() {
     }
 
     fun clear() {
-        capacitor.value = Capacitor()
+        capacitor.value = CeramicCapacitor()
+        repository.clear()
     }
 
-    fun getCapacitorLiveData(): LiveData<Capacitor> {
+    fun getCapacitorLiveData(): LiveData<CeramicCapacitor> {
+        capacitor.value = repository.loadCapacitor()
         return capacitor
     }
 
@@ -43,7 +49,7 @@ class CapacitorViewModel : ViewModel() {
         capacitor.value = capacitor.value?.copy(tolerance = value)
     }
 
-    fun saveCapacitorValues(capacitor: Capacitor) {
-        // TODO - add repo
+    fun saveCapacitorValues(capacitor: CeramicCapacitor) {
+        repository.saveCapacitor(capacitor)
     }
 }

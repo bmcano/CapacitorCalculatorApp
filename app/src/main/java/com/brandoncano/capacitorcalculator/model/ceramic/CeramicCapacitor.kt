@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.model
+package com.brandoncano.capacitorcalculator.model.ceramic
 
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
@@ -6,7 +6,7 @@ import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 /**
  * Job: Holds capacitor values and methods to compute each other value
  */
-data class Capacitor(
+data class CeramicCapacitor(
     var code: String = "",
     var capacitance: String = "",
     var tolerance: String = "",

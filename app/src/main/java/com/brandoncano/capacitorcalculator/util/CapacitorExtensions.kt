@@ -1,21 +1,21 @@
 package com.brandoncano.capacitorcalculator.util
 
 import com.brandoncano.capacitorcalculator.constants.Units
-import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 
-fun Capacitor.isCodeInvalid(): Boolean {
+fun CeramicCapacitor.isCodeInvalid(): Boolean {
     return !IsValidCode.execute(this.code)
 }
 
-fun Capacitor.formatCapacitance(): String {
+fun CeramicCapacitor.formatCapacitance(): String {
     return CapacitanceFormatter.execute(this)
 }
 
-fun Capacitor.getTolerancePercentage(): String {
+fun CeramicCapacitor.getTolerancePercentage(): String {
     return ToleranceFromLetter.execute(this.tolerance)
 }
 
-fun Capacitor.isCapacitanceInvalid(): Boolean {
+fun CeramicCapacitor.isCapacitanceInvalid(): Boolean {
     return !when (this.units) {
         Units.PF -> IsValidCapacitance.checkPF(this.capacitance)
         Units.NF -> IsValidCapacitance.checkNF(this.capacitance)
@@ -24,7 +24,7 @@ fun Capacitor.isCapacitanceInvalid(): Boolean {
     }
 }
 
-fun Capacitor.formatCode(): String {
+fun CeramicCapacitor.formatCode(): String {
     return when (this.units) {
         Units.PF -> CodeFormatter.computeFromPF(this.capacitance)
         Units.NF -> CodeFormatter.computeFromNF(this.capacitance)

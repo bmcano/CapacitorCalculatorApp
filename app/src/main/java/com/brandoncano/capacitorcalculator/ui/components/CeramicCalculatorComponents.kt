@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.Capacitor
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
@@ -32,7 +32,7 @@ import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 @Composable
 fun CapacitorLayout(
-    capacitor: Capacitor,
+    capacitor: CeramicCapacitor,
     isCode: Boolean = true,
     isError: Boolean = false
 ) {
@@ -130,9 +130,9 @@ fun ViewCommonCodeButton(navController: NavController) {
 fun CapacitorLayoutPreview() {
     CapacitorCalculatorTheme {
         Column {
-            CapacitorLayout(capacitor = Capacitor(code = "123"))
-            CapacitorLayout(capacitor = Capacitor(code = "123", units = "nF"))
-            CapacitorLayout(capacitor = Capacitor(code = "126", units = "µF", tolerance = "D"))
+            CapacitorLayout(capacitor = CeramicCapacitor(code = "123"))
+            CapacitorLayout(capacitor = CeramicCapacitor(code = "123", units = "nF"))
+            CapacitorLayout(capacitor = CeramicCapacitor(code = "126", units = "µF", tolerance = "D"))
         }
 
     }

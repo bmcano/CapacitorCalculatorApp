@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.FileOpen
-import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,11 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
-import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
-import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.util.OpenLink
@@ -95,34 +91,6 @@ fun DescriptionCard() {
 }
 
 @Composable
-fun OurAppsButtons(context: Context) {
-    Column {
-        val modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
-            .align(Alignment.Start)
-        Text(
-            text = stringResource(id = R.string.about_our_apps_header_text),
-            modifier = modifier,
-            style = textStyleHeadline(),
-        )
-        ArrowButtonCard(
-            listOf(
-                Icons.Outlined.Star,
-                Icons.AutoMirrored.Outlined.AddToHomeScreen
-            ),
-            listOf(
-                stringResource(id = R.string.about_rate_this_app),
-                stringResource(id = R.string.about_view_resistor_app)
-            ),
-            listOf(
-                { OpenLink.openResistorApp(context) },
-                { OpenLink.openCapacitorApp(context) }
-            ),
-        )
-    }
-}
-
-@Composable
 private fun HeadlineBodyStack(@StringRes label: Int, @StringRes body: Int) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -139,20 +107,5 @@ private fun HeadlineBodyStack(@StringRes label: Int, @StringRes body: Int) {
             modifier = modifier.padding(top = 4.dp),
             style = textStyleBody(),
         )
-    }
-}
-
-@AppComponentPreviews
-@Composable
-private fun HeadlineBodyStackPreview() {
-    CapacitorCalculatorTheme {
-        Column(
-            modifier = Modifier.height(64.dp)
-        ) {
-            HeadlineBodyStack(
-                label = R.string.about_created_by,
-                body = R.string.about_author,
-            )
-        }
     }
 }

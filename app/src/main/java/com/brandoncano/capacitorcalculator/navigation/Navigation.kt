@@ -10,7 +10,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.brandoncano.capacitorcalculator.model.CapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.ceramic.CapacitorViewModelFactory
+import com.brandoncano.capacitorcalculator.model.CeramicCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.ChartScreen
 import com.brandoncano.capacitorcalculator.ui.screens.CeramicCalculatorScreen
@@ -39,7 +40,7 @@ fun Navigation(context: Context) {
             enterTransition = { slideInVertically(initialOffsetY = { it }) },
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
-            val viewModel = viewModel<CapacitorViewModel>()
+            val viewModel = viewModel<CeramicCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val capacitor = viewModel.getCapacitorLiveData()
             CeramicCalculatorScreen(context, navController, viewModel, capacitor)
         }
