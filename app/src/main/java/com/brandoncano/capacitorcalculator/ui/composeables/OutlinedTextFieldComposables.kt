@@ -35,6 +35,7 @@ fun AppTextField(
     reset: Boolean = false,
     isError: Boolean = false,
     errorMessage: String = "",
+    keyboardOptions: KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
     onOptionSelected: (String) -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -78,7 +79,7 @@ fun AppTextField(
             } else {
                 null
             },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            keyboardOptions = keyboardOptions,
             singleLine = true,
             interactionSource = interactionSource
         )

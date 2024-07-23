@@ -2,6 +2,8 @@ package com.brandoncano.capacitorcalculator.util
 
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
+import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
+import com.brandoncano.capacitorcalculator.navigation.Screen
 
 fun CeramicCapacitor.isCodeInvalid(): Boolean {
     return !IsValidCode.execute(this.code)
@@ -31,4 +33,8 @@ fun CeramicCapacitor.formatCode(): String {
         Units.UF -> CodeFormatter.computeFromUF(this.capacitance)
         else -> CodeFormatter.computeFromPF(this.capacitance)
     }
+}
+
+fun SmdCapacitor.isSmdInputInvalid(): Boolean {
+    return !IsValidSmdCode.execute(this.code, this.getSmdMode())
 }

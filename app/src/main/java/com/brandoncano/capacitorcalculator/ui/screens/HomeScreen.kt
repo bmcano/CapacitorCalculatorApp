@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.components.AppCalculatorButtons
+import com.brandoncano.capacitorcalculator.ui.components.RoundAppImage
 import com.brandoncano.capacitorcalculator.ui.components.OurAppsButtons
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
@@ -51,12 +52,13 @@ private fun ContentView(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuTopAppBar(stringResource(R.string.app_name), interactionSource) {
+        MenuTopAppBar(stringResource(R.string.home_title), interactionSource) {
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
 
         // TODO - add app icon like with resistor app
+        RoundAppImage()
         AppCalculatorButtons(navController)
         OurAppsButtons(context)
     }

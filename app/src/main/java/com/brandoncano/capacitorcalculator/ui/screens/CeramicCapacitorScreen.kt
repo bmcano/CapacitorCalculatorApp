@@ -34,8 +34,8 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.constants.DropdownLists
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
-import com.brandoncano.capacitorcalculator.model.CeramicCapacitorViewModel
-import com.brandoncano.capacitorcalculator.model.ceramic.CapacitorViewModelFactory
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.components.CapacitorLayout
 import com.brandoncano.capacitorcalculator.ui.components.ViewCommonCodeButton

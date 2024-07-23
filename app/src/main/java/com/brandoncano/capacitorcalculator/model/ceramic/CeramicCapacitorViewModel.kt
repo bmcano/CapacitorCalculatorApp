@@ -1,11 +1,9 @@
-package com.brandoncano.capacitorcalculator.model
+package com.brandoncano.capacitorcalculator.model.ceramic
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
-import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorRepository
 
 /**
  * Job: ViewModel for the ceramic capacitor screen holding the capacitor components

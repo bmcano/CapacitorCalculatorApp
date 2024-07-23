@@ -10,12 +10,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.brandoncano.capacitorcalculator.model.ceramic.CapacitorViewModelFactory
-import com.brandoncano.capacitorcalculator.model.CeramicCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
+import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
+import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.ChartScreen
 import com.brandoncano.capacitorcalculator.ui.screens.CeramicCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.HomeScreen
+import com.brandoncano.capacitorcalculator.ui.screens.SmdCalculatorScreen
 
 /**
  * Job: Holds all the navigation information and full screen previews
@@ -57,6 +60,16 @@ fun Navigation(context: Context) {
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
             ChartScreen(context, navController)
+        }
+        composable(
+            route = Screen.SmdCalculator.route,
+            enterTransition = { slideInVertically(initialOffsetY = { it }) },
+            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+        ) {
+            val viewModel = viewModel<SmdCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
+            val navBarPosition = viewModel.getNavBarSelection()
+            val capacitor = viewModel.getCapacitorLiveData()
+            SmdCalculatorScreen(context, navController, viewModel, navBarPosition, capacitor)
         }
     }
 }

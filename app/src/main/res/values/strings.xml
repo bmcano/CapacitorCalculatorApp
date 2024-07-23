@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
     <!-- home screen -->
+    <string name="home_title">Capacitor Calculator</string>
     <string name="home_ceramic_calculator_button">Ceramic Capacitor</string>
+    <string name="home_smd_calculator_button">SMD Capacitor</string>
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_view_codes">View common codes</string>
     <!-- ceramic calculator screen -->
@@ -12,6 +14,10 @@
     <string name="ceramic_calculator_code">Code</string>
     <string name="ceramic_calculator_tolerance">Tolerance</string>
     <string name="ceramic_calculator_capacitance">Capacitance</string>
+    <!-- smd calculator screen -->
+    <string name="smd_calculator_title">SMD Capacitor</string>
+    <string name="smd_calculator_code_hint">Code</string>
+    <string name="smd_calculator_units_hint">Units</string>
     <!-- about screen -->
     <string name="about_title">About this app</string>
     <string name="about_app_version">App version</string>
@@ -25,6 +31,7 @@
     <string name="about_our_apps_header_text">Our apps</string>
     <string name="about_rate_this_app">Rate this app</string>
     <string name="about_view_resistor_app">View our resistor app</string>
+    <string name="about_view_privacy_policy">View privacy policy</string>
     <!-- chart screen -->
     <string name="chart_title">Common codes</string>
     <string name="chart_code">Code</string>
@@ -36,6 +43,10 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_clear">Clear selections</string>
     <string name="menu_about">About this app</string>
+    <!-- navbar items -->
+    <string name="navbar_three_eia">Three Digit EIA</string>
+    <string name="navbar_four_eia">Four Digit EIA</string>
+    <string name="navbar_eia_198">EIA-198</string>
     <!-- content descriptions -->
     <string name="content_description_menu_more">More</string>
     <string name="content_right_arrow">Right arrow</string>
@@ -44,7 +55,7 @@
     <!-- default values -->
     <string name="default_code">Enter code</string>
     <string name="default_capacitance">Enter capacitance</string>
-    <string name="about_view_privacy_policy">View privacy policy</string>
+    <string name="default_smd_value">Enter code</string>
     <!-- error messages -->
     <string name="error_invalid_code">Invalid code</string>
     <string name="error_invalid_capacitance">Invalid capacitance</string>

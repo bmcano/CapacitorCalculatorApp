@@ -20,6 +20,10 @@ enum class SharedPreferences(private val _name: String, private val _key: String
     UNITS_DROPDOWN_CERAMIC("ceramic_calculator", "units_dropdown"),
     TOLERANCE_DROPDOWN_CERAMIC("ceramic_calculator", "tolerance_dropdown"),
 
+    NAVBAR_SELECTION_SMD("smd_calculator", "navbar_selection"),
+    CODE_INPUT_SMD("smd_calculator", "code_input"),
+    UNITS_DROPDOWN_SMD("smd_calculator", "units_dropdown"),
+
     ; // methods to save, load, or clear the data as strings
 
     fun saveData(context: Context, input: String) {
