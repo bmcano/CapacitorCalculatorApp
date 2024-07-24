@@ -83,7 +83,7 @@ fun CeramicCalculatorScreen(
                         onReset(true)
                         focusManager.clearFocus()
                     }
-                    capacitor.value?.let { ShareMenuItem(it, context, interactionSource) }
+                    capacitor.value?.let { ShareMenuItem(it.toString(), context, interactionSource) }
                     FeedbackMenuItem(context, interactionSource)
                     AboutAppMenuItem(navController, interactionSource)
                 }

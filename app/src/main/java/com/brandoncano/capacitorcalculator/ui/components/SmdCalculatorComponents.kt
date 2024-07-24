@@ -21,6 +21,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
 
 @Composable
 fun SmdCapacitorLayout(capacitor: SmdCapacitor) {
@@ -41,24 +42,23 @@ fun SmdCapacitorLayout(capacitor: SmdCapacitor) {
                 style = textStyleLargeTitle().white()
             )
         }
-        ResistanceText(
+        CapacitanceText(
             if (capacitor.isEmpty()) {
                 stringResource(id = R.string.default_smd_value)
             } else {
-//                capacitor.formatResistance()
-                ""
+                capacitor.formatCapacitance()
             }
         )
     }
 }
 
 @Composable
-private fun ResistanceText(resistance: String) {
+private fun CapacitanceText(capacitance: String) {
     AppCard(
         modifier = Modifier.padding(top = 12.dp)
     ) {
         Text(
-            text = resistance,
+            text = capacitance,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),

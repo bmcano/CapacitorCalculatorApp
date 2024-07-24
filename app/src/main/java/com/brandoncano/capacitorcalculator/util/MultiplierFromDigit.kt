@@ -14,6 +14,9 @@ object MultiplierFromDigit {
             "4" -> 10000
             "5" -> 100000
             "6" -> 1000000
+            "7" -> 10000000 // SMD only
+            "8" -> 100000000 // SMD only
+            "9" -> 1000000000 // SMD only
             else -> 1
         }
     }

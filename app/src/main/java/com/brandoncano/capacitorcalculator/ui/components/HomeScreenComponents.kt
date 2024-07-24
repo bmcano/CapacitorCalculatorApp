@@ -107,8 +107,8 @@ fun OurAppsButtons(context: Context) {
                 stringResource(id = R.string.about_view_resistor_app)
             ),
             listOf(
-                { OpenLink.openResistorApp(context) },
-                { OpenLink.openCapacitorApp(context) }
+                { OpenLink.openCapacitorApp(context) },
+                { OpenLink.openResistorApp(context) }
             ),
         )
     }

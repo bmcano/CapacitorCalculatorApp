@@ -27,13 +27,13 @@ fun ClearSelectionsMenuItem(interactionSource: MutableInteractionSource, onClick
 }
 
 @Composable
-fun ShareMenuItem(capacitor: CeramicCapacitor, context: Context, interactionSource: MutableInteractionSource) {
+fun ShareMenuItem(text: String, context: Context, interactionSource: MutableInteractionSource) {
     DropdownMenuItem(
         text = { Text(
             text = stringResource(R.string.menu_share),
             style = textStyleBody(),
         ) },
-        onClick = { ShareCapacitance.execute(capacitor.toString(), context)  },
+        onClick = { ShareCapacitance.execute(text, context)  },
         interactionSource = interactionSource,
     )
 }

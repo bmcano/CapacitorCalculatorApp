@@ -1,6 +1,7 @@
 package com.brandoncano.capacitorcalculator.model.smd
 
 import com.brandoncano.capacitorcalculator.components.SmdMode
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
 
 data class SmdCapacitor(
     var code: String = "",
@@ -8,8 +9,12 @@ data class SmdCapacitor(
     var navBarSelection: Int = 0,
 ) {
     fun isEmpty(): Boolean {
-        // TODO
-        return false
+        val length = code.length
+        return when (getSmdMode()) {
+            SmdMode.ThreeDigit -> length < 3
+            SmdMode.FourDigit -> length < 4
+            SmdMode.EIA198 -> length < 2
+        }
     }
 
     fun getSmdMode(): SmdMode {
@@ -22,7 +27,7 @@ data class SmdCapacitor(
     }
 
     override fun toString(): String {
-        // TODO
-        return "SMD Resistor Code: $code\nResistance:"
+        val capacitance = this.formatCapacitance()
+        return "SMD Capacitor Code: $code\nCapacitance: $capacitance"
     }
 }

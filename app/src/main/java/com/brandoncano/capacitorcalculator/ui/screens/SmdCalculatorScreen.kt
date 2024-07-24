@@ -46,6 +46,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.SmdNavigationBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.isSmdInputInvalid
 import java.util.Locale
 
@@ -89,7 +90,7 @@ private fun ContentView(
                 isError = capacitor.isSmdInputInvalid()
                 if (!isError) {
                     viewModel.saveCapacitorValues(capacitor)
-//                    capacitor.formatCapacitance()
+                    capacitor.formatCapacitance()
                 }
             }
         }
@@ -107,7 +108,7 @@ private fun ContentView(
                     reset = true
                     focusManager.clearFocus()
                 }
-//                ShareMenuItem(capacitor, context, interactionSource)
+                ShareMenuItem(capacitor.toString(), context, interactionSource)
                 FeedbackMenuItem(context, interactionSource)
                 AboutAppMenuItem(navController, interactionSource)
             }
@@ -127,12 +128,12 @@ private fun ContentView(
                 )
             ) {
                 reset = false
-                code = it.uppercase(Locale.getDefault())
+                code = it
                 viewModel.updateCode(code)
                 isError = capacitor.isSmdInputInvalid()
                 if (!isError) {
                     viewModel.saveCapacitorValues(capacitor)
-//                    capacitor.formatResistance()
+                    capacitor.formatCapacitance()
                 }
             }
             AppDropDownMenu(

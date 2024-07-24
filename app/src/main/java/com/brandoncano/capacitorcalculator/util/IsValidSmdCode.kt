@@ -8,9 +8,12 @@ import com.brandoncano.capacitorcalculator.components.SmdMode
 object IsValidSmdCode {
 
     fun execute(code: String, mode: SmdMode): Boolean {
-        // we return true here since the calculation for resistance won't unless proper length
+        // we return true here since the calculation for capacitance won't unless proper length
         val length = code.length
-        if (length < 3 || (mode is SmdMode.FourDigit && length < 4)) {
+        if (length < 2 ||
+            (mode is SmdMode.ThreeDigit && length < 3) ||
+            (mode is SmdMode.FourDigit && length < 4)
+            ) {
             return true
         }
         val regex3 = Regex("^[1-9][0-9R][0-9]$")
