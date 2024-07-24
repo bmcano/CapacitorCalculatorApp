@@ -55,6 +55,7 @@ object CapacitanceSmdFormatter {
         if (capacitance.endsWith(".0")) {
             return capacitance.removeSuffix(".0")
         }
+        // TODO - add sigfig check to remove floating point issues
         return capacitance
     }
 }

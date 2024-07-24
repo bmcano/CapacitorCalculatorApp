@@ -48,7 +48,6 @@ import com.brandoncano.capacitorcalculator.ui.composeables.SmdNavigationBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.isSmdInputInvalid
-import java.util.Locale
 
 @Composable
 fun SmdCalculatorScreen(

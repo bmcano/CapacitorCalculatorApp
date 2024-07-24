@@ -159,7 +159,7 @@ class CapacitanceSmdFormatterTest {
 
     private fun testEIA198Value(code: String, expected: Double) {
         val capacitor = SmdCapacitor(code, Units.PF, 2)
-        assertEquals("$expected ${Units.PF}}", execute(capacitor))
+        assertEquals("${expected.toString().removeSuffix(".0")} ${Units.PF}}", execute(capacitor))
     }
 }
 
