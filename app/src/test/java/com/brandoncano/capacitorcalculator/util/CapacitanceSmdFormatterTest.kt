@@ -14,7 +14,7 @@ class CapacitanceSmdFormatterTest {
         val capacitor = SmdCapacitor()
         assertEquals("", execute(capacitor))
         capacitor.code = "1"
-        assertEquals("Enter code", execute(capacitor))
+        assertEquals("", execute(capacitor))
     }
 
     @Test
