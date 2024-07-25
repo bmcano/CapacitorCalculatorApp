@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -125,7 +127,7 @@ fun CeramicCalculatorScreen(
                 HorizontalPager(state = pagerState) { page ->
                     when (page) {
                         0 -> ContentView1(navController, viewModel, capacitor, reset, onReset)
-                        1 -> ContentView2(viewModel, capacitor, reset, onReset)
+                        1 -> ContentView2(navController, viewModel, capacitor, reset, onReset)
                     }
                 }
             }
@@ -173,7 +175,7 @@ private fun ContentView1(
             }
         }
         AppDropDownMenu(
-            modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+            modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_units,
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
@@ -186,7 +188,7 @@ private fun ContentView1(
             viewModel.saveCapacitorValues(capacitor)
         }
         AppDropDownMenu(
-            modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+            modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_tolerance,
             selectedOption = capacitor.tolerance,
             items = DropdownLists.TOLERANCE,
@@ -199,11 +201,13 @@ private fun ContentView1(
             viewModel.saveCapacitorValues(capacitor)
         }
         ViewCommonCodeButton(navController)
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
 @Composable
 private fun ContentView2(
+    navController: NavController,
     viewModel: CeramicCapacitorViewModel,
     capacitorLiveData: LiveData<CeramicCapacitor>,
     reset: Boolean,
@@ -240,7 +244,7 @@ private fun ContentView2(
             }
         }
         AppDropDownMenu(
-            modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+            modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_units,
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
@@ -256,6 +260,8 @@ private fun ContentView2(
                 capacitor.formatCode()
             }
         }
+        ViewCommonCodeButton(navController)
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 

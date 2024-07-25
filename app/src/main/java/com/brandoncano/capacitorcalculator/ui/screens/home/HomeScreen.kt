@@ -49,7 +49,7 @@ private fun ContentView(
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
-        RoundAppImage()
+        AppIcon()
         AppCalculatorButtons(navController)
         OurAppsButtons(context)
     }

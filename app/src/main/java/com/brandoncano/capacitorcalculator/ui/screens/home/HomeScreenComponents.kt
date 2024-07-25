@@ -2,53 +2,53 @@ package com.brandoncano.capacitorcalculator.ui.screens.home
 
 import android.content.Context
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Calculate
 import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.navigation.Screen
+import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
 import com.brandoncano.capacitorcalculator.util.OpenLink
 
 @Composable
-fun RoundAppImage() {
-    Column(
-        modifier = Modifier.padding(top = 16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+fun AppIcon() {
+    val backgroundColor = if (isSystemInDarkTheme()) {
+        MaterialTheme.colorScheme.surfaceVariant
+    } else {
+        MaterialTheme.colorScheme.primary
+    }
+    Card(
+        modifier = Modifier
+            .padding(top = 16.dp)
+            .size(128.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(16.dp),
+        colors = CardDefaults.cardColors(containerColor = backgroundColor)
     ) {
-        val backgroundColor = if (isSystemInDarkTheme()) {
-            MaterialTheme.colorScheme.surfaceVariant
-        } else {
-            MaterialTheme.colorScheme.primary
-        }
-        Box(
-            modifier = Modifier
-                .size(128.dp)
-                .clip(CircleShape)
-                .background(color = backgroundColor),
-            contentAlignment = Alignment.Center,
-        ) {
+        Box(contentAlignment = Alignment.Center) {
             Image(
                 painter = painterResource(id = R.drawable.img_capacitor),
                 contentDescription = stringResource(id = R.string.content_description_app_icon),
@@ -110,5 +110,13 @@ fun OurAppsButtons(context: Context) {
                 { OpenLink.openResistorApp(context) }
             ),
         )
+    }
+}
+
+@AppComponentPreviews
+@Composable
+private fun AppIconPreview() {
+    CapacitorCalculatorTheme {
+        AppIcon()
     }
 }

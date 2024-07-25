@@ -117,6 +117,7 @@ private fun ContentView(
                 text = code,
                 reset = reset,
                 isError = isError,
+                errorMessage = stringResource(id = R.string.error_invalid_code),
                 keyboardOptions = KeyboardOptions(
                     capitalization = KeyboardCapitalization.Characters,
                     autoCorrect = false,
@@ -134,7 +135,7 @@ private fun ContentView(
                 }
             }
             AppDropDownMenu(
-                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+                modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
                 label = R.string.smd_calculator_units_hint,
                 selectedOption = capacitor.units,
                 items = DropdownLists.UNITS,
