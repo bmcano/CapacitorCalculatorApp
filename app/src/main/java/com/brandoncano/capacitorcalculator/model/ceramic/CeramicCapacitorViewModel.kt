@@ -5,9 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-/**
- * Job: ViewModel for the ceramic capacitor screen holding the capacitor components
- */
 class CeramicCapacitorViewModel(context: Context) : ViewModel() {
 
     private val repository = CeramicCapacitorRepository.getInstance(context)

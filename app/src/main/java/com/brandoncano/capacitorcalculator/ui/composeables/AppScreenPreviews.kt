@@ -4,10 +4,6 @@ import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 
-/**
- * Job: Compose screen previews annotations
- */
-
 @AppComponentPreviews
 @Preview("3_Standard_Landscape", showBackground = true, widthDp = 720, heightDp = 360)
 @Preview("4_Large_Font", showBackground = true, fontScale = 2.0f)

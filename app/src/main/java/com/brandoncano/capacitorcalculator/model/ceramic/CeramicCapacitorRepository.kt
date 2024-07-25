@@ -3,7 +3,6 @@ package com.brandoncano.capacitorcalculator.model.ceramic
 import android.content.Context
 import com.brandoncano.capacitorcalculator.components.SharedPreferences
 
-
 class CeramicCapacitorRepository(context: Context) {
 
     private val application = context

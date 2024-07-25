@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.navigation
 
 /**
- * Job: Holds the route for each different screen
+ * Note: Keep screens in alphabetical order
  */
 sealed class Screen(val route: String) {
     data object About : Screen("about_screen")

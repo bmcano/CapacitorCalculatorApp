@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens
+package com.brandoncano.capacitorcalculator.ui.screens.home
 
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -15,18 +15,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.AppCalculatorButtons
-import com.brandoncano.capacitorcalculator.ui.components.RoundAppImage
-import com.brandoncano.capacitorcalculator.ui.components.OurAppsButtons
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
-
-/**
- * Job: Holds all the content for the home screen
- */
 
 @Composable
 fun HomeScreen(
@@ -56,8 +49,6 @@ private fun ContentView(
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
-
-        // TODO - add app icon like with resistor app
         RoundAppImage()
         AppCalculatorButtons(navController)
         OurAppsButtons(context)

@@ -13,6 +13,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 
+/**
+ * Job: Instead of custom typography we use custom text styles for each Text() component
+ * Note: Text styles
+ */
+
 @Composable
 private fun textStyleBase() = TextStyle(
     fontFamily = FontFamily.SansSerif,
@@ -66,6 +71,15 @@ fun textStyleCaption() = textStyleBase().merge(
     lineHeight = TextLineHeight.caption,
 )
 
+/**
+ * Note: Text colors
+ */
+
+@Composable
+fun TextStyle.white() = this.merge(
+    color = white
+)
+
 @AppComponentPreviews
 @Composable
 private fun TextStylePreview() {
@@ -95,6 +109,10 @@ private fun TextStylePreview() {
                 style = textStyleBody(),
             )
             Text(
+                text = "Body",
+                style = textStyleBody().white(),
+            )
+            Text(
                 text = "Subhead",
                 style = textStyleSubhead(),
             )
@@ -105,8 +123,3 @@ private fun TextStylePreview() {
         }
     }
 }
-
-@Composable
-fun TextStyle.white() = this.merge(
-    color = white
-)

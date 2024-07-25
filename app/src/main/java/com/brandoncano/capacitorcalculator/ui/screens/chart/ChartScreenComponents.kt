@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.screens.chart
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,8 +14,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.components.CapacitorCodeConversions
+import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCustomCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
@@ -29,9 +29,7 @@ fun ChartRowLabels() {
         stringResource(id = R.string.chart_nf),
         stringResource(id = R.string.chart_uf),
     )
-    Card(
-        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
-    ) {
+    Card(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)) {
         Row(
             modifier = Modifier
                 .padding(16.dp)
@@ -53,12 +51,8 @@ fun ChartRowLabels() {
 @Composable
 fun ChartTable() {
     val codes = CapacitorCodeConversions.entries
-    AppCustomCard(
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Column(
-            modifier = Modifier.verticalScroll(rememberScrollState())
-        ) {
+    AppCard(modifier = Modifier.padding(16.dp)) {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             codes.forEachIndexed { index, it ->
                 ChartTableRow(it)
                 if (codes.size - 1 != index) {

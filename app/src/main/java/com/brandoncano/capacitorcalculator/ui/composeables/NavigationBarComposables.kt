@@ -34,7 +34,6 @@ fun SmdNavigationBar(
         R.string.navbar_four_eia,
         R.string.navbar_eia_198,
     )
-
     val icons = listOf(
         Icons.Outlined.Looks3,
         Icons.Outlined.Looks4,

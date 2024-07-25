@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.screens.about
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -41,10 +41,7 @@ fun AppInfoCard() {
             label = R.string.about_app_version,
             body = R.string.version,
         )
-        AppDivider(
-            modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-        )
+        AppDivider(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp))
         HeadlineBodyStack(
             label = R.string.about_last_updated_on,
             body = R.string.last_updated,
@@ -96,15 +93,14 @@ private fun HeadlineBodyStack(@StringRes label: Int, @StringRes body: Int) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.Start
     ) {
-        val modifier = Modifier.padding(start = 16.dp, end = 16.dp)
         Text(
             text = stringResource(id = label),
-            modifier = modifier.padding(top = 12.dp),
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
             style = textStyleHeadline(),
         )
         Text(
             text = stringResource(id = body),
-            modifier = modifier.padding(top = 4.dp),
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 4.dp),
             style = textStyleBody(),
         )
     }

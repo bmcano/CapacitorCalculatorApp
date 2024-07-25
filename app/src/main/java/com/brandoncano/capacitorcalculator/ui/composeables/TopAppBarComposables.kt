@@ -50,9 +50,7 @@ fun MenuTopAppBar(
         }
     }
     AppTopAppBar(titleText) {
-        IconButton(
-            onClick = { expanded = !expanded },
-        ) {
+        IconButton(onClick = { expanded = !expanded }) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
                 contentDescription = stringResource(R.string.content_description_menu_more)

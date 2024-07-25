@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 
 @Composable
@@ -70,12 +71,7 @@ fun AppTextField(
             },
             isError = isError,
             supportingText = if (isError && errorMessage.isNotEmpty()) {
-                {
-                    Text(
-                        text = errorMessage,
-                        style = textStyleSubhead()
-                    )
-                }
+                { Text(text = errorMessage, style = textStyleSubhead()) }
             } else {
                 null
             },
@@ -83,5 +79,18 @@ fun AppTextField(
             singleLine = true,
             interactionSource = interactionSource
         )
+    }
+}
+
+@AppComponentPreviews
+@Composable
+private fun TextFieldPreview() {
+    CapacitorCalculatorTheme {
+        Column {
+            AppTextField(label = "label") { }
+            AppTextField(label = "label", text = "text") { }
+            AppTextField(label = "err", text = "error", isError = true) { }
+            AppTextField(label = "err", text = "error", isError = true, errorMessage = "error") { }
+        }
     }
 }

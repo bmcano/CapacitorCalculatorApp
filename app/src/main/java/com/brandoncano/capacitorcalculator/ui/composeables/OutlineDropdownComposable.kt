@@ -29,6 +29,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
+import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 
 @Composable
@@ -45,6 +47,7 @@ fun AppDropDownMenu(
     var selectedText by remember { mutableStateOf(selectedOption) }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
     val icon = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown
+
     LaunchedEffect(interactionSource) {
         interactionSource.interactions.collect { interaction ->
             if (interaction is PressInteraction.Release) {
@@ -108,6 +111,22 @@ private fun TextDropDownItemView(item: String, onClick: () -> Unit) {
                 modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 12.dp, bottom = 12.dp),
                 style = textStyleBody()
             )
+        }
+    }
+}
+
+@AppComponentPreviews
+@Composable
+private fun DropdownPreview() {
+    CapacitorCalculatorTheme {
+        Column {
+            val items = listOf("item1", "item2")
+            AppDropDownMenu(label = R.string.default_code, items = items) { }
+            AppDropDownMenu(
+                label = R.string.default_code,
+                items = items,
+                selectedOption = "item1"
+            ) { }
         }
     }
 }

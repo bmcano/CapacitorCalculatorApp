@@ -12,16 +12,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
-import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
-import com.brandoncano.capacitorcalculator.ui.screens.AboutScreen
-import com.brandoncano.capacitorcalculator.ui.screens.ChartScreen
-import com.brandoncano.capacitorcalculator.ui.screens.CeramicCalculatorScreen
-import com.brandoncano.capacitorcalculator.ui.screens.HomeScreen
-import com.brandoncano.capacitorcalculator.ui.screens.SmdCalculatorScreen
+import com.brandoncano.capacitorcalculator.ui.screens.about.AboutScreen
+import com.brandoncano.capacitorcalculator.ui.screens.ceramic.CeramicCalculatorScreen
+import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
+import com.brandoncano.capacitorcalculator.ui.screens.home.HomeScreen
+import com.brandoncano.capacitorcalculator.ui.screens.smd.SmdCalculatorScreen
 
 /**
- * Job: Holds all the navigation information and full screen previews
+ * Note: Keep each navigation route in alphabetical order
  */
 
 @Composable
@@ -32,11 +31,11 @@ fun Navigation(context: Context) {
         startDestination = Screen.Home.route
     ) {
         composable(
-            route = Screen.Home.route,
-            enterTransition = { EnterTransition.None },
-            exitTransition = { ExitTransition.None },
+            route = Screen.About.route,
+            enterTransition = { slideInVertically(initialOffsetY = { it }) },
+            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
-            HomeScreen(context, navController)
+            AboutScreen(context)
         }
         composable(
             route = Screen.CeramicCalculator.route,
@@ -48,18 +47,18 @@ fun Navigation(context: Context) {
             CeramicCalculatorScreen(context, navController, viewModel, capacitor)
         }
         composable(
-            route = Screen.About.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
-        ) {
-            AboutScreen(context)
-        }
-        composable(
             route = Screen.Chart.route,
             enterTransition = { slideInVertically(initialOffsetY = { it }) },
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
             ChartScreen(context, navController)
+        }
+        composable(
+            route = Screen.Home.route,
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+        ) {
+            HomeScreen(context, navController)
         }
         composable(
             route = Screen.SmdCalculator.route,

@@ -10,7 +10,7 @@ import java.lang.reflect.Type
  * Job: Holds the names, keys, and methods for all shared_prefs data.
  *
  * Notes:
- *   Data is saved as xml files with mapping, where name_ -> file name; key_ -> key in map.
+ *   Data is saved as xml files with mapping, where _name -> file name; _key -> key in map.
  *   Device File Explorer -> data -> data -> com.brandoncano.capacitorcalculator -> shared_prefs
  */
 enum class SharedPreferences(private val _name: String, private val _key: String) {

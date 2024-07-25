@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens
+package com.brandoncano.capacitorcalculator.ui.screens.ceramic
 
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -37,8 +37,6 @@ import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.CapacitorLayout
-import com.brandoncano.capacitorcalculator.ui.components.ViewCommonCodeButton
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
@@ -54,6 +52,10 @@ import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.isCapacitanceInvalid
 import com.brandoncano.capacitorcalculator.util.isCodeInvalid
 import kotlinx.coroutines.launch
+
+/**
+ * Note: ExperimentalFoundationApi is for rememberPagerState()
+ */
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -79,11 +81,11 @@ fun CeramicCalculatorScreen(
             val coroutineScope = rememberCoroutineScope()
             Column {
                 MenuTopAppBar(stringResource(R.string.ceramic_calculator_title), interactionSource) {
-                    ClearSelectionsMenuItem(interactionSource = interactionSource) {
+                    ClearSelectionsMenuItem(interactionSource) {
                         onReset(true)
                         focusManager.clearFocus()
                     }
-                    capacitor.value?.let { ShareMenuItem(it.toString(), context, interactionSource) }
+                    ShareMenuItem(capacitor.value?.toString() ?: "", context, interactionSource)
                     FeedbackMenuItem(context, interactionSource)
                     AboutAppMenuItem(navController, interactionSource)
                 }
@@ -99,7 +101,11 @@ fun CeramicCalculatorScreen(
                             )
                         },
                         selected = pagerState.currentPage == 0,
-                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } }
+                        onClick = {
+                            coroutineScope.launch {
+                                pagerState.animateScrollToPage(0)
+                            }
+                        }
                     )
                     Tab(
                         text = {
@@ -109,7 +115,11 @@ fun CeramicCalculatorScreen(
                             )
                         },
                         selected = pagerState.currentPage == 1,
-                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } }
+                        onClick = {
+                            coroutineScope.launch {
+                                pagerState.animateScrollToPage(1)
+                            }
+                        }
                     )
                 }
                 HorizontalPager(state = pagerState) { page ->
@@ -162,7 +172,6 @@ private fun ContentView1(
                 capacitor.formatCapacitance()
             }
         }
-
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_units,
@@ -176,7 +185,6 @@ private fun ContentView1(
             focusManager.clearFocus()
             viewModel.saveCapacitorValues(capacitor)
         }
-
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_tolerance,
@@ -190,7 +198,6 @@ private fun ContentView1(
             focusManager.clearFocus()
             viewModel.saveCapacitorValues(capacitor)
         }
-
         ViewCommonCodeButton(navController)
     }
 }
@@ -232,7 +239,6 @@ private fun ContentView2(
                 capacitor.formatCode()
             }
         }
-
         AppDropDownMenu(
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
             label = R.string.ceramic_calculator_units,

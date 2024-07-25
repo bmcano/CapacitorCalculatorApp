@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens
+package com.brandoncano.capacitorcalculator.ui.screens.smd
 
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -35,7 +35,6 @@ import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.SmdCapacitorLayout
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDropDownMenu
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
@@ -79,7 +78,7 @@ private fun ContentView(
     val capacitor by capacitorLiveData.observeAsState(SmdCapacitor())
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
-    var isError by remember { mutableStateOf(false) } // TODO check for validity
+    var isError by remember { mutableStateOf(capacitor.isSmdInputInvalid()) }
 
     Scaffold(
         bottomBar = {
@@ -102,7 +101,7 @@ private fun ContentView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             MenuTopAppBar(stringResource(R.string.smd_calculator_title), interactionSource) {
-                ClearSelectionsMenuItem(interactionSource = interactionSource) {
+                ClearSelectionsMenuItem(interactionSource) {
                     viewModel.clear()
                     reset = true
                     focusManager.clearFocus()
@@ -111,7 +110,6 @@ private fun ContentView(
                 FeedbackMenuItem(context, interactionSource)
                 AboutAppMenuItem(navController, interactionSource)
             }
-
             SmdCapacitorLayout(capacitor)
             AppTextField(
                 modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
@@ -148,10 +146,8 @@ private fun ContentView(
                 focusManager.clearFocus()
                 viewModel.saveCapacitorValues(capacitor)
             }
-
         }
     }
-
 }
 
 @AppScreenPreviews

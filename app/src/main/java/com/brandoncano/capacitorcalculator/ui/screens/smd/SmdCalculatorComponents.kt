@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.components
+package com.brandoncano.capacitorcalculator.ui.screens.smd
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -35,28 +35,25 @@ fun SmdCapacitorLayout(capacitor: SmdCapacitor) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.img_smd_capacitor),
-                contentDescription = stringResource(id = R.string.content_description_app_icon),
+                contentDescription = stringResource(id = R.string.content_description_smd_capacitor),
             )
             Text(
                 text = capacitor.code,
                 style = textStyleLargeTitle().white()
             )
         }
-        CapacitanceText(
-            if (capacitor.isEmpty()) {
-                stringResource(id = R.string.default_smd_value)
-            } else {
-                capacitor.formatCapacitance()
-            }
-        )
+        val text = if (capacitor.isEmpty()) {
+            stringResource(id = R.string.default_smd_value)
+        } else {
+            capacitor.formatCapacitance()
+        }
+        CapacitanceText(text)
     }
 }
 
 @Composable
 private fun CapacitanceText(capacitance: String) {
-    AppCard(
-        modifier = Modifier.padding(top = 12.dp)
-    ) {
+    AppCard(modifier = Modifier.padding(top = 12.dp)) {
         Text(
             text = capacitance,
             modifier = Modifier
@@ -71,7 +68,13 @@ private fun CapacitanceText(capacitance: String) {
 @Composable
 private fun SmdCapacitorLayoutPreview() {
     CapacitorCalculatorTheme {
-        val capacitor = SmdCapacitor(code = "1R4")
-        SmdCapacitorLayout(capacitor)
+        Column {
+            val capacitor1 = SmdCapacitor(code = "1R4")
+            SmdCapacitorLayout(capacitor1)
+            val capacitor2 = SmdCapacitor(code = "1R4J", navBarSelection = 1)
+            SmdCapacitorLayout(capacitor2)
+            val capacitor3 = SmdCapacitor(code = "A0", navBarSelection = 2)
+            SmdCapacitorLayout(capacitor3)
+        }
     }
 }

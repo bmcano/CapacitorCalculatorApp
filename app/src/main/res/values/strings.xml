@@ -52,6 +52,8 @@
     <string name="content_right_arrow">Right arrow</string>
     <string name="content_description_error">Error</string>
     <string name="content_description_app_icon">App icon</string>
+    <string name="content_description_ceramic_capacitor">Ceramic capacitor</string>
+    <string name="content_description_smd_capacitor">SMD capacitor</string>
     <!-- default values -->
     <string name="default_code">Enter code</string>
     <string name="default_capacitance">Enter capacitance</string>
