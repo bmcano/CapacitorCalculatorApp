@@ -11,9 +11,8 @@ class CapacitanceSmdFormatterTest {
 
     @Test
     fun testExecuteEmptyCapacitor() {
-        // TODO - since we generally check for valid code prior we might remove the need for this
         val capacitor = SmdCapacitor()
-        assertEquals("Enter code", execute(capacitor))
+        assertEquals("", execute(capacitor))
         capacitor.code = "1"
         assertEquals("Enter code", execute(capacitor))
     }
@@ -105,9 +104,8 @@ class CapacitanceSmdFormatterTest {
         capacitor.units = Units.NF
         assertEquals("0.0018 ${Units.NF} (1%)", execute(capacitor))
         capacitor.code = "1R8G"
-        // TODO - fix this test - will need to add sigfig check to util
-//        capacitor.units = Units.UF
-//        assertEquals("1.8E ${Units.UF} (2%)", execute(capacitor))
+        capacitor.units = Units.UF
+        assertEquals("1.8E-6 ${Units.UF} (2%)", execute(capacitor))
         capacitor.units = Units.PF
         capacitor.code = "130J"
         assertEquals("13 ${Units.PF} (5%)", execute(capacitor))
