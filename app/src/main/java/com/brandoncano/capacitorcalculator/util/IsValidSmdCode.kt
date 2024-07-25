@@ -8,24 +8,21 @@ import com.brandoncano.capacitorcalculator.components.SmdMode
 object IsValidSmdCode {
 
     fun execute(code: String, mode: SmdMode): Boolean {
-        // we return true here since the calculation for capacitance won't unless proper length
         val length = code.length
-        if (length < 2 ||
-            (mode is SmdMode.ThreeDigit && length < 3) ||
-            (mode is SmdMode.FourDigit && length < 4)
-            ) {
+        val length3digit = mode is SmdMode.ThreeDigit && length < 3
+        val length4digit = mode is SmdMode.FourDigit && length < 4
+        if (length < 2 || length3digit || length4digit) {
+            // return true here since calculation won't happen unless it's a suitable length
             return true
         }
         val regex3 = Regex("^[1-9][0-9R][0-9]$")
         val regex4 = Regex("^[1-9][0-9R][0-9][BCDFGJKMZ]$")
         val regex198 = Regex("^[A-NP-Zabdefmnty][0-9]$")
-        val isValidRCount = code.count { it == 'R'} < 2
+        val isValidRCount = code.count { it == 'R' } < 2
         return when (mode) {
             SmdMode.ThreeDigit -> regex3.matches(code)
             SmdMode.FourDigit -> regex4.matches(code) && isValidRCount
             SmdMode.EIA198 -> regex198.matches(code)
         }
     }
-
-
 }

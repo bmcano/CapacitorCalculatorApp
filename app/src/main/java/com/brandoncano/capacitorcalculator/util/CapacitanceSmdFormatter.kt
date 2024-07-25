@@ -1,13 +1,17 @@
 package com.brandoncano.capacitorcalculator.util
 
+import com.Ostermiller.util.SignificantFigures
 import com.brandoncano.capacitorcalculator.components.SmdMode
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 
+/**
+ * Job: Take a SMD code, its' type, and format the capacitance based on unit
+ */
 object CapacitanceSmdFormatter {
 
     fun execute(capacitor: SmdCapacitor): String {
-        if (capacitor.isEmpty()) return "Enter code"
+        if (capacitor.isEmpty()) return ""
         val smdMode = capacitor.getSmdMode()
         val code = capacitor.code
         val capacitance = when(smdMode) {
@@ -55,7 +59,15 @@ object CapacitanceSmdFormatter {
         if (capacitance.endsWith(".0")) {
             return capacitance.removeSuffix(".0")
         }
-        // TODO - add sigfig check to remove floating point issues
+        try {
+            val sigFigs = SignificantFigures(capacitance)
+            if (sigFigs.numberSignificantFigures > 2) {
+                val value = sigFigs.setNumberSignificantFigures(2)
+                return value.toString()
+            }
+        } catch (e: NumberFormatException) {
+            return capacitance
+        }
         return capacitance
     }
 }

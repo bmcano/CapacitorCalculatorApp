@@ -3,6 +3,9 @@ package com.brandoncano.capacitorcalculator.util
 import android.content.Context
 import android.content.Intent
 
+/**
+ * Job: Takes a string and prepares it to share (or copy)
+ */
 object ShareCapacitance {
 
     fun execute(text: String, context: Context) {

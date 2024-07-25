@@ -3,11 +3,14 @@ package com.brandoncano.capacitorcalculator.util
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 
+/**
+ * Job: Take a ceramic code and format the capacitance based on unit
+ */
 object CapacitanceFormatter {
 
     fun execute(capacitor: CeramicCapacitor): String {
         val code = capacitor.code
-        if (code.isEmpty()) return "Enter code"
+        if (code.isEmpty()) return ""
         val number = if (code.length == 3) code.dropLast(1).toInt() else code.toInt()
         val multiplier = if (code.length == 3) code.takeLast(1) else "0"
         val pico = number * MultiplierFromDigit.execute(multiplier)

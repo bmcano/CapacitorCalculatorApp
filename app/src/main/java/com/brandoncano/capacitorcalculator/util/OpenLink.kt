@@ -6,6 +6,9 @@ import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import com.brandoncano.capacitorcalculator.constants.Links
 
+/**
+ * Job: Opens a web view of the desired link to navigate to
+ */
 object OpenLink {
 
     fun openCapacitorApp(context: Context) {

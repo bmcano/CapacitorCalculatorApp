@@ -73,4 +73,6 @@ dependencies {
     implementation(libs.accompanist.pager.indicators)
     // unit testing
     testImplementation(libs.junit)
+    // external libraries
+    implementation(libs.ostermiller.util)
 }

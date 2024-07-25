@@ -1,13 +1,11 @@
 package com.brandoncano.capacitorcalculator.util
 
 /**
- * Job: Determine if the code is valid.
- *
- * Note:
+ * Job: Determine if a ceramic capacitor code is valid.
+ * Notes:
  *  - empty string will return true, but will not update any values
  *  - if length is 1 or 2 then any number is valid
  *  - if length is 3, then the 3rd digit must be between 0-6
- *  - https://circuitdigest.com/calculators/capacitor-value-code-calculator
  */
 object IsValidCode {
 

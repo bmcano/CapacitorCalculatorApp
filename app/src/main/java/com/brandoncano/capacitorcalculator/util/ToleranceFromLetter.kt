@@ -9,20 +9,12 @@ package com.brandoncano.capacitorcalculator.util
  */
 object ToleranceFromLetter {
 
+    private val table = mapOf(
+        "B" to "0.1%", "C" to "0.25%", "D" to "0.5%", "F" to "1%", "G" to "2%", "H" to "3%",
+        "J" to "5%", "K" to "10%", "M" to "20%", "P" to "+100%/-0%", "Z" to "+80%/-20%",
+    )
+
     fun execute(letter: String): String {
-        return when (letter) {
-            "B" -> "0.1%"
-            "C" -> "0.25%"
-            "D" -> "0.5%"
-            "F" -> "1%"
-            "G" -> "2%"
-            "H" -> "3%"
-            "J" -> "5%"
-            "K" -> "10%"
-            "M" -> "20%"
-            "P" -> "+100%/-0%"
-            "Z" -> "+80%/-20%"
-            else -> ""
-        }
+        return table[letter] ?: ""
     }
 }

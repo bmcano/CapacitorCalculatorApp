@@ -1,5 +1,6 @@
 package com.brandoncano.capacitorcalculator.model.ceramic
 
+import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
@@ -13,7 +14,7 @@ data class CeramicCapacitor(
         if (isCode) {
             return code.isEmpty() || code.length < 2
         }
-        return capacitance.isEmpty()
+        return capacitance.isEmpty() || (units == Units.PF && capacitance.length < 2)
     }
 
     override fun toString(): String {

@@ -1,8 +1,11 @@
 package com.brandoncano.capacitorcalculator.util
 
-import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
+
+/**
+ * Job: Holds the extension functions for all the capacitor models
+ */
 
 fun CeramicCapacitor.isCodeInvalid(): Boolean {
     return !IsValidCode.execute(this.code)
@@ -17,21 +20,11 @@ fun CeramicCapacitor.getTolerancePercentage(): String {
 }
 
 fun CeramicCapacitor.isCapacitanceInvalid(): Boolean {
-    return !when (this.units) {
-        Units.PF -> IsValidCapacitance.checkPF(this.capacitance)
-        Units.NF -> IsValidCapacitance.checkNF(this.capacitance)
-        Units.UF -> IsValidCapacitance.checkUF(this.capacitance)
-        else -> IsValidCapacitance.checkPF(this.capacitance)
-    }
+    return !IsValidCapacitance.execute(this.capacitance, this.units)
 }
 
 fun CeramicCapacitor.formatCode(): String {
-    return when (this.units) {
-        Units.PF -> CodeFormatter.computeFromPF(this.capacitance)
-        Units.NF -> CodeFormatter.computeFromNF(this.capacitance)
-        Units.UF -> CodeFormatter.computeFromUF(this.capacitance)
-        else -> CodeFormatter.computeFromPF(this.capacitance)
-    }
+    return CodeFormatter.execute(this.capacitance, this.units)
 }
 
 fun SmdCapacitor.isSmdInputInvalid(): Boolean {

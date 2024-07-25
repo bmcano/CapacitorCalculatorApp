@@ -1,6 +1,8 @@
 package com.brandoncano.capacitorcalculator.util
 
-
+/**
+ * Job: Lookup table for the fixed set of EIA-196 base values from 1.0 to 9.9
+ */
 object FindEIA198Value {
 
     private val table = mapOf(
