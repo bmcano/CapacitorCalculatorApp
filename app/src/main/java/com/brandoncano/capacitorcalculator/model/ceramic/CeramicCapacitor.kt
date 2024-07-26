@@ -18,6 +18,7 @@ data class CeramicCapacitor(
     }
 
     override fun toString(): String {
+        // TODO - this only accounts for Code to Capacitance and not the other way around
         return "$code$tolerance\n${this.formatCapacitance()} ${this.getTolerancePercentage()}"
     }
 }

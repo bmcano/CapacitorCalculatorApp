@@ -2,10 +2,12 @@
     <string name="app_name">Capacitor Code Calculator</string>
     <!-- home screen -->
     <string name="home_title">Capacitor Calculator</string>
-    <string name="home_ceramic_calculator_button">Ceramic Capacitor</string>
-    <string name="home_smd_calculator_button">SMD Capacitor</string>
     <string name="home_calculators_header_text">Calculators</string>
-    <string name="home_view_codes">View common codes</string>
+    <string name="home_ceramic_calculator_button">Ceramic capacitor</string>
+    <string name="home_smd_calculator_button">SMD capacitor</string>
+    <string name="home_our_apps_header_text">Our apps</string>
+    <string name="home_rate_this_app">Rate this app</string>
+    <string name="home_view_resistor_app">View our resistor app</string>
     <!-- ceramic calculator screen -->
     <string name="ceramic_calculator_title">Ceramic Capacitor</string>
     <string name="ceramic_calculator_tab_1">Code to Capacitance</string>
@@ -14,6 +16,7 @@
     <string name="ceramic_calculator_code">Code</string>
     <string name="ceramic_calculator_tolerance">Tolerance</string>
     <string name="ceramic_calculator_capacitance">Capacitance</string>
+    <string name="ceramic_view_common_codes">View common codes</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>
@@ -27,12 +30,9 @@
     <string name="about_description">Description</string>
     <string name="about_description_part_01">In this app you can calculate the capacitance of a ceramic capacitor by entering a code or by entering in a capacitance value to get a code.</string>
     <string name="about_description_part_02">Additionally, you can calculate the capacitance of a SMD capacitor by any of the three available standards.</string>
-    <string name="about_our_apps_header_text">Our apps</string>
-    <string name="about_rate_this_app">Rate this app</string>
-    <string name="about_view_resistor_app">View our resistor app</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
     <!-- chart screen -->
-    <string name="chart_title">Common codes</string>
+    <string name="chart_title">Common Codes</string>
     <string name="chart_code">Code</string>
     <string name="chart_pf">pF</string>
     <string name="chart_nf">nF</string>

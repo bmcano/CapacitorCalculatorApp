@@ -90,7 +90,7 @@ fun AppCalculatorButtons(navController: NavController) {
 fun OurAppsButtons(context: Context) {
     Column {
         Text(
-            text = stringResource(id = R.string.about_our_apps_header_text),
+            text = stringResource(id = R.string.home_our_apps_header_text),
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 24.dp)
                 .align(Alignment.Start),
@@ -102,8 +102,8 @@ fun OurAppsButtons(context: Context) {
                 Icons.AutoMirrored.Outlined.AddToHomeScreen
             ),
             listOf(
-                stringResource(id = R.string.about_rate_this_app),
-                stringResource(id = R.string.about_view_resistor_app)
+                stringResource(id = R.string.home_rate_this_app),
+                stringResource(id = R.string.home_view_resistor_app)
             ),
             listOf(
                 { OpenLink.openCapacitorApp(context) },

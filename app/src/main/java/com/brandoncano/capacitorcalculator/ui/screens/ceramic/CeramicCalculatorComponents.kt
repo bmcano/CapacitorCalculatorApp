@@ -104,7 +104,7 @@ private fun CapacitanceText(capacitance: String) {
 fun ViewCommonCodeButton(navController: NavController) {
     ArrowButtonCard(
         imageVector = Icons.Outlined.FileOpen,
-        cardText = stringResource(id = R.string.home_view_codes)
+        cardText = stringResource(id = R.string.ceramic_view_common_codes)
     ) {
         navController.navigate(Screen.Chart.route)
     }
