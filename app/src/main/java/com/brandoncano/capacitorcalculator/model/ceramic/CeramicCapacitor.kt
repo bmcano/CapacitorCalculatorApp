@@ -2,6 +2,7 @@ package com.brandoncano.capacitorcalculator.model.ceramic
 
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 
 data class CeramicCapacitor(
@@ -10,6 +11,8 @@ data class CeramicCapacitor(
     var tolerance: String = "",
     var units: String = "",
 ) {
+    var isCapacitanceToCode = false
+
     fun isEmpty(isCode: Boolean = true): Boolean {
         if (isCode) {
             return code.isEmpty() || code.length < 2
@@ -18,7 +21,10 @@ data class CeramicCapacitor(
     }
 
     override fun toString(): String {
-        // TODO - this only accounts for Code to Capacitance and not the other way around
-        return "$code$tolerance\n${this.formatCapacitance()} ${this.getTolerancePercentage()}"
+        val type = "Ceramic Capacitor:"
+        if (isCapacitanceToCode) {
+            return "$type\nCode = ${formatCode()}\nCapacitance = $capacitance $units"
+        }
+        return "$type\nCode = $code$tolerance\nCapacitance = ${formatCapacitance()} ${getTolerancePercentage()}"
     }
 }

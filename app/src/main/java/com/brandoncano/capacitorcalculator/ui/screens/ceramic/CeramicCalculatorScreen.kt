@@ -145,6 +145,7 @@ private fun ContentView1(
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(CeramicCapacitor())
+    capacitor.isCapacitanceToCode = false
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var tolerance by remember { mutableStateOf(capacitor.tolerance) }
@@ -215,6 +216,7 @@ private fun ContentView2(
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(CeramicCapacitor())
+    capacitor.isCapacitanceToCode = true
     var capacitance by remember { mutableStateOf(capacitor.capacitance) }
     var units by remember { mutableStateOf(capacitor.units) }
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }

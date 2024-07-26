@@ -27,7 +27,8 @@ data class SmdCapacitor(
     }
 
     override fun toString(): String {
+        val type = "SMD Capacitor: ${getSmdMode().name}"
         val capacitance = this.formatCapacitance()
-        return "SMD Capacitor Code: $code\nCapacitance: $capacitance"
+        return "$type\nCode = $code\nCapacitance = $capacitance"
     }
 }
