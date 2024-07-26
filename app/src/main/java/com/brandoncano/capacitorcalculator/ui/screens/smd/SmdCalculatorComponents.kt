@@ -24,7 +24,10 @@ import com.brandoncano.capacitorcalculator.ui.theme.white
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 
 @Composable
-fun SmdCapacitorLayout(capacitor: SmdCapacitor) {
+fun SmdCapacitorLayout(
+    capacitor: SmdCapacitor,
+    isError: Boolean = false,
+) {
     Column(
         modifier = Modifier.padding(top = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -37,15 +40,20 @@ fun SmdCapacitorLayout(capacitor: SmdCapacitor) {
                 painter = painterResource(id = R.drawable.img_smd_capacitor),
                 contentDescription = stringResource(id = R.string.content_description_smd_capacitor),
             )
+            val text = if (isError) {
+                stringResource(id = R.string.error_na)
+            }  else {
+                capacitor.code
+            }
             Text(
-                text = capacitor.code,
+                text = text,
                 style = textStyleLargeTitle().white()
             )
         }
-        val text = if (capacitor.isEmpty()) {
-            stringResource(id = R.string.default_smd_value)
-        } else {
-            capacitor.formatCapacitance()
+        val text = when {
+            capacitor.isEmpty() -> stringResource(id = R.string.default_smd_value)
+            isError -> stringResource(id = R.string.error_na)
+            else -> capacitor.formatCapacitance()
         }
         CapacitanceText(text)
     }

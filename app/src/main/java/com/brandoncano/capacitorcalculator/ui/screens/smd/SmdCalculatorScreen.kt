@@ -110,7 +110,7 @@ private fun ContentView(
                 FeedbackMenuItem(context, interactionSource)
                 AboutAppMenuItem(navController, interactionSource)
             }
-            SmdCapacitorLayout(capacitor)
+            SmdCapacitorLayout(capacitor, isError)
             AppTextField(
                 modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
                 label = stringResource(id = R.string.smd_calculator_code_hint),

@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
@@ -67,7 +68,7 @@ fun CapacitorLayout(
                 if (capacitor.isEmpty(false)) {
                     stringResource(id = R.string.default_capacitance)
                 } else {
-                    "${capacitor.capacitance} ${capacitor.units}"
+                    "${capacitor.capacitance} ${capacitor.units.ifEmpty { Units.PF }}"
                 }
             )
         }
@@ -78,7 +79,7 @@ fun CapacitorLayout(
 private fun CapacitanceText(capacitance: String, tolerance: String) {
     AppCard(modifier = Modifier.padding(top = 12.dp)) {
         Text(
-            text = "$capacitance $tolerance",
+            text = "$capacitance $tolerance".trimEnd(),
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
