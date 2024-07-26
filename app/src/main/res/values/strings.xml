@@ -22,7 +22,7 @@
     <string name="smd_calculator_code_hint">Code</string>
     <string name="smd_calculator_units_hint">Units</string>
     <!-- about screen -->
-    <string name="about_title">About this app</string>
+    <string name="about_title">About The App</string>
     <string name="about_app_version">App version</string>
     <string name="about_last_updated_on">Last updated on</string>
     <string name="about_created_by">Created by</string>
@@ -41,7 +41,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_clear">Clear selections</string>
-    <string name="menu_about">About this app</string>
+    <string name="menu_about">About the app</string>
     <!-- navbar items -->
     <string name="navbar_three_eia">Three Digit EIA</string>
     <string name="navbar_four_eia">Four Digit EIA</string>
