@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens
+package com.brandoncano.capacitorcalculator.ui.screens.about
 
 import android.content.Context
 import androidx.compose.foundation.layout.Column
@@ -15,17 +15,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.AppInfoCard
-import com.brandoncano.capacitorcalculator.ui.components.AuthorCard
-import com.brandoncano.capacitorcalculator.ui.components.DescriptionCard
-import com.brandoncano.capacitorcalculator.ui.components.OurAppsButtons
+import com.brandoncano.capacitorcalculator.ui.screens.home.OurAppsButtons
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
-
-/**
- * Job: Holds all the content for the about screen
- */
 
 @Composable
 fun AboutScreen(context: Context) {
@@ -47,6 +40,7 @@ private fun ContentView(context: Context) {
         AppTopAppBar(stringResource(R.string.about_title))
         AuthorCard()
         AppInfoCard()
+        ViewPrivacyPolicy(context)
         DescriptionCard()
         OurAppsButtons(context)
         Spacer(modifier = Modifier.height(16.dp))

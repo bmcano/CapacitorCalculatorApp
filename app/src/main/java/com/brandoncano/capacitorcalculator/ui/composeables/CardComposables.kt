@@ -24,11 +24,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
-
-/**
- * Job: Holds all the designs for cards and dividers within the app
- */
 
 @Composable
 fun AppDivider(
@@ -47,7 +44,7 @@ fun AppDivider(
 }
 
 @Composable
-fun AppCard(
+fun AppStandardCard(
     content: @Composable (ColumnScope.() -> Unit)
 ) {
     Card(
@@ -59,7 +56,7 @@ fun AppCard(
 }
 
 @Composable
-fun AppCustomCard(
+fun AppCard(
     modifier: Modifier = Modifier,
     content: @Composable (ColumnScope.() -> Unit)
 ) {
@@ -137,5 +134,29 @@ private fun CardRowView(
             contentDescription = stringResource(id = R.string.content_right_arrow),
             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant),
         )
+    }
+}
+
+@AppComponentPreviews
+@Composable
+private fun AppStandardCardPreview() {
+    CapacitorCalculatorTheme {
+        AppStandardCard {
+            Text(modifier = Modifier.padding(start = 8.dp), text = "StandardCard")
+            AppDivider()
+            Text(modifier = Modifier.padding(start = 8.dp), text = "StandardCard")
+        }
+    }
+}
+
+@AppComponentPreviews
+@Composable
+private fun AppCardPreview() {
+    CapacitorCalculatorTheme {
+        AppCard {
+            Text(modifier = Modifier.padding(start = 8.dp), text = "StandardCard")
+            AppDivider()
+            Text(modifier = Modifier.padding(start = 8.dp), text = "StandardCard")
+        }
     }
 }

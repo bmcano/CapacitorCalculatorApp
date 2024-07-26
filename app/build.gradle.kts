@@ -13,7 +13,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 6
-        versionName = "1.0.4-develop"
+        versionName = "1.1.0"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -21,7 +21,7 @@ android {
     }
     applicationVariants.configureEach {
         resValue("string", "version", versionName)
-        resValue("string", "last_updated", "7/9/2024")
+        resValue("string", "last_updated", "7/26/2024")
     }
     buildTypes {
         release {
@@ -67,6 +67,12 @@ dependencies {
     implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.compose.material.icons)
     implementation(libs.androidx.compose.material3)
+    // com.google
+    implementation(libs.gson)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
     // unit testing
     testImplementation(libs.junit)
+    // external libraries
+    implementation(libs.ostermiller.util)
 }

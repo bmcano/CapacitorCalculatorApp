@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens
+package com.brandoncano.capacitorcalculator.ui.screens.chart
 
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -12,8 +12,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.components.ChartRowLabels
-import com.brandoncano.capacitorcalculator.ui.components.ChartTable
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
@@ -32,9 +30,7 @@ fun ChartScreen(context: Context, navController: NavController) {
 @Composable
 private fun ContentView(context: Context, navController: NavController) {
     val interactionSource = remember { MutableInteractionSource() }
-    Column(
-        modifier = Modifier.fillMaxSize(),
-    ) {
+    Column(modifier = Modifier.fillMaxSize()) {
         MenuTopAppBar(stringResource(R.string.chart_title), interactionSource) {
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)

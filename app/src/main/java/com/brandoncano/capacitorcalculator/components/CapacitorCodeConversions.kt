@@ -1,7 +1,7 @@
-package com.brandoncano.capacitorcalculator.model
+package com.brandoncano.capacitorcalculator.components
 
 /**
- * Job: Holds all the values for the conversion chart
+ * Job: Is all the standard codes for a ceramic capacitor
  */
 enum class CapacitorCodeConversions(
     private val code: String,
