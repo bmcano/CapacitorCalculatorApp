@@ -74,5 +74,5 @@ dependencies {
     // unit testing
     testImplementation(libs.junit)
     // external libraries
-    implementation(libs.ostermiller.util)
+    implementation(libs.ostermiller.util) // Job: can count number of sig figs in a string and round
 }

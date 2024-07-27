@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens.home
+package com.brandoncano.capacitorcalculator.ui.screens.electrolytic
 
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -25,10 +25,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
-fun HomeScreen(
-    context: Context,
-    navController: NavController,
-) {
+fun ElectrolyticScreen(context: Context, navController: NavController) {
     CapacitorCalculatorTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             ContentView(context, navController)
@@ -37,32 +34,38 @@ fun HomeScreen(
 }
 
 @Composable
-private fun ContentView(
-    context: Context,
-    navController: NavController,
-) {
+private fun ContentView(context: Context, navController: NavController) {
     val interactionSource = remember { MutableInteractionSource() }
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.Start
     ) {
-        MenuTopAppBar(stringResource(R.string.home_title), interactionSource) {
+        MenuTopAppBar(stringResource(R.string.electrolytic_title), interactionSource) {
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
-        AppIcon()
-        AppCalculatorButtons(navController)
-        AppOtherCapacitorButtons(navController)
-        OurAppsButtons(context)
+        ElectrolyticCapacitorImage()
+        HeaderBodyInformation(
+            header = R.string.electrolytic_capacitance_headline,
+            body = R.string.electrolytic_capacitance_information,
+        )
+        HeaderBodyInformation(
+            header =  R.string.electrolytic_voltage_rating_headline,
+            body = R.string.electrolytic_voltage_rating_information,
+        )
+        HeaderBodyInformation(
+            header =  R.string.electrolytic_how_its_made_headline,
+            body = R.string.electrolytic_how_its_made_information,
+        )
         Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
 @AppScreenPreviews
 @Composable
-private fun HomePreview() {
+private fun ElectrolyticPreview() {
     val app = MainActivity()
-    HomeScreen(app, NavController(app))
+    ElectrolyticScreen(app, NavController(app))
 }

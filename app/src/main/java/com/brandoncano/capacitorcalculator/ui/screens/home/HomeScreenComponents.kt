@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Calculate
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -82,6 +83,25 @@ fun AppCalculatorButtons(navController: NavController) {
             stringResource(id = R.string.home_smd_calculator_button),
         ) {
             navController.navigate(Screen.SmdCalculator.route)
+        }
+    }
+}
+
+@Composable
+fun AppOtherCapacitorButtons(navController: NavController) {
+    Column {
+        Text(
+            text = stringResource(id = R.string.home_capacitors_header_text),
+            modifier = Modifier
+                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                .align(Alignment.Start),
+            style = textStyleHeadline(),
+        )
+        ArrowButtonCard(
+            Icons.Outlined.Info,
+            stringResource(id = R.string.home_electrolytic_capacitor_button),
+        ) {
+            navController.navigate(Screen.Electrolytic.route)
         }
     }
 }

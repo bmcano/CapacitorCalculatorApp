@@ -16,6 +16,7 @@ import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.about.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.ceramic.CeramicCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
+import com.brandoncano.capacitorcalculator.ui.screens.electrolytic.ElectrolyticScreen
 import com.brandoncano.capacitorcalculator.ui.screens.home.HomeScreen
 import com.brandoncano.capacitorcalculator.ui.screens.smd.SmdCalculatorScreen
 
@@ -52,6 +53,13 @@ fun Navigation(context: Context) {
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
             ChartScreen(context, navController)
+        }
+        composable(
+            route = Screen.Electrolytic.route,
+            enterTransition = { slideInVertically(initialOffsetY = { it }) },
+            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+        ) {
+            ElectrolyticScreen(context, navController)
         }
         composable(
             route = Screen.Home.route,
