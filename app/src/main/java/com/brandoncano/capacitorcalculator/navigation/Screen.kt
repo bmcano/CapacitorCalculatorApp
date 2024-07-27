@@ -10,4 +10,5 @@ sealed class Screen(val route: String) {
     data object Electrolytic : Screen("electrolytic_screen")
     data object Home : Screen("home_screen")
     data object SmdCalculator : Screen("smd_calculator_screen")
+    data object StandardCapacitorCode: Screen("standard_capacitor_code_screen")
 }

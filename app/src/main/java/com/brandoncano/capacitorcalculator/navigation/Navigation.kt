@@ -13,12 +13,14 @@ import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.standard.StandardCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.about.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.ceramic.CeramicCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
 import com.brandoncano.capacitorcalculator.ui.screens.electrolytic.ElectrolyticScreen
 import com.brandoncano.capacitorcalculator.ui.screens.home.HomeScreen
 import com.brandoncano.capacitorcalculator.ui.screens.smd.SmdCalculatorScreen
+import com.brandoncano.capacitorcalculator.ui.screens.standard.StandardCapacitorCodeScreen
 
 /**
  * Note: Keep each navigation route in alphabetical order
@@ -77,6 +79,15 @@ fun Navigation(context: Context) {
             val navBarPosition = viewModel.getNavBarSelection()
             val capacitor = viewModel.getCapacitorLiveData()
             SmdCalculatorScreen(context, navController, viewModel, navBarPosition, capacitor)
+        }
+        composable(
+            route = Screen.StandardCapacitorCode.route,
+            enterTransition = { slideInVertically(initialOffsetY = { it }) },
+            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+        ) {
+            val viewModel = viewModel<StandardCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
+            val capacitor = viewModel.getCapacitorLiveData()
+            StandardCapacitorCodeScreen(context, navController, viewModel, capacitor)
         }
     }
 }

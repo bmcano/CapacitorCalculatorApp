@@ -2,6 +2,7 @@ package com.brandoncano.capacitorcalculator.util
 
 import com.Ostermiller.util.SignificantFigures
 import com.brandoncano.capacitorcalculator.components.SmdMode
+import com.brandoncano.capacitorcalculator.components.Tolerance
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 
@@ -27,8 +28,8 @@ object CapacitanceSmdFormatter {
         val convertedCapacitance = (capacitance / unitsConversion).toString()
         val formattedCapacitance = formatCapacitance(convertedCapacitance)
         if (smdMode is SmdMode.FourDigit) {
-            val tolerance = ToleranceFromLetter.execute(code[3].toString())
-            return "$formattedCapacitance $units ($tolerance)"
+            val tolerance = Tolerance.getToleranceValue(code[3].toString())
+            return "$formattedCapacitance $units $tolerance"
         }
         return "$formattedCapacitance $units"
     }

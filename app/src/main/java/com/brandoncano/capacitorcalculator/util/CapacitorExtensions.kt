@@ -1,7 +1,10 @@
 package com.brandoncano.capacitorcalculator.util
 
+import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.components.VoltageRating
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
+import com.brandoncano.capacitorcalculator.model.standard.StandardCapacitor
 
 /**
  * Job: Holds the extension functions for all the capacitor models
@@ -12,11 +15,11 @@ fun CeramicCapacitor.isCodeInvalid(): Boolean {
 }
 
 fun CeramicCapacitor.formatCapacitance(): String {
-    return CapacitanceFormatter.execute(this)
+    return CapacitanceFormatter.execute(this.code, this.units)
 }
 
 fun CeramicCapacitor.getTolerancePercentage(): String {
-    return ToleranceFromLetter.execute(this.tolerance)
+    return Tolerance.getToleranceValue(this.tolerance)
 }
 
 fun CeramicCapacitor.isCapacitanceInvalid(): Boolean {
@@ -33,4 +36,20 @@ fun SmdCapacitor.isSmdInputInvalid(): Boolean {
 
 fun SmdCapacitor.formatCapacitance(): String {
     return CapacitanceSmdFormatter.execute(this)
+}
+
+fun StandardCapacitor.isCodeInvalid(): Boolean {
+    return !IsValidCode.execute(this.code)
+}
+
+fun StandardCapacitor.formatCapacitance(): String {
+    return CapacitanceFormatter.execute(this.code, this.units)
+}
+
+fun StandardCapacitor.getTolerancePercentage(): String {
+    return Tolerance.getToleranceValue(this.tolerance)
+}
+
+fun StandardCapacitor.getVoltageRating(): String {
+    return VoltageRating.getVoltageValue(this.voltageRating)
 }

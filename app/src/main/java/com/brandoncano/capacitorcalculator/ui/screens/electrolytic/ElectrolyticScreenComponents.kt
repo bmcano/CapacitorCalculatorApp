@@ -35,13 +35,13 @@ fun ElectrolyticCapacitorImage() {
     ) {
         Row {
             Image(
-                painter = painterResource(id = R.drawable.equation),
+                painter = painterResource(id = R.drawable.img_equation),
                 contentDescription = stringResource(id = R.string.content_description_equation),
                 modifier = Modifier.size(196.dp),
                 colorFilter = ColorFilter.tint(if (isSystemInDarkTheme()) white else black),
             )
             Image(
-                painter = painterResource(id = R.drawable.electrolytic_capacitor),
+                painter = painterResource(id = R.drawable.img_electrolytic_capacitor),
                 contentDescription = stringResource(id = R.string.content_description_electrolytic_capacitor),
                 modifier = Modifier.size(196.dp),
             )
