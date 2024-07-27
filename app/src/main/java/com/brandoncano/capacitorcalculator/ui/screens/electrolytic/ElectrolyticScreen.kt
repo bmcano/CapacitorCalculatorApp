@@ -50,10 +50,15 @@ private fun ContentView(context: Context, navController: NavController) {
         HeaderBodyInformation(
             header = R.string.electrolytic_capacitance_headline,
             body = R.string.electrolytic_capacitance_information,
+            top = true,
         )
         HeaderBodyInformation(
             header =  R.string.electrolytic_voltage_rating_headline,
             body = R.string.electrolytic_voltage_rating_information,
+        )
+        HeaderBodyInformation(
+            header =  R.string.electrolytic_polarity_headline,
+            body = R.string.electrolytic_polarity_information,
         )
         HeaderBodyInformation(
             header =  R.string.electrolytic_how_its_made_headline,

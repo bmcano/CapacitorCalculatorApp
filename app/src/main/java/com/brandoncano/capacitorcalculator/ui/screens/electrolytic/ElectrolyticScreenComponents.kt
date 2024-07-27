@@ -50,12 +50,12 @@ fun ElectrolyticCapacitorImage() {
 }
 
 @Composable
-fun HeaderBodyInformation(@StringRes header: Int, @StringRes body: Int) {
+fun HeaderBodyInformation(@StringRes header: Int, @StringRes body: Int, top: Boolean = false) {
     Column {
         Text(
             text = stringResource(id = header),
             modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                .padding(start = 16.dp, end = 16.dp, top = if (top) 8.dp else 24.dp)
                 .align(Alignment.Start),
             style = textStyleHeadline(),
         )

@@ -31,6 +31,8 @@
     <string name="electrolytic_capacitance_information">Electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
     <string name="electrolytic_voltage_rating_headline">Voltage rating</string>
     <string name="electrolytic_voltage_rating_information">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
+    <string name="electrolytic_polarity_headline">Polarity</string>
+    <string name="electrolytic_polarity_information">Electrolytic capacitors are polarized components, meaning they have a positive (anode) and a negative (cathode) lead, and must be connected correctly in a circuit to function properly. Typically the positive lead is longer than the negative one.</string>
     <string name="electrolytic_how_its_made_headline">Basic construction</string>
     <string name="electrolytic_how_its_made_information">Electrolytic capacitors are based on the principle of a plate capacitor whose capacitance increases with larger electrode area, A, higher dielectric permittivity, ε, and thinness of dielectric, d. Which can be expressed in the following equation above.</string>
     <!-- home screen -->
