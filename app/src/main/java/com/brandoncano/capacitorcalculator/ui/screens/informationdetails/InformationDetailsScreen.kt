@@ -19,6 +19,7 @@ fun InformationDetailsScreen(informationDetails: InformationDetails) {
         Surface(modifier = Modifier.fillMaxSize()) {
             when (informationDetails) {
                 InformationDetails.Ceramic -> CeramicView()
+                InformationDetails.Film -> FilmView()
                 InformationDetails.Electrolytic -> ElectrolyticView()
                 InformationDetails.SomethingWentWrong -> SomethingWentWrong()
             }

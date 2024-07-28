@@ -68,7 +68,7 @@ private fun ContentView(context: Context, navController: NavController) {
         ArrowButtonCardWithSubText(
             cardTexts = listOf(
                 stringResource(id = R.string.information_ceramic_header),
-//                stringResource(id = R.string.information_film_header),
+                stringResource(id = R.string.information_film_header),
                 stringResource(id = R.string.information_electrolytic_header),
 //                stringResource(id = R.string.information_super_header),
 //                stringResource(id = R.string.information_polymer_header),
@@ -81,12 +81,15 @@ private fun ContentView(context: Context, navController: NavController) {
             ),
             subTexts = listOf(
                 emptyList(),
-//                listOf(
-//                    "Polyester film capacitor",
-//                    "Polypropylene film capacitor",
-//                    "Polystyrene film capacitor",
-//                    "Metallized film capacitor",
-//                ),
+                listOf(
+                    stringResource(id = R.string.information_film_subtext_1),
+                    stringResource(id = R.string.information_film_subtext_2),
+                    stringResource(id = R.string.information_film_subtext_3),
+                    stringResource(id = R.string.information_film_subtext_4),
+                    stringResource(id = R.string.information_film_subtext_5),
+                    stringResource(id = R.string.information_film_subtext_6),
+                    stringResource(id = R.string.information_film_subtext_7),
+                ),
                 listOf(
                     stringResource(id = R.string.information_electrolytic_subtext_1),
                     stringResource(id = R.string.information_electrolytic_subtext_2),
@@ -108,7 +111,7 @@ private fun ContentView(context: Context, navController: NavController) {
             ),
             onClicks = listOf(
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Ceramic.route}") },
-//                { /* TODO("add this page") */ },
+                { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Film.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Electrolytic.route}") },
 //                { /* TODO("add this page") */ },
 //                { /* TODO("add this page") */ },

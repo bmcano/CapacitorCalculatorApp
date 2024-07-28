@@ -46,8 +46,8 @@ fun Navigation(context: Context) {
         }
         composable(
             route = Screen.CapacitorCalculator.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
             val viewModel = viewModel<CapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val capacitor = viewModel.getCapacitorLiveData()
@@ -55,8 +55,8 @@ fun Navigation(context: Context) {
         }
         composable(
             route = Screen.CeramicCalculator.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
             val viewModel = viewModel<CeramicCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val capacitor = viewModel.getCapacitorLiveData()
@@ -78,8 +78,8 @@ fun Navigation(context: Context) {
         }
         composable(
             route = Screen.Information.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
             InformationScreen(context, navController)
         }
@@ -94,8 +94,8 @@ fun Navigation(context: Context) {
         }
         composable(
             route = Screen.SmdCalculator.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
             val viewModel = viewModel<SmdCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val navBarPosition = viewModel.getNavBarSelection()

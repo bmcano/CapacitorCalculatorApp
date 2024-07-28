@@ -52,6 +52,13 @@
     <string name="information_title">Capacitor Information</string>
     <string name="information_ceramic_header">Ceramic capacitor</string>
     <string name="information_film_header">Film capacitors</string>
+    <string name="information_film_subtext_1">Polypropylene (PP) film capacitor</string>
+    <string name="information_film_subtext_2">Polyester (PET) film capacitor</string>
+    <string name="information_film_subtext_3">Polyethylene naphthalate (PEN) film capacitor</string>
+    <string name="information_film_subtext_4">Polyphenylene sulfide (PPS) film capacitor</string>
+    <string name="information_film_subtext_5">Polytetrafluoroethylene (PTFE) film capacitor</string>
+    <string name="information_film_subtext_6">Polystyrene (PS) film capacitor</string>
+    <string name="information_film_subtext_7">Polycarbonate (PC) film capacitor</string>
     <string name="information_electrolytic_header">Electrolytic capacitors</string>
     <string name="information_electrolytic_subtext_1">Aluminum electrolytic capacitor</string>
     <string name="information_electrolytic_subtext_2">Tantalum electrolytic capacitor</string>
@@ -66,7 +73,7 @@
     <!-- information details screen (all capacitors) -->
     <string name="information_details_general_information">General information</string>
     <string name="information_details_capacitance">Capacitance</string>
-    <string name="information_details_characteristics">Unique characteristics</string>
+    <string name="information_details_characteristics">Characteristics</string>
     <string name="information_details_applications">Applications</string>
 
     <string name="ceramic_details_title">Ceramic Capacitor</string>
@@ -76,6 +83,24 @@
     <string name="ceramic_details_applications_1">There are currently two standard classes of ceramic capacitors both of which specialized in different things.</string>
     <string name="ceramic_details_applications_2">Class 1 ceramic capacitors will offer high stability and low losses for resonant circuit applications.</string>
     <string name="ceramic_details_applications_3">Class 2 ceramic capacitors will offer high volumetric efficiency for by-pass, decoupling, and smoothing applications.</string>
+
+    <string name="film_details_title">Film Capacitor</string>
+    <string name="film_details_general_information">Film capacitors are electrical capacitors with an insulating plastic film as the dielectric, sometimes combined with paper as carrier of the electrodes.</string>
+    <string name="film_details_capacitance">For many styles of the film capacitor the capacitance and other important values are directly printed on the capacitor. If it is not, then it will use the shorthand three-digit code to indicate their capacitance and other related values.</string>
+    <string name="film_details_characteristics_1">These capacitors are the most-used dielectric film in industrial capacitors and also in power capacitor types. The polypropylene film material absorbs less moisture than polyester film and is therefore also suitable for \"naked\" designs without any coating.</string>
+    <string name="film_details_characteristics_2">The polyester film adsorbs very little moisture, and this feature makes it suitable for \"naked\" designs without any further coating needed. They are the low-cost mass-produced capacitors in modern electronics, featuring relatively small dimensions with relatively high capacitance values. The low cost of polyester and the relatively compact dimensions are the main reasons for the high prevalence of PET film capacitors in modern designs.</string>
+    <string name="film_details_characteristics_3">These capacitors are physically larger for a given capacitance and rated voltage value. In spite of this, PEN film capacitors are preferred over PET when the ambient temperature during operation of the capacitors is permanently above 125°C. The special PEN \"high voltage\" dielectric offers excellent electrical properties at high voltages and high temperatures (175°C).</string>
+    <string name="film_details_characteristics_4">The temperature dependence of the capacitance of PPS film capacitors over the entire temperature range is very small (±1.5%) compared with other film capacitors. Also the frequency dependence in the range from 100 Hz to 100 kHz of the capacitance of the PPS film capacitors is ±0.5%, which is very low compared with other film capacitors.</string>
+    <string name="film_details_characteristics_5">These capacitors feature a very high temperature resistance up to 200°C, and even further up to 260°C, with a voltage derating. The dissipation factor 0.0002 is quite small.</string>
+    <string name="film_details_characteristics_6">These capacitors were well known as inexpensive film capacitors for general purpose applications, where high capacitance stability, low dissipation factor, and low leakage currents were needed.</string>
+    <string name="film_details_characteristics_7">These capacitors have a low dissipation factor and because of their relatively temperature independent electrical properties of about ±80 ppm over the entire temperature range. However, the main supplier of polycarbonate film for capacitors had ceased the production of this polymer in film form as of the year 2000.</string>
+    <string name="film_details_applications_1">Therefore, polypropylene film capacitors are suitable for applications in frequency-determining circuits, filters, oscillator circuits, audio circuits, timers, and for high-frequency applications. They are also useful for compensation of inductive coils in precision filter applications.</string>
+    <string name="film_details_applications_2">Polyester film capacitors are mainly used for general purpose applications or semi-critical circuits with operating temperatures up to 125°C.</string>
+    <string name="film_details_applications_3">PEN capacitors are mainly used for non-critical filtering, coupling and decoupling in electronic circuits, when the temperature dependencies do not matter.</string>
+    <string name="film_details_applications_4">PPS capacitors are well-suited for applications in frequency-determining circuits and for high-temperature applications. They are also an ideal replacement for polycarbonate film capacitors.</string>
+    <string name="film_details_applications_5">They are typically used in military equipment, aerospace, geological probes, burn-in circuits, and high-quality audio circuits.</string>
+    <string name="film_details_applications_6">However, PS capacitors have an important advantage - they have a temperature coefficient near zero and are useful in tuned circuits where temperature drift must be avoided.</string>
+    <string name="film_details_applications_7">They have had many applications for low-loss and temperature-stable applications in timing circuits, precision analog circuits, and signal filters in applications with tough environmental conditions.</string>
 
     <string name="electrolytic_title">Electrolytic Capacitor</string>
     <string name="electrolytic_capacitance_information">Both aluminum and tantalum electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
