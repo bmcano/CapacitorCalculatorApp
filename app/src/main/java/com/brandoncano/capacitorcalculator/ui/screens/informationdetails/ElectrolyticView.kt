@@ -27,25 +27,25 @@ fun ElectrolyticView() {
         AppTopAppBar(stringResource(R.string.electrolytic_title))
         ElectrolyticCapacitorImage()
         HeaderBodyInformation(
-            topPadding = 8.dp,
+            header = R.string.information_details_general_information,
+            body = R.string.electrolytic_details_general_information,
+        )
+        HeaderBodyInformation(
             header = R.string.information_details_capacitance,
-            body = R.string.electrolytic_capacitance_information,
+            body = R.string.electrolytic_details_capacitance_1,
+        )
+        BodyInformation(R.string.electrolytic_details_capacitance_2)
+        HeaderBodyInformation(
+            header =  R.string.information_details_characteristics,
+            body = R.string.electrolytic_details_characteristics_1,
+        )
+        BodyInformation(
+            R.string.electrolytic_details_characteristics_2,
+            R.string.electrolytic_details_characteristics_3,
         )
         HeaderBodyInformation(
-            header =  R.string.electrolytic_voltage_rating_headline,
-            body = R.string.electrolytic_voltage_rating_information,
-        )
-        HeaderBodyInformation(
-            header =  R.string.electrolytic_polarity_headline,
-            body = R.string.electrolytic_polarity_information,
-        )
-        HeaderBodyInformation(
-            header =  R.string.electrolytic_how_its_made_headline,
-            body = R.string.electrolytic_how_its_made_information,
-        )
-        HeaderBodyInformation(
-            header =  R.string.information_details_applications,
-            body = R.string.electrolytic_applications_information,
+            header = R.string.information_details_applications,
+            body = R.string.electrolytic_details_applications,
         )
         Spacer(modifier = Modifier.height(16.dp))
     }

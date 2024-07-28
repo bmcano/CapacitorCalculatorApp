@@ -21,8 +21,10 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.components.InformationDetails
 import com.brandoncano.capacitorcalculator.navigation.Screen
+import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
+import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -52,7 +54,6 @@ private fun ContentView(context: Context, navController: NavController) {
             FeedbackMenuItem(context, interactionSource)
             AboutAppMenuItem(navController, interactionSource)
         }
-
         // this text is a starting point will be removed or modify in some way
         Text(
             text = "This page contains a list of many different capacitors. Each of which goes into detail about their unique characteristics and suitable application use cases.",
@@ -63,7 +64,6 @@ private fun ContentView(context: Context, navController: NavController) {
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
             onCard = false
         )
-        // TODO - extract all into string res
         // Note: will leave items commented out until their page is added
         ArrowButtonCardWithSubText(
             cardTexts = listOf(
@@ -93,6 +93,7 @@ private fun ContentView(context: Context, navController: NavController) {
                 listOf(
                     stringResource(id = R.string.information_electrolytic_subtext_1),
                     stringResource(id = R.string.information_electrolytic_subtext_2),
+                    stringResource(id = R.string.information_electrolytic_subtext_3)
                 ),
 //                emptyList(),
 //                emptyList(),
@@ -123,6 +124,14 @@ private fun ContentView(context: Context, navController: NavController) {
 //                { /* TODO("add this page") */ },
             )
         )
+        // TODO - add a disclaimer at the bottom stating the information all came from wikipedia (?)
         Spacer(modifier = Modifier.height(16.dp))
     }
+}
+
+@AppScreenPreviews
+@Composable
+private fun InformationScreenPreview() {
+    val app = MainActivity()
+    InformationScreen(app, NavController(app))
 }

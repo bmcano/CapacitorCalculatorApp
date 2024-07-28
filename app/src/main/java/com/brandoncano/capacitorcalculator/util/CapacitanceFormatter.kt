@@ -1,7 +1,6 @@
 package com.brandoncano.capacitorcalculator.util
 
 import com.brandoncano.capacitorcalculator.constants.Units
-import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
 
 /**
  * Job: Take a ceramic code and format the capacitance based on unit

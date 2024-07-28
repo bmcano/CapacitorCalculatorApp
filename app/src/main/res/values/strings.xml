@@ -62,6 +62,7 @@
     <string name="information_electrolytic_header">Electrolytic capacitors</string>
     <string name="information_electrolytic_subtext_1">Aluminum electrolytic capacitor</string>
     <string name="information_electrolytic_subtext_2">Tantalum electrolytic capacitor</string>
+    <string name="information_electrolytic_subtext_3">Niobium electrolytic capacitor</string>
     <string name="information_super_header">Supercapacitors</string>
     <string name="information_mica_header">Mica capacitor</string>
     <string name="information_polymer_header">Polymer capacitors</string>
@@ -103,14 +104,13 @@
     <string name="film_details_applications_7">They have had many applications for low-loss and temperature-stable applications in timing circuits, precision analog circuits, and signal filters in applications with tough environmental conditions.</string>
 
     <string name="electrolytic_title">Electrolytic Capacitor</string>
-    <string name="electrolytic_capacitance_information">Both aluminum and tantalum electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
-    <string name="electrolytic_voltage_rating_headline">Voltage rating</string>
-    <string name="electrolytic_voltage_rating_information">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
-    <string name="electrolytic_polarity_headline">Polarity</string>
-    <string name="electrolytic_polarity_information">Electrolytic capacitors are polarized components, meaning they have a positive (anode) and a negative (cathode) lead, and must be connected correctly in a circuit to function properly. Typically the positive lead is longer than the negative one.</string>
-    <string name="electrolytic_how_its_made_headline">Basic construction</string>
-    <string name="electrolytic_how_its_made_information">Electrolytic capacitors are based on the principle of a plate capacitor whose capacitance increases with larger electrode area, A, higher dielectric permittivity, ε, and thinness of dielectric, d. Which can be expressed in the following equation above.</string>
-    <string name="electrolytic_applications_information">Both variations are typically used for power supply filtering, while aluminum versions are used more in audio circuits and motor start applications while tantalum capacitors are used more for decoupling and bypass applications and space-constrained applications.</string>
+    <string name="electrolytic_details_general_information">Electrolytic capacitors are polarized components because of their asymmetrical construction and must be operated with a higher potential (i.e., more positive) on the positive lead (anode) than on the negative lead (cathode) at all times. This is why the polarity is marked on the device. Applying a reverse polarity voltage, or a voltage exceeding the maximum rated working voltage of as little as 1 or 1.5 volts, can damage the dielectric causing catastrophic failure of the capacitor itself.</string>
+    <string name="electrolytic_details_capacitance_1">Electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
+    <string name="electrolytic_details_capacitance_2">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
+    <string name="electrolytic_details_characteristics_1">The non-solid or so-called \"wet\" aluminium electrolytic capacitors were and are the cheapest among all other conventional capacitors. They provide the cheapest solutions for high capacitance or voltage values for decoupling and buffering purposes. They are also insensitive to low ohmic charging, discharging, and to low-energy transients.</string>
+    <string name="electrolytic_details_characteristics_2">Tantalum electrolytic capacitors are mainly used in electronic devices in which little space is available or a low profile is required. They operate reliably over a wide temperature range without large parameter deviations.</string>
+    <string name="electrolytic_details_characteristics_3">Niobium electrolytic capacitors are in direct competition with industrial tantalum electrolytic capacitors because niobium is more readily available. Their properties are comparable.</string>
+    <string name="electrolytic_details_applications">Non-solid electrolytic capacitors can be found in nearly all areas of electronic devices, with the exception of military applications. However, in military and space applications only tantalum electrolytic capacitors have the necessary approvals.</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>
@@ -131,7 +131,6 @@
     <string name="content_description_app_icon">App icon</string>
     <string name="content_description_ceramic_capacitor">Ceramic capacitor</string>
     <string name="content_description_smd_capacitor">SMD capacitor</string>
-    <string name="content_description_equation">Equation</string>
     <string name="content_description_electrolytic_capacitor">Electrolytic capacitor</string>
     <!-- default values -->
     <string name="default_code">Enter code</string>
