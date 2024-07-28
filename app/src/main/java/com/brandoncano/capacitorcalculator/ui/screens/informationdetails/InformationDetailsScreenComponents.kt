@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens.electrolytic
+package com.brandoncano.capacitorcalculator.ui.screens.informationdetails
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -21,9 +21,29 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.black
+import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
+
+@Composable
+fun CeramicCapacitorImage() {
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.img_capacitor),
+            contentDescription = stringResource(id = R.string.content_description_ceramic_capacitor),
+            modifier = Modifier.size(196.dp),
+        )
+        Text(
+            text = "103",
+            style = textStyleTitle().white()
+        )
+    }
+}
 
 @Composable
 fun ElectrolyticCapacitorImage() {
@@ -62,7 +82,7 @@ fun HeaderBodyInformation(@StringRes header: Int, @StringRes body: Int, top: Boo
         Text(
             text = stringResource(id = body),
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-            style = textStyleBody(),
+            style = textStyleBody().gray(),
         )
     }
 }

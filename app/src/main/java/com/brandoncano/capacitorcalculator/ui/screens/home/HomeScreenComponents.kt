@@ -76,11 +76,11 @@ fun AppCalculatorButtons(navController: NavController) {
             listOf(Icons.Outlined.Calculate, Icons.Outlined.Calculate),
             listOf(
                 stringResource(id = R.string.home_ceramic_calculator_button),
-                stringResource(id = R.string.home_standard_calculator_button)
+                stringResource(id = R.string.home_capacitor_calculator_button)
             ),
             listOf(
                 { navController.navigate(Screen.CeramicCalculator.route) },
-                { navController.navigate(Screen.StandardCapacitorCode.route) }
+                { navController.navigate(Screen.CapacitorCalculator.route) }
             )
         )
         ArrowButtonCard(
@@ -93,7 +93,7 @@ fun AppCalculatorButtons(navController: NavController) {
 }
 
 @Composable
-fun AppOtherCapacitorButtons(navController: NavController) {
+fun AppInformationScreens(navController: NavController) {
     Column {
         Text(
             text = stringResource(id = R.string.home_capacitors_header_text),
@@ -104,9 +104,9 @@ fun AppOtherCapacitorButtons(navController: NavController) {
         )
         ArrowButtonCard(
             Icons.Outlined.Info,
-            stringResource(id = R.string.home_electrolytic_capacitor_button),
+            stringResource(id = R.string.home_information_button),
         ) {
-            navController.navigate(Screen.Electrolytic.route)
+            navController.navigate(Screen.Information.route)
         }
     }
 }

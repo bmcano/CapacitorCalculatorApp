@@ -1,15 +1,15 @@
-package com.brandoncano.capacitorcalculator.model.standard
+package com.brandoncano.capacitorcalculator.model.capacitor
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class StandardCapacitorViewModel: ViewModel() {
+class CapacitorViewModel: ViewModel() {
 
-    private var capacitor = MutableLiveData<StandardCapacitor>()
+    private var capacitor = MutableLiveData<Capacitor>()
 
     init {
-        capacitor.value = StandardCapacitor()
+        capacitor.value = Capacitor()
     }
 
     override fun onCleared() {
@@ -17,10 +17,10 @@ class StandardCapacitorViewModel: ViewModel() {
     }
 
     fun clear() {
-        capacitor.value = StandardCapacitor()
+        capacitor.value = Capacitor()
     }
 
-    fun getCapacitorLiveData(): LiveData<StandardCapacitor> {
+    fun getCapacitorLiveData(): LiveData<Capacitor> {
         return capacitor
     }
 

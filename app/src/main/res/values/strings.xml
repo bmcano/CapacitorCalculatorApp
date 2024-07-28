@@ -10,6 +10,18 @@
     <string name="about_description_part_01">In this app you can calculate the capacitance of a ceramic capacitor by entering a code or by entering in a capacitance value to get a code.</string>
     <string name="about_description_part_02">Additionally, you can calculate the capacitance of a SMD capacitor by any of the three available standards.</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
+    <!-- capacitor calculator screen -->
+    <string name="capacitor_calculator_title">Capacitor Code</string>
+    <string name="capacitor_calculator_code">Code</string>
+    <string name="capacitor_calculator_units">Units</string>
+    <string name="capacitor_calculator_tolerance">Tolerance</string>
+    <string name="capacitor_calculator_voltage_rating">Voltage rating</string>
+    <string name="capacitor_calculator_information_header">Capacitor information</string>
+    <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations for the markings they hold. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance, like 103 for example.</string>
+    <string name="capacitor_calculator_information_body_2">This code is just three numbers, but there can be other numbers and letters that may surround this part. Usually, these values represent tolerance and voltage rating.</string>
+    <string name="capacitor_calculator_information_body_3">Tolerance is just one capital letter that usually directly follows the three digit code, for example 103J could appear where J is the tolerance indicator.</string>
+    <string name="capacitor_calculator_information_body_4">Voltage rating is also another common value that can appear on capacitors, it is typically a two digit code that is a number followed by a letter, like 2A as an example.</string>
+    <string name="capacitor_calculator_information_body_5">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, capacitance values, etc.</string>
     <!-- ceramic calculator screen -->
     <string name="ceramic_calculator_title">Ceramic Capacitor</string>
     <string name="ceramic_calculator_tab_1">Code to Capacitance</string>
@@ -25,43 +37,53 @@
     <string name="chart_pf">pF</string>
     <string name="chart_nf">nF</string>
     <string name="chart_uf">µF</string>
-    <!-- electrolytic screen -->
-    <string name="electrolytic_title">Electrolytic Capacitor</string>
-    <string name="electrolytic_capacitance_headline">Capacitance</string>
-    <string name="electrolytic_capacitance_information">Electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
-    <string name="electrolytic_voltage_rating_headline">Voltage rating</string>
-    <string name="electrolytic_voltage_rating_information">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
-    <string name="electrolytic_polarity_headline">Polarity</string>
-    <string name="electrolytic_polarity_information">Electrolytic capacitors are polarized components, meaning they have a positive (anode) and a negative (cathode) lead, and must be connected correctly in a circuit to function properly. Typically the positive lead is longer than the negative one.</string>
-    <string name="electrolytic_how_its_made_headline">Basic construction</string>
-    <string name="electrolytic_how_its_made_information">Electrolytic capacitors are based on the principle of a plate capacitor whose capacitance increases with larger electrode area, A, higher dielectric permittivity, ε, and thinness of dielectric, d. Which can be expressed in the following equation above.</string>
     <!-- home screen -->
     <string name="home_title">Capacitor Calculator</string>
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_capacitors_header_text">Other capacitors</string>
     <string name="home_ceramic_calculator_button">Ceramic capacitor</string>
     <string name="home_smd_calculator_button">SMD capacitor</string>
-    <string name="home_standard_calculator_button">Generic capacitors</string>
-    <string name="home_electrolytic_capacitor_button">Electrolytic capacitor</string>
+    <string name="home_capacitor_calculator_button">Capacitor: code to value</string>
+    <string name="home_information_button">Capacitor information</string>
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_rate_this_app">Rate this app</string>
     <string name="home_view_resistor_app">View our resistor app</string>
+    <!-- information screen -->
+    <string name="information_title">Capacitor Information</string>
+    <string name="information_ceramic_header">Ceramic capacitor</string>
+    <string name="information_film_header">Film capacitors</string>
+    <string name="information_electrolytic_header">Electrolytic capacitors</string>
+    <string name="information_electrolytic_subtext_1">Aluminum electrolytic capacitor</string>
+    <string name="information_electrolytic_subtext_2">Tantalum electrolytic capacitor</string>
+    <string name="information_super_header">Supercapacitors</string>
+    <string name="information_mica_header">Mica capacitor</string>
+    <string name="information_polymer_header">Polymer capacitors</string>
+    <string name="information_paper_header">Paper capacitor (mostly obsolete)</string>
+    <string name="information_glass_header">Glass capacitor</string>
+    <string name="information_silicon_header">Silicon capacitor</string>
+    <string name="information_variable_header">Variable capacitors</string>
+    <string name="information_hybrid_header">Hybrid capacitor</string>
+    <!-- information details screen (all capacitors) -->
+    <string name="information_details_capacitance">Capacitance</string>
+    <string name="information_details_characteristics">Unique characteristics</string>
+    <string name="information_details_applications">Applications</string>
+    <string name="ceramic_title">Ceramic Capacitor</string>
+    <string name="ceramic_capacitance_information">Ceramic capacitors typically have their capacitance marked with a three digit coding system.</string>
+    <string name="ceramic_characteristics_information">Some unique characteristics are the small size, high stability and the capacitance range (form pF to uF).</string>
+    <string name="ceramic_applications_information">Some standard applications include, decoupling and bypass capacitors in electronic circuits, RF circuits, timing and filtering applications, or general-purpose use in consumer electronics</string>
+    <string name="electrolytic_title">Electrolytic Capacitor</string>
+    <string name="electrolytic_capacitance_information">Both aluminum and tantalum electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
+    <string name="electrolytic_voltage_rating_headline">Voltage rating</string>
+    <string name="electrolytic_voltage_rating_information">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
+    <string name="electrolytic_polarity_headline">Polarity</string>
+    <string name="electrolytic_polarity_information">Electrolytic capacitors are polarized components, meaning they have a positive (anode) and a negative (cathode) lead, and must be connected correctly in a circuit to function properly. Typically the positive lead is longer than the negative one.</string>
+    <string name="electrolytic_how_its_made_headline">Basic construction</string>
+    <string name="electrolytic_how_its_made_information">Electrolytic capacitors are based on the principle of a plate capacitor whose capacitance increases with larger electrode area, A, higher dielectric permittivity, ε, and thinness of dielectric, d. Which can be expressed in the following equation above.</string>
+    <string name="electrolytic_applications_information">Both variations are typically used for power supply filtering, while aluminum versions are used more in audio circuits and motor start applications while tantalum capacitors are used more for decoupling and bypass applications and space-constrained applications.</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>
     <string name="smd_calculator_units_hint">Units</string>
-    <!-- standard capacitor code screen -->
-    <string name="standard_calculator_title">Generic Capacitors</string>
-    <string name="standard_calculator_code">Code</string>
-    <string name="standard_calculator_units">Units</string>
-    <string name="standard_calculator_tolerance">Tolerance</string>
-    <string name="standard_calculator_voltage_rating">Voltage rating</string>
-    <string name="standard_calculator_information_header">Capacitor information</string>
-    <string name="standard_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations for the markings they hold. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance, like 103 for example.</string>
-    <string name="standard_calculator_information_body_2">This code is just three numbers, but there can be other numbers and letters that may surround this part. Usually, these values represent tolerance and voltage rating.</string>
-    <string name="standard_calculator_information_body_3">Tolerance is just one capital letter that usually directly follows the three digit code, for example 103J could appear where J is the tolerance indicator.</string>
-    <string name="standard_calculator_information_body_4">Voltage rating is also another common value that can appear on capacitors, it is typically a two digit code that is a number followed by a letter, like 2A as an example.</string>
-    <string name="standard_calculator_information_body_5">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, capacitance values, etc.</string>
     <!-- menu items -->
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>

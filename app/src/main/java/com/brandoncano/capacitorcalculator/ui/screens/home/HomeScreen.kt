@@ -54,7 +54,7 @@ private fun ContentView(
         }
         AppIcon()
         AppCalculatorButtons(navController)
-        AppOtherCapacitorButtons(navController)
+        AppInformationScreens(navController)
         OurAppsButtons(context)
         Spacer(modifier = Modifier.height(16.dp))
     }

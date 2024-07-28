@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens.standard
+package com.brandoncano.capacitorcalculator.ui.screens.capacitor
 
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -27,8 +27,8 @@ import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.constants.DropdownLists
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
-import com.brandoncano.capacitorcalculator.model.standard.StandardCapacitor
-import com.brandoncano.capacitorcalculator.model.standard.StandardCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
+import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
@@ -44,11 +44,11 @@ import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.isCodeInvalid
 
 @Composable
-fun StandardCapacitorCodeScreen(
+fun CapacitorCodeScreen(
     context: Context,
     navController: NavController,
-    viewModel: StandardCapacitorViewModel,
-    capacitor: LiveData<StandardCapacitor>
+    viewModel: CapacitorViewModel,
+    capacitor: LiveData<Capacitor>
 ) {
     CapacitorCalculatorTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
@@ -61,13 +61,13 @@ fun StandardCapacitorCodeScreen(
 private fun ContentView(
     context: Context,
     navController: NavController,
-    viewModel: StandardCapacitorViewModel,
-    capacitorLiveData: LiveData<StandardCapacitor>,
+    viewModel: CapacitorViewModel,
+    capacitorLiveData: LiveData<Capacitor>,
 ) {
     val focusManager = LocalFocusManager.current
     val interactionSource = remember { MutableInteractionSource() }
     var reset by remember { mutableStateOf(false) }
-    val capacitor by capacitorLiveData.observeAsState(StandardCapacitor())
+    val capacitor by capacitorLiveData.observeAsState(Capacitor())
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var tolerance by remember { mutableStateOf(capacitor.tolerance)}
@@ -80,7 +80,7 @@ private fun ContentView(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuTopAppBar(stringResource(R.string.standard_calculator_title), interactionSource) {
+        MenuTopAppBar(stringResource(R.string.capacitor_calculator_title), interactionSource) {
             ClearSelectionsMenuItem(interactionSource) {
                 viewModel.clear()
                 reset = true
@@ -94,7 +94,7 @@ private fun ContentView(
         CapacitorValuesText(capacitor, isError)
         AppTextField(
             modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
-            label = stringResource(id = R.string.standard_calculator_code),
+            label = stringResource(id = R.string.capacitor_calculator_code),
             text = code,
             reset = reset,
             isError = isError,
@@ -110,7 +110,7 @@ private fun ContentView(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
-            label = R.string.standard_calculator_units,
+            label = R.string.capacitor_calculator_units,
             selectedOption = capacitor.tolerance,
             items = DropdownLists.UNITS,
             reset = reset
@@ -122,7 +122,7 @@ private fun ContentView(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
-            label = R.string.standard_calculator_tolerance,
+            label = R.string.capacitor_calculator_tolerance,
             selectedOption = capacitor.tolerance,
             items = DropdownLists.TOLERANCE,
             reset = reset
@@ -134,7 +134,7 @@ private fun ContentView(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
-            label = R.string.standard_calculator_voltage_rating,
+            label = R.string.capacitor_calculator_voltage_rating,
             selectedOption = capacitor.voltageRating,
             items = DropdownLists.VOLTAGE_RATING,
             reset = reset
@@ -155,11 +155,11 @@ private fun ContentView(
 
 @AppScreenPreviews
 @Composable
-private fun StandardCapacitorCodePreview() {
+private fun CapacitorCodePreview() {
     CapacitorCalculatorTheme {
         val app = MainActivity()
-        val viewModel = viewModel<StandardCapacitorViewModel>(factory = CapacitorViewModelFactory(app))
+        val viewModel = viewModel<CapacitorViewModel>(factory = CapacitorViewModelFactory(app))
         val capacitor = viewModel.getCapacitorLiveData()
-        StandardCapacitorCodeScreen(app, NavController(app), viewModel, capacitor)
+        CapacitorCodeScreen(app, NavController(app), viewModel, capacitor)
     }
 }

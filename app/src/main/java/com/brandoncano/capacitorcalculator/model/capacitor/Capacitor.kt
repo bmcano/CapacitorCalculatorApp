@@ -1,10 +1,10 @@
-package com.brandoncano.capacitorcalculator.model.standard
+package com.brandoncano.capacitorcalculator.model.capacitor
 
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 import com.brandoncano.capacitorcalculator.util.getVoltageRating
 
-data class StandardCapacitor(
+data class Capacitor(
     val code: String = "",
     val units: String = "",
     val tolerance: String = "",

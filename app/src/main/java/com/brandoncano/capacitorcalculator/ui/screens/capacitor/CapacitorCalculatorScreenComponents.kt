@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens.standard
+package com.brandoncano.capacitorcalculator.ui.screens.capacitor
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.standard.StandardCapacitor
+import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
@@ -29,7 +29,7 @@ import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 import com.brandoncano.capacitorcalculator.util.getVoltageRating
 
 @Composable
-fun CapacitorValuesText(capacitor: StandardCapacitor, isError: Boolean) {
+fun CapacitorValuesText(capacitor: Capacitor, isError: Boolean) {
     val capacitance = when {
         capacitor.isEmpty() -> stringResource(id = R.string.default_code)
         isError -> stringResource(id = R.string.error_invalid_code)
@@ -80,34 +80,34 @@ fun CapacitorInformation() {
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
             )
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_header),
+                text = stringResource(id = R.string.capacitor_calculator_information_header),
                 modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 24.dp),
                 style = textStyleHeadline(),
             )
         }
         AppStandardCard {
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_body_1),
+                text = stringResource(id = R.string.capacitor_calculator_information_body_1),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 style = textStyleSubhead(),
             )
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_body_2),
+                text = stringResource(id = R.string.capacitor_calculator_information_body_2),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 style = textStyleSubhead(),
             )
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_body_3),
+                text = stringResource(id = R.string.capacitor_calculator_information_body_3),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 style = textStyleSubhead(),
             )
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_body_4),
+                text = stringResource(id = R.string.capacitor_calculator_information_body_4),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
                 style = textStyleSubhead(),
             )
             Text(
-                text = stringResource(id = R.string.standard_calculator_information_body_5),
+                text = stringResource(id = R.string.capacitor_calculator_information_body_5),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
                 style = textStyleSubhead(),
             )
@@ -120,12 +120,12 @@ fun CapacitorInformation() {
 private fun CapacitorValuesTextPreview() {
     CapacitorCalculatorTheme {
         Column {
-            CapacitorValuesText(StandardCapacitor("123"), false)
-            CapacitorValuesText(StandardCapacitor("123"), true)
-            CapacitorValuesText(StandardCapacitor(""), false)
-            CapacitorValuesText(StandardCapacitor("123", "", "D", "1A"), false)
-            CapacitorValuesText(StandardCapacitor("123", "", "", "1A"), false)
-            CapacitorValuesText(StandardCapacitor("", "", "D", "1A"), false)
+            CapacitorValuesText(Capacitor("123"), false)
+            CapacitorValuesText(Capacitor("123"), true)
+            CapacitorValuesText(Capacitor(""), false)
+            CapacitorValuesText(Capacitor("123", "", "D", "1A"), false)
+            CapacitorValuesText(Capacitor("123", "", "", "1A"), false)
+            CapacitorValuesText(Capacitor("", "", "D", "1A"), false)
         }
     }
 }
