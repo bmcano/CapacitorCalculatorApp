@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
@@ -36,12 +37,18 @@ fun CeramicCapacitorImage() {
         Image(
             painter = painterResource(id = R.drawable.img_capacitor),
             contentDescription = stringResource(id = R.string.content_description_ceramic_capacitor),
-            modifier = Modifier.size(196.dp),
+            modifier = Modifier.size(160.dp),
         )
-        Text(
-            text = "103",
-            style = textStyleTitle().white()
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = "103J",
+                style = textStyleTitle().white()
+            )
+            Text(
+                text = "2A",
+                style = textStyleTitle().white()
+            )
+        }
     }
 }
 
@@ -70,12 +77,12 @@ fun ElectrolyticCapacitorImage() {
 }
 
 @Composable
-fun HeaderBodyInformation(@StringRes header: Int, @StringRes body: Int, top: Boolean = false) {
+fun HeaderBodyInformation(topPadding: Dp = 24.dp, @StringRes header: Int, @StringRes body: Int) {
     Column {
         Text(
             text = stringResource(id = header),
             modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = if (top) 8.dp else 24.dp)
+                .padding(start = 16.dp, end = 16.dp, top = topPadding)
                 .align(Alignment.Start),
             style = textStyleHeadline(),
         )
@@ -84,6 +91,19 @@ fun HeaderBodyInformation(@StringRes header: Int, @StringRes body: Int, top: Boo
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
             style = textStyleBody().gray(),
         )
+    }
+}
+
+@Composable
+fun BodyInformation(vararg bodyTexts: Int) {
+    Column {
+        bodyTexts.forEach { body ->
+            Text(
+                text = stringResource(id = body),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                style = textStyleBody().gray(),
+            )
+        }
     }
 }
 

@@ -64,13 +64,19 @@
     <string name="information_variable_header">Variable capacitors</string>
     <string name="information_hybrid_header">Hybrid capacitor</string>
     <!-- information details screen (all capacitors) -->
+    <string name="information_details_general_information">General information</string>
     <string name="information_details_capacitance">Capacitance</string>
     <string name="information_details_characteristics">Unique characteristics</string>
     <string name="information_details_applications">Applications</string>
-    <string name="ceramic_title">Ceramic Capacitor</string>
-    <string name="ceramic_capacitance_information">Ceramic capacitors typically have their capacitance marked with a three digit coding system.</string>
-    <string name="ceramic_characteristics_information">Some unique characteristics are the small size, high stability and the capacitance range (form pF to uF).</string>
-    <string name="ceramic_applications_information">Some standard applications include, decoupling and bypass capacitors in electronic circuits, RF circuits, timing and filtering applications, or general-purpose use in consumer electronics</string>
+
+    <string name="ceramic_details_title">Ceramic Capacitor</string>
+    <string name="ceramic_details_general_information_1">A ceramic capacitor is a fixed-value capacitor where the ceramic material acts as the dielectric. It is constructed of two or more alternating layers of ceramic as well as a metal layer acting as the electrodes. The composition of the ceramic material determines the electrical behavior and applications.</string>
+    <string name="ceramic_details_general_information_2">Ceramic capacitors are the most produced and used capacitors in electronic equipment that incorporate approximately one trillion pieces per year.</string>
+    <string name="ceramic_details_capacitance">Ceramic capacitors typically use a shorthand three-digit code (103) to indicate their capacitance. This code may also include other markings to include tolerance (J) and voltage rating (2A).</string>
+    <string name="ceramic_details_applications_1">There are currently two standard classes of ceramic capacitors both of which specialized in different things.</string>
+    <string name="ceramic_details_applications_2">Class 1 ceramic capacitors will offer high stability and low losses for resonant circuit applications.</string>
+    <string name="ceramic_details_applications_3">Class 2 ceramic capacitors will offer high volumetric efficiency for by-pass, decoupling, and smoothing applications.</string>
+
     <string name="electrolytic_title">Electrolytic Capacitor</string>
     <string name="electrolytic_capacitance_information">Both aluminum and tantalum electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
     <string name="electrolytic_voltage_rating_headline">Voltage rating</string>

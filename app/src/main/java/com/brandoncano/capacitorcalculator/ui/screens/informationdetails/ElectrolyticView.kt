@@ -27,9 +27,9 @@ fun ElectrolyticView() {
         AppTopAppBar(stringResource(R.string.electrolytic_title))
         ElectrolyticCapacitorImage()
         HeaderBodyInformation(
+            topPadding = 8.dp,
             header = R.string.information_details_capacitance,
             body = R.string.electrolytic_capacitance_information,
-            top = true,
         )
         HeaderBodyInformation(
             header =  R.string.electrolytic_voltage_rating_headline,

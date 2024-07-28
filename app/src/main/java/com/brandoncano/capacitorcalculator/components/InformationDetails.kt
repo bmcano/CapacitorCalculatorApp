@@ -3,7 +3,7 @@ package com.brandoncano.capacitorcalculator.components
 sealed class InformationDetails(val route: String) {
    data object Ceramic : InformationDetails("ceramic")
    data object Electrolytic: InformationDetails("electrolytic")
-
+   // This should ideally never be seen or used, it's just here to prevent an app crash in case a route fails
    data object SomethingWentWrong : InformationDetails("error")
 
    companion object {
@@ -11,7 +11,7 @@ sealed class InformationDetails(val route: String) {
          return when (route) {
             Ceramic.route -> Ceramic
             Electrolytic.route -> Electrolytic
-            else -> SomethingWentWrong // in case we don't have a solid route we do not want to crash app
+            else -> SomethingWentWrong
          }
       }
    }

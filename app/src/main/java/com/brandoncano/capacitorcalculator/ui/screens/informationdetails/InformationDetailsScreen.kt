@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.brandoncano.capacitorcalculator.components.InformationDetails
+import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 
@@ -36,4 +37,10 @@ fun SomethingWentWrong() {
             style = textStyleHeadline()
         )
     }
+}
+
+@AppScreenPreviews
+@Composable
+private fun SomethingWentWrongPreview() {
+    InformationDetailsScreen(InformationDetails.SomethingWentWrong)
 }
