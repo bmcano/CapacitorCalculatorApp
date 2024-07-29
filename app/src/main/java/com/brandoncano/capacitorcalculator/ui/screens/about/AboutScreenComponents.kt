@@ -75,6 +75,11 @@ fun DescriptionCard() {
         )
         Text(
             text = stringResource(id = R.string.about_description_part_02),
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+            style = textStyleBody(),
+        )
+        Text(
+            text = stringResource(id = R.string.about_description_part_03),
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
             style = textStyleBody(),
         )
