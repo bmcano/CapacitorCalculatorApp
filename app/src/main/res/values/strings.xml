@@ -114,6 +114,11 @@
     <string name="electrolytic_details_characteristics_2">Tantalum electrolytic capacitors are mainly used in electronic devices in which little space is available or a low profile is required. They operate reliably over a wide temperature range without large parameter deviations.</string>
     <string name="electrolytic_details_characteristics_3">Niobium electrolytic capacitors are in direct competition with industrial tantalum electrolytic capacitors because niobium is more readily available. Their properties are comparable.</string>
     <string name="electrolytic_details_applications">Non-solid electrolytic capacitors can be found in nearly all areas of electronic devices, with the exception of military applications. However, in military and space applications only tantalum electrolytic capacitors have the necessary approvals.</string>
+
+    <string name="super_title">Supercapacitor</string>
+    <string name="super_details_general_information">A supercapacitor (SC) is a high-capacity capacitor, with a capacitance value much higher than solid-state capacitors but with lower voltage limits. It bridges the gap between electrolytic capacitors and rechargeable batteries. It typically stores 10 to 100 times more energy per unit volume or mass than electrolytic capacitors, can accept and deliver charge much faster than batteries, and tolerates many more charge and discharge cycles than rechargeable batteries.</string>
+    <string name="super_details_capacitance">Supercapacitors typically have both their capacitance and voltage rating directly marked. Typical values are in the range of farads (F), three to six orders of magnitude larger than those of electrolytic capacitors.</string>
+    <string name="super_details_applications">Supercapacitors are used in applications requiring many rapid charge/discharge cycles. In automobiles, buses, trains, cranes, and elevators, they are used for regenerative braking, short-term energy storage, or burst-mode power delivery. Smaller units are used as power backup for static random-access memory (SRAM).</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>

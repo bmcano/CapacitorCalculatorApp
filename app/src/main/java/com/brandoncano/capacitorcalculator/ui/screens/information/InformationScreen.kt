@@ -72,7 +72,7 @@ private fun ContentView(context: Context, navController: NavController) {
                 stringResource(id = R.string.information_ceramic_header),
                 stringResource(id = R.string.information_film_header),
                 stringResource(id = R.string.information_electrolytic_header),
-//                stringResource(id = R.string.information_super_header),
+                stringResource(id = R.string.information_super_header),
 //                stringResource(id = R.string.information_polymer_header),
 //                stringResource(id = R.string.information_polymer_header),
 //                stringResource(id = R.string.information_paper_header),
@@ -97,7 +97,7 @@ private fun ContentView(context: Context, navController: NavController) {
                     stringResource(id = R.string.information_electrolytic_subtext_2),
                     stringResource(id = R.string.information_electrolytic_subtext_3)
                 ),
-//                emptyList(),
+                emptyList(),
 //                emptyList(),
 //                listOf(
 //                    "Conductive polymer aluminum solid capacitor (OS-CON)",
@@ -116,7 +116,7 @@ private fun ContentView(context: Context, navController: NavController) {
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Ceramic.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Film.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Electrolytic.route}") },
-//                { /* TODO("add this page") */ },
+                { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.SuperCapacitor.route}") },
 //                { /* TODO("add this page") */ },
 //                { /* TODO("add this page") */ },
 //                { /* TODO("add this page") */ },

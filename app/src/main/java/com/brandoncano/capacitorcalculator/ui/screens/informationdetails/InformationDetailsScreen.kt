@@ -21,6 +21,7 @@ fun InformationDetailsScreen(informationDetails: InformationDetails) {
                 InformationDetails.Ceramic -> CeramicView()
                 InformationDetails.Film -> FilmView()
                 InformationDetails.Electrolytic -> ElectrolyticView()
+                InformationDetails.SuperCapacitor -> SuperCapacitorView()
                 InformationDetails.SomethingWentWrong -> SomethingWentWrong()
             }
         }
