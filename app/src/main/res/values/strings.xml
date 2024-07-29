@@ -119,6 +119,12 @@
     <string name="super_details_general_information">A supercapacitor (SC) is a high-capacity capacitor, with a capacitance value much higher than solid-state capacitors but with lower voltage limits. It bridges the gap between electrolytic capacitors and rechargeable batteries. It typically stores 10 to 100 times more energy per unit volume or mass than electrolytic capacitors, can accept and deliver charge much faster than batteries, and tolerates many more charge and discharge cycles than rechargeable batteries.</string>
     <string name="super_details_capacitance">Supercapacitors typically have both their capacitance and voltage rating directly marked. Typical values are in the range of farads (F), three to six orders of magnitude larger than those of electrolytic capacitors.</string>
     <string name="super_details_applications">Supercapacitors are used in applications requiring many rapid charge/discharge cycles. In automobiles, buses, trains, cranes, and elevators, they are used for regenerative braking, short-term energy storage, or burst-mode power delivery. Smaller units are used as power backup for static random-access memory (SRAM).</string>
+
+    <string name="mica_title">Mica Capacitor</string>
+    <string name="mica_details_general_information">Mica capacitors, or silver mica capacitors, are high precision, stable and reliable capacitors. They are available in small values, and are mostly used at high frequencies and in cases where low losses and low capacitor change over time is desired.</string>
+    <string name="mica_details_capacitance">Mica capacitors typically have their capacitance, tolerance, and voltage rating directly marked. They are used at 100 V to 10 kV, ranging from a few pF up to a few nF, and the average temperature coefficient is around 50 ppm/°C.</string>
+    <string name="mica_details_characteristics">Some advantages to these capacitors are: Greater stability, since there are no capacitive air gaps that can change dimension. Airtight enclosure removes the risk of oxidation or corrosion of plates. Greater capacitance per volume, since there are no air gaps between plates and mica, the conducting surfaces can be thinner.</string>
+    <string name="mica_details_applications">"Circuit designers still turn to mica capacitors for high-power applications such as RF transmitters and electric instruments and amplifiers because cheaper ceramic and porcelain capacitors can not withstand heat as well. Silver mica remains widely used in high-voltage applications, due to it's high breakdown voltage."</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>
@@ -140,6 +146,7 @@
     <string name="content_description_ceramic_capacitor">Ceramic capacitor</string>
     <string name="content_description_smd_capacitor">SMD capacitor</string>
     <string name="content_description_electrolytic_capacitor">Electrolytic capacitor</string>
+    <string name="content_description_mica_capacitor">Mica capacitor</string>
     <!-- default values -->
     <string name="default_code">Enter code</string>
     <string name="default_capacitance">Enter capacitance</string>
@@ -148,4 +155,5 @@
     <string name="error_invalid_code">Invalid code</string>
     <string name="error_invalid_capacitance">Invalid capacitance</string>
     <string name="error_na">N/A</string>
+    <string name="error_something_went_wrong">Error: something went wrong.</string>
 </resources>

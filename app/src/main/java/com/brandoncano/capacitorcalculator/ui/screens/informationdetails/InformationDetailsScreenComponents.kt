@@ -65,6 +65,22 @@ fun ElectrolyticCapacitorImage() {
 }
 
 @Composable
+fun MicaCapacitorImage() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.img_mica_capacitor),
+            contentDescription = stringResource(id = R.string.content_description_mica_capacitor),
+            modifier = Modifier.size(196.dp),
+        )
+    }
+}
+
+@Composable
 fun HeaderBodyInformation(topPadding: Dp = 24.dp, @StringRes header: Int, @StringRes body: Int) {
     Column {
         Text(

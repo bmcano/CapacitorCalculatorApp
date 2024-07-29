@@ -8,6 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.components.InformationDetails
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -22,6 +24,7 @@ fun InformationDetailsScreen(informationDetails: InformationDetails) {
                 InformationDetails.Film -> FilmView()
                 InformationDetails.Electrolytic -> ElectrolyticView()
                 InformationDetails.SuperCapacitor -> SuperCapacitorView()
+                InformationDetails.Mica -> MicaView()
                 InformationDetails.SomethingWentWrong -> SomethingWentWrong()
             }
         }
@@ -35,7 +38,7 @@ fun SomethingWentWrong() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Error: something went wrong",
+            text = stringResource(id = R.string.error_something_went_wrong),
             style = textStyleHeadline()
         )
     }
