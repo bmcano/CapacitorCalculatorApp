@@ -30,7 +30,6 @@ import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
-import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCaption
 
 @Composable
@@ -66,20 +65,16 @@ private fun ContentView(context: Context, navController: NavController) {
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
             onCard = false
         )
-        // Note: will leave items commented out until their page is added
+        // Note: Order and categorization was done similar to Wikipedia
         ArrowButtonCardWithSubText(
             cardTexts = listOf(
                 stringResource(id = R.string.information_ceramic_header),
                 stringResource(id = R.string.information_film_header),
                 stringResource(id = R.string.information_electrolytic_header),
+                stringResource(id = R.string.information_polymer_header),
                 stringResource(id = R.string.information_super_header),
                 stringResource(id = R.string.information_mica_header),
-//                stringResource(id = R.string.information_polymer_header),
-//                stringResource(id = R.string.information_paper_header),
-//                stringResource(id = R.string.information_glass_header),
-//                stringResource(id = R.string.information_silicon_header),
-//                stringResource(id = R.string.information_variable_header),
-//                stringResource(id = R.string.information_hybrid_header),
+                stringResource(id = R.string.information_variable_header),
             ),
             subTexts = listOf(
                 emptyList(),
@@ -97,36 +92,36 @@ private fun ContentView(context: Context, navController: NavController) {
                     stringResource(id = R.string.information_electrolytic_subtext_2),
                     stringResource(id = R.string.information_electrolytic_subtext_3)
                 ),
+                listOf(
+                    stringResource(id = R.string.information_polymer_subtext_1),
+                    stringResource(id = R.string.information_polymer_subtext_2),
+                    stringResource(id = R.string.information_polymer_subtext_3),
+                    stringResource(id = R.string.information_polymer_subtext_4),
+                ),
                 emptyList(),
                 emptyList(),
-//                listOf(
-//                    "Conductive polymer aluminum solid capacitor (OS-CON)",
-//                    "Conductive polymer tantalum solid capacitor"
-//                ),
-//                emptyList(),
-//                emptyList(),
-//                emptyList(),
-//                listOf(
-//                    "Trimmer capacitor",
-//                    "Tuning capacitor"
-//                ),
-//                emptyList()
+                listOf(
+                    stringResource(id = R.string.information_variable_subtext_1),
+                    stringResource(id = R.string.information_variable_subtext_2),
+                    stringResource(id = R.string.information_variable_subtext_3),
+                    stringResource(id = R.string.information_variable_subtext_4),
+                    stringResource(id = R.string.information_variable_subtext_5),
+                ),
             ),
             onClicks = listOf(
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Ceramic.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Film.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Electrolytic.route}") },
+                { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Polymer.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.SuperCapacitor.route}") },
                 { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Mica.route}") },
-//                { /* TODO("add this page") */ },
-//                { /* TODO("add this page") */ },
-//                { /* TODO("add this page") */ },
-//                { /* TODO("add this page") */ },
-//                { /* TODO("add this page") */ },
-//                { /* TODO("add this page") */ },
+                { navController.navigate("${Screen.InformationDetails.route}/${InformationDetails.Variable.route}") },
             )
         )
-        AppDivider(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp))
+        AppDivider(
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
+            onCard = false,
+        )
         Text(
             text = stringResource(id = R.string.information_footer_text),
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),

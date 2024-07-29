@@ -17,31 +17,36 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTopAppBar
 
 @Composable
-fun MicaView() {
+fun PolymerView() {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.Start
     ) {
-        AppTopAppBar(stringResource(R.string.mica_title))
-        MicaCapacitorImage()
+        AppTopAppBar(stringResource(R.string.polymer_title))
+        // TODO - add image?
         HeaderBodyInformation(
             topPadding = 12.dp,
             header = R.string.information_details_general_information,
-            body = R.string.mica_details_general_information,
+            body = R.string.polymer_details_general_information_1,
         )
+        BodyInformation(R.string.polymer_details_general_information_2)
         HeaderBodyInformation(
             header = R.string.information_details_capacitance,
-            body = R.string.mica_details_capacitance,
+            body = R.string.polymer_details_capacitance,
         )
         HeaderBodyInformation(
             header = R.string.information_details_characteristics,
-            body = R.string.mica_details_characteristics,
+            body = R.string.polymer_details_characteristics_1,
+        )
+        BodyInformation(
+            R.string.polymer_details_characteristics_2,
+            R.string.polymer_details_characteristics_3,
         )
         HeaderBodyInformation(
             header = R.string.information_details_applications,
-            body = R.string.mica_details_applications,
+            body = R.string.polymer_details_applications,
         )
         Spacer(modifier = Modifier.height(16.dp))
     }
@@ -49,6 +54,6 @@ fun MicaView() {
 
 @AppScreenPreviews
 @Composable
-private fun MicaPreview() {
-    InformationDetailsScreen(InformationDetails.Mica)
+private fun PolymerPreview() {
+    InformationDetailsScreen(InformationDetails.Polymer)
 }

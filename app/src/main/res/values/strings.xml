@@ -45,15 +45,15 @@
     <string name="home_ceramic_calculator_button">Ceramic capacitor</string>
     <string name="home_smd_calculator_button">SMD capacitor</string>
     <string name="home_capacitor_calculator_button">Capacitor: code to value</string>
-    <string name="home_information_button">Capacitor information</string>
+    <string name="home_information_button">Capacitor types</string>
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_rate_this_app">Rate this app</string>
     <string name="home_view_resistor_app">View our resistor app</string>
     <!-- information screen -->
-    <string name="information_title">Capacitor Information</string>
+    <string name="information_title">Capacitor Types</string>
     <string name="information_header_text">Learn about the unique properties, uses, and specifications of various capacitor types. Click on each capacitor type below to learn more about its characteristics, applications, and advantages.</string>
     <string name="information_footer_text">The information provided on these pages has been sourced from Wikipedia. While efforts have been made to ensure the accuracy and reliability of the information, Wikipedia is a user-edited platform and may contain inaccuracies. Please verify details independently if necessary.</string>
-    <string name="information_ceramic_header">Ceramic capacitor</string>
+    <string name="information_ceramic_header">Ceramic capacitors</string>
     <string name="information_film_header">Film capacitors</string>
     <string name="information_film_subtext_1">Polypropylene (PP) film capacitor</string>
     <string name="information_film_subtext_2">Polyester (PET) film capacitor</string>
@@ -66,14 +66,19 @@
     <string name="information_electrolytic_subtext_1">Aluminum electrolytic capacitor</string>
     <string name="information_electrolytic_subtext_2">Tantalum electrolytic capacitor</string>
     <string name="information_electrolytic_subtext_3">Niobium electrolytic capacitor</string>
-    <string name="information_super_header">Supercapacitors</string>
-    <string name="information_mica_header">Mica capacitor</string>
     <string name="information_polymer_header">Polymer capacitors</string>
-    <string name="information_paper_header">Paper capacitor (mostly obsolete)</string>
-    <string name="information_glass_header">Glass capacitor</string>
-    <string name="information_silicon_header">Silicon capacitor</string>
+    <string name="information_polymer_subtext_1">Polymer aluminum capacitor</string>
+    <string name="information_polymer_subtext_2">Polymer tantalum capacitor</string>
+    <string name="information_polymer_subtext_3">Polymer niobium capacitor</string>
+    <string name="information_polymer_subtext_4">Hybrid polymer</string>
+    <string name="information_super_header">Supercapacitors</string>
+    <string name="information_mica_header">Mica capacitors</string>
     <string name="information_variable_header">Variable capacitors</string>
-    <string name="information_hybrid_header">Hybrid capacitor</string>
+    <string name="information_variable_subtext_1">Trimmer capacitor</string>
+    <string name="information_variable_subtext_2">Tuning capacitor</string>
+    <string name="information_variable_subtext_3">Butterfly capacitor</string>
+    <string name="information_variable_subtext_4">Split stator variable capacitor</string>
+    <string name="information_variable_subtext_5">Differential variable capacitor</string>
     <!-- information details screen (all capacitors) -->
     <string name="information_details_general_information">General information</string>
     <string name="information_details_capacitance">Capacitance</string>
@@ -125,6 +130,23 @@
     <string name="mica_details_capacitance">Mica capacitors typically have their capacitance, tolerance, and voltage rating directly marked. They are used at 100 V to 10 kV, ranging from a few pF up to a few nF, and the average temperature coefficient is around 50 ppm/°C.</string>
     <string name="mica_details_characteristics">Some advantages to these capacitors are: Greater stability, since there are no capacitive air gaps that can change dimension. Airtight enclosure removes the risk of oxidation or corrosion of plates. Greater capacitance per volume, since there are no air gaps between plates and mica, the conducting surfaces can be thinner.</string>
     <string name="mica_details_applications">"Circuit designers still turn to mica capacitors for high-power applications such as RF transmitters and electric instruments and amplifiers because cheaper ceramic and porcelain capacitors can not withstand heat as well. Silver mica remains widely used in high-voltage applications, due to it's high breakdown voltage."</string>
+
+    <string name="polymer_title">Polymer Capacitor</string>
+    <string name="polymer_details_general_information_1">A polymer capacitor, or more accurately a polymer electrolytic capacitor (e-cap), is an electrolytic capacitor with a solid conductive polymer electrolyte.</string>
+    <string name="polymer_details_general_information_2">Polymer electrolytic capacitors are characterized by particularly low internal equivalent series resistances (ESR) and high ripple current ratings. In general polymer e-caps have a higher leakage current rating than the other solid or non-solid electrolytic capacitors.</string>
+    <string name="polymer_details_capacitance">Capacitance values for these are ether directly marked on the capacitor or use the shorthand three-digit code.</string>
+    <string name="polymer_details_characteristics_1">Polymer tantalum electrolytic capacitors have ESR values that are approximately only 1/10 of the value of tantalum electrolytic capacitors with manganese dioxide electrolyte of the same size. By a multi-anode technique in which several anode blocks are connected in parallel in one case, the ESR value can be reduced again. The advantage of the multi-anode technology in addition to the very low ESR values is the lower inductance ESL, whereby the capacitors are suitable for higher frequencies.</string>
+    <string name="polymer_details_characteristics_2">The layered anode foils in the rectangular shaped polymer aluminum chip-e-caps are electrically parallel connected single capacitors. Thus, the ESR and ESL values are connected in parallel reducing ESR and ESL correspondingly, and allowing them to operate at higher frequencies. They provide a competitive alternative to tantalum capacitors.</string>
+    <string name="polymer_details_characteristics_3">Hybrid polymer aluminum e-caps have a much lower leakage current than standard polymer aluminum e-caps.</string>
+    <string name="polymer_details_applications">Polymer electrolytic capacitors are mainly used in power supplies of integrated electronic circuits as buffer, bypass and decoupling capacitors, especially in devices with flat or compact design. Thus they compete with some ceramic capacitors, but offer higher capacitance values, and they display no microphonic effect.</string>
+
+    <string name="variable_title">Variable Capacitor</string>
+    <string name="variable_details_general_information">A variable capacitor is a capacitor whose capacitance may be intentionally and repeatedly changed mechanically or electronically. This means the distance between the plates, or the amount of plate surface area which overlaps, can be changed.</string>
+    <string name="variable_details_characteristics_1">Small variable capacitors operated by screwdriver (for instance, to precisely set a resonant frequency at the factory and then never be adjusted again) are called trimmer capacitors. In addition to air and plastic, trimmers can also be made using a solid dielectric, such as mica.</string>
+    <string name="variable_details_characteristics_2">"A butterfly capacitor is a form of rotary variable capacitor with two independent sets of stator plates opposing each other, and a butterfly-shaped rotor arranged so that turning the rotor will vary the capacitance's between the rotor and either stator equally. In a butterfly capacitor, the stators and each half of the rotor can only cover a maximum angle of 90° since there must be a position without rotor/stator overlap corresponding to minimum capacity."</string>
+    <string name="variable_details_characteristics_3">The closely related split stator variable capacitor does not have the limitation of 90° angle since it uses two separate packs of rotor electrodes arranged axially behind one another. Unlike in a capacitor with several sections, the rotor plates in a split stator capacitor are mounted on opposite sides of the rotor axis.</string>
+    <string name="variable_details_characteristics_4">"Differential variable capacitors also have two independent stators, but unlike in the butterfly capacitor where capacities on both sides increase equally as the rotor is turned, in a differential variable capacitor one section's capacity will increase while the other section's decreases, keeping the sum of the two stator capacitances constant."</string>
+    <string name="variable_details_applications"> Variable capacitors are often used in L/C circuits to set the resonance frequency, e.g. to tune a radio (therefore it is sometimes called a tuning capacitor), or as a variable reactance, e.g. for impedance matching in antenna tuners.</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>

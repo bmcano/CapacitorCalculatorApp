@@ -23,8 +23,10 @@ fun InformationDetailsScreen(informationDetails: InformationDetails) {
                 InformationDetails.Ceramic -> CeramicView()
                 InformationDetails.Film -> FilmView()
                 InformationDetails.Electrolytic -> ElectrolyticView()
+                InformationDetails.Polymer -> PolymerView()
                 InformationDetails.SuperCapacitor -> SuperCapacitorView()
                 InformationDetails.Mica -> MicaView()
+                InformationDetails.Variable -> VariableView()
                 InformationDetails.SomethingWentWrong -> SomethingWentWrong()
             }
         }

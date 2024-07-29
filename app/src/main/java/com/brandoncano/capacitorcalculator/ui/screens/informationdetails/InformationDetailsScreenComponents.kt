@@ -113,7 +113,7 @@ fun BodyInformation(vararg bodyTexts: Int) {
 
 @AppComponentPreviews
 @Composable
-fun ElectrolyticCapacitorImagePreview() {
+private fun ElectrolyticCapacitorImagePreview() {
     CapacitorCalculatorTheme {
         ElectrolyticCapacitorImage()
     }
