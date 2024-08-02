@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
@@ -30,6 +29,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 import com.brandoncano.capacitorcalculator.util.getVoltageRating
 
@@ -65,18 +65,27 @@ fun CapacitanceText(
             capacitance = if (capacitor.isEmpty(false)) {
                 stringResource(id = R.string.default_capacitance)
             } else {
-                "${capacitor.capacitance} ${capacitor.units.ifEmpty { Units.PF }}"
+                "Code: " + capacitor.formatCode() + capacitor.tolerance
             }
         }
     }
     AppCard(modifier = Modifier.padding(top = 24.dp)) {
         Text(
-            text = "$capacitance $tolerance".trimEnd() + "\n$voltage".trimEnd(),
+            text = "$capacitance $tolerance".trimEnd(),
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
             style = textStyleTitle(),
         )
+        if (voltage.isNotEmpty()) {
+            Text(
+                text = voltage,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 2.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
+                style = textStyleTitle(),
+            )
+        }
     }
 }
 

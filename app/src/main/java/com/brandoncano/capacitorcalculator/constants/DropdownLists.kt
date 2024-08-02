@@ -5,6 +5,7 @@ import com.brandoncano.capacitorcalculator.components.VoltageRating
 
 object DropdownLists {
     val UNITS = listOf(Units.PF, Units.NF, Units.UF)
-    val TOLERANCE = Tolerance.getStandardToleranceList()
+    val TOLERANCE = Tolerance.getStandardToleranceLettersList()
+    val TOLERANCE_PERCENTAGE = Tolerance.getStandardToleranceList()
     val VOLTAGE_RATING = VoltageRating.getCodeList()
 }

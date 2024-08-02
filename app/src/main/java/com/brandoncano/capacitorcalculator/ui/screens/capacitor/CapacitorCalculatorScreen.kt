@@ -33,6 +33,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
+import com.brandoncano.capacitorcalculator.components.Tolerance
 import com.brandoncano.capacitorcalculator.constants.DropdownLists
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
@@ -217,15 +218,18 @@ private fun ContentView2(
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
     var capacitance by remember { mutableStateOf(capacitor.capacitance) }
     var units by remember { mutableStateOf(capacitor.units) }
+    var tolerance by remember { mutableStateOf(capacitor.tolerance) }
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }
     capacitor.isCapacitanceToCode = true
 
-    fun onValueChanged(c: String, u: String) {
+    fun onValueChanged(c: String, u: String, t: String) {
         onReset(false)
         capacitance = c
         units = u
+        tolerance = t
         viewModel.updateCapacitance(c)
         viewModel.updateUnits(u)
+        viewModel.updateTolerance(t)
         isError = capacitor.isCapacitanceInvalid()
         if (!isError) {
             viewModel.saveCapacitorValues(capacitor)
@@ -248,7 +252,7 @@ private fun ContentView2(
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_capacitance),
         ) {
-            onValueChanged(it, units)
+            onValueChanged(it, units, tolerance)
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -258,7 +262,18 @@ private fun ContentView2(
             reset = reset
         ) {
             focusManager.clearFocus()
-            onValueChanged(capacitance, it)
+            onValueChanged(capacitance, it, tolerance)
+        }
+        AppDropDownMenu(
+            modifier = Modifier.padding(top = 12.dp),
+            label = R.string.capacitor_calculator_tolerance,
+            selectedOption = Tolerance.getToleranceValue(capacitor.tolerance),
+            items = DropdownLists.TOLERANCE_PERCENTAGE,
+            reset = reset
+        ) {
+            focusManager.clearFocus()
+            val t = Tolerance.getLetterValue(it)
+            onValueChanged(capacitance, units, t)
         }
         CapacitorInformation()
         ViewCommonCodeButton(navController)
