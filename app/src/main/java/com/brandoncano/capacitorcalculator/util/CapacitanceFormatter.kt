@@ -3,7 +3,7 @@ package com.brandoncano.capacitorcalculator.util
 import com.brandoncano.capacitorcalculator.constants.Units
 
 /**
- * Job: Take a ceramic code and format the capacitance based on unit
+ * Job: Take a code and format the capacitance based on unit
  */
 object CapacitanceFormatter {
 

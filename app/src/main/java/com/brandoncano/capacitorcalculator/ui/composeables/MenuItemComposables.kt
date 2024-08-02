@@ -3,7 +3,6 @@ package com.brandoncano.capacitorcalculator.ui.composeables
 import android.content.Context
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Cancel
@@ -38,7 +37,10 @@ import com.brandoncano.capacitorcalculator.util.ShareCapacitance
 fun AboutAppMenuItem(navController: NavController, showMenu: MutableState<Boolean>) {
     DropdownMenuItem(
         text = { MenuText(stringRes = R.string.menu_about) },
-        onClick = { navController.navigate(Screen.About.route) },
+        onClick = {
+            showMenu.value = false
+            navController.navigate(Screen.About.route)
+        },
         leadingIcon = { MenuIcon(Icons.Outlined.Info) },
     )
 }
@@ -56,7 +58,10 @@ fun ClearSelectionsMenuItem(onClick: (() -> Unit)) {
 fun FeedbackMenuItem(context: Context, showMenu: MutableState<Boolean>) {
     DropdownMenuItem(
         text = { MenuText(stringRes = R.string.menu_feedback) },
-        onClick = { EmailFeedback.execute(context) },
+        onClick = {
+            showMenu.value = false
+            EmailFeedback.execute(context)
+        },
         leadingIcon = { MenuIcon(Icons.Outlined.Feedback) },
     )
 }
@@ -65,7 +70,10 @@ fun FeedbackMenuItem(context: Context, showMenu: MutableState<Boolean>) {
 fun ShareMenuItem(text: String, context: Context, showMenu: MutableState<Boolean>) {
     DropdownMenuItem(
         text = { MenuText(stringRes = R.string.menu_share) },
-        onClick = { ShareCapacitance.execute(text, context) },
+        onClick = {
+            showMenu.value = false
+            ShareCapacitance.execute(text, context)
+        },
         leadingIcon = { MenuIcon(Icons.Outlined.Share) },
     )
 }

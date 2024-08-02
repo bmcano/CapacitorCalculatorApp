@@ -5,8 +5,7 @@ package com.brandoncano.capacitorcalculator.navigation
  */
 sealed class Screen(val route: String) {
     data object About : Screen("about_screen")
-    data object CapacitorCalculator: Screen("capacitor_calculator_screen")
-    data object CeramicCalculator : Screen("ceramic_calculator_screen")
+    data object CapacitorCalculator : Screen("capacitor_calculator_screen")
     data object Chart : Screen("chart_screen")
     data object Home : Screen("home_screen")
     data object Information : Screen("information_screen")

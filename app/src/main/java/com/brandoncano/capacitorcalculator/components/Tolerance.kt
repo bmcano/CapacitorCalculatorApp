@@ -3,8 +3,8 @@ package com.brandoncano.capacitorcalculator.components
 /**
  * Notes:
  *   B, C -> SMD only
- *   P -> Ceramic only
- *   All others -> Ceramic and SMD
+ *   P -> Capacitor only
+ *   All others -> Capacitor and SMD
  */
 enum class Tolerance(val letter: String, val tolerance: String) {
     B("B", "±0.1%"),
@@ -20,7 +20,7 @@ enum class Tolerance(val letter: String, val tolerance: String) {
     Z("Z", "+80%/-20%");
 
     companion object {
-        fun getCeramicToleranceList(): List<String> {
+        fun getStandardToleranceList(): List<String> {
             return entries.filter { it != B && it != C }.map { it.letter }
         }
 

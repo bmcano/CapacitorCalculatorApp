@@ -75,16 +75,11 @@ fun AppCalculatorButtons(navController: NavController) {
             style = textStyleHeadline(),
         )
         ArrowButtonCard(
-            listOf(Icons.Outlined.Calculate, Icons.Outlined.Calculate),
-            listOf(
-                stringResource(id = R.string.home_ceramic_calculator_button),
-                stringResource(id = R.string.home_capacitor_calculator_button)
-            ),
-            listOf(
-                { navController.navigate(Screen.CeramicCalculator.route) },
-                { navController.navigate(Screen.CapacitorCalculator.route) }
-            )
-        )
+            Icons.Outlined.Calculate,
+            stringResource(id = R.string.home_capacitor_calculator_button),
+        ) {
+            navController.navigate(Screen.CapacitorCalculator.route)
+        }
         ArrowButtonCard(
             Icons.Outlined.WidthFull,
             stringResource(id = R.string.home_smd_calculator_button),

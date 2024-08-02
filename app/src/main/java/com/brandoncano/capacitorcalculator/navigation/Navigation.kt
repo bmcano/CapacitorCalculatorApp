@@ -13,17 +13,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
-import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorCapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
-import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.about.AboutScreen
-import com.brandoncano.capacitorcalculator.ui.screens.ceramic.CeramicCalculatorScreen
+import com.brandoncano.capacitorcalculator.ui.screens.capacitor.CapacitorCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
-import com.brandoncano.capacitorcalculator.ui.screens.informationdetails.InformationDetailsScreen
 import com.brandoncano.capacitorcalculator.ui.screens.home.HomeScreen
-import com.brandoncano.capacitorcalculator.ui.screens.smd.SmdCalculatorScreen
-import com.brandoncano.capacitorcalculator.ui.screens.capacitor.CapacitorCodeScreen
 import com.brandoncano.capacitorcalculator.ui.screens.information.InformationScreen
+import com.brandoncano.capacitorcalculator.ui.screens.informationdetails.InformationDetailsScreen
+import com.brandoncano.capacitorcalculator.ui.screens.smd.SmdCalculatorScreen
 
 /**
  * Note: Keep each navigation route in alphabetical order
@@ -48,18 +46,9 @@ fun Navigation(context: Context) {
             enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
             exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
-            val viewModel = viewModel<CapacitorViewModel>(factory = CapacitorViewModelFactory(context))
+            val viewModel = viewModel<CapacitorCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val capacitor = viewModel.getCapacitorLiveData()
-            CapacitorCodeScreen(context, navController, viewModel, capacitor)
-        }
-        composable(
-            route = Screen.CeramicCalculator.route,
-            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
-            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
-        ) {
-            val viewModel = viewModel<CeramicCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
-            val capacitor = viewModel.getCapacitorLiveData()
-            CeramicCalculatorScreen(context, navController, viewModel, capacitor)
+            CapacitorCalculatorScreen(context, navController, viewModel, capacitor)
         }
         composable(
             route = Screen.Chart.route,

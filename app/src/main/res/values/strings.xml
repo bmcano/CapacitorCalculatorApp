@@ -12,26 +12,21 @@
     <string name="about_description_part_03">We also include a information page with details, characteristics, and applications of various types of capacitors.</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
     <!-- capacitor calculator screen -->
-    <string name="capacitor_calculator_title">Capacitor Code</string>
-    <string name="capacitor_calculator_code">Code</string>
+    <string name="capacitor_calculator_title">Capacitor Calculator</string>
+    <string name="capacitor_calculator_tab_1">Code to Capacitance</string>
+    <string name="capacitor_calculator_tab_2">Capacitance to Code</string>
     <string name="capacitor_calculator_units">Units</string>
+    <string name="capacitor_calculator_code">Code</string>
     <string name="capacitor_calculator_tolerance">Tolerance</string>
+    <string name="capacitor_calculator_capacitance">Capacitance</string>
     <string name="capacitor_calculator_voltage_rating">Voltage rating</string>
+    <string name="capacitor_view_common_codes">View common codes</string>
     <string name="capacitor_calculator_information_header">Capacitor information</string>
     <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations for the markings they hold. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance, like 103 for example.</string>
     <string name="capacitor_calculator_information_body_2">This code is just three numbers, but there can be other numbers and letters that may surround this part. Usually, these values represent tolerance and voltage rating.</string>
     <string name="capacitor_calculator_information_body_3">Tolerance is just one capital letter that usually directly follows the three digit code, for example 103J could appear where J is the tolerance indicator.</string>
     <string name="capacitor_calculator_information_body_4">Voltage rating is also another common value that can appear on capacitors, it is typically a two digit code that is a number followed by a letter, like 2A as an example.</string>
     <string name="capacitor_calculator_information_body_5">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, capacitance values, etc.</string>
-    <!-- ceramic calculator screen -->
-    <string name="ceramic_calculator_title">Ceramic Capacitor</string>
-    <string name="ceramic_calculator_tab_1">Code to Capacitance</string>
-    <string name="ceramic_calculator_tab_2">Capacitance to Code</string>
-    <string name="ceramic_calculator_units">Units</string>
-    <string name="ceramic_calculator_code">Code</string>
-    <string name="ceramic_calculator_tolerance">Tolerance</string>
-    <string name="ceramic_calculator_capacitance">Capacitance</string>
-    <string name="ceramic_view_common_codes">View common codes</string>
     <!-- chart screen -->
     <string name="chart_title">Common Codes</string>
     <string name="chart_code">Code</string>
@@ -42,9 +37,8 @@
     <string name="home_title">Capacitor Calculator</string>
     <string name="home_calculators_header_text">Calculators</string>
     <string name="home_capacitors_header_text">Learn about capacitors</string>
-    <string name="home_ceramic_calculator_button">Ceramic capacitor</string>
+    <string name="home_capacitor_calculator_button">Capacitor code calculator</string>
     <string name="home_smd_calculator_button">SMD capacitor</string>
-    <string name="home_capacitor_calculator_button">Capacitor: code to value</string>
     <string name="home_information_button">Capacitor types</string>
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_rate_this_app">Rate this app</string>

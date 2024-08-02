@@ -1,12 +1,14 @@
 package com.brandoncano.capacitorcalculator.model.capacitor
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class CapacitorViewModel: ViewModel() {
+class CapacitorCapacitorViewModel(context: Context) : ViewModel() {
 
-    private var capacitor = MutableLiveData<Capacitor>()
+    private val repository = CapacitorRepository.getInstance(context)
+    private val capacitor = MutableLiveData<Capacitor>()
 
     init {
         capacitor.value = Capacitor()
@@ -18,14 +20,20 @@ class CapacitorViewModel: ViewModel() {
 
     fun clear() {
         capacitor.value = Capacitor()
+        repository.clear()
     }
 
     fun getCapacitorLiveData(): LiveData<Capacitor> {
+        capacitor.value = repository.loadCapacitor()
         return capacitor
     }
 
     fun updateCode(value: String) {
         capacitor.value = capacitor.value?.copy(code = value)
+    }
+
+    fun updateCapacitance(value: String) {
+        capacitor.value = capacitor.value?.copy(capacitance = value)
     }
 
     fun updateUnits(value: String) {
@@ -38,5 +46,9 @@ class CapacitorViewModel: ViewModel() {
 
     fun updateVoltageRating(value: String) {
         capacitor.value = capacitor.value?.copy(voltageRating = value)
+    }
+
+    fun saveCapacitorValues(capacitor: Capacitor) {
+        repository.saveCapacitor(capacitor)
     }
 }
