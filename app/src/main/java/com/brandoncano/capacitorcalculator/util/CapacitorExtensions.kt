@@ -2,6 +2,7 @@ package com.brandoncano.capacitorcalculator.util
 
 import com.brandoncano.capacitorcalculator.components.Tolerance
 import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 
@@ -26,7 +27,8 @@ fun Capacitor.getVoltageRating(): String {
 }
 
 fun Capacitor.isCapacitanceInvalid(): Boolean {
-    return !IsValidCapacitance.execute(this.capacitance, this.units)
+    val units = this.units.ifEmpty { Units.PF }
+    return !IsValidCapacitance.execute(this.capacitance, units)
 }
 
 fun Capacitor.formatCode(): String {

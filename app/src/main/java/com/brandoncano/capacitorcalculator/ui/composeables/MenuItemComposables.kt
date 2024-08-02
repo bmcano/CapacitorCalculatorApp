@@ -24,7 +24,7 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
-import com.brandoncano.capacitorcalculator.ui.theme.menuText
+import com.brandoncano.capacitorcalculator.ui.theme.iconGray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
 import com.brandoncano.capacitorcalculator.util.ShareCapacitance
@@ -82,7 +82,7 @@ fun ShareMenuItem(text: String, context: Context, showMenu: MutableState<Boolean
 private fun MenuText(@StringRes stringRes: Int) {
     Text(
         text = stringResource(id = stringRes),
-        style = textStyleBody().menuText(),
+        style = textStyleBody().iconGray(),
     )
 }
 

@@ -1,15 +1,20 @@
 package com.brandoncano.capacitorcalculator.ui.screens.capacitor
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FileOpen
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -18,7 +23,10 @@ import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
+import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
 import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
+import com.brandoncano.capacitorcalculator.ui.theme.iconGray
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
@@ -74,11 +82,44 @@ fun CapacitanceText(
 
 @Composable
 fun ViewCommonCodeButton(navController: NavController) {
-    Spacer(modifier = Modifier.height(8.dp))
     ArrowButtonCard(
         imageVector = Icons.Outlined.FileOpen,
         cardText = stringResource(id = R.string.capacitor_view_common_codes)
     ) {
         navController.navigate(Screen.Chart.route)
+    }
+}
+
+@Composable
+fun CapacitorInformation() {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.Start
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Image(
+                modifier = Modifier.padding(start = 16.dp, top = 24.dp),
+                imageVector = Icons.Outlined.Info,
+                contentDescription = null,
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
+            )
+            Text(
+                text = stringResource(id = R.string.capacitor_calculator_information_header),
+                modifier = Modifier.padding(start = 8.dp, end = 16.dp, top = 24.dp),
+                style = textStyleHeadline().iconGray(),
+            )
+        }
+        AppStandardCard {
+            Text(
+                text = stringResource(id = R.string.capacitor_calculator_information_body_1),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                style = textStyleSubhead(),
+            )
+            Text(
+                text = stringResource(id = R.string.capacitor_calculator_information_body_2),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
+                style = textStyleSubhead(),
+            )
+        }
     }
 }

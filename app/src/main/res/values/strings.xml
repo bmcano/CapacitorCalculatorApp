@@ -22,11 +22,8 @@
     <string name="capacitor_calculator_voltage_rating">Voltage rating</string>
     <string name="capacitor_view_common_codes">View common codes</string>
     <string name="capacitor_calculator_information_header">Capacitor information</string>
-    <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations for the markings they hold. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance, like 103 for example.</string>
-    <string name="capacitor_calculator_information_body_2">This code is just three numbers, but there can be other numbers and letters that may surround this part. Usually, these values represent tolerance and voltage rating.</string>
-    <string name="capacitor_calculator_information_body_3">Tolerance is just one capital letter that usually directly follows the three digit code, for example 103J could appear where J is the tolerance indicator.</string>
-    <string name="capacitor_calculator_information_body_4">Voltage rating is also another common value that can appear on capacitors, it is typically a two digit code that is a number followed by a letter, like 2A as an example.</string>
-    <string name="capacitor_calculator_information_body_5">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, capacitance values, etc.</string>
+    <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations on which markings they have. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance.</string>
+    <string name="capacitor_calculator_information_body_2">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, and capacitance values for example.</string>
     <!-- chart screen -->
     <string name="chart_title">Common Codes</string>
     <string name="chart_code">Code</string>

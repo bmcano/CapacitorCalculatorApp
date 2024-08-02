@@ -124,7 +124,7 @@ private fun ContentView1(
     viewModel: CapacitorCapacitorViewModel,
     capacitorLiveData: LiveData<Capacitor>,
     reset: Boolean,
-    onReset: (Boolean) -> Boolean
+    onReset: (Boolean) -> Boolean,
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
@@ -134,6 +134,23 @@ private fun ContentView1(
     var voltageRating by remember { mutableStateOf(capacitor.voltageRating) }
     var isError by remember { mutableStateOf(capacitor.isCodeInvalid()) }
     capacitor.isCapacitanceToCode = false
+
+    fun onValueChanged(c: String, u: String, t: String, v: String) {
+        onReset(false)
+        code = c
+        units = u
+        tolerance = t
+        voltageRating = v
+        viewModel.updateCode(c)
+        viewModel.updateUnits(u)
+        viewModel.updateTolerance(t)
+        viewModel.updateVoltageRating(v)
+        isError = capacitor.isCodeInvalid()
+        if (!isError) {
+            viewModel.saveCapacitorValues(capacitor)
+            capacitor.formatCapacitance()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -150,14 +167,7 @@ private fun ContentView1(
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_code),
         ) {
-            onReset(false)
-            code = it
-            viewModel.updateCode(it)
-            isError = capacitor.isCodeInvalid()
-            if (!isError) {
-                viewModel.saveCapacitorValues(capacitor)
-                capacitor.formatCapacitance()
-            }
+            onValueChanged(it, units, tolerance, voltageRating)
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -166,11 +176,8 @@ private fun ContentView1(
             items = DropdownLists.UNITS,
             reset = reset
         ) {
-            units = it
-            viewModel.updateUnits(it)
-            onReset(false)
             focusManager.clearFocus()
-            viewModel.saveCapacitorValues(capacitor)
+            onValueChanged(code, it, tolerance, voltageRating)
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -179,11 +186,8 @@ private fun ContentView1(
             items = DropdownLists.TOLERANCE,
             reset = reset
         ) {
-            tolerance = it
-            viewModel.updateTolerance(it)
-            onReset(false)
             focusManager.clearFocus()
-            viewModel.saveCapacitorValues(capacitor)
+            onValueChanged(code, units, it, voltageRating)
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -192,12 +196,10 @@ private fun ContentView1(
             items = DropdownLists.VOLTAGE_RATING,
             reset = reset
         ) {
-            voltageRating = it
-            viewModel.updateVoltageRating(it)
-            onReset(false)
             focusManager.clearFocus()
-            viewModel.saveCapacitorValues(capacitor)
+            onValueChanged(code, units, tolerance, it)
         }
+        CapacitorInformation()
         ViewCommonCodeButton(navController)
         Spacer(modifier = Modifier.height(16.dp))
     }
@@ -209,14 +211,27 @@ private fun ContentView2(
     viewModel: CapacitorCapacitorViewModel,
     capacitorLiveData: LiveData<Capacitor>,
     reset: Boolean,
-    onReset: (Boolean) -> Boolean
+    onReset: (Boolean) -> Boolean,
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
-    capacitor.isCapacitanceToCode = true
     var capacitance by remember { mutableStateOf(capacitor.capacitance) }
     var units by remember { mutableStateOf(capacitor.units) }
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }
+    capacitor.isCapacitanceToCode = true
+
+    fun onValueChanged(c: String, u: String) {
+        onReset(false)
+        capacitance = c
+        units = u
+        viewModel.updateCapacitance(c)
+        viewModel.updateUnits(u)
+        isError = capacitor.isCapacitanceInvalid()
+        if (!isError) {
+            viewModel.saveCapacitorValues(capacitor)
+            capacitor.formatCode()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -233,14 +248,7 @@ private fun ContentView2(
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_capacitance),
         ) {
-            onReset(false)
-            capacitance = it
-            viewModel.updateCapacitance(it)
-            isError = capacitor.isCapacitanceInvalid()
-            if (!isError) {
-                viewModel.saveCapacitorValues(capacitor)
-                capacitor.formatCode()
-            }
+            onValueChanged(it, units)
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -249,16 +257,10 @@ private fun ContentView2(
             items = DropdownLists.UNITS,
             reset = reset
         ) {
-            onReset(false)
-            units = it
-            viewModel.updateUnits(it)
             focusManager.clearFocus()
-            isError = capacitor.isCapacitanceInvalid()
-            if (!isError) {
-                viewModel.saveCapacitorValues(capacitor)
-                capacitor.formatCode()
-            }
+            onValueChanged(capacitance, it)
         }
+        CapacitorInformation()
         ViewCommonCodeButton(navController)
         Spacer(modifier = Modifier.height(16.dp))
     }

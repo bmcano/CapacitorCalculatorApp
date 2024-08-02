@@ -88,7 +88,7 @@ fun TextStyle.gray() = this.merge(
 )
 
 @Composable
-fun TextStyle.menuText() = this.merge(
+fun TextStyle.iconGray() = this.merge(
     color = MaterialTheme.colorScheme.onSurfaceVariant
 )
 
@@ -134,7 +134,7 @@ private fun TextStylePreview() {
             )
             Text(
                 text = "Subhead",
-                style = textStyleSubhead().menuText(),
+                style = textStyleSubhead().iconGray(),
             )
             Text(
                 text = "Caption",
