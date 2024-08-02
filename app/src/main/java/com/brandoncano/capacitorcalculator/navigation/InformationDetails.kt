@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.navigation
 
 sealed class InformationDetails(val route: String) {
     data object Ceramic : InformationDetails("ceramic")

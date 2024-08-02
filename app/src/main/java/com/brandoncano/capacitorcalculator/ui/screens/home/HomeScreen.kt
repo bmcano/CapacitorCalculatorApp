@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,7 @@ import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
@@ -42,15 +43,16 @@ private fun ContentView(
     navController: NavController,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
+    val showMenu = remember { mutableStateOf(false) }
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuTopAppBar(stringResource(R.string.home_title), interactionSource) {
-            FeedbackMenuItem(context, interactionSource)
-            AboutAppMenuItem(navController, interactionSource)
+        AppMenuTopAppBar(stringResource(R.string.home_title), interactionSource, showMenu) {
+            FeedbackMenuItem(context, showMenu)
+            AboutAppMenuItem(navController, showMenu)
         }
         AppIcon()
         AppCalculatorButtons(navController)

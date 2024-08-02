@@ -37,7 +37,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.ClearSelectionsMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
@@ -73,6 +73,7 @@ private fun ContentView(
     var tolerance by remember { mutableStateOf(capacitor.tolerance)}
     var voltageRating by remember { mutableStateOf(capacitor.voltageRating)}
     var isError by remember { mutableStateOf(false) }
+    val showMenu = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -80,15 +81,20 @@ private fun ContentView(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuTopAppBar(stringResource(R.string.capacitor_calculator_title), interactionSource) {
-            ClearSelectionsMenuItem(interactionSource) {
+        AppMenuTopAppBar(
+            stringResource(R.string.capacitor_calculator_title),
+            interactionSource,
+            showMenu
+        ) {
+            ClearSelectionsMenuItem {
+                showMenu.value = false
                 viewModel.clear()
                 reset = true
                 focusManager.clearFocus()
             }
-            ShareMenuItem(capacitor.toString(), context, interactionSource)
-            FeedbackMenuItem(context, interactionSource)
-            AboutAppMenuItem(navController, interactionSource)
+            ShareMenuItem(capacitor.toString(), context, showMenu)
+            FeedbackMenuItem(context, showMenu)
+            AboutAppMenuItem(navController, showMenu)
         }
 
         CapacitorValuesText(capacitor, isError)

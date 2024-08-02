@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,7 +16,7 @@ import com.brandoncano.capacitorcalculator.ui.MainActivity
 import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
@@ -30,10 +31,11 @@ fun ChartScreen(context: Context, navController: NavController) {
 @Composable
 private fun ContentView(context: Context, navController: NavController) {
     val interactionSource = remember { MutableInteractionSource() }
+    val showMenu = remember { mutableStateOf(false) }
     Column(modifier = Modifier.fillMaxSize()) {
-        MenuTopAppBar(stringResource(R.string.chart_title), interactionSource) {
-            FeedbackMenuItem(context, interactionSource)
-            AboutAppMenuItem(navController, interactionSource)
+        AppMenuTopAppBar(stringResource(R.string.chart_title), interactionSource, showMenu) {
+            FeedbackMenuItem(context, showMenu)
+            AboutAppMenuItem(navController, showMenu)
         }
         ChartRowLabels()
         ChartTable()

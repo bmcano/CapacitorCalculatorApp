@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Calculate
+import androidx.compose.material.icons.outlined.Grade
 import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material.icons.outlined.WidthFull
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -20,8 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
@@ -84,7 +86,7 @@ fun AppCalculatorButtons(navController: NavController) {
             )
         )
         ArrowButtonCard(
-            Icons.Outlined.Calculate,
+            Icons.Outlined.WidthFull,
             stringResource(id = R.string.home_smd_calculator_button),
         ) {
             navController.navigate(Screen.SmdCalculator.route)
@@ -123,8 +125,9 @@ fun OurAppsButtons(context: Context) {
         )
         ArrowButtonCard(
             listOf(
-                Icons.Outlined.Star,
-                Icons.AutoMirrored.Outlined.AddToHomeScreen
+                Icons.Outlined.Grade,
+                // Note: we do this instead because material icons does not have the outlined version
+                ImageVector.vectorResource(id = R.drawable.icon_outline_add_to_home_screen)
             ),
             listOf(
                 stringResource(id = R.string.home_rate_this_app),

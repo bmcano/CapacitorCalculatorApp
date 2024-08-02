@@ -51,7 +51,7 @@
     <string name="home_view_resistor_app">View our resistor app</string>
     <!-- information screen -->
     <string name="information_title">Capacitor Types</string>
-    <string name="information_header_text">Learn about the unique properties, uses, and specifications of various capacitor types. Click on each capacitor type below to learn more about its characteristics, applications, and advantages.</string>
+    <string name="information_header_text">Click on any capacitor type below to learn more about its characteristics, applications, and advantages.</string>
     <string name="information_footer_text">The information provided on these pages has been sourced from Wikipedia. While efforts have been made to ensure the accuracy and reliability of the information, Wikipedia is a user-edited platform and may contain inaccuracies. Please verify details independently if necessary.</string>
     <string name="information_ceramic_header">Ceramic capacitors</string>
     <string name="information_film_header">Film capacitors</string>
@@ -145,8 +145,8 @@
     <string name="variable_details_characteristics_1">Small variable capacitors operated by screwdriver (for instance, to precisely set a resonant frequency at the factory and then never be adjusted again) are called trimmer capacitors. In addition to air and plastic, trimmers can also be made using a solid dielectric, such as mica.</string>
     <string name="variable_details_characteristics_2">"A butterfly capacitor is a form of rotary variable capacitor with two independent sets of stator plates opposing each other, and a butterfly-shaped rotor arranged so that turning the rotor will vary the capacitance's between the rotor and either stator equally. In a butterfly capacitor, the stators and each half of the rotor can only cover a maximum angle of 90° since there must be a position without rotor/stator overlap corresponding to minimum capacity."</string>
     <string name="variable_details_characteristics_3">The closely related split stator variable capacitor does not have the limitation of 90° angle since it uses two separate packs of rotor electrodes arranged axially behind one another. Unlike in a capacitor with several sections, the rotor plates in a split stator capacitor are mounted on opposite sides of the rotor axis.</string>
-    <string name="variable_details_characteristics_4">"Differential variable capacitors also have two independent stators, but unlike in the butterfly capacitor where capacities on both sides increase equally as the rotor is turned, in a differential variable capacitor one section's capacity will increase while the other section's decreases, keeping the sum of the two stator capacitances constant."</string>
-    <string name="variable_details_applications"> Variable capacitors are often used in L/C circuits to set the resonance frequency, e.g. to tune a radio (therefore it is sometimes called a tuning capacitor), or as a variable reactance, e.g. for impedance matching in antenna tuners.</string>
+    <string name="variable_details_characteristics_4">"Differential variable capacitors also have two independent stators, but unlike in the butterfly capacitor where capacities on both sides increase equally as the rotor is turned, in a differential variable capacitor one section's capacity will increase while the other section's decreases, keeping the sum of the two stator capacitance's constant."</string>
+    <string name="variable_details_applications">Variable capacitors are often used in L/C circuits to set the resonance frequency, e.g. to tune a radio (therefore it is sometimes called a tuning capacitor), or as a variable reactance, e.g. for impedance matching in antenna tuners.</string>
     <!-- smd calculator screen -->
     <string name="smd_calculator_title">SMD Capacitor</string>
     <string name="smd_calculator_code_hint">Code</string>

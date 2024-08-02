@@ -45,7 +45,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.ClearSelectionsMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
@@ -81,15 +81,22 @@ fun CeramicCalculatorScreen(
             }
             val pagerState = rememberPagerState(initialPage = 0) { 2 }
             val coroutineScope = rememberCoroutineScope()
+            val showMenu = remember { mutableStateOf(false) }
+
             Column {
-                MenuTopAppBar(stringResource(R.string.ceramic_calculator_title), interactionSource) {
-                    ClearSelectionsMenuItem(interactionSource) {
+                AppMenuTopAppBar(
+                    stringResource(R.string.ceramic_calculator_title),
+                    interactionSource,
+                    showMenu
+                ) {
+                    ClearSelectionsMenuItem {
+                        showMenu.value = false
                         onReset(true)
                         focusManager.clearFocus()
                     }
-                    ShareMenuItem(capacitor.value?.toString() ?: "", context, interactionSource)
-                    FeedbackMenuItem(context, interactionSource)
-                    AboutAppMenuItem(navController, interactionSource)
+                    ShareMenuItem(capacitor.value?.toString() ?: "", context, showMenu)
+                    FeedbackMenuItem(context, showMenu)
+                    AboutAppMenuItem(navController, showMenu)
                 }
                 TabRow(
                     selectedTabIndex = pagerState.currentPage,

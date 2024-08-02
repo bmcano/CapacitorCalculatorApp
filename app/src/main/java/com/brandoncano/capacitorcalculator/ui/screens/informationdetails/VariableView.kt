@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.InformationDetails
+import com.brandoncano.capacitorcalculator.navigation.InformationDetails
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTopAppBar
 

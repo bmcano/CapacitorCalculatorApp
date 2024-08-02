@@ -12,7 +12,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.brandoncano.capacitorcalculator.components.InformationDetails
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel

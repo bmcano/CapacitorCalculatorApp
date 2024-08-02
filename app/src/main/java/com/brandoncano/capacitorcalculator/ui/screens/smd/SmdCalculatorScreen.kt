@@ -41,7 +41,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.ClearSelectionsMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.SmdNavigationBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -79,6 +79,7 @@ private fun ContentView(
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var isError by remember { mutableStateOf(capacitor.isSmdInputInvalid()) }
+    val showMenu = remember { mutableStateOf(false) }
 
     Scaffold(
         bottomBar = {
@@ -100,15 +101,20 @@ private fun ContentView(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            MenuTopAppBar(stringResource(R.string.smd_calculator_title), interactionSource) {
-                ClearSelectionsMenuItem(interactionSource) {
+            AppMenuTopAppBar(
+                stringResource(R.string.smd_calculator_title),
+                interactionSource,
+                showMenu
+            ) {
+                ClearSelectionsMenuItem {
+                    showMenu.value = false
                     viewModel.clear()
                     reset = true
                     focusManager.clearFocus()
                 }
-                ShareMenuItem(capacitor.toString(), context, interactionSource)
-                FeedbackMenuItem(context, interactionSource)
-                AboutAppMenuItem(navController, interactionSource)
+                ShareMenuItem(capacitor.toString(), context, showMenu)
+                FeedbackMenuItem(context, showMenu)
+                AboutAppMenuItem(navController, showMenu)
             }
             SmdCapacitorLayout(capacitor, isError)
             AppTextField(

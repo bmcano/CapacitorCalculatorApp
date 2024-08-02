@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.centerAlignedTopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,38 +34,38 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
-import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 
 @Composable
-fun MenuTopAppBar(
+fun AppMenuTopAppBar(
     titleText: String,
     interactionSource: MutableInteractionSource,
+    showMenu: MutableState<Boolean>,
     content: @Composable (ColumnScope.() -> Unit)
 ) {
-    var expanded by remember { mutableStateOf(false) }
     LaunchedEffect(interactionSource) {
         interactionSource.interactions.collect { interaction ->
             if (interaction is PressInteraction.Release) {
-                expanded = false
+                showMenu.value = false
             }
         }
     }
     AppTopAppBar(titleText) {
-        IconButton(onClick = { expanded = !expanded }) {
+        IconButton(onClick = { showMenu.value = !showMenu.value }) {
             Icon(
                 imageVector = Icons.Filled.MoreVert,
                 contentDescription = stringResource(R.string.content_description_menu_more)
             )
         }
         DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
+            expanded = showMenu.value,
+            onDismissRequest = { showMenu.value = false },
             content = content,
         )
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class) // CenterAlignedTopAppBAr
 @Composable
 fun AppTopAppBar(
     titleText: String,
@@ -74,7 +75,7 @@ fun AppTopAppBar(
         title = {
             Text(
                 text = titleText,
-                style = textStyleLargeTitle(),
+                style = textStyleTitle(),
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
@@ -116,9 +117,10 @@ private fun TitleTopAppBarPreview() {
 @Composable
 private fun MenuTopAppBarPreview() {
     val interactionSource = remember { MutableInteractionSource() }
+    val showMenu = remember { mutableStateOf(false) }
     CapacitorCalculatorTheme {
-        MenuTopAppBar("MenuTopAppBar", interactionSource) {
-            ClearSelectionsMenuItem(interactionSource) { }
+        AppMenuTopAppBar("MenuTopAppBar", interactionSource, showMenu) {
+            ClearSelectionsMenuItem { }
         }
     }
 }
