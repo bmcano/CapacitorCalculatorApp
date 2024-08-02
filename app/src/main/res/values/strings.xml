@@ -24,6 +24,16 @@
     <string name="capacitor_calculator_information_header">Capacitor information</string>
     <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations on which markings they have. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance.</string>
     <string name="capacitor_calculator_information_body_2">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, and capacitance values for example.</string>
+    <!-- capacitor values screen -->
+    <string name="capacitor_values_title">Capacitor Values</string>
+    <string name="capacitor_values_capacitance_header">Capacitance</string>
+    <string name="capacitor_values_capacitance_body">Smaller capacitors use a shorthand notation, to display all the relevant information in the limited space. The most commonly used format is: XYZ T VOLTS V, where XYZ represents the capacitance (calculated as XY * 10^Z pF), the letters T indicate the tolerance (see table below) and VOLTS V represents the voltage rating (see table below).</string>
+    <string name="capacitor_values_tolerance_header">Tolerance</string>
+    <string name="capacitor_values_tolerance_letter">Letter</string>
+    <string name="capacitor_values_tolerance_percentage">Tolerance (%)</string>
+    <string name="capacitor_values_voltage_header">Voltage Rating</string>
+    <string name="capacitor_values_voltage_code">Code</string>
+    <string name="capacitor_values_voltage_values">Voltage (V)</string>
     <!-- chart screen -->
     <string name="chart_title">Common Codes</string>
     <string name="chart_code">Code</string>
@@ -37,6 +47,7 @@
     <string name="home_capacitor_calculator_button">Capacitor code calculator</string>
     <string name="home_smd_calculator_button">SMD capacitor</string>
     <string name="home_information_button">Capacitor types</string>
+    <string name="home_capacitor_values">Capacitor values</string>
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_rate_this_app">Rate this app</string>
     <string name="home_view_resistor_app">View our resistor app</string>

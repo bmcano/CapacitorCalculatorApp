@@ -31,6 +31,10 @@ enum class VoltageRating(val code: String, val voltage: String) {
             return entries.map { it.code }
         }
 
+        fun getVoltageList(): List<String> {
+            return entries.map { it.voltage }
+        }
+
         fun getVoltageValue(code: String): String {
             return entries.find { it.code == code }?.voltage ?: ""
         }

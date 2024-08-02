@@ -27,8 +27,7 @@ data class Capacitor(
             val code = "Code = ${formatCode()}$tolerance $voltageRating"
             val capacitance = "Capacitance = ${this.capacitance} $units}"
             val tolerance = "Tolerance = ${getTolerancePercentage()}"
-            val voltageRating = "Voltage = ${getVoltageRating()}"
-            return "$code\n$capacitance\n$tolerance\n$voltageRating".trimEnd(' ')
+            return "$code\n$capacitance\n$tolerance".trimEnd(' ')
         }
         val code = "Code = $code$tolerance $voltageRating"
         val capacitance = "Capacitance = ${formatCapacitance()}"

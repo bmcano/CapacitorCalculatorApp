@@ -17,6 +17,7 @@ import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorCapacitorVie
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.screens.about.AboutScreen
 import com.brandoncano.capacitorcalculator.ui.screens.capacitor.CapacitorCalculatorScreen
+import com.brandoncano.capacitorcalculator.ui.screens.capacitorvalues.CapacitorValuesScreen
 import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
 import com.brandoncano.capacitorcalculator.ui.screens.home.HomeScreen
 import com.brandoncano.capacitorcalculator.ui.screens.information.InformationScreen
@@ -49,6 +50,13 @@ fun Navigation(context: Context) {
             val viewModel = viewModel<CapacitorCapacitorViewModel>(factory = CapacitorViewModelFactory(context))
             val capacitor = viewModel.getCapacitorLiveData()
             CapacitorCalculatorScreen(context, navController, viewModel, capacitor)
+        }
+        composable(
+            route = Screen.CapacitorValues.route,
+            enterTransition = { slideInVertically(initialOffsetY = { it }) },
+            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+        ) {
+            CapacitorValuesScreen(context, navController)
         }
         composable(
             route = Screen.Chart.route,

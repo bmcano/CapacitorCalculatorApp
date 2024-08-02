@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Calculate
 import androidx.compose.material.icons.outlined.Grade
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.TableView
 import androidx.compose.material.icons.outlined.WidthFull
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -104,6 +105,12 @@ fun AppInformationScreens(navController: NavController) {
             stringResource(id = R.string.home_information_button),
         ) {
             navController.navigate(Screen.Information.route)
+        }
+        ArrowButtonCard(
+            Icons.Outlined.TableView,
+            stringResource(id = R.string.home_capacitor_values),
+        ) {
+            navController.navigate(Screen.CapacitorValues.route)
         }
     }
 }
