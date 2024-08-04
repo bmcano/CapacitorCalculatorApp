@@ -23,7 +23,6 @@
     <string name="capacitor_view_common_codes">View common codes</string>
     <string name="capacitor_calculator_information_header">Capacitor information</string>
     <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations on which markings they have. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance.</string>
-    <string name="capacitor_calculator_information_body_2">It is important to note that capacitors come in a variety of types, each tailored to specific applications based on their characteristics, like reliability, voltage ratings, and capacitance values for example.</string>
     <!-- capacitor values screen -->
     <string name="capacitor_values_title">Capacitor Values</string>
     <string name="capacitor_values_capacitance_header">Capacitance</string>
@@ -50,6 +49,7 @@
     <string name="home_capacitor_values">Capacitor values</string>
     <string name="home_our_apps_header_text">Our apps</string>
     <string name="home_rate_this_app">Rate this app</string>
+    <string name="home_view_inductor_app">View our inductor app</string>
     <string name="home_view_resistor_app">View our resistor app</string>
     <!-- information screen -->
     <string name="information_title">Capacitor Types</string>

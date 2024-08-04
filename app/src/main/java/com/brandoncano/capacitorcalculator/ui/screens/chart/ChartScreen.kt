@@ -3,13 +3,16 @@ package com.brandoncano.capacitorcalculator.ui.screens.chart
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
@@ -21,10 +24,8 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
 fun ChartScreen(context: Context, navController: NavController) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context, navController)
-        }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context, navController)
     }
 }
 
@@ -46,5 +47,7 @@ private fun ContentView(context: Context, navController: NavController) {
 @Composable
 private fun ChartPreview() {
     val app = MainActivity()
-    ChartScreen(app, NavController(app))
+    CapacitorCalculatorTheme {
+        ChartScreen(app, NavController(app))
+    }
 }

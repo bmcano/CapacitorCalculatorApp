@@ -22,10 +22,8 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
 fun AboutScreen(context: Context) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context)
-        }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context)
     }
 }
 
@@ -43,7 +41,7 @@ private fun ContentView(context: Context) {
         ViewPrivacyPolicy(context)
         DescriptionCard()
         OurAppsButtons(context)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -51,5 +49,7 @@ private fun ContentView(context: Context) {
 @Composable
 private fun AboutPreview() {
     val app = MainActivity()
-    AboutScreen(app)
+    CapacitorCalculatorTheme {
+        AboutScreen(app)
+    }
 }

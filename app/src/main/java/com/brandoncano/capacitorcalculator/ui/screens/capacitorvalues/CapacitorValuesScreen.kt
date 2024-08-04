@@ -29,10 +29,8 @@ import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
 fun CapacitorValuesScreen(context: Context, navController: NavController) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context, navController)
-        }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context, navController)
     }
 }
 
@@ -63,5 +61,7 @@ private fun ContentView(context: Context, navController: NavController) {
 @Composable
 private fun ChartPreview() {
     val app = MainActivity()
-    CapacitorValuesScreen(app, NavController(app))
+    CapacitorCalculatorTheme {
+        CapacitorValuesScreen(app, NavController(app))
+    }
 }

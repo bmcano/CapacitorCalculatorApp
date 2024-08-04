@@ -35,10 +35,8 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleCaption
 
 @Composable
 fun InformationScreen(context: Context, navController: NavController) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context, navController)
-        }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context, navController)
     }
 }
 
@@ -131,7 +129,7 @@ private fun ContentView(context: Context, navController: NavController) {
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
             style = textStyleCaption().gray(),
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -139,5 +137,7 @@ private fun ContentView(context: Context, navController: NavController) {
 @Composable
 private fun InformationScreenPreview() {
     val app = MainActivity()
-    InformationScreen(app, NavController(app))
+    CapacitorCalculatorTheme {
+        InformationScreen(app, NavController(app))
+    }
 }

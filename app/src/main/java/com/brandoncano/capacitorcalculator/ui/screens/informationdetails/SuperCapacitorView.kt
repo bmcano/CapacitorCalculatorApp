@@ -39,7 +39,7 @@ fun SuperCapacitorView() {
             header = R.string.information_details_applications,
             body = R.string.super_details_applications,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 

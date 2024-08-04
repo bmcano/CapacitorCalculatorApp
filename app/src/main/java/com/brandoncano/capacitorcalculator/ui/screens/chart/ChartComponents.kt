@@ -51,7 +51,7 @@ fun ChartRowLabels() {
 @Composable
 fun ChartTable() {
     val codes = CapacitorCodeConversions.entries
-    AppCard(modifier = Modifier.padding(16.dp)) {
+    AppCard(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 24.dp)) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             codes.forEachIndexed { index, it ->
                 ChartTableRow(it)

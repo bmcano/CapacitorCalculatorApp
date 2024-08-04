@@ -17,18 +17,16 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 
 @Composable
 fun InformationDetailsScreen(informationDetails: InformationDetails) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            when (informationDetails) {
-                InformationDetails.Ceramic -> CeramicView()
-                InformationDetails.Film -> FilmView()
-                InformationDetails.Electrolytic -> ElectrolyticView()
-                InformationDetails.Polymer -> PolymerView()
-                InformationDetails.SuperCapacitor -> SuperCapacitorView()
-                InformationDetails.Mica -> MicaView()
-                InformationDetails.Variable -> VariableView()
-                InformationDetails.SomethingWentWrong -> SomethingWentWrong()
-            }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        when (informationDetails) {
+            InformationDetails.Ceramic -> CeramicView()
+            InformationDetails.Film -> FilmView()
+            InformationDetails.Electrolytic -> ElectrolyticView()
+            InformationDetails.Polymer -> PolymerView()
+            InformationDetails.SuperCapacitor -> SuperCapacitorView()
+            InformationDetails.Mica -> MicaView()
+            InformationDetails.Variable -> VariableView()
+            InformationDetails.SomethingWentWrong -> SomethingWentWrong()
         }
     }
 }
@@ -49,5 +47,7 @@ fun SomethingWentWrong() {
 @AppScreenPreviews
 @Composable
 private fun SomethingWentWrongPreview() {
-    InformationDetailsScreen(InformationDetails.SomethingWentWrong)
+    CapacitorCalculatorTheme {
+        InformationDetailsScreen(InformationDetails.SomethingWentWrong)
+    }
 }

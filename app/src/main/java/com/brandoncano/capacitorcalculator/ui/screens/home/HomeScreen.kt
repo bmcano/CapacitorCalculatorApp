@@ -26,22 +26,14 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable
-fun HomeScreen(
-    context: Context,
-    navController: NavController,
-) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context, navController)
-        }
+fun HomeScreen(context: Context, navController: NavController) {
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context, navController)
     }
 }
 
 @Composable
-private fun ContentView(
-    context: Context,
-    navController: NavController,
-) {
+private fun ContentView(context: Context, navController: NavController) {
     val interactionSource = remember { MutableInteractionSource() }
     val showMenu = remember { mutableStateOf(false) }
     Column(
@@ -58,7 +50,7 @@ private fun ContentView(
         AppCalculatorButtons(navController)
         AppInformationScreens(navController)
         OurAppsButtons(context)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -66,5 +58,7 @@ private fun ContentView(
 @Composable
 private fun HomePreview() {
     val app = MainActivity()
-    HomeScreen(app, NavController(app))
+    CapacitorCalculatorTheme {
+        HomeScreen(app, NavController(app))
+    }
 }

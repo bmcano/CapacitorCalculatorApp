@@ -70,7 +70,7 @@ fun FilmView() {
             body = R.string.film_details_characteristics_7,
         )
         BodyInformation(R.string.film_details_applications_7)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 

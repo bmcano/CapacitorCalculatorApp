@@ -62,57 +62,55 @@ fun CapacitorCalculatorScreen(
     viewModel: CapacitorCapacitorViewModel,
     capacitor: LiveData<Capacitor>
 ) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            val focusManager = LocalFocusManager.current
-            val interactionSource = remember { MutableInteractionSource() }
-            val showMenu = remember { mutableStateOf(false) }
-            val pagerState = rememberPagerState(initialPage = 0) { 2 }
-            val coroutineScope = rememberCoroutineScope()
-            var reset by remember { mutableStateOf(false) }
-            val onReset: (Boolean) -> Boolean = { resetValue ->
-                reset = resetValue
-                if (resetValue) {
-                    viewModel.clear()
-                }
-                resetValue
+    Surface(modifier = Modifier.fillMaxSize()) {
+        val focusManager = LocalFocusManager.current
+        val interactionSource = remember { MutableInteractionSource() }
+        val showMenu = remember { mutableStateOf(false) }
+        val pagerState = rememberPagerState(initialPage = 0) { 2 }
+        val coroutineScope = rememberCoroutineScope()
+        var reset by remember { mutableStateOf(false) }
+        val onReset: (Boolean) -> Boolean = { resetValue ->
+            reset = resetValue
+            if (resetValue) {
+                viewModel.clear()
             }
+            resetValue
+        }
 
-            Column {
-                AppMenuTopAppBar(
-                    titleText = stringResource(R.string.capacitor_calculator_title),
-                    interactionSource = interactionSource,
-                    showMenu = showMenu,
-                ) {
-                    ClearSelectionsMenuItem {
-                        showMenu.value = false
-                        onReset(true)
-                        focusManager.clearFocus()
-                    }
-                    ShareMenuItem(capacitor.value?.toString() ?: "", context, showMenu)
-                    FeedbackMenuItem(context, showMenu)
-                    AboutAppMenuItem(navController, showMenu)
+        Column {
+            AppMenuTopAppBar(
+                titleText = stringResource(R.string.capacitor_calculator_title),
+                interactionSource = interactionSource,
+                showMenu = showMenu,
+            ) {
+                ClearSelectionsMenuItem {
+                    showMenu.value = false
+                    onReset(true)
+                    focusManager.clearFocus()
                 }
-                TabRow(
-                    selectedTabIndex = pagerState.currentPage,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Tab(
-                        text = { TabText(title = R.string.capacitor_calculator_tab_1) },
-                        selected = pagerState.currentPage == 0,
-                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } }
-                    )
-                    Tab(
-                        text = { TabText(title = R.string.capacitor_calculator_tab_2) },
-                        selected = pagerState.currentPage == 1,
-                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } }
-                    )
-                }
-                HorizontalPager(state = pagerState) { page ->
-                    when (page) {
-                        0 -> ContentView1(navController, viewModel, capacitor, reset, onReset)
-                        1 -> ContentView2(navController, viewModel, capacitor, reset, onReset)
-                    }
+                ShareMenuItem(capacitor.value?.toString() ?: "", context, showMenu)
+                FeedbackMenuItem(context, showMenu)
+                AboutAppMenuItem(navController, showMenu)
+            }
+            TabRow(
+                selectedTabIndex = pagerState.currentPage,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Tab(
+                    text = { TabText(title = R.string.capacitor_calculator_tab_1) },
+                    selected = pagerState.currentPage == 0,
+                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } }
+                )
+                Tab(
+                    text = { TabText(title = R.string.capacitor_calculator_tab_2) },
+                    selected = pagerState.currentPage == 1,
+                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } }
+                )
+            }
+            HorizontalPager(state = pagerState) { page ->
+                when (page) {
+                    0 -> ContentView1(navController, viewModel, capacitor, reset, onReset)
+                    1 -> ContentView2(navController, viewModel, capacitor, reset, onReset)
                 }
             }
         }
@@ -136,16 +134,9 @@ private fun ContentView1(
     var isError by remember { mutableStateOf(capacitor.isCodeInvalid()) }
     capacitor.isCapacitanceToCode = false
 
-    fun onValueChanged(c: String, u: String, t: String, v: String) {
+    fun postSelectionActions() {
         onReset(false)
-        code = c
-        units = u
-        tolerance = t
-        voltageRating = v
-        viewModel.updateCode(c)
-        viewModel.updateUnits(u)
-        viewModel.updateTolerance(t)
-        viewModel.updateVoltageRating(v)
+        viewModel.updateValues(code, units, tolerance, voltageRating)
         isError = capacitor.isCodeInvalid()
         if (!isError) {
             viewModel.saveCapacitorValues(capacitor)
@@ -168,7 +159,8 @@ private fun ContentView1(
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_code),
         ) {
-            onValueChanged(it, units, tolerance, voltageRating)
+            code = it
+            postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -177,8 +169,9 @@ private fun ContentView1(
             items = DropdownLists.UNITS,
             reset = reset
         ) {
+            units = it
             focusManager.clearFocus()
-            onValueChanged(code, it, tolerance, voltageRating)
+            postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -187,8 +180,9 @@ private fun ContentView1(
             items = DropdownLists.TOLERANCE,
             reset = reset
         ) {
+            tolerance = it
             focusManager.clearFocus()
-            onValueChanged(code, units, it, voltageRating)
+            postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -197,12 +191,13 @@ private fun ContentView1(
             items = DropdownLists.VOLTAGE_RATING,
             reset = reset
         ) {
+            voltageRating = it
             focusManager.clearFocus()
-            onValueChanged(code, units, tolerance, it)
+            postSelectionActions()
         }
         CapacitorInformation()
         ViewCommonCodeButton(navController)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -222,14 +217,9 @@ private fun ContentView2(
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }
     capacitor.isCapacitanceToCode = true
 
-    fun onValueChanged(c: String, u: String, t: String) {
+    fun postSelectionActions() {
         onReset(false)
-        capacitance = c
-        units = u
-        tolerance = t
-        viewModel.updateCapacitance(c)
-        viewModel.updateUnits(u)
-        viewModel.updateTolerance(t)
+        viewModel.updateValues(capacitance, units, tolerance)
         isError = capacitor.isCapacitanceInvalid()
         if (!isError) {
             viewModel.saveCapacitorValues(capacitor)
@@ -252,7 +242,8 @@ private fun ContentView2(
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_capacitance),
         ) {
-            onValueChanged(it, units, tolerance)
+            capacitance = it
+            postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -261,8 +252,9 @@ private fun ContentView2(
             items = DropdownLists.UNITS,
             reset = reset
         ) {
+            units = it
             focusManager.clearFocus()
-            onValueChanged(capacitance, it, tolerance)
+            postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
@@ -271,13 +263,13 @@ private fun ContentView2(
             items = DropdownLists.TOLERANCE_PERCENTAGE,
             reset = reset
         ) {
+            tolerance = Tolerance.getLetterValue(it)
             focusManager.clearFocus()
-            val t = Tolerance.getLetterValue(it)
-            onValueChanged(capacitance, units, t)
+            postSelectionActions()
         }
         CapacitorInformation()
         ViewCommonCodeButton(navController)
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -287,5 +279,7 @@ private fun CapacitorCalculatorPreview() {
     val app = MainActivity()
     val viewModel = viewModel<CapacitorCapacitorViewModel>(factory = CapacitorViewModelFactory(app))
     val capacitor = MutableLiveData<Capacitor>()
-    CapacitorCalculatorScreen(app, NavController(app), viewModel, capacitor)
+    CapacitorCalculatorTheme {
+        CapacitorCalculatorScreen(app, NavController(app), viewModel, capacitor)
+    }
 }

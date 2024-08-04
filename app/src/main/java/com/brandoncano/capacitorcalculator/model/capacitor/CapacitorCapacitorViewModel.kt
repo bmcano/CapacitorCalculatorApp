@@ -28,25 +28,16 @@ class CapacitorCapacitorViewModel(context: Context) : ViewModel() {
         return capacitor
     }
 
-    fun updateCode(value: String) {
-        capacitor.value = capacitor.value?.copy(code = value)
+    fun updateValues(code: String, units: String, tolerance: String, voltageRating: String) {
+        capacitor.value = capacitor.value
+            ?.copy(code = code, units = units, tolerance = tolerance, voltageRating = voltageRating)
     }
 
-    fun updateCapacitance(value: String) {
-        capacitor.value = capacitor.value?.copy(capacitance = value)
+    fun updateValues(capacitance: String, units: String, tolerance: String) {
+        capacitor.value = capacitor.value
+            ?.copy(capacitance = capacitance, units = units, tolerance = tolerance)
     }
 
-    fun updateUnits(value: String) {
-        capacitor.value = capacitor.value?.copy(units = value)
-    }
-
-    fun updateTolerance(value: String) {
-        capacitor.value = capacitor.value?.copy(tolerance = value)
-    }
-
-    fun updateVoltageRating(value: String) {
-        capacitor.value = capacitor.value?.copy(voltageRating = value)
-    }
 
     fun saveCapacitorValues(capacitor: Capacitor) {
         repository.saveCapacitor(capacitor)

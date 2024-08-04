@@ -45,7 +45,7 @@ fun CeramicView() {
             R.string.ceramic_details_applications_2,
             R.string.ceramic_details_applications_3,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 

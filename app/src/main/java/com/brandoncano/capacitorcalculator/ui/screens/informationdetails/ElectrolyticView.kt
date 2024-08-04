@@ -47,7 +47,7 @@ fun ElectrolyticView() {
             header = R.string.information_details_applications,
             body = R.string.electrolytic_details_applications,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 

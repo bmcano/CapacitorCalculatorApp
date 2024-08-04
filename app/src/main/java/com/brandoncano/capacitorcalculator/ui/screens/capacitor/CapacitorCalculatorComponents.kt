@@ -121,11 +121,6 @@ fun CapacitorInformation() {
         AppStandardCard {
             Text(
                 text = stringResource(id = R.string.capacitor_calculator_information_body_1),
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                style = textStyleSubhead(),
-            )
-            Text(
-                text = stringResource(id = R.string.capacitor_calculator_information_body_2),
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
                 style = textStyleSubhead(),
             )
