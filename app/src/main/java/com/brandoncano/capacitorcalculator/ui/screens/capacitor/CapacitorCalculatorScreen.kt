@@ -109,8 +109,8 @@ fun CapacitorCalculatorScreen(
             }
             HorizontalPager(state = pagerState) { page ->
                 when (page) {
-                    0 -> ContentView1(navController, viewModel, capacitor, reset, onReset)
-                    1 -> ContentView2(navController, viewModel, capacitor, reset, onReset)
+                    0 -> ContentView1(viewModel, capacitor, reset, onReset)
+                    1 -> ContentView2(viewModel, capacitor, reset, onReset)
                 }
             }
         }
@@ -119,7 +119,6 @@ fun CapacitorCalculatorScreen(
 
 @Composable
 private fun ContentView1(
-    navController: NavController,
     viewModel: CapacitorCapacitorViewModel,
     capacitorLiveData: LiveData<Capacitor>,
     reset: Boolean,
@@ -196,14 +195,12 @@ private fun ContentView1(
             postSelectionActions()
         }
         CapacitorInformation()
-        ViewCommonCodeButton(navController)
         Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
 @Composable
 private fun ContentView2(
-    navController: NavController,
     viewModel: CapacitorCapacitorViewModel,
     capacitorLiveData: LiveData<Capacitor>,
     reset: Boolean,
@@ -268,7 +265,6 @@ private fun ContentView2(
             postSelectionActions()
         }
         CapacitorInformation()
-        ViewCommonCodeButton(navController)
         Spacer(modifier = Modifier.height(24.dp))
     }
 }

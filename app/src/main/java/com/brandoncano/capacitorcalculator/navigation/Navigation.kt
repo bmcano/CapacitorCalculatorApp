@@ -53,8 +53,8 @@ fun Navigation(context: Context) {
         }
         composable(
             route = Screen.CapacitorValues.route,
-            enterTransition = { slideInVertically(initialOffsetY = { it }) },
-            exitTransition = { slideOutVertically(targetOffsetY = { it }) },
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
         ) {
             CapacitorValuesScreen(context, navController)
         }

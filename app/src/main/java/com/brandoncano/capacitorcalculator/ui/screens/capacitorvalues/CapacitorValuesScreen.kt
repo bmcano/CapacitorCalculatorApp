@@ -24,7 +24,6 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.screens.capacitor.ViewCommonCodeButton
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 
 @Composable

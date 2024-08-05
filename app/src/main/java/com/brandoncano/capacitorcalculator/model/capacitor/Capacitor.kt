@@ -24,8 +24,8 @@ data class Capacitor(
 
     override fun toString(): String {
         if (isCapacitanceToCode) {
-            val code = "Code = ${formatCode()}$tolerance $voltageRating"
-            val capacitance = "Capacitance = ${this.capacitance} $units}"
+            val code = "Code = ${formatCode()}$tolerance"
+            val capacitance = "Capacitance = ${this.capacitance} $units"
             val tolerance = "Tolerance = ${getTolerancePercentage()}"
             return "$code\n$capacitance\n$tolerance".trimEnd(' ')
         }

@@ -23,7 +23,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
-import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 
@@ -78,7 +77,7 @@ private fun CardRowViewWithSubText(
                 Text(
                     text = " • $it",
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = bottomDp),
-                    style = textStyleSubhead().gray(),
+                    style = textStyleSubhead(),
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
                 )

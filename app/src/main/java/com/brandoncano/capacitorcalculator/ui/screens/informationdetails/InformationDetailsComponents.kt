@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
@@ -19,6 +20,7 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
+import com.brandoncano.capacitorcalculator.ui.theme.mica_capacitor
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
@@ -76,7 +78,21 @@ fun MicaCapacitorImage() {
             painter = painterResource(id = R.drawable.img_mica_capacitor),
             contentDescription = stringResource(id = R.string.content_description_mica_capacitor),
             modifier = Modifier.size(196.dp),
+            colorFilter = ColorFilter.tint(mica_capacitor),
         )
+        Column(
+            modifier = Modifier.padding(bottom = 56.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "1000 ±5%",
+                style = textStyleTitle().gray()
+            )
+            Text(
+                text = "500V SM",
+                style = textStyleTitle().gray()
+            )
+        }
     }
 }
 

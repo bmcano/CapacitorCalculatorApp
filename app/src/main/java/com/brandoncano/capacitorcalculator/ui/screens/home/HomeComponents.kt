@@ -2,7 +2,6 @@ package com.brandoncano.capacitorcalculator.ui.screens.home
 
 import android.content.Context
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -39,11 +38,7 @@ import com.brandoncano.capacitorcalculator.util.OpenLink
 
 @Composable
 fun AppIcon() {
-    val backgroundColor = if (isSystemInDarkTheme()) {
-        MaterialTheme.colorScheme.surfaceVariant
-    } else {
-        MaterialTheme.colorScheme.primary
-    }
+    val backgroundColor = MaterialTheme.colorScheme.surfaceVariant
     Card(
         modifier = Modifier
             .padding(top = 16.dp)

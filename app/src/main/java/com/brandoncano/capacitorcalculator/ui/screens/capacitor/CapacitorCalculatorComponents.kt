@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FileOpen
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,13 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
-import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
-import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.iconGray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
@@ -86,16 +82,6 @@ fun CapacitanceText(
                 style = textStyleTitle(),
             )
         }
-    }
-}
-
-@Composable
-fun ViewCommonCodeButton(navController: NavController) {
-    ArrowButtonCard(
-        imageVector = Icons.Outlined.FileOpen,
-        cardText = stringResource(id = R.string.capacitor_view_common_codes)
-    ) {
-        navController.navigate(Screen.Chart.route)
     }
 }
 

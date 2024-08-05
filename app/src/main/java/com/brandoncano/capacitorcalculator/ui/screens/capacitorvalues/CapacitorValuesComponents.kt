@@ -5,23 +5,29 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.FileOpen
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.components.Tolerance
 import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
 import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
+import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
+import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
 
 @Composable
 fun CodeExplanation() {
@@ -34,11 +40,20 @@ fun CodeExplanation() {
         Text(
             text = stringResource(id = R.string.capacitor_values_capacitance_body),
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-            style = textStyleBody().gray()
+            style = textStyleSubhead().gray()
         )
     }
 }
 
+@Composable
+fun ViewCommonCodeButton(navController: NavController) {
+    ArrowButtonCard(
+        imageVector = Icons.Outlined.FileOpen,
+        cardText = stringResource(id = R.string.capacitor_view_common_codes)
+    ) {
+        navController.navigate(Screen.Chart.route)
+    }
+}
 
 @Composable
 fun ToleranceTable() {
@@ -77,11 +92,7 @@ fun VoltageRatingTable() {
 }
 
 @Composable
-private fun RowScope.TableCell(
-    text: String,
-    weight: Float,
-    style: TextStyle
-) {
+private fun RowScope.TableCell(text: String, weight: Float, style: TextStyle) {
     Text(
         text = text,
         modifier = Modifier
@@ -117,8 +128,8 @@ private fun TableScreen(
         tableData.forEach { pair ->
             val (id, text) = pair
             Row(Modifier.fillMaxWidth()) {
-                TableCell(text = id, weight = column1Weight, style = textStyleBody().gray())
-                TableCell(text = text, weight = column2Weight, style = textStyleBody().gray())
+                TableCell(text = id, weight = column1Weight, style = textStyleBody())
+                TableCell(text = text, weight = column2Weight, style = textStyleBody())
             }
             if (tableData[tableData.size - 1] != pair) {
                 AppDivider(modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp))
