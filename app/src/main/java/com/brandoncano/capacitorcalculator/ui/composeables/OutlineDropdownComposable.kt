@@ -55,12 +55,8 @@ fun AppDropDownMenu(
             }
         }
     }
-    LaunchedEffect(reset) {
-        if (reset) {
-            selectedText = ""
-        }
-    }
-    Column {
+    LaunchedEffect(reset) { if (reset) selectedText = ""  }
+    Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
         OutlinedTextField(
             value = selectedText,
             onValueChange = { selectedText = it },

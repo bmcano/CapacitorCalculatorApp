@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.components
 
 /**
- * Job: Is all the standard codes for a ceramic capacitor
+ * Job: Is all the standard codes for a capacitor
  */
 enum class CapacitorCodeConversions(
     private val code: String,

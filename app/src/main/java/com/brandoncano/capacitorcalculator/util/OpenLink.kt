@@ -15,6 +15,10 @@ object OpenLink {
         open(context, Links.CAPACITOR_PLAYSTORE)
     }
 
+    fun openInductorApp(context: Context) {
+        open(context, Links.INDUCTOR_PLAYSTORE)
+    }
+
     fun openResistorApp(context: Context) {
         open(context, Links.RESISTOR_PLAYSTORE)
     }

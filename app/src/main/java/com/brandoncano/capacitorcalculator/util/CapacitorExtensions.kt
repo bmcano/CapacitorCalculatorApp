@@ -1,29 +1,37 @@
 package com.brandoncano.capacitorcalculator.util
 
-import com.brandoncano.capacitorcalculator.model.ceramic.CeramicCapacitor
+import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.constants.Units
+import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 
 /**
  * Job: Holds the extension functions for all the capacitor models
  */
 
-fun CeramicCapacitor.isCodeInvalid(): Boolean {
+fun Capacitor.isCodeInvalid(): Boolean {
     return !IsValidCode.execute(this.code)
 }
 
-fun CeramicCapacitor.formatCapacitance(): String {
-    return CapacitanceFormatter.execute(this)
+fun Capacitor.formatCapacitance(): String {
+    return CapacitanceFormatter.execute(this.code, this.units)
 }
 
-fun CeramicCapacitor.getTolerancePercentage(): String {
-    return ToleranceFromLetter.execute(this.tolerance)
+fun Capacitor.getTolerancePercentage(): String {
+    return Tolerance.getToleranceValue(this.tolerance)
 }
 
-fun CeramicCapacitor.isCapacitanceInvalid(): Boolean {
-    return !IsValidCapacitance.execute(this.capacitance, this.units)
+fun Capacitor.getVoltageRating(): String {
+    return VoltageRating.getVoltageValue(this.voltageRating)
 }
 
-fun CeramicCapacitor.formatCode(): String {
+fun Capacitor.isCapacitanceInvalid(): Boolean {
+    val units = this.units.ifEmpty { Units.PF }
+    return !IsValidCapacitance.execute(this.capacitance, units)
+}
+
+fun Capacitor.formatCode(): String {
     return CodeFormatter.execute(this.capacitance, this.units)
 }
 

@@ -28,12 +28,8 @@ class SmdCapacitorViewModel(context: Context): ViewModel() {
         return capacitor
     }
 
-    fun updateCode(value: String) {
-        capacitor.value = capacitor.value?.copy(code = value)
-    }
-
-    fun updateUnits(value: String) {
-        capacitor.value = capacitor.value?.copy(units = value)
+    fun updateValues(code: String, units: String) {
+        capacitor.value = capacitor.value?.copy(code = code, units = units)
     }
 
     fun getNavBarSelection(): Int {

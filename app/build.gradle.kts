@@ -12,8 +12,8 @@ android {
         applicationId = "com.brandoncano.capacitorcalculator"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "1.1.0"
+        versionCode = 7
+        versionName = "2.0.0"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -21,7 +21,7 @@ android {
     }
     applicationVariants.configureEach {
         resValue("string", "version", versionName)
-        resValue("string", "last_updated", "7/26/2024")
+        resValue("string", "last_updated", "8/6/2024")
     }
     buildTypes {
         release {
@@ -74,5 +74,5 @@ dependencies {
     // unit testing
     testImplementation(libs.junit)
     // external libraries
-    implementation(libs.ostermiller.util)
+    implementation(libs.ostermiller.util) // Job: can count number of sig figs in a string and round
 }

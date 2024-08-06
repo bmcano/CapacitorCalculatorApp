@@ -46,7 +46,7 @@ fun AppInfoCard() {
             label = R.string.about_last_updated_on,
             body = R.string.last_updated,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(12.dp))
     }
 }
 
@@ -62,21 +62,25 @@ fun ViewPrivacyPolicy(context: Context) {
 
 @Composable
 fun DescriptionCard() {
-    val modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp)
+    Text(
+        text = stringResource(id = R.string.about_description),
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+        style = textStyleHeadline(),
+    )
     AppStandardCard {
         Text(
-            text = stringResource(id = R.string.about_description),
-            modifier = modifier,
-            style = textStyleHeadline(),
-        )
-        Text(
             text = stringResource(id = R.string.about_description_part_01),
-            modifier = modifier,
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
             style = textStyleBody(),
         )
         Text(
             text = stringResource(id = R.string.about_description_part_02),
-            modifier = modifier.padding(bottom = 12.dp),
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+            style = textStyleBody(),
+        )
+        Text(
+            text = stringResource(id = R.string.about_description_part_03),
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
             style = textStyleBody(),
         )
     }

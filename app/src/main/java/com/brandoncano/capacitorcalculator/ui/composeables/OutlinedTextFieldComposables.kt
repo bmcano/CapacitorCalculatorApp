@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Error
@@ -23,6 +24,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -49,7 +51,7 @@ fun AppTextField(
             selectedText = ""
         }
     }
-    Column {
+    Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
         OutlinedTextField(
             value = selectedText,
             onValueChange = {

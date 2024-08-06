@@ -3,7 +3,9 @@ package com.brandoncano.capacitorcalculator.ui.screens.smd
 import android.content.Context
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -41,7 +43,7 @@ import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.composeables.AppTextField
 import com.brandoncano.capacitorcalculator.ui.composeables.ClearSelectionsMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.MenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
 import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.composeables.SmdNavigationBar
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
@@ -56,10 +58,8 @@ fun SmdCalculatorScreen(
     navBarPosition: Int,
     capacitor: LiveData<SmdCapacitor>
 ) {
-    CapacitorCalculatorTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            ContentView(context, navController, viewModel, navBarPosition, capacitor)
-        }
+    Surface(modifier = Modifier.fillMaxSize()) {
+        ContentView(context, navController, viewModel, navBarPosition, capacitor)
     }
 }
 
@@ -73,23 +73,47 @@ private fun ContentView(
 ) {
     val focusManager = LocalFocusManager.current
     val interactionSource = remember { MutableInteractionSource() }
-    var navBarSelection by remember { mutableIntStateOf(navBarPosition) }
+    val showMenu = remember { mutableStateOf(false) }
     var reset by remember { mutableStateOf(false) }
+    var navBarSelection by remember { mutableIntStateOf(navBarPosition) }
     val capacitor by capacitorLiveData.observeAsState(SmdCapacitor())
     var code by remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var isError by remember { mutableStateOf(capacitor.isSmdInputInvalid()) }
 
+    fun postSelectionActions() {
+        reset = false
+        viewModel.updateValues(code, units)
+        isError = capacitor.isSmdInputInvalid()
+        if (!isError) {
+            viewModel.saveCapacitorValues(capacitor)
+            capacitor.formatCapacitance()
+        }
+    }
+
     Scaffold(
+        topBar = {
+            AppMenuTopAppBar(
+                stringResource(R.string.smd_calculator_title),
+                interactionSource,
+                showMenu
+            ) {
+                ClearSelectionsMenuItem {
+                    showMenu.value = false
+                    reset = true
+                    viewModel.clear()
+                    focusManager.clearFocus()
+                }
+                ShareMenuItem(capacitor.toString(), context, showMenu)
+                FeedbackMenuItem(context, showMenu)
+                AboutAppMenuItem(navController, showMenu)
+            }
+        },
         bottomBar = {
             SmdNavigationBar(navBarSelection) {
                 navBarSelection = it
                 viewModel.saveNavBarSelection(it)
-                isError = capacitor.isSmdInputInvalid()
-                if (!isError) {
-                    viewModel.saveCapacitorValues(capacitor)
-                    capacitor.formatCapacitance()
-                }
+                postSelectionActions()
             }
         }
     ) { paddingValues ->
@@ -100,16 +124,6 @@ private fun ContentView(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            MenuTopAppBar(stringResource(R.string.smd_calculator_title), interactionSource) {
-                ClearSelectionsMenuItem(interactionSource) {
-                    viewModel.clear()
-                    reset = true
-                    focusManager.clearFocus()
-                }
-                ShareMenuItem(capacitor.toString(), context, interactionSource)
-                FeedbackMenuItem(context, interactionSource)
-                AboutAppMenuItem(navController, interactionSource)
-            }
             SmdCapacitorLayout(capacitor, isError)
             AppTextField(
                 modifier = Modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
@@ -125,14 +139,8 @@ private fun ContentView(
                     imeAction = ImeAction.Done
                 )
             ) {
-                reset = false
                 code = it
-                viewModel.updateCode(code)
-                isError = capacitor.isSmdInputInvalid()
-                if (!isError) {
-                    viewModel.saveCapacitorValues(capacitor)
-                    capacitor.formatCapacitance()
-                }
+                postSelectionActions()
             }
             AppDropDownMenu(
                 modifier = Modifier.padding(top = 12.dp, start = 16.dp, end = 16.dp),
@@ -142,11 +150,10 @@ private fun ContentView(
                 reset = reset,
             ) {
                 units = it
-                viewModel.updateUnits(it)
-                reset = false
                 focusManager.clearFocus()
-                viewModel.saveCapacitorValues(capacitor)
+                postSelectionActions()
             }
+            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }
@@ -157,5 +164,7 @@ private fun SmdCalculatorPreview() {
     val app = MainActivity()
     val viewModel = viewModel<SmdCapacitorViewModel>(factory = CapacitorViewModelFactory(app))
     val capacitor = MutableLiveData<SmdCapacitor>()
-    SmdCalculatorScreen(app, NavController(app), viewModel, 0, capacitor)
+    CapacitorCalculatorTheme {
+        SmdCalculatorScreen(app, NavController(app), viewModel, 0, capacitor)
+    }
 }

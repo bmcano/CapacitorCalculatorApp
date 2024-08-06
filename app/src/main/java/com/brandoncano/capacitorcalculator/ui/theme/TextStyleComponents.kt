@@ -1,8 +1,10 @@
 package com.brandoncano.capacitorcalculator.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -80,6 +82,16 @@ fun TextStyle.white() = this.merge(
     color = white
 )
 
+@Composable
+fun TextStyle.gray() = this.merge(
+    color = if (isSystemInDarkTheme()) gray_subtext_dark else gray_subtext_light
+)
+
+@Composable
+fun TextStyle.iconGray() = this.merge(
+    color = MaterialTheme.colorScheme.onSurfaceVariant
+)
+
 @AppComponentPreviews
 @Composable
 private fun TextStylePreview() {
@@ -115,6 +127,14 @@ private fun TextStylePreview() {
             Text(
                 text = "Subhead",
                 style = textStyleSubhead(),
+            )
+            Text(
+                text = "Subhead",
+                style = textStyleSubhead().gray(),
+            )
+            Text(
+                text = "Subhead",
+                style = textStyleSubhead().iconGray(),
             )
             Text(
                 text = "Caption",

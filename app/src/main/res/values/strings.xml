@@ -1,26 +1,5 @@
 <resources>
     <string name="app_name">Capacitor Code Calculator</string>
-    <!-- home screen -->
-    <string name="home_title">Capacitor Calculator</string>
-    <string name="home_calculators_header_text">Calculators</string>
-    <string name="home_ceramic_calculator_button">Ceramic capacitor</string>
-    <string name="home_smd_calculator_button">SMD capacitor</string>
-    <string name="home_our_apps_header_text">Our apps</string>
-    <string name="home_rate_this_app">Rate this app</string>
-    <string name="home_view_resistor_app">View our resistor app</string>
-    <!-- ceramic calculator screen -->
-    <string name="ceramic_calculator_title">Ceramic Capacitor</string>
-    <string name="ceramic_calculator_tab_1">Code to Capacitance</string>
-    <string name="ceramic_calculator_tab_2">Capacitance to Code</string>
-    <string name="ceramic_calculator_units">Units</string>
-    <string name="ceramic_calculator_code">Code</string>
-    <string name="ceramic_calculator_tolerance">Tolerance</string>
-    <string name="ceramic_calculator_capacitance">Capacitance</string>
-    <string name="ceramic_view_common_codes">View common codes</string>
-    <!-- smd calculator screen -->
-    <string name="smd_calculator_title">SMD Capacitor</string>
-    <string name="smd_calculator_code_hint">Code</string>
-    <string name="smd_calculator_units_hint">Units</string>
     <!-- about screen -->
     <string name="about_title">About The App</string>
     <string name="about_app_version">App version</string>
@@ -28,15 +7,152 @@
     <string name="about_created_by">Created by</string>
     <string name="about_author">Brandon Cano</string>
     <string name="about_description">Description</string>
-    <string name="about_description_part_01">In this app you can calculate the capacitance of a ceramic capacitor by entering a code or by entering in a capacitance value to get a code.</string>
+    <string name="about_description_part_01">In this app you can calculate the capacitance of a capacitor by entering a three-digit (XYZ) code or by entering in a capacitance value to get a code.</string>
     <string name="about_description_part_02">Additionally, you can calculate the capacitance of a SMD capacitor by any of the three available standards.</string>
+    <string name="about_description_part_03">We also include a information page with details, characteristics, and applications of various types of capacitors.</string>
     <string name="about_view_privacy_policy">View privacy policy</string>
+    <!-- capacitor calculator screen -->
+    <string name="capacitor_calculator_title">Capacitor Calculator</string>
+    <string name="capacitor_calculator_tab_1">Code to Capacitance</string>
+    <string name="capacitor_calculator_tab_2">Capacitance to Code</string>
+    <string name="capacitor_calculator_units">Units</string>
+    <string name="capacitor_calculator_code">Code</string>
+    <string name="capacitor_calculator_tolerance">Tolerance</string>
+    <string name="capacitor_calculator_capacitance">Capacitance</string>
+    <string name="capacitor_calculator_voltage_rating">Voltage rating</string>
+    <string name="capacitor_view_common_codes">View common codes</string>
+    <string name="capacitor_calculator_information_header">Capacitor information</string>
+    <string name="capacitor_calculator_information_body_1">Capacitors come in many shapes and sizes, each with slight variations on which markings they have. For the most part if the capacitance is not directly marked, a three digit code determines the capacitance.</string>
+    <!-- capacitor values screen -->
+    <string name="capacitor_values_title">Capacitor Values</string>
+    <string name="capacitor_values_capacitance_header">Capacitance</string>
+    <string name="capacitor_values_capacitance_body">Smaller capacitors use a shorthand notation, to display all the relevant information in the limited space. The most commonly used format is: XYZ T VOLTS V, where XYZ represents the capacitance (calculated as XY * 10^Z pF), the letters T indicate the tolerance (see table below) and VOLTS V represents the voltage rating (see table below).</string>
+    <string name="capacitor_values_tolerance_header">Tolerance</string>
+    <string name="capacitor_values_tolerance_letter">Letter</string>
+    <string name="capacitor_values_tolerance_percentage">Tolerance (%)</string>
+    <string name="capacitor_values_voltage_header">Voltage Rating</string>
+    <string name="capacitor_values_voltage_code">Code</string>
+    <string name="capacitor_values_voltage_values">Voltage (V)</string>
     <!-- chart screen -->
     <string name="chart_title">Common Codes</string>
     <string name="chart_code">Code</string>
     <string name="chart_pf">pF</string>
     <string name="chart_nf">nF</string>
     <string name="chart_uf">µF</string>
+    <!-- home screen -->
+    <string name="home_title">Capacitor Calculator</string>
+    <string name="home_calculators_header_text">Calculators</string>
+    <string name="home_capacitors_header_text">Learn about capacitors</string>
+    <string name="home_capacitor_calculator_button">Capacitor code calculator</string>
+    <string name="home_smd_calculator_button">SMD capacitor</string>
+    <string name="home_information_button">Capacitor types</string>
+    <string name="home_capacitor_values">Capacitor values</string>
+    <string name="home_our_apps_header_text">Our apps</string>
+    <string name="home_rate_this_app">Rate this app</string>
+    <string name="home_view_inductor_app">View our inductor app</string>
+    <string name="home_view_resistor_app">View our resistor app</string>
+    <!-- information screen -->
+    <string name="information_title">Capacitor Types</string>
+    <string name="information_header_text">Click on any capacitor type below to learn more about its characteristics, applications, and advantages.</string>
+    <string name="information_footer_text">The information provided on these pages has been sourced from Wikipedia. While efforts have been made to ensure the accuracy and reliability of the information, Wikipedia is a user-edited platform and may contain inaccuracies. Please verify details independently if necessary.</string>
+    <string name="information_ceramic_header">Ceramic capacitors</string>
+    <string name="information_film_header">Film capacitors</string>
+    <string name="information_film_subtext_1">Polypropylene (PP) film capacitor</string>
+    <string name="information_film_subtext_2">Polyester (PET) film capacitor</string>
+    <string name="information_film_subtext_3">Polyethylene naphthalate (PEN) film capacitor</string>
+    <string name="information_film_subtext_4">Polyphenylene sulfide (PPS) film capacitor</string>
+    <string name="information_film_subtext_5">Polytetrafluoroethylene (PTFE) film capacitor</string>
+    <string name="information_film_subtext_6">Polystyrene (PS) film capacitor</string>
+    <string name="information_film_subtext_7">Polycarbonate (PC) film capacitor</string>
+    <string name="information_electrolytic_header">Electrolytic capacitors</string>
+    <string name="information_electrolytic_subtext_1">Aluminum electrolytic capacitor</string>
+    <string name="information_electrolytic_subtext_2">Tantalum electrolytic capacitor</string>
+    <string name="information_electrolytic_subtext_3">Niobium electrolytic capacitor</string>
+    <string name="information_polymer_header">Polymer capacitors</string>
+    <string name="information_polymer_subtext_1">Polymer aluminum capacitor</string>
+    <string name="information_polymer_subtext_2">Polymer tantalum capacitor</string>
+    <string name="information_polymer_subtext_3">Polymer niobium capacitor</string>
+    <string name="information_polymer_subtext_4">Hybrid polymer</string>
+    <string name="information_super_header">Supercapacitors</string>
+    <string name="information_mica_header">Mica capacitors</string>
+    <string name="information_variable_header">Variable capacitors</string>
+    <string name="information_variable_subtext_1">Trimmer capacitor</string>
+    <string name="information_variable_subtext_2">Tuning capacitor</string>
+    <string name="information_variable_subtext_3">Butterfly capacitor</string>
+    <string name="information_variable_subtext_4">Split stator variable capacitor</string>
+    <string name="information_variable_subtext_5">Differential variable capacitor</string>
+    <!-- information details screen (all capacitors) -->
+    <string name="information_details_general_information">General information</string>
+    <string name="information_details_capacitance">Capacitance</string>
+    <string name="information_details_characteristics">Characteristics</string>
+    <string name="information_details_applications">Applications</string>
+
+    <string name="ceramic_details_title">Ceramic Capacitor</string>
+    <string name="ceramic_details_general_information_1">A ceramic capacitor is a fixed-value capacitor where the ceramic material acts as the dielectric. It is constructed of two or more alternating layers of ceramic as well as a metal layer acting as the electrodes. The composition of the ceramic material determines the electrical behavior and applications.</string>
+    <string name="ceramic_details_general_information_2">Ceramic capacitors are the most produced and used capacitors in electronic equipment that incorporate approximately one trillion pieces per year.</string>
+    <string name="ceramic_details_capacitance">Ceramic capacitors typically use a shorthand three-digit code (103) to indicate their capacitance. This code may also include other markings to include tolerance (J) and voltage rating (2A).</string>
+    <string name="ceramic_details_applications_1">There are currently two standard classes of ceramic capacitors both of which specialized in different things.</string>
+    <string name="ceramic_details_applications_2">Class 1 ceramic capacitors will offer high stability and low losses for resonant circuit applications.</string>
+    <string name="ceramic_details_applications_3">Class 2 ceramic capacitors will offer high volumetric efficiency for by-pass, decoupling, and smoothing applications.</string>
+
+    <string name="film_details_title">Film Capacitor</string>
+    <string name="film_details_general_information">Film capacitors are electrical capacitors with an insulating plastic film as the dielectric, sometimes combined with paper as carrier of the electrodes.</string>
+    <string name="film_details_capacitance">For many styles of the film capacitor the capacitance and other important values are directly printed on the capacitor. If it is not, then it will use the shorthand three-digit code to indicate their capacitance and other related values.</string>
+    <string name="film_details_characteristics_1">These capacitors are the most-used dielectric film in industrial capacitors and also in power capacitor types. The polypropylene film material absorbs less moisture than polyester film and is therefore also suitable for \"naked\" designs without any coating.</string>
+    <string name="film_details_characteristics_2">The polyester film adsorbs very little moisture, and this feature makes it suitable for \"naked\" designs without any further coating needed. They are the low-cost mass-produced capacitors in modern electronics, featuring relatively small dimensions with relatively high capacitance values. The low cost of polyester and the relatively compact dimensions are the main reasons for the high prevalence of PET film capacitors in modern designs.</string>
+    <string name="film_details_characteristics_3">These capacitors are physically larger for a given capacitance and rated voltage value. In spite of this, PEN film capacitors are preferred over PET when the ambient temperature during operation of the capacitors is permanently above 125°C. The special PEN \"high voltage\" dielectric offers excellent electrical properties at high voltages and high temperatures (175°C).</string>
+    <string name="film_details_characteristics_4">The temperature dependence of the capacitance of PPS film capacitors over the entire temperature range is very small (±1.5%) compared with other film capacitors. Also the frequency dependence in the range from 100 Hz to 100 kHz of the capacitance of the PPS film capacitors is ±0.5%, which is very low compared with other film capacitors.</string>
+    <string name="film_details_characteristics_5">These capacitors feature a very high temperature resistance up to 200°C, and even further up to 260°C, with a voltage derating. The dissipation factor 0.0002 is quite small.</string>
+    <string name="film_details_characteristics_6">These capacitors were well known as inexpensive film capacitors for general purpose applications, where high capacitance stability, low dissipation factor, and low leakage currents were needed.</string>
+    <string name="film_details_characteristics_7">These capacitors have a low dissipation factor and because of their relatively temperature independent electrical properties of about ±80 ppm over the entire temperature range. However, the main supplier of polycarbonate film for capacitors had ceased the production of this polymer in film form as of the year 2000.</string>
+    <string name="film_details_applications_1">Therefore, polypropylene film capacitors are suitable for applications in frequency-determining circuits, filters, oscillator circuits, audio circuits, timers, and for high-frequency applications. They are also useful for compensation of inductive coils in precision filter applications.</string>
+    <string name="film_details_applications_2">Polyester film capacitors are mainly used for general purpose applications or semi-critical circuits with operating temperatures up to 125°C.</string>
+    <string name="film_details_applications_3">PEN capacitors are mainly used for non-critical filtering, coupling and decoupling in electronic circuits, when the temperature dependencies do not matter.</string>
+    <string name="film_details_applications_4">PPS capacitors are well-suited for applications in frequency-determining circuits and for high-temperature applications. They are also an ideal replacement for polycarbonate film capacitors.</string>
+    <string name="film_details_applications_5">They are typically used in military equipment, aerospace, geological probes, burn-in circuits, and high-quality audio circuits.</string>
+    <string name="film_details_applications_6">However, PS capacitors have an important advantage - they have a temperature coefficient near zero and are useful in tuned circuits where temperature drift must be avoided.</string>
+    <string name="film_details_applications_7">They have had many applications for low-loss and temperature-stable applications in timing circuits, precision analog circuits, and signal filters in applications with tough environmental conditions.</string>
+
+    <string name="electrolytic_title">Electrolytic Capacitor</string>
+    <string name="electrolytic_details_general_information">Electrolytic capacitors are polarized components because of their asymmetrical construction and must be operated with a higher potential (i.e., more positive) on the positive lead (anode) than on the negative lead (cathode) at all times. This is why the polarity is marked on the device. Applying a reverse polarity voltage, or a voltage exceeding the maximum rated working voltage of as little as 1 or 1.5 volts, can damage the dielectric causing catastrophic failure of the capacitor itself.</string>
+    <string name="electrolytic_details_capacitance_1">Electrolytic capacitors often have their capacitance value printed directly on the casing. It is usually expressed in micro-farads (µF), which can be seen in the image above.</string>
+    <string name="electrolytic_details_capacitance_2">Along with the capacitance value, you will also see a voltage rating. This indicates the maximum voltage the capacitor can handle.</string>
+    <string name="electrolytic_details_characteristics_1">The non-solid or so-called \"wet\" aluminium electrolytic capacitors were and are the cheapest among all other conventional capacitors. They provide the cheapest solutions for high capacitance or voltage values for decoupling and buffering purposes. They are also insensitive to low ohmic charging, discharging, and to low-energy transients.</string>
+    <string name="electrolytic_details_characteristics_2">Tantalum electrolytic capacitors are mainly used in electronic devices in which little space is available or a low profile is required. They operate reliably over a wide temperature range without large parameter deviations.</string>
+    <string name="electrolytic_details_characteristics_3">Niobium electrolytic capacitors are in direct competition with industrial tantalum electrolytic capacitors because niobium is more readily available. Their properties are comparable.</string>
+    <string name="electrolytic_details_applications">Non-solid electrolytic capacitors can be found in nearly all areas of electronic devices, with the exception of military applications. However, in military and space applications only tantalum electrolytic capacitors have the necessary approvals.</string>
+
+    <string name="super_title">Supercapacitor</string>
+    <string name="super_details_general_information">A supercapacitor (SC) is a high-capacity capacitor, with a capacitance value much higher than solid-state capacitors but with lower voltage limits. It bridges the gap between electrolytic capacitors and rechargeable batteries. It typically stores 10 to 100 times more energy per unit volume or mass than electrolytic capacitors, can accept and deliver charge much faster than batteries, and tolerates many more charge and discharge cycles than rechargeable batteries.</string>
+    <string name="super_details_capacitance">Supercapacitors typically have both their capacitance and voltage rating directly marked. Typical values are in the range of farads (F), three to six orders of magnitude larger than those of electrolytic capacitors.</string>
+    <string name="super_details_applications">Supercapacitors are used in applications requiring many rapid charge/discharge cycles. In automobiles, buses, trains, cranes, and elevators, they are used for regenerative braking, short-term energy storage, or burst-mode power delivery. Smaller units are used as power backup for static random-access memory (SRAM).</string>
+
+    <string name="mica_title">Mica Capacitor</string>
+    <string name="mica_details_general_information">Mica capacitors, or silver mica capacitors, are high precision, stable and reliable capacitors. They are available in small values, and are mostly used at high frequencies and in cases where low losses and low capacitor change over time is desired.</string>
+    <string name="mica_details_capacitance">Mica capacitors typically have their capacitance, tolerance, and voltage rating directly marked. They are used at 100 V to 10 kV, ranging from a few pF up to a few nF, and the average temperature coefficient is around 50 ppm/°C.</string>
+    <string name="mica_details_characteristics">Some advantages to these capacitors are: Greater stability, since there are no capacitive air gaps that can change dimension. Airtight enclosure removes the risk of oxidation or corrosion of plates. Greater capacitance per volume, since there are no air gaps between plates and mica, the conducting surfaces can be thinner.</string>
+    <string name="mica_details_applications">"Circuit designers still turn to mica capacitors for high-power applications such as RF transmitters and electric instruments and amplifiers because cheaper ceramic and porcelain capacitors can not withstand heat as well. Silver mica remains widely used in high-voltage applications, due to it's high breakdown voltage."</string>
+
+    <string name="polymer_title">Polymer Capacitor</string>
+    <string name="polymer_details_general_information_1">A polymer capacitor, or more accurately a polymer electrolytic capacitor (e-cap), is an electrolytic capacitor with a solid conductive polymer electrolyte.</string>
+    <string name="polymer_details_general_information_2">Polymer electrolytic capacitors are characterized by particularly low internal equivalent series resistances (ESR) and high ripple current ratings. In general polymer e-caps have a higher leakage current rating than the other solid or non-solid electrolytic capacitors.</string>
+    <string name="polymer_details_capacitance">Capacitance values for these are ether directly marked on the capacitor or use the shorthand three-digit code.</string>
+    <string name="polymer_details_characteristics_1">Polymer tantalum electrolytic capacitors have ESR values that are approximately only 1/10 of the value of tantalum electrolytic capacitors with manganese dioxide electrolyte of the same size. By a multi-anode technique in which several anode blocks are connected in parallel in one case, the ESR value can be reduced again. The advantage of the multi-anode technology in addition to the very low ESR values is the lower inductance ESL, whereby the capacitors are suitable for higher frequencies.</string>
+    <string name="polymer_details_characteristics_2">The layered anode foils in the rectangular shaped polymer aluminum chip-e-caps are electrically parallel connected single capacitors. Thus, the ESR and ESL values are connected in parallel reducing ESR and ESL correspondingly, and allowing them to operate at higher frequencies. They provide a competitive alternative to tantalum capacitors.</string>
+    <string name="polymer_details_characteristics_3">Hybrid polymer aluminum e-caps have a much lower leakage current than standard polymer aluminum e-caps.</string>
+    <string name="polymer_details_applications">Polymer electrolytic capacitors are mainly used in power supplies of integrated electronic circuits as buffer, bypass and decoupling capacitors, especially in devices with flat or compact design. Thus they compete with some ceramic capacitors, but offer higher capacitance values, and they display no microphonic effect.</string>
+
+    <string name="variable_title">Variable Capacitor</string>
+    <string name="variable_details_general_information">A variable capacitor is a capacitor whose capacitance may be intentionally and repeatedly changed mechanically or electronically. This means the distance between the plates, or the amount of plate surface area which overlaps, can be changed.</string>
+    <string name="variable_details_characteristics_1">Small variable capacitors operated by screwdriver (for instance, to precisely set a resonant frequency at the factory and then never be adjusted again) are called trimmer capacitors. In addition to air and plastic, trimmers can also be made using a solid dielectric, such as mica.</string>
+    <string name="variable_details_characteristics_2">"A butterfly capacitor is a form of rotary variable capacitor with two independent sets of stator plates opposing each other, and a butterfly-shaped rotor arranged so that turning the rotor will vary the capacitance's between the rotor and either stator equally. In a butterfly capacitor, the stators and each half of the rotor can only cover a maximum angle of 90° since there must be a position without rotor/stator overlap corresponding to minimum capacity."</string>
+    <string name="variable_details_characteristics_3">The closely related split stator variable capacitor does not have the limitation of 90° angle since it uses two separate packs of rotor electrodes arranged axially behind one another. Unlike in a capacitor with several sections, the rotor plates in a split stator capacitor are mounted on opposite sides of the rotor axis.</string>
+    <string name="variable_details_characteristics_4">"Differential variable capacitors also have two independent stators, but unlike in the butterfly capacitor where capacities on both sides increase equally as the rotor is turned, in a differential variable capacitor one section's capacity will increase while the other section's decreases, keeping the sum of the two stator capacitance's constant."</string>
+    <string name="variable_details_applications">Variable capacitors are often used in L/C circuits to set the resonance frequency, e.g. to tune a radio (therefore it is sometimes called a tuning capacitor), or as a variable reactance, e.g. for impedance matching in antenna tuners.</string>
+    <!-- smd calculator screen -->
+    <string name="smd_calculator_title">SMD Capacitor</string>
+    <string name="smd_calculator_code_hint">Code</string>
+    <string name="smd_calculator_units_hint">Units</string>
     <!-- menu items -->
     <string name="menu_share">Share</string>
     <string name="menu_feedback">Feedback</string>
@@ -53,6 +169,8 @@
     <string name="content_description_app_icon">App icon</string>
     <string name="content_description_ceramic_capacitor">Ceramic capacitor</string>
     <string name="content_description_smd_capacitor">SMD capacitor</string>
+    <string name="content_description_electrolytic_capacitor">Electrolytic capacitor</string>
+    <string name="content_description_mica_capacitor">Mica capacitor</string>
     <!-- default values -->
     <string name="default_code">Enter code</string>
     <string name="default_capacitance">Enter capacitance</string>
@@ -61,4 +179,5 @@
     <string name="error_invalid_code">Invalid code</string>
     <string name="error_invalid_capacitance">Invalid capacitance</string>
     <string name="error_na">N/A</string>
+    <string name="error_something_went_wrong">Error: something went wrong.</string>
 </resources>

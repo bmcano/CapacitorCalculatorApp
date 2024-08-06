@@ -2,16 +2,17 @@ package com.brandoncano.capacitorcalculator.ui.screens.home
 
 import android.content.Context
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material.icons.outlined.Calculate
-import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material.icons.outlined.Grade
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.TableView
+import androidx.compose.material.icons.outlined.WidthFull
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -19,8 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
@@ -35,11 +38,7 @@ import com.brandoncano.capacitorcalculator.util.OpenLink
 
 @Composable
 fun AppIcon() {
-    val backgroundColor = if (isSystemInDarkTheme()) {
-        MaterialTheme.colorScheme.surfaceVariant
-    } else {
-        MaterialTheme.colorScheme.primary
-    }
+    val backgroundColor = MaterialTheme.colorScheme.surfaceVariant
     Card(
         modifier = Modifier
             .padding(top = 16.dp)
@@ -73,15 +72,40 @@ fun AppCalculatorButtons(navController: NavController) {
         )
         ArrowButtonCard(
             Icons.Outlined.Calculate,
-            stringResource(id = R.string.home_ceramic_calculator_button),
+            stringResource(id = R.string.home_capacitor_calculator_button),
         ) {
-            navController.navigate(Screen.CeramicCalculator.route)
+            navController.navigate(Screen.CapacitorCalculator.route)
         }
         ArrowButtonCard(
-            Icons.Outlined.Calculate,
+            Icons.Outlined.WidthFull,
             stringResource(id = R.string.home_smd_calculator_button),
         ) {
             navController.navigate(Screen.SmdCalculator.route)
+        }
+    }
+}
+
+@Composable
+fun AppInformationScreens(navController: NavController) {
+    Column {
+        Text(
+            text = stringResource(id = R.string.home_capacitors_header_text),
+            modifier = Modifier
+                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                .align(Alignment.Start),
+            style = textStyleHeadline(),
+        )
+        ArrowButtonCard(
+            Icons.Outlined.Info,
+            stringResource(id = R.string.home_information_button),
+        ) {
+            navController.navigate(Screen.Information.route)
+        }
+        ArrowButtonCard(
+            Icons.Outlined.TableView,
+            stringResource(id = R.string.home_capacitor_values),
+        ) {
+            navController.navigate(Screen.CapacitorValues.route)
         }
     }
 }
@@ -97,16 +121,23 @@ fun OurAppsButtons(context: Context) {
             style = textStyleHeadline(),
         )
         ArrowButtonCard(
+            Icons.Outlined.Grade,
+            stringResource(id = R.string.home_rate_this_app),
+        ) {
+            OpenLink.openCapacitorApp(context)
+        }
+        ArrowButtonCard(
             listOf(
-                Icons.Outlined.Star,
-                Icons.AutoMirrored.Outlined.AddToHomeScreen
+                // Note: we do this instead because material icons does not have the outlined version
+                ImageVector.vectorResource(id = R.drawable.icon_outline_add_to_home_screen),
+                ImageVector.vectorResource(id = R.drawable.icon_outline_add_to_home_screen),
             ),
             listOf(
-                stringResource(id = R.string.home_rate_this_app),
+                stringResource(id = R.string.home_view_inductor_app),
                 stringResource(id = R.string.home_view_resistor_app)
             ),
             listOf(
-                { OpenLink.openCapacitorApp(context) },
+                { OpenLink.openInductorApp(context) },
                 { OpenLink.openResistorApp(context) }
             ),
         )

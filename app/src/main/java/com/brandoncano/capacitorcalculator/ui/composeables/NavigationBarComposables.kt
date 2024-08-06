@@ -37,7 +37,7 @@ fun SmdNavigationBar(
     val icons = listOf(
         Icons.Outlined.Looks3,
         Icons.Outlined.Looks4,
-        Icons.Outlined.Looks
+        Icons.Outlined.Looks,
     )
     NavigationBar {
         labels.forEachIndexed { index, item ->
