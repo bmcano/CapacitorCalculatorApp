@@ -95,26 +95,26 @@ class CapacitanceSmdFormatterTest {
     @Test
     fun testValid4DigitCodes() {
         val capacitor = SmdCapacitor("130B", Units.PF, 1)
-        assertEquals("13 ${Units.PF} (0.1%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±0.1%", execute(capacitor))
         capacitor.code = "130C"
-        assertEquals("13 ${Units.PF} (0.25%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±0.25)", execute(capacitor))
         capacitor.code = "1R8D"
-        assertEquals("1.8 ${Units.PF} (0.5%)", execute(capacitor))
+        assertEquals("1.8 ${Units.PF} ±0.5%", execute(capacitor))
         capacitor.code = "1R8F"
         capacitor.units = Units.NF
-        assertEquals("0.0018 ${Units.NF} (1%)", execute(capacitor))
+        assertEquals("0.0018 ${Units.NF} ±1%", execute(capacitor))
         capacitor.code = "1R8G"
         capacitor.units = Units.UF
-        assertEquals("1.8E-6 ${Units.UF} (2%)", execute(capacitor))
+        assertEquals("1.8E-6 ${Units.UF} ±2%", execute(capacitor))
         capacitor.units = Units.PF
         capacitor.code = "130J"
-        assertEquals("13 ${Units.PF} (5%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±5%", execute(capacitor))
         capacitor.code = "130K"
-        assertEquals("13 ${Units.PF} (10%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±10%", execute(capacitor))
         capacitor.code = "130M"
-        assertEquals("13 ${Units.PF} (20%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±20%", execute(capacitor))
         capacitor.code = "130Z"
-        assertEquals("13 ${Units.PF} (+80%/-20%)", execute(capacitor))
+        assertEquals("13 ${Units.PF} +80%/-20%", execute(capacitor))
     }
 
     @Ignore("Will fix later")
