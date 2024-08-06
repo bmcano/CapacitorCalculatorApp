@@ -97,7 +97,7 @@ class CapacitanceSmdFormatterTest {
         val capacitor = SmdCapacitor("130B", Units.PF, 1)
         assertEquals("13 ${Units.PF} ±0.1%", execute(capacitor))
         capacitor.code = "130C"
-        assertEquals("13 ${Units.PF} ±0.25", execute(capacitor))
+        assertEquals("13 ${Units.PF} ±0.25%", execute(capacitor))
         capacitor.code = "1R8D"
         assertEquals("1.8 ${Units.PF} ±0.5%", execute(capacitor))
         capacitor.code = "1R8F"
