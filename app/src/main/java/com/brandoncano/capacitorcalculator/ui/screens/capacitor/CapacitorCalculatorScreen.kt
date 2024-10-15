@@ -33,28 +33,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.data.Tolerance
 import com.brandoncano.capacitorcalculator.constants.DropdownLists
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorCapacitorViewModel
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDropDownMenu
-import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
-import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.AppTextField
-import com.brandoncano.capacitorcalculator.ui.composeables.ClearSelectionsMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.ShareMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.AboutAppMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.ClearSelectionsMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.ShareMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.isCapacitanceInvalid
 import com.brandoncano.capacitorcalculator.util.isCodeInvalid
+import com.brandoncano.sharedcomponents.composables.AppDropDownMenu
+import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
+import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
+import com.brandoncano.sharedcomponents.composables.AppTextField
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class) // rememberPagerState()
 @Composable
 fun CapacitorCalculatorScreen(
     context: Context,
@@ -126,7 +125,7 @@ private fun ContentView1(
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
-    var code by remember { mutableStateOf(capacitor.code) }
+    var code = remember { mutableStateOf(capacitor.code) }
     var units by remember { mutableStateOf(capacitor.units) }
     var tolerance by remember { mutableStateOf(capacitor.tolerance) }
     var voltageRating by remember { mutableStateOf(capacitor.voltageRating) }
@@ -135,7 +134,7 @@ private fun ContentView1(
 
     fun postSelectionActions() {
         onReset(false)
-        viewModel.updateValues(code, units, tolerance, voltageRating)
+        viewModel.updateValues(code.value, units, tolerance, voltageRating)
         isError = capacitor.isCodeInvalid()
         if (!isError) {
             viewModel.saveCapacitorValues(capacitor)
@@ -153,17 +152,17 @@ private fun ContentView1(
         AppTextField(
             modifier = Modifier.padding(top = 24.dp),
             label = stringResource(id = R.string.capacitor_calculator_code),
-            text = code,
+            value = code,
             reset = reset,
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_code),
         ) {
-            code = it
+            code.value = it
             postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.capacitor_calculator_units,
+            label = stringResource(R.string.capacitor_calculator_units),
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
             reset = reset
@@ -174,7 +173,7 @@ private fun ContentView1(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.capacitor_calculator_tolerance,
+            label = stringResource(R.string.capacitor_calculator_tolerance),
             selectedOption = capacitor.tolerance,
             items = DropdownLists.TOLERANCE,
             reset = reset
@@ -185,7 +184,7 @@ private fun ContentView1(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.capacitor_calculator_voltage_rating,
+            label = stringResource(R.string.capacitor_calculator_voltage_rating),
             selectedOption = capacitor.voltageRating,
             items = DropdownLists.VOLTAGE_RATING,
             reset = reset
@@ -208,7 +207,7 @@ private fun ContentView2(
 ) {
     val focusManager = LocalFocusManager.current
     val capacitor by capacitorLiveData.observeAsState(Capacitor())
-    var capacitance by remember { mutableStateOf(capacitor.capacitance) }
+    var capacitance = remember { mutableStateOf(capacitor.capacitance) }
     var units by remember { mutableStateOf(capacitor.units) }
     var tolerance by remember { mutableStateOf(capacitor.tolerance) }
     var isError by remember { mutableStateOf(capacitor.isCapacitanceInvalid()) }
@@ -216,7 +215,7 @@ private fun ContentView2(
 
     fun postSelectionActions() {
         onReset(false)
-        viewModel.updateValues(capacitance, units, tolerance)
+        viewModel.updateValues(capacitance.value, units, tolerance)
         isError = capacitor.isCapacitanceInvalid()
         if (!isError) {
             viewModel.saveCapacitorValues(capacitor)
@@ -234,17 +233,17 @@ private fun ContentView2(
         AppTextField(
             modifier = Modifier.padding(top = 24.dp),
             label = stringResource(id = R.string.capacitor_calculator_capacitance),
-            text = capacitance,
+            value = capacitance,
             reset = reset,
             isError = isError,
             errorMessage = stringResource(id = R.string.error_invalid_capacitance),
         ) {
-            capacitance = it
+            capacitance.value = it
             postSelectionActions()
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.capacitor_calculator_units,
+            label = stringResource(R.string.capacitor_calculator_units),
             selectedOption = capacitor.units,
             items = DropdownLists.UNITS,
             reset = reset
@@ -255,7 +254,7 @@ private fun ContentView2(
         }
         AppDropDownMenu(
             modifier = Modifier.padding(top = 12.dp),
-            label = R.string.capacitor_calculator_tolerance,
+            label = stringResource(R.string.capacitor_calculator_tolerance),
             selectedOption = Tolerance.getToleranceValue(capacitor.tolerance),
             items = DropdownLists.TOLERANCE_PERCENTAGE,
             reset = reset

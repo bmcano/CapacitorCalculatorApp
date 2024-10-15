@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.data
 
 /**
  * Job: holds all the different types of SMD capacitor coding systems

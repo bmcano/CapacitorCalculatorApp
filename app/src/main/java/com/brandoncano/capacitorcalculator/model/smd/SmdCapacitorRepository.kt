@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.model.smd
 
 import android.content.Context
-import com.brandoncano.capacitorcalculator.components.SharedPreferences
+import com.brandoncano.capacitorcalculator.data.SharedPreferences
 
 class SmdCapacitorRepository(context: Context) {
 

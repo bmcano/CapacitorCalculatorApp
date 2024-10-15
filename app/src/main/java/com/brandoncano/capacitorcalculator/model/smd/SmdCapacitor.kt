@@ -1,6 +1,6 @@
 package com.brandoncano.capacitorcalculator.model.smd
 
-import com.brandoncano.capacitorcalculator.components.SmdMode
+import com.brandoncano.capacitorcalculator.data.SmdMode
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
 
 data class SmdCapacitor(

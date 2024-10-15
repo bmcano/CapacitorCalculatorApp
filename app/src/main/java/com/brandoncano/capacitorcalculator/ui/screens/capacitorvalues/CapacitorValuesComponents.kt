@@ -15,19 +15,20 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.Tolerance
-import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.data.Tolerance
+import com.brandoncano.capacitorcalculator.data.VoltageRating
 import com.brandoncano.capacitorcalculator.navigation.Screen
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
-import com.brandoncano.capacitorcalculator.ui.composeables.ArrowButtonCard
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
+import com.brandoncano.sharedcomponents.composables.AppArrowCardButton
+import com.brandoncano.sharedcomponents.composables.AppCard
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
+import com.brandoncano.sharedcomponents.composables.AppDivider
+import com.brandoncano.sharedcomponents.data.ArrowCardButtonContents
 
 @Composable
 fun CodeExplanation() {
@@ -47,12 +48,13 @@ fun CodeExplanation() {
 
 @Composable
 fun ViewCommonCodeButton(navController: NavController) {
-    ArrowButtonCard(
-        imageVector = Icons.Outlined.FileOpen,
-        cardText = stringResource(id = R.string.capacitor_view_common_codes)
-    ) {
-        navController.navigate(Screen.Chart.route)
-    }
+    AppArrowCardButton(
+        ArrowCardButtonContents(
+            imageVector = Icons.Outlined.FileOpen,
+            text = stringResource(id = R.string.capacitor_view_common_codes),
+            onClick = { navController.navigate(Screen.Chart.route) }
+        )
+    )
 }
 
 @Composable

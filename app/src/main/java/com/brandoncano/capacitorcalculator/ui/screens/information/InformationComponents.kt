@@ -22,10 +22,9 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCallout
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
-
+import com.brandoncano.sharedcomponents.composables.AppDivider
 
 @Composable
 fun ArrowButtonCardWithSubText(

@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.data
 
 enum class VoltageRating(val code: String, val voltage: String) {
     G0("0G", "4V"),

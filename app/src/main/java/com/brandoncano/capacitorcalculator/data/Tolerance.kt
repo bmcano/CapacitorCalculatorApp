@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.data
 
 /**
  * Notes:

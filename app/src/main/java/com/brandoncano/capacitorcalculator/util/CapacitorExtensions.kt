@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.util
 
-import com.brandoncano.capacitorcalculator.components.Tolerance
-import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.data.Tolerance
+import com.brandoncano.capacitorcalculator.data.VoltageRating
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor

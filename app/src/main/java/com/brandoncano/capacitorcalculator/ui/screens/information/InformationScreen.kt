@@ -23,15 +23,15 @@ import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.navigation.InformationDetails
 import com.brandoncano.capacitorcalculator.navigation.Screen
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
-import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
+import com.brandoncano.capacitorcalculator.ui.composables.AboutAppMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleCaption
+import com.brandoncano.sharedcomponents.composables.AppDivider
+import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
+import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 
 @Composable
 fun InformationScreen(context: Context, navController: NavController) {
@@ -65,7 +65,6 @@ private fun ContentView(context: Context, navController: NavController) {
         )
         AppDivider(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
-            onCard = false
         )
         // Note: Order and categorization was done similar to Wikipedia
         ArrowButtonCardWithSubText(
@@ -122,7 +121,6 @@ private fun ContentView(context: Context, navController: NavController) {
         )
         AppDivider(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
-            onCard = false,
         )
         Text(
             text = stringResource(id = R.string.information_footer_text),

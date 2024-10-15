@@ -1,7 +1,7 @@
 package com.brandoncano.capacitorcalculator.constants
 
-import com.brandoncano.capacitorcalculator.components.Tolerance
-import com.brandoncano.capacitorcalculator.components.VoltageRating
+import com.brandoncano.capacitorcalculator.data.Tolerance
+import com.brandoncano.capacitorcalculator.data.VoltageRating
 
 object DropdownLists {
     val UNITS = listOf(Units.PF, Units.NF, Units.UF)

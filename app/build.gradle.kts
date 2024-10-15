@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.brandoncano.capacitorcalculator"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.brandoncano.capacitorcalculator"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 7
-        versionName = "2.0.0"
+        versionName = "2.1.0-develop"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -75,4 +75,5 @@ dependencies {
     testImplementation(libs.junit)
     // external libraries
     implementation(libs.ostermiller.util) // Job: can count number of sig figs in a string and round
+    implementation(libs.bmcano.util)
 }

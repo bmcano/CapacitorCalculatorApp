@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.data
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

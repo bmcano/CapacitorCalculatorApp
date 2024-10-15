@@ -13,11 +13,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
-import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.AboutAppMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
+import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 
 @Composable
 fun ChartScreen(context: Context, navController: NavController) {

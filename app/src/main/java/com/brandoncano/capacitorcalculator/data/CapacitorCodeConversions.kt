@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.components
+package com.brandoncano.capacitorcalculator.data
 
 /**
  * Job: Is all the standard codes for a capacitor

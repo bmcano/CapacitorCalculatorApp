@@ -19,12 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.ui.MainActivity
-import com.brandoncano.capacitorcalculator.ui.composeables.AboutAppMenuItem
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
-import com.brandoncano.capacitorcalculator.ui.composeables.AppMenuTopAppBar
-import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.FeedbackMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.AboutAppMenuItem
+import com.brandoncano.capacitorcalculator.ui.composables.FeedbackMenuItem
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
+import com.brandoncano.sharedcomponents.composables.AppDivider
+import com.brandoncano.sharedcomponents.composables.AppMenuTopAppBar
+import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 
 @Composable
 fun CapacitorValuesScreen(context: Context, navController: NavController) {

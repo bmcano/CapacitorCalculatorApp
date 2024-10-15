@@ -1,8 +1,8 @@
 package com.brandoncano.capacitorcalculator.util
 
 import com.Ostermiller.util.SignificantFigures
-import com.brandoncano.capacitorcalculator.components.SmdMode
-import com.brandoncano.capacitorcalculator.components.Tolerance
+import com.brandoncano.capacitorcalculator.data.SmdMode
+import com.brandoncano.capacitorcalculator.data.Tolerance
 import com.brandoncano.capacitorcalculator.constants.Units
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
 

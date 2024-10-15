@@ -17,7 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.gray
 import com.brandoncano.capacitorcalculator.ui.theme.mica_capacitor
@@ -25,6 +24,7 @@ import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 
 @Composable
 fun CeramicCapacitorImage() {

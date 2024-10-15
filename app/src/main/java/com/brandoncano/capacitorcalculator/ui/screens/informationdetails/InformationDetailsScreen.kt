@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.navigation.InformationDetails
-import com.brandoncano.capacitorcalculator.ui.composeables.AppScreenPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
+import com.brandoncano.sharedcomponents.composables.AppScreenPreviews
 
 @Composable
 fun InformationDetailsScreen(informationDetails: InformationDetails) {

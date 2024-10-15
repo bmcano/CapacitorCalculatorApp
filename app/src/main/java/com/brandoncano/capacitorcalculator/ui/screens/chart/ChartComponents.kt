@@ -13,13 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.components.CapacitorCodeConversions
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
-import com.brandoncano.capacitorcalculator.ui.composeables.AppDivider
+import com.brandoncano.capacitorcalculator.data.CapacitorCodeConversions
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
+import com.brandoncano.sharedcomponents.composables.AppCard
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
+import com.brandoncano.sharedcomponents.composables.AppDivider
 
 @Composable
 fun ChartRowLabels() {
@@ -58,7 +58,6 @@ fun ChartTable() {
                 if (codes.size - 1 != index) {
                     AppDivider(
                         modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-                        onCard = true,
                     )
                 }
             }

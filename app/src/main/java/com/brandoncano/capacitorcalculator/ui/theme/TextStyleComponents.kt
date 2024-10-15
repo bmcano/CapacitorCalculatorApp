@@ -13,7 +13,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 
 /**
  * Job: Instead of custom typography we use custom text styles for each Text() component
@@ -91,55 +90,3 @@ fun TextStyle.gray() = this.merge(
 fun TextStyle.iconGray() = this.merge(
     color = MaterialTheme.colorScheme.onSurfaceVariant
 )
-
-@AppComponentPreviews
-@Composable
-private fun TextStylePreview() {
-    CapacitorCalculatorTheme {
-        Column(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Text(
-                text = "LargeTitle",
-                style = textStyleLargeTitle(),
-            )
-            Text(
-                text = "Title",
-                style = textStyleTitle(),
-            )
-            Text(
-                text = "Headline",
-                style = textStyleHeadline(),
-            )
-            Text(
-                text = "Callout",
-                style = textStyleCallout(),
-            )
-            Text(
-                text = "Body",
-                style = textStyleBody(),
-            )
-            Text(
-                text = "Body",
-                style = textStyleBody().white(),
-            )
-            Text(
-                text = "Subhead",
-                style = textStyleSubhead(),
-            )
-            Text(
-                text = "Subhead",
-                style = textStyleSubhead().gray(),
-            )
-            Text(
-                text = "Subhead",
-                style = textStyleSubhead().iconGray(),
-            )
-            Text(
-                text = "Caption",
-                style = textStyleCaption(),
-            )
-        }
-    }
-}

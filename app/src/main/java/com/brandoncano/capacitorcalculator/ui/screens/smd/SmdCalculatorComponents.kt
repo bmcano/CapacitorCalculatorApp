@@ -15,13 +15,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitor
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
-import com.brandoncano.capacitorcalculator.ui.composeables.AppComponentPreviews
 import com.brandoncano.capacitorcalculator.ui.theme.CapacitorCalculatorTheme
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleLargeTitle
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleTitle
 import com.brandoncano.capacitorcalculator.ui.theme.white
 import com.brandoncano.capacitorcalculator.util.formatCapacitance
+import com.brandoncano.sharedcomponents.composables.AppCard
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 
 @Composable
 fun SmdCapacitorLayout(

@@ -18,8 +18,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
 import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
-import com.brandoncano.capacitorcalculator.ui.composeables.AppCard
-import com.brandoncano.capacitorcalculator.ui.composeables.AppStandardCard
 import com.brandoncano.capacitorcalculator.ui.theme.iconGray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
@@ -28,6 +26,8 @@ import com.brandoncano.capacitorcalculator.util.formatCapacitance
 import com.brandoncano.capacitorcalculator.util.formatCode
 import com.brandoncano.capacitorcalculator.util.getTolerancePercentage
 import com.brandoncano.capacitorcalculator.util.getVoltageRating
+import com.brandoncano.sharedcomponents.composables.AppCard
+import com.brandoncano.sharedcomponents.composables.AppStandardCard
 
 @Composable
 fun TabText(@StringRes title: Int) {

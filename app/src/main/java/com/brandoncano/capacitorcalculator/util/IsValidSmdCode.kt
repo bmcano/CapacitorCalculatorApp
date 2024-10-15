@@ -1,6 +1,6 @@
 package com.brandoncano.capacitorcalculator.util
 
-import com.brandoncano.capacitorcalculator.components.SmdMode
+import com.brandoncano.capacitorcalculator.data.SmdMode
 
 /**
  * Job: Checks for a valid SMD capacitor code depending on the mode.

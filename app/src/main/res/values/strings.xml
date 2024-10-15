@@ -48,9 +48,8 @@
     <string name="home_information_button">Capacitor types</string>
     <string name="home_capacitor_values">Capacitor values</string>
     <string name="home_our_apps_header_text">Our apps</string>
-    <string name="home_rate_this_app">Rate this app</string>
-    <string name="home_view_inductor_app">View our inductor app</string>
-    <string name="home_view_resistor_app">View our resistor app</string>
+    <string name="home_button_rate_us">Rate this app</string>
+    <string name="home_button_view_apps">Check out our other apps</string>
     <!-- information screen -->
     <string name="information_title">Capacitor Types</string>
     <string name="information_header_text">Click on any capacitor type below to learn more about its characteristics, applications, and advantages.</string>
@@ -158,6 +157,7 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_clear">Clear selections</string>
     <string name="menu_about">About the app</string>
+    <string name="menu_app_theme">App appearance</string>
     <!-- navbar items -->
     <string name="navbar_three_eia">Three Digit EIA</string>
     <string name="navbar_four_eia">Four Digit EIA</string>

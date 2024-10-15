@@ -1,6 +1,7 @@
-package com.brandoncano.capacitorcalculator.ui.composeables
+package com.brandoncano.capacitorcalculator.ui.composables
 
 import android.content.Context
+import androidx.annotation.Dimension
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Cancel
 import androidx.compose.material.icons.outlined.Feedback
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme
@@ -28,11 +30,37 @@ import com.brandoncano.capacitorcalculator.ui.theme.iconGray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleBody
 import com.brandoncano.capacitorcalculator.util.EmailFeedback
 import com.brandoncano.capacitorcalculator.util.ShareCapacitance
+import com.brandoncano.sharedcomponents.composables.AppComponentPreviews
 
 /**
  * Note: Menu items are in alphabetical order
  */
 
+@Composable
+fun AboutAppMenuItem(onAboutTapped: () -> Unit) {
+    DropdownMenuItem(
+        text = { com.brandoncano.sharedcomponents.composables.MenuText(stringRes = R.string.menu_about) },
+        onClick = onAboutTapped,
+        leadingIcon = { com.brandoncano.sharedcomponents.composables.MenuIcon(Icons.Outlined.Info) },
+    )
+}
+
+@Composable
+fun AppThemeMenuItem(
+    openMenu: MutableState<Boolean>,
+    onThemeSelected: () -> Unit,
+) {
+    DropdownMenuItem(
+        text = { com.brandoncano.sharedcomponents.composables.MenuText(stringRes = R.string.menu_app_theme) },
+        onClick = {
+            openMenu.value = false
+            onThemeSelected()
+        },
+        leadingIcon = { com.brandoncano.sharedcomponents.composables.MenuIcon(Icons.Outlined.Palette) },
+    )
+}
+
+@Deprecated("")
 @Composable
 fun AboutAppMenuItem(navController: NavController, showMenu: MutableState<Boolean>) {
     DropdownMenuItem(
