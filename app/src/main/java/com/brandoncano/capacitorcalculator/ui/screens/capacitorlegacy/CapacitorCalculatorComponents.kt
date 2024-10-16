@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.ui.screens.capacitor
+package com.brandoncano.capacitorcalculator.ui.screens.capacitorlegacy
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.brandoncano.capacitorcalculator.R
-import com.brandoncano.capacitorcalculator.model.capacitor.Capacitor
+import com.brandoncano.capacitorcalculator.model.capacitorlegacy.CapacitorLegacy
 import com.brandoncano.capacitorcalculator.ui.theme.iconGray
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleHeadline
 import com.brandoncano.capacitorcalculator.ui.theme.textStyleSubhead
@@ -39,7 +39,7 @@ fun TabText(@StringRes title: Int) {
 
 @Composable
 fun CapacitanceText(
-    capacitor: Capacitor,
+    capacitorLegacy: CapacitorLegacy,
     isError: Boolean,
     isCode: Boolean,
 ) {
@@ -49,19 +49,19 @@ fun CapacitanceText(
     when {
         isError -> capacitance = stringResource(id = R.string.error_na)
         isCode -> {
-            capacitance = if (capacitor.isEmpty()) {
+            capacitance = if (capacitorLegacy.isEmpty()) {
                 stringResource(id = R.string.default_code)
             } else {
-                capacitor.formatCapacitance()
+                capacitorLegacy.formatCapacitance()
             }
-            tolerance = capacitor.getTolerancePercentage()
-            voltage = capacitor.getVoltageRating()
+            tolerance = capacitorLegacy.getTolerancePercentage()
+            voltage = capacitorLegacy.getVoltageRating()
         }
         else -> {
-            capacitance = if (capacitor.isEmpty(false)) {
+            capacitance = if (capacitorLegacy.isEmpty(false)) {
                 stringResource(id = R.string.default_capacitance)
             } else {
-                "Code: " + capacitor.formatCode() + capacitor.tolerance
+                "Code: " + capacitorLegacy.formatCode() + capacitorLegacy.tolerance
             }
         }
     }

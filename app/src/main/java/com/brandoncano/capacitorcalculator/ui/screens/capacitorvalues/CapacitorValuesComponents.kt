@@ -52,7 +52,7 @@ fun ViewCommonCodeButton(navController: NavController) {
         ArrowCardButtonContents(
             imageVector = Icons.Outlined.FileOpen,
             text = stringResource(id = R.string.capacitor_view_common_codes),
-            onClick = { navController.navigate(Screen.Chart.route) }
+            onClick = { navController.navigate(Screen.CommonCodes.route) }
         )
     )
 }

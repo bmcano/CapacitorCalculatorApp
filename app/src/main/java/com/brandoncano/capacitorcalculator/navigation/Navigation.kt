@@ -14,9 +14,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brandoncano.capacitorcalculator.constants.Links
 import com.brandoncano.capacitorcalculator.model.CapacitorViewModelFactory
-import com.brandoncano.capacitorcalculator.model.capacitor.CapacitorCapacitorViewModel
+import com.brandoncano.capacitorcalculator.model.capacitorlegacy.CapacitorCapacitorViewModel
 import com.brandoncano.capacitorcalculator.model.smd.SmdCapacitorViewModel
-import com.brandoncano.capacitorcalculator.ui.screens.capacitor.CapacitorCalculatorScreen
+import com.brandoncano.capacitorcalculator.navigation.calculators.capacitorCodeValuesScreen
+import com.brandoncano.capacitorcalculator.ui.screens.capacitorlegacy.CapacitorCalculatorScreen
 import com.brandoncano.capacitorcalculator.ui.screens.capacitorvalues.CapacitorValuesScreen
 import com.brandoncano.capacitorcalculator.ui.screens.chart.ChartScreen
 import com.brandoncano.capacitorcalculator.ui.screens.information.InformationScreen
@@ -39,6 +40,9 @@ fun Navigation(onOpenThemeDialog: () -> Unit) {
         startDestination = Screen.Home.route
     ) {
         aboutScreen(navController)
+        capacitorCodeValuesScreen(navController)
+        homeScreen(navController, onOpenThemeDialog)
+        // TODO migrate these screens
         composable(
             route = Screen.CapacitorCalculator.route,
             enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
@@ -56,13 +60,13 @@ fun Navigation(onOpenThemeDialog: () -> Unit) {
             CapacitorValuesScreen(context, navController)
         }
         composable(
-            route = Screen.Chart.route,
+            route = Screen.CommonCodes.route,
             enterTransition = { slideInVertically(initialOffsetY = { it }) },
             exitTransition = { slideOutVertically(targetOffsetY = { it }) },
         ) {
             ChartScreen(context, navController)
         }
-        homeScreen(navController, onOpenThemeDialog)
+
         composable(
             route = Screen.Information.route,
             enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
@@ -118,6 +122,10 @@ fun navigateToSmd(navController: NavHostController) {
     navController.navigate(Screen.Smd.route) {
         popUpTo(Screen.Home.route)
     }
+}
+
+fun navigateToCommonCodes(navController: NavHostController) {
+    navController.navigate(Screen.CommonCodes.route)
 }
 
 fun navigateToCapacitorTypes(navController: NavHostController) {

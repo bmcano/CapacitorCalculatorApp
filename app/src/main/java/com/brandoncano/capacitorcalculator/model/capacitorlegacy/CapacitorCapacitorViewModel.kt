@@ -1,4 +1,4 @@
-package com.brandoncano.capacitorcalculator.model.capacitor
+package com.brandoncano.capacitorcalculator.model.capacitorlegacy
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -8,38 +8,38 @@ import androidx.lifecycle.ViewModel
 class CapacitorCapacitorViewModel(context: Context) : ViewModel() {
 
     private val repository = CapacitorRepository.getInstance(context)
-    private val capacitor = MutableLiveData<Capacitor>()
+    private val capacitorLegacy = MutableLiveData<CapacitorLegacy>()
 
     init {
-        capacitor.value = Capacitor()
+        capacitorLegacy.value = CapacitorLegacy()
     }
 
     override fun onCleared() {
-        capacitor.value = null
+        capacitorLegacy.value = null
     }
 
     fun clear() {
-        capacitor.value = Capacitor()
+        capacitorLegacy.value = CapacitorLegacy()
         repository.clear()
     }
 
-    fun getCapacitorLiveData(): LiveData<Capacitor> {
-        capacitor.value = repository.loadCapacitor()
-        return capacitor
+    fun getCapacitorLiveData(): LiveData<CapacitorLegacy> {
+        capacitorLegacy.value = repository.loadCapacitor()
+        return capacitorLegacy
     }
 
     fun updateValues(code: String, units: String, tolerance: String, voltageRating: String) {
-        capacitor.value = capacitor.value
+        capacitorLegacy.value = capacitorLegacy.value
             ?.copy(code = code, units = units, tolerance = tolerance, voltageRating = voltageRating)
     }
 
     fun updateValues(capacitance: String, units: String, tolerance: String) {
-        capacitor.value = capacitor.value
+        capacitorLegacy.value = capacitorLegacy.value
             ?.copy(capacitance = capacitance, units = units, tolerance = tolerance)
     }
 
 
-    fun saveCapacitorValues(capacitor: Capacitor) {
-        repository.saveCapacitor(capacitor)
+    fun saveCapacitorValues(capacitorLegacy: CapacitorLegacy) {
+        repository.saveCapacitor(capacitorLegacy)
     }
 }
